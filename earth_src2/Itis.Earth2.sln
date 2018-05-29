@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Itis.Earth.DataAccess", "Itis.Earth.DataAccess\Itis.Earth.DataAccess.vbproj", "{56D2E445-A8A1-4992-994A-16E583C818C7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Itis.Earth.BizLogic", "Itis.Earth.BizLogic\Itis.Earth.BizLogic.vbproj", "{83C3BE50-870D-49B7-BCCE-1A60E343DE83}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Itis.Earth.WebUI", "Itis.Earth.WebUI\Itis.Earth.WebUI.vbproj", "{147142FB-CDE6-4260-AB6A-DD736A042A6B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60828"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectUniqueName0 = Itis.Earth.DataAccess\\Itis.Earth.DataAccess.vbproj
+		SccProjectName0 = \u0022$/ＥＡＲＴＨ経理対応２次\u0022,\u0020JOFAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection0 = Itis.Earth.DataAccess\\
+		SccProjectUniqueName1 = Itis.Earth.BizLogic\\Itis.Earth.BizLogic.vbproj
+		SccProjectName1 = \u0022$/ＥＡＲＴＨ経理対応２次\u0022,\u0020JOFAAAAA
+		SccLocalPath1 = .
+		SccProvider1 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection1 = Itis.Earth.BizLogic\\
+		SccProjectUniqueName2 = Itis.Earth.WebUI\\Itis.Earth.WebUI.vbproj
+		SccProjectName2 = \u0022$/ＥＡＲＴＨ経理対応２次\u0022,\u0020JOFAAAAA
+		SccLocalPath2 = .
+		SccProvider2 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection2 = Itis.Earth.WebUI\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Release|.NET.ActiveCfg = Release|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{56D2E445-A8A1-4992-994A-16E583C818C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Release|.NET.ActiveCfg = Release|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{83C3BE50-870D-49B7-BCCE-1A60E343DE83}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Release|.NET.ActiveCfg = Release|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{147142FB-CDE6-4260-AB6A-DD736A042A6B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NayoseSearchDataSet" targetNamespace="http://tempuri.org/NayoseSearchDataSet.xsd" xmlns:mstns="http://tempuri.org/NayoseSearchDataSet.xsd" xmlns="http://tempuri.org/NayoseSearchDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NayoseSearchDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="NayoseSearchDataSet" msprop:Generator_DataSetName="NayoseSearchDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NayoseDataTable" msprop:Generator_UserTableName="NayoseDataTable" msprop:Generator_RowDeletedName="NayoseDataTableRowDeleted" msprop:Generator_TableClassName="NayoseDataTableDataTable" msprop:Generator_RowChangedName="NayoseDataTableRowChanged" msprop:Generator_RowClassName="NayoseDataTableRow" msprop:Generator_RowChangingName="NayoseDataTableRowChanging" msprop:Generator_RowEvArgName="NayoseDataTableRowChangeEvent" msprop:Generator_RowEvHandlerName="NayoseDataTableRowChangeEventHandler" msprop:Generator_TablePropName="NayoseDataTable" msprop:Generator_TableVarName="tableNayoseDataTable" msprop:Generator_RowDeletingName="NayoseDataTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="seikyuu_cd" msprop:Generator_UserColumnName="seikyuu_cd" msprop:Generator_ColumnPropNameInRow="seikyuu_cd" msprop:Generator_ColumnVarNameInTable="columnseikyuu_cd" msprop:Generator_ColumnPropNameInTable="seikyuu_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="seikyuu_mei1" msprop:Generator_UserColumnName="seikyuu_mei1" msprop:Generator_ColumnPropNameInRow="seikyuu_mei1" msprop:Generator_ColumnVarNameInTable="columnseikyuu_mei1" msprop:Generator_ColumnPropNameInTable="seikyuu_mei1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_cd" msprop:Generator_UserColumnName="nayose_cd" msprop:Generator_ColumnPropNameInRow="nayose_cd" msprop:Generator_ColumnVarNameInTable="columnnayose_cd" msprop:Generator_ColumnPropNameInTable="nayose_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_mei1" msprop:Generator_UserColumnName="nayose_mei1" msprop:Generator_ColumnPropNameInRow="nayose_mei1" msprop:Generator_ColumnVarNameInTable="columnnayose_mei1" msprop:Generator_ColumnPropNameInTable="nayose_mei1Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

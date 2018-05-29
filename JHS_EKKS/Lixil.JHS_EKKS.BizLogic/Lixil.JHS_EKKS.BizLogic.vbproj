@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{777B3D47-5C4D-4F21-96F0-391113C1E20B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Lixil.JHS_EKKS.BizLogic</RootNamespace>
+    <AssemblyName>Lixil.JHS_EKKS.BizLogic</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Lixil.JHS_EKKS.BizLogic.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Lixil.JHS_EKKS.BizLogic.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itis.ApplicationBlocks.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITIS\Utilities\DAAB20\Itis.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Itis.ApplicationBlocks.ExceptionManagement, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITIS\Utilities\EMAB20\Itis.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITIS\Utilities\DAAB20\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement, Version=1.0.2543.26825, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITIS\Utilities\EMAB20\Microsoft.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces, Version=1.0.2543.26824, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITIS\Utilities\EMAB20\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonBC.vb" />
+    <Compile Include="CommonConstBC.vb" />
+    <Compile Include="CsvWriter.vb" />
+    <Compile Include="EigyouManSearchBC.vb" />
+    <Compile Include="EigyousyoSearchBC.vb" />
+    <Compile Include="EigyousyoSearchSyoukaiJisiyouBC.vb" />
+    <Compile Include="KakusyuSyukeiInquiryBC.vb" />
+    <Compile Include="KeikaikuKanriKameitenBikouInquiryBC.vb" />
+    <Compile Include="KeikakuKameitenJyouhouInquiryBC.vb" />
+    <Compile Include="KeikakuKanriErrorDetailsBC.vb" />
+    <Compile Include="KeikakuKanriInputBC.vb" />
+    <Compile Include="KeikakuKanriKameitenKensakuSyoukaiInquiryBC.vb" />
+    <Compile Include="KeikakuKanriKameitenSearchBC.vb" />
+    <Compile Include="KeikakuKanriSearchListBC.vb" />
+    <Compile Include="KeiretuSearchBC.vb" />
+    <Compile Include="LoginUserInfoBC.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NinsyouBC.vb" />
+    <Compile Include="OsiraseBC.vb" />
+    <Compile Include="NendoKeikakuInputBC.vb" />
+    <Compile Include="SitenSearchBC.vb" />
+    <Compile Include="SitenTukibetuKeikakuchiErrorDetailsBC.vb" />
+    <Compile Include="SitenTukibetuKeikakuchiInputBC.vb" />
+    <Compile Include="SitenTukibetuKeikakuchiSearchListBC.vb" />
+    <Compile Include="SyubetuSearchBC.vb" />
+    <Compile Include="TodoufukenSearchBC.vb" />
+    <Compile Include="TourokuJigyousyaSearchBC.vb" />
+    <Compile Include="TourokuJigyousyaSearchSyoukaiJisiyouBC.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZensyaSyukeiDetailsBC.vb" />
+    <Compile Include="ZensyaSyukeiInquiryBC.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lixil.JHS_EKKS.DataAccess\Lixil.JHS_EKKS.DataAccess.vbproj">
+      <Project>{171D2D39-FEA1-488D-957A-0FA8C06F7096}</Project>
+      <Name>Lixil.JHS_EKKS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lixil.JHS_EKKS.Utilities\Lixil.JHS_EKKS.Utilities.vbproj">
+      <Project>{9C377A83-2EA3-41A9-A9E9-103169B65926}</Project>
+      <Name>Lixil.JHS_EKKS.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YosinKanriDataSet" targetNamespace="http://tempuri.org/YosinKanriDataSet.xsd" xmlns:mstns="http://tempuri.org/YosinKanriDataSet.xsd" xmlns="http://tempuri.org/YosinKanriDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YosinKanriDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="YosinKanriDataSet" msprop:Generator_DataSetName="YosinKanriDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YosinKanriTable" msprop:Generator_UserTableName="YosinKanriTable" msprop:Generator_RowDeletedName="YosinKanriTableRowDeleted" msprop:Generator_RowChangedName="YosinKanriTableRowChanged" msprop:Generator_RowClassName="YosinKanriTableRow" msprop:Generator_RowChangingName="YosinKanriTableRowChanging" msprop:Generator_RowEvArgName="YosinKanriTableRowChangeEvent" msprop:Generator_RowEvHandlerName="YosinKanriTableRowChangeEventHandler" msprop:Generator_TableClassName="YosinKanriTableDataTable" msprop:Generator_TableVarName="tableYosinKanriTable" msprop:Generator_RowDeletingName="YosinKanriTableRowDeleting" msprop:Generator_TablePropName="YosinKanriTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nayose_cd" msprop:Generator_UserColumnName="nayose_cd" msprop:Generator_ColumnVarNameInTable="columnnayose_cd" msprop:Generator_ColumnPropNameInRow="nayose_cd" msprop:Generator_ColumnPropNameInTable="nayose_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_mei1" msprop:Generator_UserColumnName="nayose_mei1" msprop:Generator_ColumnVarNameInTable="columnnayose_mei1" msprop:Generator_ColumnPropNameInRow="nayose_mei1" msprop:Generator_ColumnPropNameInTable="nayose_mei1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_yosin_gaku" msprop:Generator_UserColumnName="nayose_yosin_gaku" msprop:Generator_ColumnVarNameInTable="columnnayose_yosin_gaku" msprop:Generator_ColumnPropNameInRow="nayose_yosin_gaku" msprop:Generator_ColumnPropNameInTable="nayose_yosin_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="keikoku_jyoukyou" msprop:Generator_UserColumnName="keikoku_jyoukyou" msprop:Generator_ColumnVarNameInTable="columnkeikoku_jyoukyou" msprop:Generator_ColumnPropNameInRow="keikoku_jyoukyou" msprop:Generator_ColumnPropNameInTable="keikoku_jyoukyouColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="YosinKanriConutTable" msprop:Generator_UserTableName="YosinKanriConutTable" msprop:Generator_RowDeletedName="YosinKanriConutTableRowDeleted" msprop:Generator_TableClassName="YosinKanriConutTableDataTable" msprop:Generator_RowChangedName="YosinKanriConutTableRowChanged" msprop:Generator_RowClassName="YosinKanriConutTableRow" msprop:Generator_RowChangingName="YosinKanriConutTableRowChanging" msprop:Generator_RowEvArgName="YosinKanriConutTableRowChangeEvent" msprop:Generator_RowEvHandlerName="YosinKanriConutTableRowChangeEventHandler" msprop:Generator_TablePropName="YosinKanriConutTable" msprop:Generator_TableVarName="tableYosinKanriConutTable" msprop:Generator_RowDeletingName="YosinKanriConutTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="num" msprop:Generator_UserColumnName="num" msprop:Generator_ColumnPropNameInRow="num" msprop:Generator_ColumnVarNameInTable="columnnum" msprop:Generator_ColumnPropNameInTable="numColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

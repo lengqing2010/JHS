@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KaisouDataSet" targetNamespace="http://tempuri.org/KaisouDataSet.xsd" xmlns:mstns="http://tempuri.org/KaisouDataSet.xsd" xmlns="http://tempuri.org/KaisouDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KaisouDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KaisouDataSet" msprop:Generator_DataSetName="KaisouDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KaisouTable" msprop:Generator_UserTableName="KaisouTable" msprop:Generator_RowDeletedName="KaisouTableRowDeleted" msprop:Generator_RowChangedName="KaisouTableRowChanged" msprop:Generator_RowClassName="KaisouTableRow" msprop:Generator_RowChangingName="KaisouTableRowChanging" msprop:Generator_RowEvArgName="KaisouTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KaisouTableRowChangeEventHandler" msprop:Generator_TableClassName="KaisouTableDataTable" msprop:Generator_TableVarName="tableKaisouTable" msprop:Generator_RowDeletingName="KaisouTableRowDeleting" msprop:Generator_TablePropName="KaisouTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kaisou_no" msprop:Generator_UserColumnName="kaisou_no" msprop:Generator_ColumnPropNameInRow="kaisou_no" msprop:Generator_ColumnVarNameInTable="columnkaisou_no" msprop:Generator_ColumnPropNameInTable="kaisou_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kaisou" msprop:Generator_UserColumnName="kaisou" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnkaisou" msprop:Generator_ColumnPropNameInTable="kaisouColumn" msprop:Generator_ColumnPropNameInRow="kaisou" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

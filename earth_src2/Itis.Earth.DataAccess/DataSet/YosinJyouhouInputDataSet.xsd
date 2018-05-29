@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YosinJyouhouInputDataSet" targetNamespace="http://tempuri.org/YosinJyouhouInputDataSet.xsd" xmlns:mstns="http://tempuri.org/YosinJyouhouInputDataSet.xsd" xmlns="http://tempuri.org/YosinJyouhouInputDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YosinJyouhouInputDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="YosinJyouhouInputDataSet" msprop:Generator_DataSetName="YosinJyouhouInputDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YosinKanriInfoTable" msprop:Generator_UserTableName="YosinKanriInfoTable" msprop:Generator_RowDeletedName="YosinKanriInfoTableRowDeleted" msprop:Generator_RowChangedName="YosinKanriInfoTableRowChanged" msprop:Generator_RowClassName="YosinKanriInfoTableRow" msprop:Generator_RowChangingName="YosinKanriInfoTableRowChanging" msprop:Generator_RowEvArgName="YosinKanriInfoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="YosinKanriInfoTableRowChangeEventHandler" msprop:Generator_TableClassName="YosinKanriInfoTableDataTable" msprop:Generator_TableVarName="tableYosinKanriInfoTable" msprop:Generator_RowDeletingName="YosinKanriInfoTableRowDeleting" msprop:Generator_TablePropName="YosinKanriInfoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nayose_saki_name1" msprop:Generator_UserColumnName="nayose_saki_name1" msprop:Generator_ColumnVarNameInTable="columnnayose_saki_name1" msprop:Generator_ColumnPropNameInRow="nayose_saki_name1" msprop:Generator_ColumnPropNameInTable="nayose_saki_name1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_saki_name2" msprop:Generator_UserColumnName="nayose_saki_name2" msprop:Generator_ColumnVarNameInTable="columnnayose_saki_name2" msprop:Generator_ColumnPropNameInRow="nayose_saki_name2" msprop:Generator_ColumnPropNameInTable="nayose_saki_name2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_saki_kana1" msprop:Generator_UserColumnName="nayose_saki_kana1" msprop:Generator_ColumnVarNameInTable="columnnayose_saki_kana1" msprop:Generator_ColumnPropNameInRow="nayose_saki_kana1" msprop:Generator_ColumnPropNameInTable="nayose_saki_kana1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_saki_kana2" msprop:Generator_UserColumnName="nayose_saki_kana2" msprop:Generator_ColumnVarNameInTable="columnnayose_saki_kana2" msprop:Generator_ColumnPropNameInRow="nayose_saki_kana2" msprop:Generator_ColumnPropNameInTable="nayose_saki_kana2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="yosin_gendo_gaku" msprop:Generator_UserColumnName="yosin_gendo_gaku" msprop:Generator_ColumnVarNameInTable="columnyosin_gendo_gaku" msprop:Generator_ColumnPropNameInRow="yosin_gendo_gaku" msprop:Generator_ColumnPropNameInTable="yosin_gendo_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="yosin_keikou_kaisiritsu" msprop:Generator_UserColumnName="yosin_keikou_kaisiritsu" msprop:Generator_ColumnVarNameInTable="columnyosin_keikou_kaisiritsu" msprop:Generator_ColumnPropNameInRow="yosin_keikou_kaisiritsu" msprop:Generator_ColumnPropNameInTable="yosin_keikou_kaisiritsuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="teikoku_hyouten" msprop:Generator_UserColumnName="teikoku_hyouten" msprop:Generator_ColumnVarNameInTable="columnteikoku_hyouten" msprop:Generator_ColumnPropNameInRow="teikoku_hyouten" msprop:Generator_ColumnPropNameInTable="teikoku_hyoutenColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="todouhuken_cd" msprop:Generator_UserColumnName="todouhuken_cd" msprop:Generator_ColumnVarNameInTable="columntodouhuken_cd" msprop:Generator_ColumnPropNameInRow="todouhuken_cd" msprop:Generator_ColumnPropNameInTable="todouhuken_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="todouhuken_mei" msprop:Generator_UserColumnName="todouhuken_mei" msprop:Generator_ColumnPropNameInRow="todouhuken_mei" msprop:Generator_ColumnVarNameInTable="columntodouhuken_mei" msprop:Generator_ColumnPropNameInTable="todouhuken_meiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="tyoku_koji_flg" msprop:Generator_UserColumnName="tyoku_koji_flg" msprop:Generator_ColumnVarNameInTable="columntyoku_koji_flg" msprop:Generator_ColumnPropNameInRow="tyoku_koji_flg" msprop:Generator_ColumnPropNameInTable="tyoku_koji_flgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="jyutyuu_kanri_flg" msprop:Generator_UserColumnName="jyutyuu_kanri_flg" msprop:Generator_ColumnVarNameInTable="columnjyutyuu_kanri_flg" msprop:Generator_ColumnPropNameInRow="jyutyuu_kanri_flg" msprop:Generator_ColumnPropNameInTable="jyutyuu_kanri_flgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="meisyou" msprop:Generator_UserColumnName="meisyou" msprop:Generator_ColumnVarNameInTable="columnmeisyou" msprop:Generator_ColumnPropNameInRow="meisyou" msprop:Generator_ColumnPropNameInTable="meisyouColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="zenjitsu_koji_flg" msprop:Generator_UserColumnName="zenjitsu_koji_flg" msprop:Generator_ColumnVarNameInTable="columnzenjitsu_koji_flg" msprop:Generator_ColumnPropNameInRow="zenjitsu_koji_flg" msprop:Generator_ColumnPropNameInTable="zenjitsu_koji_flgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="zengetsu_saiken_gaku" msprop:Generator_UserColumnName="zengetsu_saiken_gaku" msprop:Generator_ColumnVarNameInTable="columnzengetsu_saiken_gaku" msprop:Generator_ColumnPropNameInRow="zengetsu_saiken_gaku" msprop:Generator_ColumnPropNameInTable="zengetsu_saiken_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="zengetsu_saiken_set_date" msprop:Generator_UserColumnName="zengetsu_saiken_set_date" msprop:Generator_ColumnVarNameInTable="columnzengetsu_saiken_set_date" msprop:Generator_ColumnPropNameInRow="zengetsu_saiken_set_date" msprop:Generator_ColumnPropNameInTable="zengetsu_saiken_set_dateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_nyuukin_gaku" msprop:Generator_UserColumnName="ruiseki_nyuukin_gaku" msprop:Generator_ColumnVarNameInTable="columnruiseki_nyuukin_gaku" msprop:Generator_ColumnPropNameInRow="ruiseki_nyuukin_gaku" msprop:Generator_ColumnPropNameInTable="ruiseki_nyuukin_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_nyuukin_set_date" msprop:Generator_UserColumnName="ruiseki_nyuukin_set_date" msprop:Generator_ColumnVarNameInTable="columnruiseki_nyuukin_set_date" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ruiseki_nyuukin_set_date" msprop:Generator_ColumnPropNameInTable="ruiseki_nyuukin_set_dateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_jyutyuu_gaku" msprop:Generator_UserColumnName="ruiseki_jyutyuu_gaku" msprop:Generator_ColumnVarNameInTable="columnruiseki_jyutyuu_gaku" msprop:Generator_ColumnPropNameInRow="ruiseki_jyutyuu_gaku" msprop:Generator_ColumnPropNameInTable="ruiseki_jyutyuu_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_jyutyuu_set_date" msprop:Generator_UserColumnName="ruiseki_jyutyuu_set_date" msprop:Generator_ColumnVarNameInTable="columnruiseki_jyutyuu_set_date" msprop:Generator_ColumnPropNameInRow="ruiseki_jyutyuu_set_date" msprop:Generator_ColumnPropNameInTable="ruiseki_jyutyuu_set_dateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_kasiuri_gaku" msprop:Generator_UserColumnName="ruiseki_kasiuri_gaku" msprop:Generator_ColumnVarNameInTable="columnruiseki_kasiuri_gaku" msprop:Generator_ColumnPropNameInRow="ruiseki_kasiuri_gaku" msprop:Generator_ColumnPropNameInTable="ruiseki_kasiuri_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ruiseki_kasiuri_set_date" msprop:Generator_UserColumnName="ruiseki_kasiuri_set_date" msprop:Generator_ColumnVarNameInTable="columnruiseki_kasiuri_set_date" msprop:Generator_ColumnPropNameInRow="ruiseki_kasiuri_set_date" msprop:Generator_ColumnPropNameInTable="ruiseki_kasiuri_set_dateColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="toujitsu_jyutyuu_gaku" msprop:Generator_UserColumnName="toujitsu_jyutyuu_gaku" msprop:Generator_ColumnVarNameInTable="columntoujitsu_jyutyuu_gaku" msprop:Generator_ColumnPropNameInRow="toujitsu_jyutyuu_gaku" msprop:Generator_ColumnPropNameInTable="toujitsu_jyutyuu_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="saikaigaku" msprop:Generator_UserColumnName="saikaigaku" msprop:Generator_ColumnVarNameInTable="columnsaikaigaku" msprop:Generator_ColumnPropNameInRow="saikaigaku" msprop:Generator_ColumnPropNameInTable="saikaigakuColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NyuukinYoteiInfoTable" msprop:Generator_UserTableName="NyuukinYoteiInfoTable" msprop:Generator_RowDeletedName="NyuukinYoteiInfoTableRowDeleted" msprop:Generator_RowChangedName="NyuukinYoteiInfoTableRowChanged" msprop:Generator_RowClassName="NyuukinYoteiInfoTableRow" msprop:Generator_RowChangingName="NyuukinYoteiInfoTableRowChanging" msprop:Generator_RowEvArgName="NyuukinYoteiInfoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="NyuukinYoteiInfoTableRowChangeEventHandler" msprop:Generator_TableClassName="NyuukinYoteiInfoTableDataTable" msprop:Generator_TableVarName="tableNyuukinYoteiInfoTable" msprop:Generator_RowDeletingName="NyuukinYoteiInfoTableRowDeleting" msprop:Generator_TablePropName="NyuukinYoteiInfoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="meisyou" msprop:Generator_UserColumnName="meisyou" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnmeisyou" msprop:Generator_ColumnPropNameInTable="meisyouColumn" msprop:Generator_ColumnPropNameInRow="meisyou" type="xs:string" minOccurs="0" />
+              <xs:element name="nyuukinyotei_gaku" msprop:Generator_UserColumnName="nyuukinyotei_gaku" msprop:Generator_ColumnVarNameInTable="columnnyuukinyotei_gaku" msprop:Generator_ColumnPropNameInRow="nyuukinyotei_gaku" msprop:Generator_ColumnPropNameInTable="nyuukinyotei_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nyuukinyotei_date" msprop:Generator_UserColumnName="nyuukinyotei_date" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnnyuukinyotei_date" msprop:Generator_ColumnPropNameInTable="nyuukinyotei_dateColumn" msprop:Generator_ColumnPropNameInRow="nyuukinyotei_date" type="xs:string" minOccurs="0" />
+              <xs:element name="bikou" msprop:Generator_UserColumnName="bikou" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="bikou" msprop:Generator_ColumnPropNameInTable="bikouColumn" msprop:Generator_ColumnVarNameInTable="columnbikou" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

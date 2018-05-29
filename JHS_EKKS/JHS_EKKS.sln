@@ -1,0 +1,126 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Lixil.JHS_EKKS.BizLogic", "Lixil.JHS_EKKS.BizLogic\Lixil.JHS_EKKS.BizLogic.vbproj", "{777B3D47-5C4D-4F21-96F0-391113C1E20B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Lixil.JHS_EKKS.DataAccess", "Lixil.JHS_EKKS.DataAccess\Lixil.JHS_EKKS.DataAccess.vbproj", "{171D2D39-FEA1-488D-957A-0FA8C06F7096}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Lixil.JHS_EKKS.Utilities", "Lixil.JHS_EKKS.Utilities\Lixil.JHS_EKKS.Utilities.vbproj", "{9C377A83-2EA3-41A9-A9E9-103169B65926}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\JHS_EKKSWebUI\", "JHS_EKKSWebUI", "{B04F009E-829C-495A-BE84-8CCB4DFD304C}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""$/JHS_EKKS/JHS_EKKS", THAAAAAA"
+		SccAuxPath = ""
+		SccLocalPath = ".."
+		SccProvider = "MSSCCI:Microsoft Visual SourceSafe"
+		ProjectReferences = "{777B3D47-5C4D-4F21-96F0-391113C1E20B}|Lixil.JHS_EKKS.BizLogic.dll;{9C377A83-2EA3-41A9-A9E9-103169B65926}|Lixil.JHS_EKKS.Utilities.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/JHS_EKKSWebUI"
+		Debug.AspNetCompiler.PhysicalPath = "JHS_EKKSWebUI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\JHS_EKKSWebUI\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/JHS_EKKSWebUI"
+		Release.AspNetCompiler.PhysicalPath = "JHS_EKKSWebUI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\JHS_EKKSWebUI\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3758"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = \u0022$/JHS_EKKS/JHS_EKKS\u0022,\u0020THAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SccWebProject1 = true
+		SccProjectUniqueName1 = JHS_EKKSWebUI
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = JHS_EKKSWebUI\\
+		SccProjectEnlistmentChoice1 = 2
+		SccProjectUniqueName2 = Lixil.JHS_EKKS.BizLogic\\Lixil.JHS_EKKS.BizLogic.vbproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = Lixil.JHS_EKKS.BizLogic\\
+		SccProjectUniqueName3 = Lixil.JHS_EKKS.DataAccess\\Lixil.JHS_EKKS.DataAccess.vbproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = Lixil.JHS_EKKS.DataAccess\\
+		SccProjectUniqueName4 = Lixil.JHS_EKKS.Utilities\\Lixil.JHS_EKKS.Utilities.vbproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = Lixil.JHS_EKKS.Utilities\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Release|.NET.ActiveCfg = Release|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{777B3D47-5C4D-4F21-96F0-391113C1E20B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Release|.NET.ActiveCfg = Release|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{171D2D39-FEA1-488D-957A-0FA8C06F7096}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Release|.NET.ActiveCfg = Release|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C377A83-2EA3-41A9-A9E9-103169B65926}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Debug|.NET.Build.0 = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Release|.NET.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Release|.NET.Build.0 = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{B04F009E-829C-495A-BE84-8CCB4DFD304C}.Release|Mixed Platforms.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AccountDataSet" targetNamespace="http://tempuri.org/AccountDataSet.xsd" xmlns:mstns="http://tempuri.org/AccountDataSet.xsd" xmlns="http://tempuri.org/AccountDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AccountDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AccountDataSet" msprop:Generator_DataSetName="AccountDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NinsyouTable" msprop:Generator_UserTableName="NinsyouTable" msprop:Generator_RowDeletedName="NinsyouTableRowDeleted" msprop:Generator_RowChangedName="NinsyouTableRowChanged" msprop:Generator_RowClassName="NinsyouTableRow" msprop:Generator_RowChangingName="NinsyouTableRowChanging" msprop:Generator_RowEvArgName="NinsyouTableRowChangeEvent" msprop:Generator_RowEvHandlerName="NinsyouTableRowChangeEventHandler" msprop:Generator_TableClassName="NinsyouTableDataTable" msprop:Generator_TableVarName="tableNinsyouTable" msprop:Generator_RowDeletingName="NinsyouTableRowDeleting" msprop:Generator_TablePropName="NinsyouTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="account_no" msprop:Generator_UserColumnName="account_no" msprop:Generator_ColumnVarNameInTable="columnaccount_no" msprop:Generator_ColumnPropNameInRow="account_no" msprop:Generator_ColumnPropNameInTable="account_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="login_user_id" msprop:Generator_UserColumnName="login_user_id" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnlogin_user_id" msprop:Generator_ColumnPropNameInTable="login_user_idColumn" msprop:Generator_ColumnPropNameInRow="login_user_id" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AccountTable" msprop:Generator_UserTableName="AccountTable" msprop:Generator_RowDeletedName="AccountTableRowDeleted" msprop:Generator_TableClassName="AccountTableDataTable" msprop:Generator_RowChangedName="AccountTableRowChanged" msprop:Generator_RowClassName="AccountTableRow" msprop:Generator_RowChangingName="AccountTableRowChanging" msprop:Generator_RowEvArgName="AccountTableRowChangeEvent" msprop:Generator_RowEvHandlerName="AccountTableRowChangeEventHandler" msprop:Generator_TablePropName="AccountTable" msprop:Generator_TableVarName="tableAccountTable" msprop:Generator_RowDeletingName="AccountTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="account_no" msprop:Generator_UserColumnName="account_no" msprop:Generator_ColumnPropNameInRow="account_no" msprop:Generator_ColumnVarNameInTable="columnaccount_no" msprop:Generator_ColumnPropNameInTable="account_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="account" msprop:Generator_UserColumnName="account" msprop:Generator_ColumnPropNameInRow="account" msprop:Generator_ColumnVarNameInTable="columnaccount" msprop:Generator_ColumnPropNameInTable="accountColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="simei" msprop:Generator_UserColumnName="simei" msprop:Generator_ColumnPropNameInRow="simei" msprop:Generator_ColumnVarNameInTable="columnsimei" msprop:Generator_ColumnPropNameInTable="simeiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="bikou" msprop:Generator_UserColumnName="bikou" msprop:Generator_ColumnPropNameInRow="bikou" msprop:Generator_ColumnVarNameInTable="columnbikou" msprop:Generator_ColumnPropNameInTable="bikouColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="irai_gyoumu_kengen" msprop:Generator_UserColumnName="irai_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="irai_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnirai_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="irai_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kekka_gyoumu_kengen" msprop:Generator_UserColumnName="kekka_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="kekka_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnkekka_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="kekka_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hosyou_gyoumu_kengen" msprop:Generator_UserColumnName="hosyou_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="hosyou_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnhosyou_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="hosyou_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hkks_gyoumu_kengen" msprop:Generator_UserColumnName="hkks_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="hkks_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnhkks_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="hkks_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="koj_gyoumu_kengen" msprop:Generator_UserColumnName="koj_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="koj_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnkoj_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="koj_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="keiri_gyoumu_kengen" msprop:Generator_UserColumnName="keiri_gyoumu_kengen" msprop:Generator_ColumnPropNameInRow="keiri_gyoumu_kengen" msprop:Generator_ColumnVarNameInTable="columnkeiri_gyoumu_kengen" msprop:Generator_ColumnPropNameInTable="keiri_gyoumu_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kaiseki_master_kanri_kengen" msprop:Generator_UserColumnName="kaiseki_master_kanri_kengen" msprop:Generator_ColumnPropNameInRow="kaiseki_master_kanri_kengen" msprop:Generator_ColumnVarNameInTable="columnkaiseki_master_kanri_kengen" msprop:Generator_ColumnPropNameInTable="kaiseki_master_kanri_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="eigyou_master_kanri_kengen" msprop:Generator_UserColumnName="eigyou_master_kanri_kengen" msprop:Generator_ColumnPropNameInRow="eigyou_master_kanri_kengen" msprop:Generator_ColumnVarNameInTable="columneigyou_master_kanri_kengen" msprop:Generator_ColumnPropNameInTable="eigyou_master_kanri_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kkk_master_kanri_kengen" msprop:Generator_UserColumnName="kkk_master_kanri_kengen" msprop:Generator_ColumnPropNameInRow="kkk_master_kanri_kengen" msprop:Generator_ColumnVarNameInTable="columnkkk_master_kanri_kengen" msprop:Generator_ColumnPropNameInTable="kkk_master_kanri_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hansoku_uriage_kengen" msprop:Generator_UserColumnName="hansoku_uriage_kengen" msprop:Generator_ColumnPropNameInRow="hansoku_uriage_kengen" msprop:Generator_ColumnVarNameInTable="columnhansoku_uriage_kengen" msprop:Generator_ColumnPropNameInTable="hansoku_uriage_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="data_haki_kengen" msprop:Generator_UserColumnName="data_haki_kengen" msprop:Generator_ColumnPropNameInRow="data_haki_kengen" msprop:Generator_ColumnVarNameInTable="columndata_haki_kengen" msprop:Generator_ColumnPropNameInTable="data_haki_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="system_kanrisya_kengen" msprop:Generator_UserColumnName="system_kanrisya_kengen" msprop:Generator_ColumnPropNameInRow="system_kanrisya_kengen" msprop:Generator_ColumnVarNameInTable="columnsystem_kanrisya_kengen" msprop:Generator_ColumnPropNameInTable="system_kanrisya_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="sinki_nyuuryoku_kengen" msprop:Generator_UserColumnName="sinki_nyuuryoku_kengen" msprop:Generator_ColumnPropNameInRow="sinki_nyuuryoku_kengen" msprop:Generator_ColumnVarNameInTable="columnsinki_nyuuryoku_kengen" msprop:Generator_ColumnPropNameInTable="sinki_nyuuryoku_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hattyuusyo_kanri_kengen" msprop:Generator_UserColumnName="hattyuusyo_kanri_kengen" msprop:Generator_ColumnPropNameInRow="hattyuusyo_kanri_kengen" msprop:Generator_ColumnVarNameInTable="columnhattyuusyo_kanri_kengen" msprop:Generator_ColumnPropNameInTable="hattyuusyo_kanri_kengenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="login_user_id" msprop:Generator_UserColumnName="login_user_id" msprop:Generator_ColumnPropNameInRow="login_user_id" msprop:Generator_ColumnVarNameInTable="columnlogin_user_id" msprop:Generator_ColumnPropNameInTable="login_user_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Department" msprop:Generator_UserColumnName="Department" msprop:Generator_ColumnPropNameInRow="Department" msprop:Generator_ColumnVarNameInTable="columnDepartment" msprop:Generator_ColumnPropNameInTable="DepartmentColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

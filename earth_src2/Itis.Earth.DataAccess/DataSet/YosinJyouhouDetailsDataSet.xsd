@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YosinJyouhouDetailsDataSet" targetNamespace="http://tempuri.org/YosinJyouhouDetailsDataSet.xsd" xmlns:mstns="http://tempuri.org/YosinJyouhouDetailsDataSet.xsd" xmlns="http://tempuri.org/YosinJyouhouDetailsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFtestConnectionString" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFtestConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.MySettings.GlobalReference.Default.JHS_IFtestConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YosinJyouhouDetailsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="YosinJyouhouDetailsDataSet" msprop:Generator_DataSetName="YosinJyouhouDetailsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YosinKanriInfoTable" msprop:Generator_UserTableName="YosinKanriInfoTable" msprop:Generator_RowDeletedName="YosinKanriInfoTableRowDeleted" msprop:Generator_RowChangedName="YosinKanriInfoTableRowChanged" msprop:Generator_RowClassName="YosinKanriInfoTableRow" msprop:Generator_RowChangingName="YosinKanriInfoTableRowChanging" msprop:Generator_RowEvArgName="YosinKanriInfoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="YosinKanriInfoTableRowChangeEventHandler" msprop:Generator_TableClassName="YosinKanriInfoTableDataTable" msprop:Generator_TableVarName="tableYosinKanriInfoTable" msprop:Generator_RowDeletingName="YosinKanriInfoTableRowDeleting" msprop:Generator_TablePropName="YosinKanriInfoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nayose_cd" msprop:Generator_UserColumnName="nayose_cd" msprop:Generator_ColumnVarNameInTable="columnnayose_cd" msprop:Generator_ColumnPropNameInRow="nayose_cd" msprop:Generator_ColumnPropNameInTable="nayose_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_mei1" msprop:Generator_UserColumnName="nayose_mei1" msprop:Generator_ColumnVarNameInTable="columnnayose_mei1" msprop:Generator_ColumnPropNameInRow="nayose_mei1" msprop:Generator_ColumnPropNameInTable="nayose_mei1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_mei2" msprop:Generator_UserColumnName="nayose_mei2" msprop:Generator_ColumnVarNameInTable="columnnayose_mei2" msprop:Generator_ColumnPropNameInRow="nayose_mei2" msprop:Generator_ColumnPropNameInTable="nayose_mei2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_kana1" msprop:Generator_UserColumnName="nayose_kana1" msprop:Generator_ColumnVarNameInTable="columnnayose_kana1" msprop:Generator_ColumnPropNameInRow="nayose_kana1" msprop:Generator_ColumnPropNameInTable="nayose_kana1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_kana2" msprop:Generator_UserColumnName="nayose_kana2" msprop:Generator_ColumnVarNameInTable="columnnayose_kana2" msprop:Generator_ColumnPropNameInRow="nayose_kana2" msprop:Generator_ColumnPropNameInTable="nayose_kana2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="nayose_yosin_gaku" msprop:Generator_UserColumnName="nayose_yosin_gaku" msprop:Generator_ColumnVarNameInTable="columnnayose_yosin_gaku" msprop:Generator_ColumnPropNameInRow="nayose_yosin_gaku" msprop:Generator_ColumnPropNameInTable="nayose_yosin_gakuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="todouhuken_cd" msprop:Generator_UserColumnName="todouhuken_cd" msprop:Generator_ColumnVarNameInTable="columntodouhuken_cd" msprop:Generator_ColumnPropNameInRow="todouhuken_cd" msprop:Generator_ColumnPropNameInTable="todouhuken_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="keikoku_jyoukyou" msprop:Generator_UserColumnName="keikoku_jyoukyou" msprop:Generator_ColumnVarNameInTable="columnkeikoku_jyoukyou" msprop:Generator_ColumnPropNameInRow="keikoku_jyoukyou" msprop:Generator_ColumnPropNameInTable="keikoku_jyoukyouColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="mail_datetime" msprop:Generator_UserColumnName="mail_datetime" msprop:Generator_ColumnVarNameInTable="columnmail_datetime" msprop:Generator_ColumnPropNameInRow="mail_datetime" msprop:Generator_ColumnPropNameInTable="mail_datetimeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

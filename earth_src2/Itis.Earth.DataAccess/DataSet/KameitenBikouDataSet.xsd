@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KameitenBikouDataSet" targetNamespace="http://tempuri.org/KameitenBikouDataSet.xsd" xmlns:mstns="http://tempuri.org/KameitenBikouDataSet.xsd" xmlns="http://tempuri.org/KameitenBikouDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="jhs_sysConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="jhs_sysConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.jhs_sysConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KameitenBikouDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KameitenBikouDataSet" msprop:Generator_DataSetName="KameitenBikouDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="m_kameiten_bikou_settei" msprop:Generator_UserTableName="m_kameiten_bikou_settei" msprop:Generator_RowDeletedName="m_kameiten_bikou_setteiRowDeleted" msprop:Generator_RowChangedName="m_kameiten_bikou_setteiRowChanged" msprop:Generator_RowClassName="m_kameiten_bikou_setteiRow" msprop:Generator_RowChangingName="m_kameiten_bikou_setteiRowChanging" msprop:Generator_RowEvArgName="m_kameiten_bikou_setteiRowChangeEvent" msprop:Generator_RowEvHandlerName="m_kameiten_bikou_setteiRowChangeEventHandler" msprop:Generator_TableClassName="m_kameiten_bikou_setteiDataTable" msprop:Generator_TableVarName="tablem_kameiten_bikou_settei" msprop:Generator_RowDeletingName="m_kameiten_bikou_setteiRowDeleting" msprop:Generator_TablePropName="m_kameiten_bikou_settei">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bikou_syubetu" msprop:Generator_UserColumnName="bikou_syubetu" msprop:Generator_ColumnPropNameInRow="bikou_syubetu" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnbikou_syubetu" msprop:Generator_ColumnPropNameInTable="bikou_syubetuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nyuuryoku_no" msprop:Generator_UserColumnName="nyuuryoku_no" msprop:Generator_ColumnPropNameInRow="nyuuryoku_no" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_no" msprop:Generator_ColumnPropNameInTable="nyuuryoku_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="naiyou" msprop:Generator_UserColumnName="naiyou" msprop:Generator_ColumnPropNameInRow="naiyou" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnnaiyou" msprop:Generator_ColumnPropNameInTable="naiyouColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kousinsya" msprop:Generator_UserColumnName="kousinsya" msprop:Generator_ColumnPropNameInRow="kousinsya" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnkousinsya" msprop:Generator_ColumnPropNameInTable="kousinsyaColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="upd_datetime" msprop:Generator_UserColumnName="upd_datetime" msprop:Generator_ColumnPropNameInRow="upd_datetime" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnupd_datetime" msprop:Generator_ColumnPropNameInTable="upd_datetimeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="add_login_user_id" msprop:Generator_UserColumnName="add_login_user_id" msprop:Generator_ColumnPropNameInRow="add_login_user_id" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnadd_login_user_id" msprop:Generator_ColumnPropNameInTable="add_login_user_idColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="add_datetime" msprop:Generator_UserColumnName="add_datetime" msprop:Generator_ColumnPropNameInRow="add_datetime" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnadd_datetime" msprop:Generator_ColumnPropNameInTable="add_datetimeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="upd_login_user_id" msprop:Generator_UserColumnName="upd_login_user_id" msprop:Generator_ColumnPropNameInRow="upd_login_user_id" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnupd_login_user_id" msprop:Generator_ColumnPropNameInTable="upd_login_user_idColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="meisyou" msprop:Generator_UserColumnName="meisyou" msprop:Generator_ColumnVarNameInTable="columnmeisyou" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="meisyou" msprop:Generator_ColumnPropNameInTable="meisyouColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

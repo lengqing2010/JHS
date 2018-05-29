@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataHakiDataSet" targetNamespace="http://tempuri.org/DataHakiDataSet.xsd" xmlns:mstns="http://tempuri.org/DataHakiDataSet.xsd" xmlns="http://tempuri.org/DataHakiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataHakiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataHakiDataSet" msprop:Generator_DataSetName="DataHakiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataHakiTable" msprop:Generator_UserTableName="DataHakiTable" msprop:Generator_RowDeletedName="DataHakiTableRowDeleted" msprop:Generator_RowChangedName="DataHakiTableRowChanged" msprop:Generator_RowClassName="DataHakiTableRow" msprop:Generator_RowChangingName="DataHakiTableRowChanging" msprop:Generator_RowEvArgName="DataHakiTableRowChangeEvent" msprop:Generator_RowEvHandlerName="DataHakiTableRowChangeEventHandler" msprop:Generator_TableClassName="DataHakiTableDataTable" msprop:Generator_TableVarName="tableDataHakiTable" msprop:Generator_RowDeletingName="DataHakiTableRowDeleting" msprop:Generator_TablePropName="DataHakiTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="data_haki_no" msprop:Generator_UserColumnName="data_haki_no" msprop:Generator_ColumnVarNameInTable="columndata_haki_no" msprop:Generator_ColumnPropNameInRow="data_haki_no" msprop:Generator_ColumnPropNameInTable="data_haki_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="haki_syubetu" msprop:Generator_UserColumnName="haki_syubetu" msprop:Generator_ColumnVarNameInTable="columnhaki_syubetu" msprop:Generator_ColumnPropNameInRow="haki_syubetu" msprop:Generator_ColumnPropNameInTable="haki_syubetuColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
