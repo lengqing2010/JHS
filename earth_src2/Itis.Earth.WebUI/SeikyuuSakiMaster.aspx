@@ -360,6 +360,25 @@
                             <asp:TextBox ID="tbxBikou" runat="server" Width="310px" MaxLength="20"></asp:TextBox>
                         </td>
                     </tr>
+                    <tr align="left">
+                        <td class="koumokuMei">
+                            協力会費_適用事項
+                        </td>
+                        <td colspan="3">
+                            <asp:DropDownList ID="ddlKyouryokuKaihiJigou" runat="server" Width="107px">
+                            <asp:ListItem Value=""></asp:ListItem>
+                            <asp:ListItem Value="全て">全て</asp:ListItem>
+                            <asp:ListItem Value="調査のみ">調査のみ</asp:ListItem>
+                            <asp:ListItem Value="工事のみ">工事のみ</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                        <td class="koumokuMei">
+                            &nbsp;
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox ID="TextBox3" runat="server" Width="310px" MaxLength="20"></asp:TextBox>
+                        </td>
+                    </tr>
                     <tr align="left" style="height: 0px;">
                         <td style="width: 128px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
                             clip: rect(-1px auto auto auto); border-top-style: none;">

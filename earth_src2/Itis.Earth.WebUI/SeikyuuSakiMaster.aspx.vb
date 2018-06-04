@@ -857,6 +857,8 @@ Partial Public Class SeikyuuSakiMaster
             '備考
             .bikou = Me.tbxBikou.Text.Trim
         End With
+        dtSeikyuuSakiDataSet.Item(0).kyouryoku_kaihi_taisyou = Me.ddlKyouryokuKaihiJigou.SelectedValue
+
         '===========2012/05/14 車龍 407553の対応 追加↑=====================
 
         dtSeikyuuSakiDataSet.Item(0).upd_login_user_id = ViewState("UserId")
@@ -988,6 +990,8 @@ Partial Public Class SeikyuuSakiMaster
         Me.tbxTougouKaikeiTokusakiCd.Text = String.Empty
         '口振ＯＫフラグ
         SetDropSelect(ddlKutiburiOkFlg, String.Empty)
+        '協力会費_適用事項
+        Me.ddlKyouryokuKaihiJigou.SelectedIndex = 0
         '安全協力会費_円
         Me.tbxAnzenKyouryokuKaihi1.Text = String.Empty
         '安全協力会費_％
@@ -1165,6 +1169,8 @@ Partial Public Class SeikyuuSakiMaster
                 Me.tbxTougouKaikeiTokusakiCd.Text = TrimNull(.tougou_tokuisaki_cd)
                 '口振ＯＫフラグ
                 SetDropSelect(ddlKutiburiOkFlg, TrimNull(.koufuri_ok_flg))
+                '協力会費_適用事項
+                Me.ddlKyouryokuKaihiJigou.SelectedValue = TrimNull(dtSeikyuuSakiDataSet.Item(0).kyouryoku_kaihi_taisyou)
                 '安全協力会費_円
                 If TrimNull(.anzen_kaihi_en).Equals(String.Empty) Then
                     Me.tbxAnzenKyouryokuKaihi1.Text = String.Empty
@@ -1840,6 +1846,8 @@ Partial Public Class SeikyuuSakiMaster
         '===========2012/05/15 車龍 407553の対応 追加↓=========================
         '口振ＯＫフラグ
         Me.ddlKutiburiOkFlg.Items.Clear()
+        '適用事項
+        Me.ddlKyouryokuKaihiJigou.SelectedIndex = 0
 
         'データを取得する
         Dim dtList As New Data.DataTable
@@ -2113,6 +2121,9 @@ Partial Public Class SeikyuuSakiMaster
                 Me.tbxTougouKaikeiTokusakiCd.Text = TrimNull(.tougou_tokuisaki_cd)
                 '口振ＯＫフラグ
                 SetDropSelect(ddlKutiburiOkFlg, TrimNull(.koufuri_ok_flg))
+                '協力会費_適用事項
+                Me.ddlKyouryokuKaihiJigou.SelectedValue = dtSeikyuuSakiDataSet.Item(0).kyouryoku_kaihi_taisyou
+
                 '安全協力会費_円
                 If TrimNull(.anzen_kaihi_en).Equals(String.Empty) Then
                     Me.tbxAnzenKyouryokuKaihi1.Text = String.Empty
