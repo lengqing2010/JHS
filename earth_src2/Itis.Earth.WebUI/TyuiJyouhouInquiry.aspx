@@ -329,7 +329,8 @@
 
         <%--基本商品＆基本調査方法 END--%>
         
-        <%--通常注意事項 START--%>
+        
+        <%--調査会社 判定　工事会社START--%>
         <table cellpadding="0" cellspacing="0" style="border-top-width: 0px; border-left-width: 0px;
             border-bottom-width: 0px; vertical-align: top; width: 960px; border-right-width: 0px">
             <tr>
@@ -607,6 +608,62 @@
                 </td>
             </tr>
         </table>
+        
+        <%--工事・仕様確認 START--%>
+
+        <table style="text-align: left; width: 960px; border: 2px solid gray; margin-top :10px;" class="mainTable2"
+            cellpadding="1">
+            <thead>
+                <tr>
+                    <th class="tableTitle" colspan="11" rowspan="1" style="height: 18px">
+                        <a id="titleLink4" runat="server">工事・仕様確認</a> <span id="titleSpan4" style="display: none;"
+                            runat="server"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="naiyouTbody4" runat="server">
+                <tr>
+                    <td>
+                        <table width="100%" class="gridviewTableHeader" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width: 300px; border-left: 1px solid black; text-align:center;">
+                                    工事見積依頼書の送付</td>
+                                <td style="width: 316px;border-right: 1px solid black;text-align:left;">
+                                    工事設計確認費（事業者）（円）   </td>
+                                <td style="border-right: 1px solid black;">
+                                    工事設計確認費（工事会社）（円）  </td>
+                            </tr>
+                        </table>
+                        <asp:UpdatePanel ID="UpdatePanel4" runat="server" RenderMode="Inline" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="width:306px; text-align:center;">
+                                            <asp:DropDownList ID="ddl_koj_mitiraisyo_soufu_fuyou" runat="server" Width="270px" >
+                                            <asp:ListItem></asp:ListItem>
+                                            <asp:ListItem Value="1">1：不要</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="tbx_siyou_kakuninhi_jigyousya" runat="server" Width="250px" MaxLength="11" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
+                                            <asp:Button ID="btn_siyou_kakuninhi_jigyousya" runat="server" Text="登録" Width="32px" OnClick="btn_siyou_kakuninhi_jigyousya_Click" />
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="tbx_siyou_kakuninhi_kojkaisya" runat="server" Width="250px" MaxLength="11" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
+                                            <asp:Button ID="btn_siyou_kakuninhi_kojkaisya" runat="server" Text="登録" Width="32px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+        <%--工事・仕様確認 END--%>
+        
+        
+         <%--通常注意事項 START--%>
         <table style="margin-top: 10px; text-align: left; width: 960px; border: 2px solid gray;"
             class="mainTable2" cellpadding="1">
             <thead>

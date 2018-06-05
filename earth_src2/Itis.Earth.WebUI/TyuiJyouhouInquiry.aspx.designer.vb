@@ -805,6 +805,87 @@ Partial Public Class TyuiJyouhouInquiry
     Protected WithEvents grdNaiyou29 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''titleLink4 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents titleLink4 As Global.System.Web.UI.HtmlControls.HtmlAnchor
+
+    '''<summary>
+    '''titleSpan4 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents titleSpan4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''naiyouTbody4 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents naiyouTbody4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''UpdatePanel4 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents UpdatePanel4 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''ddl_koj_mitiraisyo_soufu_fuyou コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddl_koj_mitiraisyo_soufu_fuyou As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''tbx_siyou_kakuninhi_jigyousya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_siyou_kakuninhi_jigyousya As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btn_siyou_kakuninhi_jigyousya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents btn_siyou_kakuninhi_jigyousya As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''tbx_siyou_kakuninhi_kojkaisya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_siyou_kakuninhi_kojkaisya As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btn_siyou_kakuninhi_kojkaisya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents btn_siyou_kakuninhi_kojkaisya As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''titleLink3 コントロール。
     '''</summary>
     '''<remarks>

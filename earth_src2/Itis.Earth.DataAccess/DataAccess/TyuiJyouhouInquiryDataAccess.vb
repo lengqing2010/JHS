@@ -2247,6 +2247,7 @@ Public Class TyuiJyouhouInquiryDataAccess
 
     End Function
 
+
     '''<summary>基本調査方法の更新処理</summary>
     Public Function UpdKihonTyousaHouhou(ByVal strKameitenCd As String, ByVal strKihonTyousaHouhouNo As String, ByVal strKihonTyousaHouhouTyuuibun As String) As Boolean
 
@@ -2302,6 +2303,12 @@ Public Class TyuiJyouhouInquiryDataAccess
             .AppendLine("	,kihon_tyousahouhou_no ")
             .AppendLine("	,kihon_syouhin_tyuuibun ")
             .AppendLine("	,kihon_tyousahouhou_tyuuibun ")
+
+            .AppendLine("	,koj_mitiraisyo_soufu_fuyou ")
+            .AppendLine("	,siyou_kakuninhi_jigyousya ")
+            .AppendLine("	,siyou_kakuninhi_kojkaisya ")
+
+
             .AppendLine("FROM ")
             .AppendLine("	m_kameiten WITH(READCOMMITTED) ")
             .AppendLine("WHERE ")
@@ -2318,5 +2325,45 @@ Public Class TyuiJyouhouInquiryDataAccess
 
     End Function
 
+
+
+    '''<summary>工事・仕様確認 の更新処理</summary>
+    Public Function UpdKojSiyouKakunin(ByVal strKameitenCd As String, _
+    ByVal koj_mitiraisyo_soufu_fuyou As String, ByVal siyou_kakuninhi_jigyousya As String, ByVal siyou_kakuninhi_kojkaisya As String, ByVal updKmFlg As Integer) As Boolean
+
+        Dim updCnt As Integer = 0
+
+        Dim commandTextSb As New System.Text.StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        With commandTextSb
+            .AppendLine("UPDATE ")
+            .AppendLine("	m_kameiten WITH(UPDLOCK) ")
+            .AppendLine("SET ")
+            .AppendLine("	koj_mitiraisyo_soufu_fuyou = @koj_mitiraisyo_soufu_fuyou ")
+            If updKmFlg = 1 Then
+                .AppendLine("	,siyou_kakuninhi_jigyousya = @siyou_kakuninhi_jigyousya ")
+            Else
+                .AppendLine("	,siyou_kakuninhi_kojkaisya = @siyou_kakuninhi_kojkaisya ")
+            End If
+            .AppendLine("WHERE ")
+            .AppendLine("	kameiten_cd = @kameiten_cd ")
+        End With
+        paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, IIf(koj_mitiraisyo_soufu_fuyou.Equals(String.Empty), DBNull.Value, koj_mitiraisyo_soufu_fuyou)))
+        paramList.Add(MakeParam("@siyou_kakuninhi_jigyousya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_jigyousya.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_jigyousya)))
+        paramList.Add(MakeParam("@siyou_kakuninhi_kojkaisya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_kojkaisya.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_kojkaisya)))
+        paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
+
+        updCnt = ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
+
+        If updCnt = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+
+    End Function
 
 End Class

@@ -341,4 +341,16 @@ Public Class TyuiJyouhouInquiryLogic
 
     End Function
 
+
+
+    '''<summary>工事・仕様確認 の更新処理</summary>
+    Public Function UpdKojSiyouKakunin(ByVal strKameitenCd As String, _
+    ByVal koj_mitiraisyo_soufu_fuyou As String, ByVal siyou_kakuninhi_jigyousya As String, ByVal siyou_kakuninhi_kojkaisya As String, ByVal updKmFlg As Integer) As Boolean
+
+        '戻り値
+        Return TyuiJyouhouDataSet.UpdKojSiyouKakunin(strKameitenCd, koj_mitiraisyo_soufu_fuyou, siyou_kakuninhi_jigyousya, siyou_kakuninhi_kojkaisya, updKmFlg)
+
+    End Function
+
+
 End Class
