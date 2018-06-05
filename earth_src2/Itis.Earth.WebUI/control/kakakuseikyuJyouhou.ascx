@@ -168,6 +168,31 @@
                                                     <td style="border: none;">
                                                         <asp:Button ID="btnTokubetuTaiou" runat="server" Text="ì¡ï ëŒâûê›íË" OnClientClick="fncOpenTokubetu();return false;" /></td>
                                                 </tr>
+                                                <tr>
+                                                    <td class="koumokuMei" style="width: 96px">âtèÛâªì¡ñÒîÔ
+                        
+                                                    </td>
+                                                    <td style="width: 110px">
+                                                     <asp:TextBox ID="tbx_ekijyouka_tokuyaku_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox>
+                                                    </td>
+                                                    <td class="koumokuMei" style="width: 116px">
+                                                    âtèÛâª<br />ä»à’îªíËâøäi
+
+                                                    </td>
+                                                    <td style="width: 110px">
+                                                     <asp:TextBox ID="tbx_ekijyouka_kanihantei_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox>
+                                                    </td>
+                                                    <td class="koumokuMei" style="width: 116px">
+                                                    </td>
+                                                    <td style="width: 110px">
+                                                    </td>
+                                                    <td style="border-right: medium none; border-top: medium none; border-left: medium none;
+                                                        width: 97px; border-bottom: medium none; text-align: center">
+                                                    </td>
+                                                    <td style="border-right: medium none; border-top: medium none; border-left: medium none;
+                                                        border-bottom: medium none">
+                                                    </td>
+                                                </tr>
                                                 <%--                                    <tr>
                                         <td class="koumokuMei" style="width: 86px">
                                             SS</td>

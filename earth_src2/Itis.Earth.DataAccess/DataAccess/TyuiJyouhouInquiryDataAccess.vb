@@ -2352,8 +2352,8 @@ Public Class TyuiJyouhouInquiryDataAccess
             .AppendLine("	kameiten_cd = @kameiten_cd ")
         End With
         paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, IIf(koj_mitiraisyo_soufu_fuyou.Equals(String.Empty), DBNull.Value, koj_mitiraisyo_soufu_fuyou)))
-        paramList.Add(MakeParam("@siyou_kakuninhi_jigyousya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_jigyousya.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_jigyousya)))
-        paramList.Add(MakeParam("@siyou_kakuninhi_kojkaisya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_kojkaisya.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_kojkaisya)))
+        paramList.Add(MakeParam("@siyou_kakuninhi_jigyousya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_jigyousya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_jigyousya)))
+        paramList.Add(MakeParam("@siyou_kakuninhi_kojkaisya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_kojkaisya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_kojkaisya)))
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
 
         updCnt = ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)

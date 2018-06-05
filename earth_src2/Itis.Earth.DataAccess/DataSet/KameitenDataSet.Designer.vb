@@ -803,6 +803,28 @@ Partial Public Class KameitenDataSet
         
         Private columnshiroari_kensa_hyouji As Global.System.Data.DataColumn
         
+        Private columnhosyousyo_hak_kakuninsya As Global.System.Data.DataColumn
+        
+        Private columnhosyousyo_hak_kakunin_date As Global.System.Data.DataColumn
+        
+        Private columnhikiwatasi_inji_umu As Global.System.Data.DataColumn
+        
+        Private columnhosyou_kikan_kakuninsya As Global.System.Data.DataColumn
+        
+        Private columnhosyou_kikan_start_date As Global.System.Data.DataColumn
+        
+        Private columnhosyousyo_hassou_umu As Global.System.Data.DataColumn
+        
+        Private columnfuho_fax_kakuninsya As Global.System.Data.DataColumn
+        
+        Private columnfuho_fax_kakunin_date As Global.System.Data.DataColumn
+        
+        Private columnfuho_fax_umu As Global.System.Data.DataColumn
+        
+        Private columnekijyouka_tokuyaku_kakaku As Global.System.Data.DataColumn
+        
+        Private columnekijyouka_kanihantei_kakaku As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1430,6 +1452,83 @@ Partial Public Class KameitenDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hosyousyo_hak_kakuninsyaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhosyousyo_hak_kakuninsya
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hosyousyo_hak_kakunin_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhosyousyo_hak_kakunin_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hikiwatasi_inji_umuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhikiwatasi_inji_umu
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hosyou_kikan_kakuninsyaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhosyou_kikan_kakuninsya
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hosyou_kikan_start_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhosyou_kikan_start_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hosyousyo_hassou_umuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhosyousyo_hassou_umu
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fuho_fax_kakuninsyaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfuho_fax_kakuninsya
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fuho_fax_kakunin_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfuho_fax_kakunin_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fuho_fax_umuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfuho_fax_umu
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ekijyouka_tokuyaku_kakakuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnekijyouka_tokuyaku_kakaku
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ekijyouka_kanihantei_kakakuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnekijyouka_kanihantei_kakaku
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1544,9 +1643,20 @@ Partial Public Class KameitenDataSet
                     ByVal web_moushikomi_saiban_hanbetu_flg As String,  _
                     ByVal hattyuusyo_michaku_renkei_taisyougai_flg As String,  _
                     ByVal shitei_seikyuusyo_umu As String,  _
-                    ByVal shiroari_kensa_hyouji As String) As m_kameitenTableRow
+                    ByVal shiroari_kensa_hyouji As String,  _
+                    ByVal hosyousyo_hak_kakuninsya As String,  _
+                    ByVal hosyousyo_hak_kakunin_date As String,  _
+                    ByVal hikiwatasi_inji_umu As String,  _
+                    ByVal hosyou_kikan_kakuninsya As String,  _
+                    ByVal hosyou_kikan_start_date As String,  _
+                    ByVal hosyousyo_hassou_umu As String,  _
+                    ByVal fuho_fax_kakuninsya As String,  _
+                    ByVal fuho_fax_kakunin_date As String,  _
+                    ByVal fuho_fax_umu As String,  _
+                    ByVal ekijyouka_tokuyaku_kakaku As String,  _
+                    ByVal ekijyouka_kanihantei_kakaku As String) As m_kameitenTableRow
             Dim rowm_kameitenTableRow As m_kameitenTableRow = CType(Me.NewRow,m_kameitenTableRow)
-            Dim columnValuesArray() As Object = New Object() {kbn, kameiten_cd, torikesi, kameiten_mei1, tenmei_kana1, kameiten_mei2, tenmei_kana2, eigyousyo_cd, keiretu_cd, th_kasi_cd, danmenzu1, danmenzu2, danmenzu3, danmenzu4, danmenzu5, danmenzu6, danmenzu7, tys_seikyuu_saki, tys_seikyuu_sime_date, koj_seikyuusaki, koj_seikyuu_sime_date, hansokuhin_seikyuusaki, hansokuhin_seikyuu_sime_date, ss_kkk, sai_tys_kkk, ssgr_kkk, kaiseki_hosyou_kkk, hosyounasi_umu, kaiyaku_haraimodosi_kkk, todouhuken_cd, hosyou_kikan, hosyousyo_hak_umu, builder_no, koj_gaisya_seikyuu_umu, koj_tantou_flg, nenkan_tousuu, nyuukin_kakunin_jyouken, nyuukin_kakunin_oboegaki, eigyou_tantousya_mei, tys_mitsyo_flg, hattyuusyo_flg, mitsyo_file_mei, jizen_tys_kkk, jisin_hosyou_flg, jisin_hosyou_add_date, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, add_login_user_id, add_datetime, upd_login_user_id, upd_datetime, builder_mei, eigyousyo_mei, kbn_mei, keiretu_mei, simei, sansyou_date, hattyuu_teisi_flg, tys_seikyuu_saki_cd, tys_seikyuu_saki_brc, tys_seikyuu_saki_kbn, koj_seikyuu_saki_cd, koj_seikyuu_saki_brc, koj_seikyuu_saki_kbn, hansokuhin_seikyuu_saki_cd, hansokuhin_seikyuu_saki_brc, hansokuhin_seikyuu_saki_kbn, tatemono_seikyuu_saki_cd, tatemono_seikyuu_saki_brc, tatemono_seikyuu_saki_kbn, seikyuu_saki_cd5, seikyuu_saki_brc5, seikyuu_saki_kbn5, seikyuu_saki_cd6, seikyuu_saki_brc6, seikyuu_saki_kbn6, seikyuu_saki_cd7, seikyuu_saki_brc7, seikyuu_saki_kbn7, ekijyouka_tokuyaku_kanri, shintokuyaku_kirikaedate, web_moushikomi_saiban_hanbetu_flg, hattyuusyo_michaku_renkei_taisyougai_flg, shitei_seikyuusyo_umu, shiroari_kensa_hyouji}
+            Dim columnValuesArray() As Object = New Object() {kbn, kameiten_cd, torikesi, kameiten_mei1, tenmei_kana1, kameiten_mei2, tenmei_kana2, eigyousyo_cd, keiretu_cd, th_kasi_cd, danmenzu1, danmenzu2, danmenzu3, danmenzu4, danmenzu5, danmenzu6, danmenzu7, tys_seikyuu_saki, tys_seikyuu_sime_date, koj_seikyuusaki, koj_seikyuu_sime_date, hansokuhin_seikyuusaki, hansokuhin_seikyuu_sime_date, ss_kkk, sai_tys_kkk, ssgr_kkk, kaiseki_hosyou_kkk, hosyounasi_umu, kaiyaku_haraimodosi_kkk, todouhuken_cd, hosyou_kikan, hosyousyo_hak_umu, builder_no, koj_gaisya_seikyuu_umu, koj_tantou_flg, nenkan_tousuu, nyuukin_kakunin_jyouken, nyuukin_kakunin_oboegaki, eigyou_tantousya_mei, tys_mitsyo_flg, hattyuusyo_flg, mitsyo_file_mei, jizen_tys_kkk, jisin_hosyou_flg, jisin_hosyou_add_date, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, add_login_user_id, add_datetime, upd_login_user_id, upd_datetime, builder_mei, eigyousyo_mei, kbn_mei, keiretu_mei, simei, sansyou_date, hattyuu_teisi_flg, tys_seikyuu_saki_cd, tys_seikyuu_saki_brc, tys_seikyuu_saki_kbn, koj_seikyuu_saki_cd, koj_seikyuu_saki_brc, koj_seikyuu_saki_kbn, hansokuhin_seikyuu_saki_cd, hansokuhin_seikyuu_saki_brc, hansokuhin_seikyuu_saki_kbn, tatemono_seikyuu_saki_cd, tatemono_seikyuu_saki_brc, tatemono_seikyuu_saki_kbn, seikyuu_saki_cd5, seikyuu_saki_brc5, seikyuu_saki_kbn5, seikyuu_saki_cd6, seikyuu_saki_brc6, seikyuu_saki_kbn6, seikyuu_saki_cd7, seikyuu_saki_brc7, seikyuu_saki_kbn7, ekijyouka_tokuyaku_kanri, shintokuyaku_kirikaedate, web_moushikomi_saiban_hanbetu_flg, hattyuusyo_michaku_renkei_taisyougai_flg, shitei_seikyuusyo_umu, shiroari_kensa_hyouji, hosyousyo_hak_kakuninsya, hosyousyo_hak_kakunin_date, hikiwatasi_inji_umu, hosyou_kikan_kakuninsya, hosyou_kikan_start_date, hosyousyo_hassou_umu, fuho_fax_kakuninsya, fuho_fax_kakunin_date, fuho_fax_umu, ekijyouka_tokuyaku_kakaku, ekijyouka_kanihantei_kakaku}
             rowm_kameitenTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowm_kameitenTableRow)
             Return rowm_kameitenTableRow
@@ -1656,6 +1766,17 @@ Partial Public Class KameitenDataSet
             Me.columnhattyuusyo_michaku_renkei_taisyougai_flg = MyBase.Columns("hattyuusyo_michaku_renkei_taisyougai_flg")
             Me.columnshitei_seikyuusyo_umu = MyBase.Columns("shitei_seikyuusyo_umu")
             Me.columnshiroari_kensa_hyouji = MyBase.Columns("shiroari_kensa_hyouji")
+            Me.columnhosyousyo_hak_kakuninsya = MyBase.Columns("hosyousyo_hak_kakuninsya")
+            Me.columnhosyousyo_hak_kakunin_date = MyBase.Columns("hosyousyo_hak_kakunin_date")
+            Me.columnhikiwatasi_inji_umu = MyBase.Columns("hikiwatasi_inji_umu")
+            Me.columnhosyou_kikan_kakuninsya = MyBase.Columns("hosyou_kikan_kakuninsya")
+            Me.columnhosyou_kikan_start_date = MyBase.Columns("hosyou_kikan_start_date")
+            Me.columnhosyousyo_hassou_umu = MyBase.Columns("hosyousyo_hassou_umu")
+            Me.columnfuho_fax_kakuninsya = MyBase.Columns("fuho_fax_kakuninsya")
+            Me.columnfuho_fax_kakunin_date = MyBase.Columns("fuho_fax_kakunin_date")
+            Me.columnfuho_fax_umu = MyBase.Columns("fuho_fax_umu")
+            Me.columnekijyouka_tokuyaku_kakaku = MyBase.Columns("ekijyouka_tokuyaku_kakaku")
+            Me.columnekijyouka_kanihantei_kakaku = MyBase.Columns("ekijyouka_kanihantei_kakaku")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1830,6 +1951,28 @@ Partial Public Class KameitenDataSet
             MyBase.Columns.Add(Me.columnshitei_seikyuusyo_umu)
             Me.columnshiroari_kensa_hyouji = New Global.System.Data.DataColumn("shiroari_kensa_hyouji", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnshiroari_kensa_hyouji)
+            Me.columnhosyousyo_hak_kakuninsya = New Global.System.Data.DataColumn("hosyousyo_hak_kakuninsya", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhosyousyo_hak_kakuninsya)
+            Me.columnhosyousyo_hak_kakunin_date = New Global.System.Data.DataColumn("hosyousyo_hak_kakunin_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhosyousyo_hak_kakunin_date)
+            Me.columnhikiwatasi_inji_umu = New Global.System.Data.DataColumn("hikiwatasi_inji_umu", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhikiwatasi_inji_umu)
+            Me.columnhosyou_kikan_kakuninsya = New Global.System.Data.DataColumn("hosyou_kikan_kakuninsya", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhosyou_kikan_kakuninsya)
+            Me.columnhosyou_kikan_start_date = New Global.System.Data.DataColumn("hosyou_kikan_start_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhosyou_kikan_start_date)
+            Me.columnhosyousyo_hassou_umu = New Global.System.Data.DataColumn("hosyousyo_hassou_umu", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhosyousyo_hassou_umu)
+            Me.columnfuho_fax_kakuninsya = New Global.System.Data.DataColumn("fuho_fax_kakuninsya", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfuho_fax_kakuninsya)
+            Me.columnfuho_fax_kakunin_date = New Global.System.Data.DataColumn("fuho_fax_kakunin_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfuho_fax_kakunin_date)
+            Me.columnfuho_fax_umu = New Global.System.Data.DataColumn("fuho_fax_umu", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfuho_fax_umu)
+            Me.columnekijyouka_tokuyaku_kakaku = New Global.System.Data.DataColumn("ekijyouka_tokuyaku_kakaku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnekijyouka_tokuyaku_kakaku)
+            Me.columnekijyouka_kanihantei_kakaku = New Global.System.Data.DataColumn("ekijyouka_kanihantei_kakaku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnekijyouka_kanihantei_kakaku)
             Me.columnkbn.MaxLength = 1
             Me.columnkameiten_cd.MaxLength = 5
             Me.columnkameiten_mei1.MaxLength = 40
@@ -3899,6 +4042,160 @@ Partial Public Class KameitenDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hosyousyo_hak_kakuninsya() As String
+            Get
+                If Me.Ishosyousyo_hak_kakuninsyaNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hosyousyo_hak_kakuninsyaColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hosyousyo_hak_kakuninsyaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hosyousyo_hak_kakunin_date() As String
+            Get
+                If Me.Ishosyousyo_hak_kakunin_dateNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hosyousyo_hak_kakunin_dateColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hosyousyo_hak_kakunin_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hikiwatasi_inji_umu() As String
+            Get
+                If Me.Ishikiwatasi_inji_umuNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hikiwatasi_inji_umuColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hikiwatasi_inji_umuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hosyou_kikan_kakuninsya() As String
+            Get
+                If Me.Ishosyou_kikan_kakuninsyaNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hosyou_kikan_kakuninsyaColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hosyou_kikan_kakuninsyaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hosyou_kikan_start_date() As String
+            Get
+                If Me.Ishosyou_kikan_start_dateNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hosyou_kikan_start_dateColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hosyou_kikan_start_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hosyousyo_hassou_umu() As String
+            Get
+                If Me.Ishosyousyo_hassou_umuNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.hosyousyo_hassou_umuColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.hosyousyo_hassou_umuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fuho_fax_kakuninsya() As String
+            Get
+                If Me.Isfuho_fax_kakuninsyaNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.fuho_fax_kakuninsyaColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.fuho_fax_kakuninsyaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fuho_fax_kakunin_date() As String
+            Get
+                If Me.Isfuho_fax_kakunin_dateNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.fuho_fax_kakunin_dateColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.fuho_fax_kakunin_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fuho_fax_umu() As String
+            Get
+                If Me.Isfuho_fax_umuNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.fuho_fax_umuColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.fuho_fax_umuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ekijyouka_tokuyaku_kakaku() As String
+            Get
+                If Me.Isekijyouka_tokuyaku_kakakuNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.ekijyouka_tokuyaku_kakakuColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.ekijyouka_tokuyaku_kakakuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ekijyouka_kanihantei_kakaku() As String
+            Get
+                If Me.Isekijyouka_kanihantei_kakakuNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.ekijyouka_kanihantei_kakakuColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.ekijyouka_kanihantei_kakakuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IskbnNull() As Boolean
             Return Me.IsNull(Me.tablem_kameitenTable.kbnColumn)
         End Function
@@ -4746,6 +5043,116 @@ Partial Public Class KameitenDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Setshiroari_kensa_hyoujiNull()
             Me(Me.tablem_kameitenTable.shiroari_kensa_hyoujiColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishosyousyo_hak_kakuninsyaNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hosyousyo_hak_kakuninsyaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethosyousyo_hak_kakuninsyaNull()
+            Me(Me.tablem_kameitenTable.hosyousyo_hak_kakuninsyaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishosyousyo_hak_kakunin_dateNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hosyousyo_hak_kakunin_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethosyousyo_hak_kakunin_dateNull()
+            Me(Me.tablem_kameitenTable.hosyousyo_hak_kakunin_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishikiwatasi_inji_umuNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hikiwatasi_inji_umuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethikiwatasi_inji_umuNull()
+            Me(Me.tablem_kameitenTable.hikiwatasi_inji_umuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishosyou_kikan_kakuninsyaNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hosyou_kikan_kakuninsyaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethosyou_kikan_kakuninsyaNull()
+            Me(Me.tablem_kameitenTable.hosyou_kikan_kakuninsyaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishosyou_kikan_start_dateNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hosyou_kikan_start_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethosyou_kikan_start_dateNull()
+            Me(Me.tablem_kameitenTable.hosyou_kikan_start_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ishosyousyo_hassou_umuNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.hosyousyo_hassou_umuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sethosyousyo_hassou_umuNull()
+            Me(Me.tablem_kameitenTable.hosyousyo_hassou_umuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfuho_fax_kakuninsyaNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.fuho_fax_kakuninsyaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfuho_fax_kakuninsyaNull()
+            Me(Me.tablem_kameitenTable.fuho_fax_kakuninsyaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfuho_fax_kakunin_dateNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.fuho_fax_kakunin_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfuho_fax_kakunin_dateNull()
+            Me(Me.tablem_kameitenTable.fuho_fax_kakunin_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfuho_fax_umuNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.fuho_fax_umuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfuho_fax_umuNull()
+            Me(Me.tablem_kameitenTable.fuho_fax_umuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isekijyouka_tokuyaku_kakakuNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.ekijyouka_tokuyaku_kakakuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setekijyouka_tokuyaku_kakakuNull()
+            Me(Me.tablem_kameitenTable.ekijyouka_tokuyaku_kakakuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isekijyouka_kanihantei_kakakuNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.ekijyouka_kanihantei_kakakuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setekijyouka_kanihantei_kakakuNull()
+            Me(Me.tablem_kameitenTable.ekijyouka_kanihantei_kakakuColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

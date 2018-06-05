@@ -249,6 +249,9 @@ Partial Public Class kakakuseikyuJyouhou
         'Me.tbxSSGRkk.Attributes.Add("onblur", "checkNumberAddFig(this);")
         'Me.tbxKaiseki.Attributes.Add("onblur", "checkNumberAddFig(this);")
         Me.tbxKaiyaku.Attributes.Add("onblur", "checkNumberAddFig(this);")
+
+        Me.tbx_ekijyouka_tokuyaku_kakaku.Attributes.Add("onblur", "checkNumberAddFig(this);")
+        Me.tbx_ekijyouka_kanihantei_kakaku.Attributes.Add("onblur", "checkNumberAddFig(this);")
         '13/06/13 —k‘o ‰ğÍ•i¿•ÛØ—¿  ‚Æ‚¢‚¤€–Ú‚ğ’Ç‰Á‚·‚é@-------------«
         Me.tbxKaisekiHosyouKkk.Attributes.Add("onblur", "checkNumberAddFig(this);")
         Me.tbxSsgrKkk.Attributes.Add("onblur", "checkNumberAddFig(this);")
@@ -262,6 +265,8 @@ Partial Public Class kakakuseikyuJyouhou
         'Me.tbxSSGRkk.Attributes.Add("onfocus", "removeFig(this);")
         'Me.tbxKaiseki.Attributes.Add("onfocus", "removeFig(this);")
         Me.tbxKaiyaku.Attributes.Add("onfocus", "removeFig(this);")
+        Me.tbx_ekijyouka_tokuyaku_kakaku.Attributes.Add("onfocus", "removeFig(this);")
+        Me.tbx_ekijyouka_kanihantei_kakaku.Attributes.Add("onfocus", "removeFig(this);")
         '13/06/13 —k‘o ‰ğÍ•i¿•ÛØ—¿  ‚Æ‚¢‚¤€–Ú‚ğ’Ç‰Á‚·‚é@-------------«
         Me.tbxKaisekiHosyouKkk.Attributes.Add("onfocus", "removeFig(this);")
         Me.tbxSsgrKkk.Attributes.Add("onfocus", "removeFig(this);")
@@ -476,6 +481,8 @@ Partial Public Class kakakuseikyuJyouhou
             'Me.tbxSSGRkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ssgr_kkk")))
             'Me.tbxKaiseki.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiseki_hosyou_kkk")))
             Me.tbxKaiyaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiyaku_haraimodosi_kkk")))
+            Me.tbx_ekijyouka_tokuyaku_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_tokuyaku_kakaku")))
+            Me.tbx_ekijyouka_kanihantei_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_kanihantei_kakaku")))
             '13/06/13 —k‘o ‰ğÍ•i¿•ÛØ—¿  ‚Æ‚¢‚¤€–Ú‚ğ’Ç‰Á‚·‚é@-------------«
             Me.tbxKaisekiHosyouKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiseki_hosyou_kkk")))
             Me.tbxSsgrKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ssgr_kkk")))
@@ -2430,6 +2437,15 @@ Partial Public Class kakakuseikyuJyouhou
             TbxItemInputCheck(Me.tbxKaiyaku, "‰ğ–ñ•¥–ß‰¿Ši", "”¼Šp”š", , 1)
             TbxItemInputCheck(Me.tbxKaiyaku, "‰ğ–ñ•¥–ß‰¿Ši", "Œ…”", 8)
 
+
+            TbxItemInputCheck(Me.tbx_ekijyouka_tokuyaku_kakaku, "‰tó‰»“Á–ñ”ï", "”¼Šp”š", , 1)
+            TbxItemInputCheck(Me.tbx_ekijyouka_tokuyaku_kakaku, "‰tó‰»“Á–ñ”ï", "Œ…”", 8)
+
+
+            TbxItemInputCheck(Me.tbx_ekijyouka_kanihantei_kakaku, "‰tó‰»ŠÈˆÕ”»’è‰¿Ši", "”¼Šp”š", , 1)
+            TbxItemInputCheck(Me.tbx_ekijyouka_kanihantei_kakaku, "‰tó‰»ŠÈˆÕ”»’è‰¿Ši", "Œ…”", 8)
+
+
             '13/06/13 —k‘o ‰ğÍ•i¿•ÛØ—¿  ‚Æ‚¢‚¤€–Ú‚ğ’Ç‰Á‚·‚é@-------------«
             TbxItemInputCheck(Me.tbxKaisekiHosyouKkk, "SDSˆÈŠO Œã•t‰ğÍ•i¿•ÛØ—¿", "”¼Šp”š", , 1)
             TbxItemInputCheck(Me.tbxKaisekiHosyouKkk, "SDSˆÈŠO Œã•t‰ğÍ•i¿•ÛØ—¿", "Œ…”", 8)
@@ -2899,6 +2915,14 @@ Partial Public Class kakakuseikyuJyouhou
 
         If Me.tbxKaiyaku.Text.ToString.Trim <> "" Then
             tempTable.Rows(i).Item("kaiyaku_haraimodosi_kkk") = Me.tbxKaiyaku.Text.Replace(",", "")
+        End If
+
+        If Me.tbx_ekijyouka_tokuyaku_kakaku.Text.ToString.Trim <> "" Then
+            tempTable.Rows(i).Item("ekijyouka_tokuyaku_kakaku") = Me.tbx_ekijyouka_tokuyaku_kakaku.Text.Replace(",", "")
+        End If
+
+        If Me.tbx_ekijyouka_kanihantei_kakaku.Text.ToString.Trim <> "" Then
+            tempTable.Rows(i).Item("ekijyouka_kanihantei_kakaku") = Me.tbx_ekijyouka_kanihantei_kakaku.Text.Replace(",", "")
         End If
 
         '13/06/13 —k‘o ‰ğÍ•i¿•ÛØ—¿  ‚Æ‚¢‚¤€–Ú‚ğ’Ç‰Á‚·‚é@-------------«

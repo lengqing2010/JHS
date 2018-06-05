@@ -640,7 +640,7 @@
                                     <tr>
                                         <td style="width:306px; text-align:center;">
                                             <asp:DropDownList ID="ddl_koj_mitiraisyo_soufu_fuyou" runat="server" Width="270px" >
-                                            <asp:ListItem>必要</asp:ListItem>
+                                            <asp:ListItem Value="">必要</asp:ListItem>
                                             <asp:ListItem Value="1">1：不要</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>

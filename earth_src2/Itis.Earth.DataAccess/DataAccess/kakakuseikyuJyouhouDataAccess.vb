@@ -563,6 +563,10 @@ Public Class KakakuseikyuJyouhouDataAccess
         commandTextSb.AppendLine(" , fuho_fax_kakunin_date ")
         commandTextSb.AppendLine(" , fuho_fax_umu ")
 
+        commandTextSb.AppendLine(" , ekijyouka_tokuyaku_kakaku ")
+        commandTextSb.AppendLine(" , ekijyouka_kanihantei_kakaku ")
+
+
         commandTextSb.AppendLine(" FROM ")
         commandTextSb.AppendLine(" m_kameiten WITH (READCOMMITTED)")
         commandTextSb.AppendLine(" WHERE ")
@@ -1130,6 +1134,10 @@ Public Class KakakuseikyuJyouhouDataAccess
         commandTextSb.AppendLine(" , seikyuu_saki_brc7 = @seikyuu_saki_brc7")
         commandTextSb.AppendLine(" , seikyuu_saki_kbn7 = @seikyuu_saki_kbn7")
         '======================2011/06/28 車龍 追加 終了↑==================================
+        commandTextSb.AppendLine(" , ekijyouka_tokuyaku_kakaku = @ekijyouka_tokuyaku_kakaku")
+        commandTextSb.AppendLine(" , ekijyouka_kanihantei_kakaku = @ekijyouka_kanihantei_kakaku")
+
+
         commandTextSb.AppendLine(" ,upd_login_user_id = @upd_login_user_id ")
         commandTextSb.AppendLine(" ,upd_datetime = getdate() ")
         commandTextSb.AppendLine(" WHERE ")
@@ -1199,7 +1207,13 @@ Public Class KakakuseikyuJyouhouDataAccess
         paramList.Add(MakeParam("@renkei_siji_cd", SqlDbType.Int, 4, 2))
         paramList.Add(MakeParam("@sousin_jyky_cd", SqlDbType.Int, 4, 0))
 
+
+        paramList.Add(MakeParam("@ekijyouka_tokuyaku_kakaku", SqlDbType.Int, 10, EmptyToNull(dtKameiten.Rows(0).Item("ekijyouka_tokuyaku_kakaku"))))
+        paramList.Add(MakeParam("@ekijyouka_kanihantei_kakaku", SqlDbType.Int, 10, EmptyToNull(dtKameiten.Rows(0).Item("ekijyouka_kanihantei_kakaku"))))
+
+
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, dtKameiten.Rows(0).Item("kameiten_cd")))
+
 
         '更新されたデータセットを DB へ書き込み
         ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
@@ -1210,6 +1224,17 @@ Public Class KakakuseikyuJyouhouDataAccess
         '戻り値をセット成功の場合
         UpdKameiten = True
 
+    End Function
+
+    Private Function EmptyToNull(ByVal v As Object) As Object
+
+        If v Is DBNull.Value Then
+            Return v
+        ElseIf v = "" Then
+            Return DBNull.Value
+        Else
+            Return v.ToString()
+        End If
     End Function
 
     '==================2011/06/28 車龍 追加 開始↓==========================
