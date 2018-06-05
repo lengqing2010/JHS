@@ -551,6 +551,18 @@ Public Class KakakuseikyuJyouhouDataAccess
         commandTextSb.AppendLine(" , shitei_seikyuusyo_umu ")
         commandTextSb.AppendLine(" , shiroari_kensa_hyouji ")
 
+        commandTextSb.AppendLine(" , hosyousyo_hak_kakuninsya ")
+        commandTextSb.AppendLine(" , hosyousyo_hak_kakunin_date ")
+        commandTextSb.AppendLine(" , hikiwatasi_inji_umu ")
+
+        commandTextSb.AppendLine(" , hosyou_kikan_kakuninsya ")
+        commandTextSb.AppendLine(" , hosyou_kikan_start_date ")
+        commandTextSb.AppendLine(" , hosyousyo_hassou_umu ")
+
+        commandTextSb.AppendLine(" , fuho_fax_kakuninsya ")
+        commandTextSb.AppendLine(" , fuho_fax_kakunin_date ")
+        commandTextSb.AppendLine(" , fuho_fax_umu ")
+
         commandTextSb.AppendLine(" FROM ")
         commandTextSb.AppendLine(" m_kameiten WITH (READCOMMITTED)")
         commandTextSb.AppendLine(" WHERE ")

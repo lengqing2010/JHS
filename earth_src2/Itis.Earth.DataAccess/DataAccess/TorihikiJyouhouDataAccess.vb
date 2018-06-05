@@ -516,6 +516,16 @@ Public Class TorihikiJyouhouDataAccess
         commandTextSb.AppendLine(" ,shitei_seikyuusyo_umu = @shitei_seikyuusyo_umu ")
         commandTextSb.AppendLine(" ,shiroari_kensa_hyouji = @shiroari_kensa_hyouji ")
 
+        commandTextSb.AppendLine(" ,hosyousyo_hak_kakuninsya = @hosyousyo_hak_kakuninsya")
+        commandTextSb.AppendLine(" ,hosyousyo_hak_kakunin_date = @hosyousyo_hak_kakunin_date")
+        commandTextSb.AppendLine(" ,hikiwatasi_inji_umu = @hikiwatasi_inji_umu")
+        commandTextSb.AppendLine(" ,hosyou_kikan_kakuninsya = @hosyou_kikan_kakuninsya")
+        commandTextSb.AppendLine(" ,hosyou_kikan_start_date = @hosyou_kikan_start_date")
+        commandTextSb.AppendLine(" ,hosyousyo_hassou_umu = @hosyousyo_hassou_umu")
+        commandTextSb.AppendLine(" ,fuho_fax_kakuninsya = @fuho_fax_kakuninsya")
+        commandTextSb.AppendLine(" ,fuho_fax_kakunin_date = @fuho_fax_kakunin_date")
+        commandTextSb.AppendLine(" ,fuho_fax_umu = @fuho_fax_umu")
+
         commandTextSb.AppendLine(" WHERE ")
         commandTextSb.AppendLine(" kameiten_cd = @kameiten_cd ;")
 
@@ -569,6 +579,17 @@ Public Class TorihikiJyouhouDataAccess
         paramList.Add(MakeParam("@shitei_seikyuusyo_umu", SqlDbType.VarChar, 10, dtKameiten.Rows(0).Item("shitei_seikyuusyo_umu")))
         paramList.Add(MakeParam("@shiroari_kensa_hyouji", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("shiroari_kensa_hyouji")))
 
+        paramList.Add(MakeParam("@hosyousyo_hak_kakuninsya", SqlDbType.VarChar, 50, dtKameiten.Rows(0).Item("hosyousyo_hak_kakuninsya")))
+        paramList.Add(MakeParam("@hosyousyo_hak_kakunin_date", SqlDbType.DateTime, 20, EmptyToNULL(dtKameiten.Rows(0).Item("hosyousyo_hak_kakunin_date"))))
+        paramList.Add(MakeParam("@hikiwatasi_inji_umu", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("hikiwatasi_inji_umu")))
+
+        paramList.Add(MakeParam("@hosyou_kikan_kakuninsya", SqlDbType.VarChar, 50, dtKameiten.Rows(0).Item("hosyou_kikan_kakuninsya")))
+        paramList.Add(MakeParam("@hosyou_kikan_start_date", SqlDbType.DateTime, 20, EmptyToNULL(dtKameiten.Rows(0).Item("hosyou_kikan_start_date"))))
+        paramList.Add(MakeParam("@hosyousyo_hassou_umu", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("hosyousyo_hassou_umu")))
+
+        paramList.Add(MakeParam("@fuho_fax_kakuninsya", SqlDbType.VarChar, 50, dtKameiten.Rows(0).Item("fuho_fax_kakuninsya")))
+        paramList.Add(MakeParam("@fuho_fax_kakunin_date", SqlDbType.DateTime, 20, EmptyToNULL(dtKameiten.Rows(0).Item("fuho_fax_kakunin_date"))))
+        paramList.Add(MakeParam("@fuho_fax_umu", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("fuho_fax_umu")))
 
         '更新されたデータセットを DB へ書き込み
         ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)

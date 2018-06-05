@@ -55,6 +55,8 @@
                 </asp:UpdatePanel>
                     </span>      
                 </th>
+                <th class="tableTitle" colspan="1" rowspan="1" style="text-align: left">
+                </th>
             </tr>
         </thead>
         <!--基本情報明細-->
@@ -79,7 +81,7 @@
                                     </asp:DropDownList></td>
                                 <td  class="koumokuMei"  style=" width: 100px;">
                                     入金確認覚書</td>
-                                <td  style="width:180px;">
+                                <td colspan="2">
                                     <asp:TextBox ID="tbxNyukinKakuninKakusyo" runat="server" MaxLength="10" Width="80px" style="ime-mode:disabled;"></asp:TextBox></td>
                             </tr>
 
@@ -102,12 +104,11 @@
                                     WEB申込<br />
                                     採番判別FLG
                                 </td>
-                                <td style="" >
+                                <td colspan="2">
                                     <asp:DropDownList ID="ddlWebMoushikomiSaibanHanbetuFlg" runat="server">
                                         <asp:ListItem Value=""></asp:ListItem>
                                         <asp:ListItem Value="1">1:仮採番</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
+                                    </asp:DropDownList></td>
                                 
                             </tr>
 
@@ -135,7 +136,7 @@
                                     </asp:DropDownList></td>
                                 <td  class="koumokuMei"  >
                                     発注書FLG</td>
-                                <td style="" >
+                                <td colspan="2">
                                 <asp:DropDownList ID="ddlHattyusyoFlg" runat="server">
                                 </asp:DropDownList></td>
                             </tr>
@@ -150,13 +151,11 @@
                                     発注書未着<br />
                                     連携対象外FLG
                                 </td>
-                                
-                                <td style="" >
+                                <td colspan="2">
                                     <asp:DropDownList ID="ddlHattyuusyoMichakuRenkeiTaisyougaiFlg" runat="server">
                                         <asp:ListItem Value=""></asp:ListItem>
                                         <asp:ListItem Value="1">1:連携対象外</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
+                                    </asp:DropDownList></td>
                                     
                             </tr>      
             <tr>
@@ -170,7 +169,7 @@
                 <td class="koumokuMei">
                     シロアリ検査表示
                 </td>
-                <td colspan="3">
+                <td colspan="4">
                     <asp:DropDownList ID="ddl_shiroari_kensa_hyouji" runat="server">
                         <asp:ListItem Value="0">0：非表示</asp:ListItem>
                         <asp:ListItem Value="1">1：表示（請求支払なし）</asp:ListItem>
@@ -178,7 +177,84 @@
                     </asp:DropDownList>
                 </td>
             </tr>
-
+            
+            <tr>
+                <td class="koumokuMei" colspan="2">
+                    自動発行_先方確認者
+                </td>
+                <td colspan="2">
+                    <asp:TextBox ID="tbx_hosyousyo_hak_kakuninsya" runat="server" MaxLength="25" Width="140px"></asp:TextBox>
+                </td>
+                <td class="koumokuMei">
+                    自動発行_確認日
+                </td>
+                <td class="">
+                    <asp:TextBox ID="tbx_hosyousyo_hak_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                </td>
+                <td  class="koumokuMei" colspan="2">
+                    保証書引渡日印字有無 &nbsp;</td>
+                <td>
+                    <asp:DropDownList ID="ddl_hikiwatasi_inji_umu" runat="server">
+                        <asp:ListItem Value="">無</asp:ListItem>
+                        <asp:ListItem Value="1">1：有</asp:ListItem>
+                    </asp:DropDownList></td>
+            </tr>
+            
+            
+            
+            <tr>
+                <td class="koumokuMei" colspan="2">
+                    保証期間_先方確認者
+                </td>
+                <td colspan="2">
+                    <asp:TextBox ID="tbx_hosyou_kikan_kakuninsya" runat="server" MaxLength="25" Width="140px"></asp:TextBox>
+                </td>
+                <td class="koumokuMei">
+                    保証期間適用開始日
+                </td>
+                <td class="">
+                    <asp:TextBox ID="tbx_hosyou_kikan_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                </td>
+                <td class="koumokuMei" colspan="2">
+                    保証書発送有無 &nbsp;</td>
+                <td>
+                    <asp:DropDownList ID="ddl_hosyousyo_hassou_umu" runat="server">
+                        <asp:ListItem Value="">郵送</asp:ListItem>
+                        <asp:ListItem Value="1">1：不要</asp:ListItem>
+                    </asp:DropDownList></td>
+            </tr>
+            
+            
+            <tr>
+                <td class="koumokuMei" colspan="2">
+                    サポート調査<br />保証付保FAX先方確認者
+                </td>
+                <td colspan="2">
+                    <asp:TextBox ID="tbx_fuho_fax_kakuninsya" runat="server" MaxLength="25" Width="140px"></asp:TextBox>
+                </td>
+                <td class="koumokuMei">
+                    サポート調査<br />保証付保FAX確認日
+                </td>
+                <td class="">
+                    <asp:TextBox ID="tbx_fuho_fax_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                </td>
+                <td class="koumokuMei" colspan="2">
+                    サポート調査<br />保証付保FAX送付有無 &nbsp;</td>
+                <td>
+                    <asp:DropDownList ID="ddl_fuho_fax_umu" runat="server">
+                        <asp:ListItem Value="">無</asp:ListItem>
+                        <asp:ListItem Value="1">1：有(工事有り)</asp:ListItem>
+                        <asp:ListItem Value="2">2：有（工事無し）</asp:ListItem>
+                    </asp:DropDownList></td>
+            </tr>
+            <tr style="height:1px; size:1px;">
+                <td class="" colspan="7" style="font-size:0px; height:0px; border-style:none;"></td>
+                <td style="width: 34px;font-size:1px; height:0px;border-style:none;">&nbsp;</td>
+                <td  style="font-size:0px; height:0px;border-style:none;"></td>
+            </tr>
+            
+            
+            
         </tbody>
     </table>
 

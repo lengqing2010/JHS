@@ -202,6 +202,87 @@ Partial Public Class torihikiJyouhou
     Protected WithEvents ddl_shiroari_kensa_hyouji As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''tbx_hosyousyo_hak_kakuninsya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_hosyousyo_hak_kakuninsya As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbx_hosyousyo_hak_kakunin_date コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_hosyousyo_hak_kakunin_date As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddl_hikiwatasi_inji_umu コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddl_hikiwatasi_inji_umu As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''tbx_hosyou_kikan_kakuninsya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_hosyou_kikan_kakuninsya As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbx_hosyou_kikan_start_date コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_hosyou_kikan_start_date As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddl_hosyousyo_hassou_umu コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddl_hosyousyo_hassou_umu As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''tbx_fuho_fax_kakuninsya コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_fuho_fax_kakuninsya As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbx_fuho_fax_kakunin_date コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_fuho_fax_kakunin_date As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddl_fuho_fax_umu コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddl_fuho_fax_umu As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''titleText_gyoumu コントロール。
     '''</summary>
     '''<remarks>
