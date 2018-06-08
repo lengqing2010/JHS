@@ -376,7 +376,7 @@
                             &nbsp;
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="TextBox3" runat="server" Width="310px" MaxLength="20"></asp:TextBox>
+                            &nbsp;
                         </td>
                     </tr>
                     <tr align="left" style="height: 0px;">

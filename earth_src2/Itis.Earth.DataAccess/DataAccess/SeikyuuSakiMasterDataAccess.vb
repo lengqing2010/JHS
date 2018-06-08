@@ -165,7 +165,7 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .AppendLine("   ,MSS.ginkou_siten_cd ") '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
-
+            .AppendLine("   ,ISNULL(MSS.kyouryoku_kaihi_taisyou,'') as kyouryoku_kaihi_taisyou ")
             .AppendLine("FROM ")
             .AppendLine("   m_seikyuu_saki MSS WITH (READCOMMITTED) ")      '請求先マスタ
             .AppendLine("LEFT JOIN ")
@@ -294,7 +294,7 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .AppendLine("   ,ginkou_siten_cd ")           '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
-
+            .AppendLine("   ,kyouryoku_kaihi_taisyou ")
             .AppendLine(") ")
             .AppendLine("SELECT ")
             .AppendLine("   @seikyuu_saki_cd, ")    '請求先コード
@@ -360,6 +360,7 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .AppendLine("   ,@ginkou_siten_cd ")           '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
+            .AppendLine("   ,@kyouryoku_kaihi_taisyou ")
         End With
 
         'パラメータの設定
@@ -473,6 +474,8 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .Add(MakeParam("@ginkou_siten_cd", SqlDbType.VarChar, 3, IIf(dtSeikyuuSaki(0).ginkou_siten_cd = "", DBNull.Value, dtSeikyuuSaki(0).ginkou_siten_cd))) '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
+            .Add(MakeParam("@kyouryoku_kaihi_taisyou", SqlDbType.VarChar, 10, IIf(dtSeikyuuSaki(0).kyouryoku_kaihi_taisyou = "", DBNull.Value, dtSeikyuuSaki(0).kyouryoku_kaihi_taisyou))) '銀行支店コード
+
 
         End With
 
@@ -612,6 +615,7 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .AppendLine("   ,ginkou_siten_cd = @ginkou_siten_cd ") '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
+            .AppendLine("   ,kyouryoku_kaihi_taisyou = @kyouryoku_kaihi_taisyou ")
             .AppendLine("WHERE ")
             .AppendLine("  seikyuu_saki_cd = @seikyuu_saki_cd  ")
             .AppendLine("AND ")
@@ -733,6 +737,9 @@ Public Class SeikyuuSakiMasterDataAccess
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↓
             .Add(MakeParam("@ginkou_siten_cd", SqlDbType.VarChar, 3, IIf(dtSeikyuuSaki(0).ginkou_siten_cd = "", DBNull.Value, dtSeikyuuSaki(0).ginkou_siten_cd))) '銀行支店コード
             '2013/5/29 請求書の銀行支店コード増加に伴うEarth改修 -----------------------↑
+            .Add(MakeParam("@kyouryoku_kaihi_taisyou", SqlDbType.VarChar, 10, IIf(dtSeikyuuSaki(0).kyouryoku_kaihi_taisyou = "", DBNull.Value, dtSeikyuuSaki(0).kyouryoku_kaihi_taisyou))) '銀行支店コード
+
+
         End With
 
         ' クエリ実行

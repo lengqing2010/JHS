@@ -2019,7 +2019,7 @@ Partial Public Class SeikyuuSakiDataSet
         Public Property kyouryoku_kaihi_taisyou() As String
             Get
                 If Me.Iskyouryoku_kaihi_taisyouNull Then
-                    Return "(Empty)"
+                    Return String.Empty
                 Else
                     Return CType(Me(Me.tablem_seikyuu_saki.kyouryoku_kaihi_taisyouColumn),String)
                 End If

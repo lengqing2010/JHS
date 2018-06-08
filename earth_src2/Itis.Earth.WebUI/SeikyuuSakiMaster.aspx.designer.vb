@@ -517,15 +517,6 @@ Partial Public Class SeikyuuSakiMaster
     Protected WithEvents ddlKyouryokuKaihiJigou As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''TextBox3 コントロール。
-    '''</summary>
-    '''<remarks>
-    '''自動生成されたフィールド。
-    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
-    '''</remarks>
-    Protected WithEvents TextBox3 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''tbxKaisyuu1TegataSiteGessuu コントロール。
     '''</summary>
     '''<remarks>
