@@ -193,7 +193,7 @@ Public Class CommonCheck
     ''' <remarks></remarks>
     Function CheckNum(ByVal inTarget As String, ByVal PARAM As String, Optional ByVal kbn As String = "") As String
         Dim strTarget As String = ""
-        strTarget = Replace(inTarget, ",", "")
+        strTarget = Replace(inTarget, ",", "") & ""
         If strTarget.Length = Encoding.Default.GetByteCount(strTarget) And IsNumeric(strTarget) And InStr(strTarget, ".") = 0 And InStr(strTarget, "+") = 0 Then
             If kbn = "" Then
                 If InStr(strTarget, "-") > 0 Then

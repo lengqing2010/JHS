@@ -133,6 +133,13 @@ Partial Public Class TyuiJyouhouInquiry
             '========2015/02/03 王莎莎 407679の対応 追加↑======================
 
 
+            Me.tbx_siyou_kakuninhi_jigyousya.Attributes.Add("onblur", "checkNumberAddFig(this);")
+            Me.tbx_siyou_kakuninhi_jigyousya.Attributes.Add("onfocus", "removeFig(this);")
+
+
+            Me.tbx_siyou_kakuninhi_kojkaisya.Attributes.Add("onblur", "checkNumberAddFig(this);")
+            Me.tbx_siyou_kakuninhi_kojkaisya.Attributes.Add("onfocus", "removeFig(this);")
+
             Call Me.SetKihouSyouhinAndTyousaHouhou()
         Else
             closecover()
@@ -2020,8 +2027,13 @@ Partial Public Class TyuiJyouhouInquiry
         Dim CommonCheck As New CommonCheck
 
 
-        Dim strErr As String
-        strErr = CommonCheck.CheckHankaku(tbx_siyou_kakuninhi_jigyousya.Text, "工事設計確認費（事業者）", "1")
+        Dim strErr As String = ""
+
+        If strErr = "" And tbx_siyou_kakuninhi_jigyousya.Text <> "" Then
+            strErr = CommonCheck.CheckNum(tbx_siyou_kakuninhi_jigyousya.Text.Replace(",", ""), "工事設計確認費（事業者）")
+        End If
+
+
         If strErr <> "" Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "siyou_kakuninhi", "alert('" & strErr & "');document.getElementById('" & Me.tbx_siyou_kakuninhi_jigyousya.ClientID & "').select();", True)
             Exit Sub
@@ -2034,7 +2046,7 @@ Partial Public Class TyuiJyouhouInquiry
         'End If
 
 
-        If TyuiJyouhouInquiryLogic.UpdKojSiyouKakunin(ViewState("KameitenCd").ToString, Me.ddl_koj_mitiraisyo_soufu_fuyou.SelectedValue, Me.tbx_siyou_kakuninhi_jigyousya.Text, Me.tbx_siyou_kakuninhi_kojkaisya.Text, 1) Then
+        If TyuiJyouhouInquiryLogic.UpdKojSiyouKakunin(ViewState("KameitenCd").ToString, Me.ddl_koj_mitiraisyo_soufu_fuyou.SelectedValue, Me.tbx_siyou_kakuninhi_jigyousya.Text.Replace(",", ""), Me.tbx_siyou_kakuninhi_kojkaisya.Text.Replace(",", ""), 1) Then
             '成功の場合
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "siyou_kakuninhi", "alert('" & Messages.Instance.MSG018S.Replace("@PARAM1", "工事・仕様確認") & "');", True)
         Else
@@ -2051,21 +2063,26 @@ Partial Public Class TyuiJyouhouInquiry
         Dim CommonCheck As New CommonCheck
 
 
-        Dim strErr As String
+        Dim strErr As String = ""
         'strErr = CommonCheck.CheckHankaku(tbx_siyou_kakuninhi_jigyousya.Text, "工事設計確認費（事業者）", "1")
         'If strErr <> "" Then
         '    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "siyou_kakuninhi", "alert('" & strErr & "');document.getElementById('" & Me.tbx_siyou_kakuninhi_jigyousya.ClientID & "').select();", True)
         '    Exit Sub
         'End If
 
-        strErr = CommonCheck.CheckHankaku(tbx_siyou_kakuninhi_kojkaisya.Text, "工事設計確認費（工事会社）", "1")
+        If strErr = "" And tbx_siyou_kakuninhi_kojkaisya.Text <> "" Then
+            strErr = CommonCheck.CheckNum(tbx_siyou_kakuninhi_kojkaisya.Text.Replace(",", ""), "工事設計確認費（工事会社）")
+        End If
+
+
+
         If strErr <> "" Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "siyou_kakuninhi", "alert('" & strErr & "');document.getElementById('" & Me.tbx_siyou_kakuninhi_kojkaisya.ClientID & "').select();", True)
             Exit Sub
         End If
 
 
-        If TyuiJyouhouInquiryLogic.UpdKojSiyouKakunin(ViewState("KameitenCd").ToString, Me.ddl_koj_mitiraisyo_soufu_fuyou.SelectedValue, Me.tbx_siyou_kakuninhi_jigyousya.Text, Me.tbx_siyou_kakuninhi_kojkaisya.Text, 2) Then
+        If TyuiJyouhouInquiryLogic.UpdKojSiyouKakunin(ViewState("KameitenCd").ToString, Me.ddl_koj_mitiraisyo_soufu_fuyou.SelectedValue, Me.tbx_siyou_kakuninhi_jigyousya.Text.Replace(",", ""), Me.tbx_siyou_kakuninhi_kojkaisya.Text.Replace(",", ""), 2) Then
             '成功の場合
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "siyou_kakuninhi", "alert('" & Messages.Instance.MSG018S.Replace("@PARAM1", "工事・仕様確認") & "');", True)
         Else

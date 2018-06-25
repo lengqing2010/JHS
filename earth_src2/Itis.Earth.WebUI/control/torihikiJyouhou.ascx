@@ -210,7 +210,7 @@
                     <asp:TextBox ID="tbx_hosyou_kikan_kakuninsya" runat="server" MaxLength="25" Width="140px"></asp:TextBox>
                 </td>
                 <td class="koumokuMei">
-                    保証期間適用開始日
+                    保証期<br />間適用開始日
                 </td>
                 <td class="">
                     <asp:TextBox ID="tbx_hosyou_kikan_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>

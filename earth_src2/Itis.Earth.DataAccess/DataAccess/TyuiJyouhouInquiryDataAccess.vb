@@ -2345,16 +2345,19 @@ Public Class TyuiJyouhouInquiryDataAccess
             .AppendLine("	koj_mitiraisyo_soufu_fuyou = @koj_mitiraisyo_soufu_fuyou ")
             If updKmFlg = 1 Then
                 .AppendLine("	,siyou_kakuninhi_jigyousya = @siyou_kakuninhi_jigyousya ")
+                paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, IIf(koj_mitiraisyo_soufu_fuyou.Equals(String.Empty), DBNull.Value, koj_mitiraisyo_soufu_fuyou)))
+                paramList.Add(MakeParam("@siyou_kakuninhi_jigyousya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_jigyousya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_jigyousya.Replace(",", ""))))
+
             Else
                 .AppendLine("	,siyou_kakuninhi_kojkaisya = @siyou_kakuninhi_kojkaisya ")
+                paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, IIf(koj_mitiraisyo_soufu_fuyou.Equals(String.Empty), DBNull.Value, koj_mitiraisyo_soufu_fuyou)))
+                paramList.Add(MakeParam("@siyou_kakuninhi_kojkaisya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_kojkaisya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_kojkaisya.Replace(",", ""))))
+
             End If
             .AppendLine("WHERE ")
             .AppendLine("	kameiten_cd = @kameiten_cd ")
         End With
-        paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, IIf(koj_mitiraisyo_soufu_fuyou.Equals(String.Empty), DBNull.Value, koj_mitiraisyo_soufu_fuyou)))
-        paramList.Add(MakeParam("@siyou_kakuninhi_jigyousya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_jigyousya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_jigyousya)))
-        paramList.Add(MakeParam("@siyou_kakuninhi_kojkaisya", SqlDbType.Int, 10, IIf(siyou_kakuninhi_kojkaisya.Trim.Equals(String.Empty), DBNull.Value, siyou_kakuninhi_kojkaisya)))
-        paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
+               paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
 
         updCnt = ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
 

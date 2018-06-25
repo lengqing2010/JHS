@@ -630,7 +630,7 @@
                                     工事見積依頼書の送付</td>
                                 <td style="width: 316px;border-right: 1px solid black;text-align:left;">
                                     工事設計確認費（事業者）（円）   </td>
-                                <td style="border-right: 1px solid black;">
+                                <td style="border-right: 1px solid black;text-align:left;">
                                     工事設計確認費（工事会社）（円）  </td>
                             </tr>
                         </table>
@@ -645,11 +645,11 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="tbx_siyou_kakuninhi_jigyousya" runat="server" Width="250px" MaxLength="11" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
+                                            <asp:TextBox ID="tbx_siyou_kakuninhi_jigyousya" runat="server" Width="250px" MaxLength="9" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
                                             <asp:Button ID="btn_siyou_kakuninhi_jigyousya" runat="server" Text="登録" Width="32px" OnClick="btn_siyou_kakuninhi_jigyousya_Click" />
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="tbx_siyou_kakuninhi_kojkaisya" runat="server" Width="250px" MaxLength="11" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
+                                            <asp:TextBox ID="tbx_siyou_kakuninhi_kojkaisya" runat="server" Width="250px" MaxLength="9" style="text-align:right;ime-mode: disabled;" ></asp:TextBox>
                                             <asp:Button ID="btn_siyou_kakuninhi_kojkaisya" runat="server" Text="登録" Width="32px" />
                                         </td>
                                     </tr>
@@ -737,4 +737,28 @@
         <asp:ListItem Value="8"></asp:ListItem>
         <asp:ListItem Value="9"></asp:ListItem>
     </asp:DropDownList>--%>
+    
+    <script language="javascript">
+    /**
+ * 桁区切り除去
+ * @param obj:処理対象オブジェクト
+ * @return
+ */
+function removeFig(obj){
+  obj.value = obj.value.Trim();
+  if(obj.value == "")return;
+  obj.value = removeFigure(obj.value);
+  obj.select();
+}
+/**
+ * 数値チェック3桁区切り有り
+ * @param obj:処理対象オブジェクト
+ * @return
+ */
+function checkNumberAddFig(obj){
+  obj.value = obj.value.Trim();
+  if(obj.value == "")return;
+  return checkKingaku(obj);
+}
+    </script>
 </asp:Content>
