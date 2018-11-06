@@ -87,6 +87,8 @@
                             &nbsp; &nbsp;<asp:Button ID="btnClearMeisai" runat="server" Text="明細クリア" Width="90px" />
                             <asp:Button ID="btnTyuuijikou" runat="server" Text="注意情報" Width="90px" Style="text-align: center;
                                 margin-left: 60px;" />
+                            
+                     
                         </td>
                         <td class="koumokuMei">
                             取消</td>
@@ -218,6 +220,7 @@
                                     <asp:TextBox ID="tbxTougouKaikeiTokusakiCd" runat="server" CssClass="codeNumber"
                                         Width="100px" MaxLength="10"></asp:TextBox>
                                     <asp:Button ID="btnSaiban" runat="server" Width="40px" Text="採番" Style="margin-left: 10px;" />
+                                    <asp:Button ID="btnKassei" runat="server" Text="" Width="1px" style="display:none;" />
                                 </td>
                             </tr>
                         </table>

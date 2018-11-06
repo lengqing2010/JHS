@@ -110,4 +110,31 @@ Partial Public Class common_drop
         End Set
     End Property
 
+
+    ''' <summary>
+    ''' OnClick
+    ''' </summary>
+    ''' <value></value>
+    ''' <remarks></remarks>
+    Public WriteOnly Property OnChange() As String
+        Set(ByVal value As String)
+            ViewState("subNameOnChange") = value
+            Me.ddlCommonDrop.Attributes.Item("onchange") = "document.getElementById('" & Me.btnEvent1.ClientID & "').click()"
+        End Set
+    End Property
+
+    Private Sub btnEvent1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnEvent1.Click
+        If ViewState("subNameOnChange") IsNot Nothing AndAlso ViewState("subNameOnChange").ToString.Trim <> String.Empty Then
+            Dim functionName As String = ViewState("subNameOnChange").ToString
+            Dim csScript As New StringBuilder
+            Dim pPage As Page = Me.Parent.Page
+            Dim pType As Type = pPage.GetType
+            Dim fname As String = functionName.Replace("(", String.Empty).Replace(")", String.Empty).Replace(";", String.Empty).Trim
+            Dim methodInfo As System.Reflection.MethodInfo = pType.GetMethod(fname)
+
+            If Not methodInfo Is Nothing Then
+                methodInfo.Invoke(pPage, New Object() {})
+            End If
+        End If
+    End Sub
 End Class

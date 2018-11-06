@@ -7,6 +7,52 @@ Partial Public Class kihon_jyouhou
     Private strLoginUserId As String
     Private _kenngenn As Boolean
 
+
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei(strKameitenCd, "")
+
+        '年間棟数
+        tbxlblNenkanTousuu.ReadOnly = Not itKassei
+        tbxlblNenkanTousuu.CssClass = IIf(itKassei, "", "readOnly")
+
+        '工事売上種別
+        Common_drop2.Enabled = itKassei
+        Common_drop2.CssClass = IIf(itKassei, "", "readOnly")
+
+
+    End Sub
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
+
     ''' <summary>ページロッド</summary>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -18,6 +64,7 @@ Partial Public Class kihon_jyouhou
         Me.tbxAddNengetu.Attributes.Add("onblur", "chkNengetu(this)")
         ddlSyoumeisyo.Attributes.Add("onchange", "ShowModal();")
         '  tbxSeisikiKana.Attributes.Add("onblur", "fncTokomozi(this)")
+        SetKassei()
     End Sub
     ''' <summary>ページロINIT</summary>
     Public Sub PageINIT()

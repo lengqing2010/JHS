@@ -4,6 +4,69 @@ Imports Itis.Earth.DataAccess
 Partial Public Class KihonJyouhouInput
     Inherits System.Web.UI.Page
 
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String
+
+        If tbxKyoutuKubun.Visible AndAlso tbxKyoutuKubun.Text <> "" Then
+            kbn = tbxKyoutuKubun.Text
+        Else
+            If comdrp.Visible Then
+                kbn = Me.comdrp.SelectedValue
+            Else
+                kbn = Me.common_drop1.SelectedValue
+            End If
+        End If
+
+
+        Dim itKassei As Boolean = Iskassei(tbxKyoutuKameitenCd.Text, kbn)
+
+
+        tbxKyoutuKameitenMei2.ReadOnly = Not itKassei
+        tbxKyoutuKameitenMei2.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxKyoutukakeMei2.ReadOnly = Not itKassei
+        tbxKyoutukakeMei2.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxKeiretuCd.ReadOnly = Not itKassei
+        tbxKeiretuCd.CssClass = IIf(itKassei, "", "readOnly")
+        btnKeiretuCd.Enabled = itKassei
+
+
+        tbxKyoutuKameitenMei2.Text = ""
+        tbxKyoutukakeMei2.Text = ""
+        tbxKeiretuCd.Text = ""
+        tbxKeiretuMei.Text = ""
+
+    End Sub
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
+
     ''' <summary>加盟店情報を新規登録する</summary>
     ''' <remarks>加盟店情報新規登録を提供する</remarks>
     ''' <history>
@@ -14,6 +77,11 @@ Partial Public Class KihonJyouhouInput
 
     ''' <summary>ページロッド</summary>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+        comdrp.OnChange = "SetKassei()"
+        common_drop1.OnChange = "SetKassei()"
+        '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
 
         '権限チェック
         Dim user_info As New LoginUserInfo
@@ -39,13 +107,16 @@ Partial Public Class KihonJyouhouInput
 
         If Not IsPostBack Then
             '参照履歴管理テーブルを登録する。
-            commonCheck.SetURL(Me, ninsyou.GetUserID())
+            CommonCheck.SetURL(Me, ninsyou.GetUserID())
             CType(Me.common_drop1.FindControl("ddlCommonDrop"), DropDownList).Focus()
 
             '==============2012/03/21 車龍 405721案件の対応 追加↓=============================
             '「取消」ddlをセットする
             Call Me.SetTorikesiDDL()
             '==============2012/03/21 車龍 405721案件の対応 追加↑=============================
+            '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+            SetKassei()
+            '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
         Else
             If hidTourokuFlg.Value = "1" Then
                 hidTourokuFlg.Value = String.Empty
@@ -70,6 +141,7 @@ Partial Public Class KihonJyouhouInput
         tbxThKasiCd.Attributes.Add("onBlur", "fncToUpper(this);")
         tbxKyoutukakeMei1.Attributes.Add("onBlur", "fncTokomozi(this);")
         tbxKyoutukakeMei2.Attributes.Add("onBlur", "fncTokomozi(this);")
+
 
     End Sub
 
@@ -122,6 +194,9 @@ Partial Public Class KihonJyouhouInput
 
     ''' <summary>検索ボタンをクリック時</summary>
     Private Sub btnKameitenSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKameitenSearch.Click
+
+        SetKassei()
+
         Dim csScript As New StringBuilder
         Dim commonCheck As New CommonCheck
 
@@ -372,7 +447,7 @@ Partial Public Class KihonJyouhouInput
 
         '設定した加盟店コードを存在チェック
         Dim dtKameitenCd As KihonJyouhouInputDataSet.KameitenCdTableDataTable
-        dtKameitenCd = kihonJyouhouInputLogic.GetKameitenCd(String.Empty, tbxKyoutuKameitenCd.Text)
+        dtKameitenCd = KihonJyouhouInputLogic.GetKameitenCd(String.Empty, tbxKyoutuKameitenCd.Text)
         If dtKameitenCd.Rows.Count <> 0 Then
             ShowMsg(String.Format(Messages.Instance.MSG2029E, "加盟店コード", "加盟店コード").ToString, btnTouroku.ClientID)
             Exit Sub
@@ -429,9 +504,9 @@ Partial Public Class KihonJyouhouInput
         row.torikesi = Me.ddlTorikesi.SelectedValue.Trim
         '==============2012/03/21 車龍 405721案件の対応 修正↑=============================
         row.kameiten_mei1 = tbxKyoutuKameitenMei1.Text
-        row.tenmei_kana1 = commonCheck.SetTokomozi(tbxKyoutukakeMei1.Text)
+        row.tenmei_kana1 = CommonCheck.SetTokomozi(tbxKyoutukakeMei1.Text)
         row.kameiten_mei2 = IIf(tbxKyoutuKameitenMei2.Text = String.Empty, String.Empty, tbxKyoutuKameitenMei2.Text)
-        row.tenmei_kana2 = IIf(tbxKyoutukakeMei2.Text = String.Empty, String.Empty, commonCheck.SetTokomozi(tbxKyoutukakeMei2.Text))
+        row.tenmei_kana2 = IIf(tbxKyoutukakeMei2.Text = String.Empty, String.Empty, CommonCheck.SetTokomozi(tbxKyoutukakeMei2.Text))
         row.builder_no = IIf(tbxBirudaNo.Text = String.Empty, String.Empty, tbxBirudaNo.Text)
         row.keiretu_cd = IIf(tbxKeiretuCd.Text = String.Empty, String.Empty, tbxKeiretuCd.Text)
         row.eigyousyo_cd = IIf(tbxEigyousyoCd.Text = String.Empty, String.Empty, tbxEigyousyoCd.Text)
@@ -440,7 +515,7 @@ Partial Public Class KihonJyouhouInput
         dtParamKameitenInfo.AddParam_KameitenInfoRow(row)
 
         '加盟店マスタテーブルに登録する
-        If kihonJyouhouInputLogic.SetKameitenInfo(dtParamKameitenInfo) Then
+        If KihonJyouhouInputLogic.SetKameitenInfo(dtParamKameitenInfo) Then
             Server.Transfer("KihonJyouhouInquiry.aspx?strKameitenCd=" & dtParamKameitenInfo(0).kameiten_cd & "")
         Else
             ShowMsg(Replace(Messages.Instance.MSG019E, "@PARAM1", "加盟店新規登録"), btnTouroku.ClientID)
@@ -481,7 +556,7 @@ Partial Public Class KihonJyouhouInput
             '==============2012/03/21 車龍 405721案件の対応 削除↑=============================
             '加盟店コード
             If Me.tbxKyoutuKameitenCd.Text <> String.Empty Then
-                .Append(commonCheck.CheckHankaku(Me.tbxKyoutuKameitenCd.Text, "加盟店コード"))
+                .Append(CommonCheck.CheckHankaku(Me.tbxKyoutuKameitenCd.Text, "加盟店コード"))
                 If csScript.ToString = String.Empty AndAlso Me.tbxKyoutuKameitenCd.Text.Length <> 5 Then
                     .Append(String.Format(Messages.Instance.MSG2004E, "加盟店コード", "5").ToString)
                 End If
@@ -489,62 +564,62 @@ Partial Public Class KihonJyouhouInput
                     strObjId = Me.tbxKyoutuKameitenCd.ClientID
                 End If
             Else
-                .Append(commonCheck.CheckHissuNyuuryoku(Me.tbxKyoutuKameitenCd.Text, "加盟店コード"))
+                .Append(CommonCheck.CheckHissuNyuuryoku(Me.tbxKyoutuKameitenCd.Text, "加盟店コード"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutuKameitenCd.ClientID
                 End If
             End If
             '加盟店名１
             If Me.tbxKyoutuKameitenMei1.Text <> String.Empty Then
-                .Append(commonCheck.CheckKinsoku(Me.tbxKyoutuKameitenMei1.Text, "加盟店名１"))
-                .Append(commonCheck.CheckByte(Me.tbxKyoutuKameitenMei1.Text, 40, "加盟店名１", kbn.ZENKAKU))
+                .Append(CommonCheck.CheckKinsoku(Me.tbxKyoutuKameitenMei1.Text, "加盟店名１"))
+                .Append(CommonCheck.CheckByte(Me.tbxKyoutuKameitenMei1.Text, 40, "加盟店名１", kbn.ZENKAKU))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutuKameitenMei1.ClientID
                 End If
             Else
-                .Append(commonCheck.CheckHissuNyuuryoku(Me.tbxKyoutuKameitenMei1.Text, "加盟店名１"))
+                .Append(CommonCheck.CheckHissuNyuuryoku(Me.tbxKyoutuKameitenMei1.Text, "加盟店名１"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutuKameitenMei1.ClientID
                 End If
             End If
             '店カナ名１
             If Me.tbxKyoutukakeMei1.Text <> String.Empty Then
-                .Append(commonCheck.CheckKatakana(commonCheck.SetTokomozi(Me.tbxKyoutukakeMei1.Text), "店カナ名１"))
+                .Append(CommonCheck.CheckKatakana(CommonCheck.SetTokomozi(Me.tbxKyoutukakeMei1.Text), "店カナ名１"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutukakeMei1.ClientID
                 End If
             Else
-                .Append(commonCheck.CheckHissuNyuuryoku(Me.tbxKyoutukakeMei1.Text, "店カナ名１"))
+                .Append(CommonCheck.CheckHissuNyuuryoku(Me.tbxKyoutukakeMei1.Text, "店カナ名１"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutukakeMei1.ClientID
                 End If
             End If
             '加盟店名２
             If Me.tbxKyoutuKameitenMei2.Text <> String.Empty Then
-                .Append(commonCheck.CheckKinsoku(Me.tbxKyoutuKameitenMei2.Text, "加盟店名２"))
-                .Append(commonCheck.CheckByte(Me.tbxKyoutuKameitenMei2.Text, 40, "加盟店名２", kbn.ZENKAKU))
+                .Append(CommonCheck.CheckKinsoku(Me.tbxKyoutuKameitenMei2.Text, "加盟店名２"))
+                .Append(CommonCheck.CheckByte(Me.tbxKyoutuKameitenMei2.Text, 40, "加盟店名２", kbn.ZENKAKU))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutuKameitenMei2.ClientID
                 End If
             End If
             '店カナ名２
             If Me.tbxKyoutukakeMei2.Text <> String.Empty Then
-                .Append(commonCheck.CheckKatakana(commonCheck.SetTokomozi(Me.tbxKyoutukakeMei2.Text), "店カナ名２"))
+                .Append(CommonCheck.CheckKatakana(CommonCheck.SetTokomozi(Me.tbxKyoutukakeMei2.Text), "店カナ名２"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxKyoutukakeMei2.ClientID
                 End If
             End If
             'ビルダ－NO
             If Me.tbxBirudaNo.Text <> String.Empty Then
-                .Append(commonCheck.ChkHankakuEisuuji(Me.tbxBirudaNo.Text, "ビルダ－NO"))
+                .Append(CommonCheck.ChkHankakuEisuuji(Me.tbxBirudaNo.Text, "ビルダ－NO"))
                 If csScript.ToString <> String.Empty And strObjId = String.Empty Then
                     strObjId = Me.tbxBirudaNo.ClientID
                 End If
             End If
             '系列コード
             If Me.tbxKeiretuCd.Text <> String.Empty Then
-                .Append(commonCheck.ChkHankakuEisuuji(Me.tbxKeiretuCd.Text, "系列コード"))
-                If commonCheck.ChkHankakuEisuuji(Me.tbxKeiretuCd.Text, "系列コード") = String.Empty Then
+                .Append(CommonCheck.ChkHankakuEisuuji(Me.tbxKeiretuCd.Text, "系列コード"))
+                If CommonCheck.ChkHankakuEisuuji(Me.tbxKeiretuCd.Text, "系列コード") = String.Empty Then
                     If commonSearch.GetCommonInfo(tbxKeiretuCd.Text, "m_keiretu", strKbn).Rows.Count = 0 Then
                         .Append(String.Format(Messages.Instance.MSG2008E, "系列コード").ToString)
                     End If
@@ -555,8 +630,8 @@ Partial Public Class KihonJyouhouInput
             End If
             '営業所コード
             If Me.tbxEigyousyoCd.Text <> String.Empty Then
-                .Append(commonCheck.ChkHankakuEisuuji(Me.tbxEigyousyoCd.Text, "営業所コード"))
-                If commonCheck.ChkHankakuEisuuji(Me.tbxEigyousyoCd.Text, "営業所コード") = String.Empty Then
+                .Append(CommonCheck.ChkHankakuEisuuji(Me.tbxEigyousyoCd.Text, "営業所コード"))
+                If CommonCheck.ChkHankakuEisuuji(Me.tbxEigyousyoCd.Text, "営業所コード") = String.Empty Then
                     If commonSearch.GetCommonInfo(tbxEigyousyoCd.Text, "m_eigyousyo").Rows.Count = 0 Then
                         .Append(String.Format(Messages.Instance.MSG2008E, "営業所コード").ToString)
                     End If
@@ -567,8 +642,8 @@ Partial Public Class KihonJyouhouInput
             End If
             'TH瑕疵ｺｰﾄﾞ
             If Me.tbxThKasiCd.Text <> String.Empty Then
-                .Append(commonCheck.CheckKinsoku(Me.tbxThKasiCd.Text, "TH瑕疵ｺｰﾄﾞ"))
-                If commonCheck.CheckKinsoku(Me.tbxThKasiCd.Text, "TH瑕疵ｺｰﾄﾞ") = String.Empty Then
+                .Append(CommonCheck.CheckKinsoku(Me.tbxThKasiCd.Text, "TH瑕疵ｺｰﾄﾞ"))
+                If CommonCheck.CheckKinsoku(Me.tbxThKasiCd.Text, "TH瑕疵ｺｰﾄﾞ") = String.Empty Then
                     If Not jBn.byteCheckSJIS(Me.tbxThKasiCd.Text, 7) Then
                         .Append(String.Format(Messages.Instance.MSG2028E, "TH瑕疵ｺｰﾄﾞ", "7"))
                     End If
@@ -775,7 +850,7 @@ Partial Public Class KihonJyouhouInput
 
         'データを取得する
         Dim dtTorikesi As New Data.DataTable
-        dtTorikesi = kihonJyouhouInputLogic.GetTorikesiList()
+        dtTorikesi = KihonJyouhouInputLogic.GetTorikesiList()
 
         With Me.ddlTorikesi
             'ddlをBoundする

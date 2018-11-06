@@ -1,6 +1,72 @@
 Imports Itis.Earth.BizLogic
 Partial Public Class kyoutuu_jyouhou
     Inherits System.Web.UI.UserControl
+
+
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String
+
+        If tbxKyoutuKubun.Visible AndAlso tbxKyoutuKubun.Text <> "" Then
+            kbn = tbxKyoutuKubun.Text
+        Else
+            If comdrp.Visible Then
+                kbn = Me.comdrp.SelectedValue
+            Else
+                kbn = Me.common_drop1.SelectedValue
+            End If
+        End If
+
+
+        Dim itKassei As Boolean = Iskassei(tbxKyoutuKameitenCd.Text, kbn)
+
+
+        tbxKyoutuKameitenMei2.ReadOnly = Not itKassei
+        tbxKyoutuKameitenMei2.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxKyoutukakeMei2.ReadOnly = Not itKassei
+        tbxKyoutukakeMei2.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxKeiretuCd.ReadOnly = Not itKassei
+        tbxKeiretuCd.CssClass = IIf(itKassei, "", "readOnly")
+        btnKeiretuCd.Enabled = itKassei
+
+
+    End Sub
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
+
+
+
+
+
     Public Enum kbn As Integer
         KihonJyouhou = 1 'LIS6
         YosinJyouhou = 2 'WANGY10
@@ -326,6 +392,9 @@ Partial Public Class kyoutuu_jyouhou
         btnEigyouJyouhouInquiry.Visible = False
         tbxBirudaNo.Attributes.Add("onblur", "fncToUpper(this);")
         tbxThKasiCd.Attributes.Add("onblur", "fncToUpper(this);")
+
+        SetKassei()
+
     End Sub
 
     Public Function checkInput(ByRef strId As String) As String

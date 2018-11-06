@@ -128,6 +128,61 @@ Partial Public Class kakakuseikyuJyouhou
 
     End Property
 
+
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
+
+        'SDS以外 後付 解析品質保証料
+        tbxKaisekiHosyouKkk.ReadOnly = Not itKassei
+        tbxKaisekiHosyouKkk.CssClass = IIf(itKassei, "", "readOnly")
+        'SDS     後付 解析品質保証料
+        tbxSsgrKkk.ReadOnly = Not itKassei
+        tbxSsgrKkk.CssClass = IIf(itKassei, "", "readOnly")
+
+        '液状化特約費
+        tbx_ekijyouka_tokuyaku_kakaku.ReadOnly = Not itKassei
+        tbx_ekijyouka_tokuyaku_kakaku.CssClass = IIf(itKassei, "", "readOnly")
+
+        ' 液状化<br />簡易判定価格
+        tbx_ekijyouka_kanihantei_kakaku.ReadOnly = Not itKassei
+        tbx_ekijyouka_kanihantei_kakaku.CssClass = IIf(itKassei, "", "readOnly")
+
+
+       
+
+    End Sub
+
+
+
     ''' <summary>
     ''' 画面ロード
     ''' </summary>
@@ -159,6 +214,9 @@ Partial Public Class kakakuseikyuJyouhou
 
         'javaScript設定
         Call MakeJavaScript()
+
+
+        SetKassei()
 
     End Sub
 
@@ -481,16 +539,23 @@ Partial Public Class kakakuseikyuJyouhou
             'Me.tbxSSGRkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ssgr_kkk")))
             'Me.tbxKaiseki.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiseki_hosyou_kkk")))
             Me.tbxKaiyaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiyaku_haraimodosi_kkk")))
-            Me.tbx_ekijyouka_tokuyaku_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_tokuyaku_kakaku")))
-            Me.tbx_ekijyouka_kanihantei_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_kanihantei_kakaku")))
-            '13/06/13 楊双 解析品質保証料  という項目を追加する　-------------↓
-            Me.tbxKaisekiHosyouKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiseki_hosyou_kkk")))
-            Me.tbxSsgrKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ssgr_kkk")))
-            '13/06/13 楊双 解析品質保証料  という項目を追加する　-------------↑
 
             'Me.tbxSaitys.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("sai_tys_kkk")))
             'Me.tbxHousyomu.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("hosyounasi_umu")))
             'Me.tbxJizentys.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("jizen_tys_kkk")))
+
+
+            If sender = "btnCopy_Click" AndAlso Not Iskassei(_kameiten_cd, "") Then
+
+            Else
+                Me.tbx_ekijyouka_tokuyaku_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_tokuyaku_kakaku")))
+                Me.tbx_ekijyouka_kanihantei_kakaku.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ekijyouka_kanihantei_kakaku")))
+                '13/06/13 楊双 解析品質保証料  という項目を追加する　-------------↓
+                Me.tbxKaisekiHosyouKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("kaiseki_hosyou_kkk")))
+                Me.tbxSsgrKkk.Text = AddComa(CommonLG.getDisplayString(kameiten.Rows(0).Item("ssgr_kkk")))
+                '13/06/13 楊双 解析品質保証料  という項目を追加する　-------------↑
+            End If
+
 
             If sender = "Page_Load" Then
 

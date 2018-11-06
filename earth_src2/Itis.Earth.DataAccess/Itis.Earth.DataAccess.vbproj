@@ -90,6 +90,7 @@
     <Compile Include="DataAccess\KihonJyouhouInquiryDataAccess.vb" />
     <Compile Include="DataAccess\KojKakakuMasterDataAccess.vb" />
     <Compile Include="DataAccess\KyoutuuJyouhouDataAccess.vb" />
+    <Compile Include="DataAccess\SalesforceDataAccess.vb" />
     <Compile Include="DataAccess\SeikyuSakiMototyouOutputDataAccess.vb" />
     <Compile Include="DataAccess\SeikyusyoFcwOutputDataAccess.vb" />
     <Compile Include="DataAccess\SeikyuuSakiHenkouMasterDataAccess.vb" />

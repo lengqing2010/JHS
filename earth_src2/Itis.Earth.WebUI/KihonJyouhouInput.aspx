@@ -6,6 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script type="text/javascript" src="js/jhsearth.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
 
     <script type="text/javascript">
     //window名付与
@@ -36,6 +37,15 @@
         }
 	return true;
 }
+    </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+        
+        
+        
+        
+        });
     </script>
 
     <table class="titleTable" border="0" style="width: 960px; vertical-align: top;" cellpadding="0"
@@ -198,15 +208,41 @@
                             加盟店名２
                         </td>
                         <td style="width: 310px">
-                            <asp:TextBox ID="tbxKyoutuKameitenMei2" runat="server" MaxLength="40" Width="300px"></asp:TextBox>
+                            <asp:UpdatePanel ID="UpdatePanel10" runat="server" UpdateMode="Conditional" RenderMode="Inline">
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="btnTyokusetuNyuuryoku" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnTyokusetuNyuuryokuTyuusi" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnKameitenSearch" />
+                                    <asp:AsyncPostBackTrigger ControlID="comdrp" />
+                                    <asp:AsyncPostBackTrigger ControlID="common_drop1" />
+                                </Triggers>
+                                <ContentTemplate>
+                                     <asp:TextBox ID="tbxKyoutuKameitenMei2" runat="server" MaxLength="40" Width="300px"></asp:TextBox>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        
+                           
                         </td>
                         <td style="font-weight: bold;" class="koumokuMei">
                             店カナ名２
                         </td>
                         <td colspan="2" style="width: 311px">
-                            <asp:TextBox ID="tbxKyoutukakeMei2" runat="server" MaxLength="20" Width="300px"></asp:TextBox>
+                            <asp:UpdatePanel ID="UpdatePanel11" runat="server" UpdateMode="Conditional" RenderMode="Inline">
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="btnTyokusetuNyuuryoku" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnTyokusetuNyuuryokuTyuusi" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnKameitenSearch" />
+                                    <asp:AsyncPostBackTrigger ControlID="comdrp" />
+                                    <asp:AsyncPostBackTrigger ControlID="common_drop1" />
+                                </Triggers>
+                                <ContentTemplate>
+                                     <asp:TextBox ID="tbxKyoutukakeMei2" runat="server" MaxLength="20" Width="300px"></asp:TextBox>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        
+                            
                         </td>
-                    </tr>
+                    </tr> 
                     <tr style="height: 20px;">
                         <td style="font-weight: bold; height: 20px;" class="koumokuMei">
                             ビルダ－NO
@@ -222,6 +258,8 @@
                                     <asp:Button ID="btnBirudaNo" runat="server" Text="検索" OnClientClick="return fncKameitenSearch();" />
                                     <asp:TextBox ID="tbxBirudaMei" runat="server" Width="307px" BorderStyle="None" ReadOnly="True"
                                         TabIndex="-1" BackColor="transparent"></asp:TextBox>
+                                        
+                                        
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </td>
@@ -232,6 +270,8 @@
                             <asp:UpdatePanel ID="UpdatePanel9" runat="server" UpdateMode="Conditional" RenderMode="Inline">
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="btnTouroku" />
+                                     <asp:AsyncPostBackTrigger ControlID="comdrp" />
+                                    <asp:AsyncPostBackTrigger ControlID="common_drop1" />
                                 </Triggers>
                                 <ContentTemplate>
                                     <asp:TextBox ID="tbxKeiretuCd" runat="server" MaxLength="5" Width="65px" CssClass="codeNumber"></asp:TextBox>

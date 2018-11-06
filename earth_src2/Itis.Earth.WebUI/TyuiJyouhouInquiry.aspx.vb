@@ -12,6 +12,202 @@ Partial Public Class TyuiJyouhouInquiry
     Private KihonJyouhouBL As New KakakuseikyuJyouhouLogic()
     Private earthAction As New EarthAction
 
+
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei("", lblKyoutuKubun.Text.Trim)
+
+
+        '基本商品
+
+        ddlKihonSyouhin.Enabled = itKassei
+        ddlKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKihonSyouhinTyuuibun.ReadOnly = Not itKassei
+        tbxKihonSyouhinTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
+        btnKihonSyouhin.Enabled = itKassei
+        btnKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
+
+        '基本調査方法
+        ddlKihonTyousaHouhou.Enabled = itKassei
+        ddlKihonTyousaHouhou.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKihonTyousaHouhouTyuuibun.ReadOnly = Not itKassei
+        tbxKihonTyousaHouhouTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
+        btnKihonTyousaHouhou.Enabled = itKassei
+        btnKihonTyousaHouhou.CssClass = IIf(itKassei, "", "readOnly")
+
+
+        If Not itKassei Then
+            For i As Integer = 0 To grdNaiyou11.Rows.Count - 1
+                For Each c As Control In grdNaiyou11.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+            For i As Integer = 0 To grdNaiyou13.Rows.Count - 1
+                For Each c As Control In grdNaiyou13.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+            For i As Integer = 0 To grdNaiyou19.Rows.Count - 1
+                For Each c As Control In grdNaiyou19.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+
+            For i As Integer = 0 To grdNaiyou21.Rows.Count - 1
+                For Each c As Control In grdNaiyou21.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+
+            For i As Integer = 0 To grdNaiyou23.Rows.Count - 1
+                For Each c As Control In grdNaiyou23.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+            For i As Integer = 0 To grdNaiyou29.Rows.Count - 1
+                For Each c As Control In grdNaiyou29.Rows(i).Controls(1).Controls
+                    Try
+                        CType(c, TextBox).ReadOnly = Not itKassei
+                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex1 As Exception
+                        Try
+                            CType(c, Button).Enabled = itKassei
+                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex2 As Exception
+                            Try
+                                CType(c, DropDownList).Enabled = itKassei
+                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            Catch ex As Exception
+                            End Try
+
+                        End Try
+                    End Try
+                Next
+            Next
+        End If
+
+
+        ddl_koj_mitiraisyo_soufu_fuyou.Enabled = itKassei
+        ddl_koj_mitiraisyo_soufu_fuyou.CssClass = IIf(itKassei, "", "readOnly")
+
+        btn_siyou_kakuninhi_jigyousya.Enabled = itKassei
+        btn_siyou_kakuninhi_jigyousya.CssClass = IIf(itKassei, "", "readOnly")
+
+
+        tbx_siyou_kakuninhi_jigyousya.ReadOnly = Not itKassei
+        tbx_siyou_kakuninhi_jigyousya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_siyou_kakuninhi_kojkaisya.ReadOnly = Not itKassei
+        tbx_siyou_kakuninhi_kojkaisya.CssClass = IIf(itKassei, "", "readOnly")
+
+        btn_siyou_kakuninhi_kojkaisya.Enabled = itKassei
+        btn_siyou_kakuninhi_kojkaisya.CssClass = IIf(itKassei, "", "readOnly")
+
+    End Sub
+
+
     ''' <summary>ページロッド</summary>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -147,7 +343,7 @@ Partial Public Class TyuiJyouhouInquiry
 
         btnEigyouJyouhouInquiry.Visible = False
         btnClose.Attributes.Add("onclick", "window.close();")
-
+        SetKassei()
     End Sub
     ''' <summary>テーブルを更新</summary>
     ''' <returns>更新結果の文字列</returns>

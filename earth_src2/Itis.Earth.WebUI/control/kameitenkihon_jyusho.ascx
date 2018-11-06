@@ -76,7 +76,7 @@ function chkN(value){
     
 
 <table id="Table4" cellpadding="1" class="mainTable" style="margin-top: 10px; width: 916px;
-    text-align: left">
+    text-align: left" readonly="readonly">
     <thead>
         <tr>
             <th class="tableTitle" colspan="10" rowspan="1" style="text-align: left">
@@ -87,7 +87,7 @@ function chkN(value){
         </tr>
     </thead>
 
-    <tbody id="meisaiTbody5" runat="server">
+    <tbody id="meisaiTbody5" runat="server" >
 
                                         <tr>
                                             <td class="koumokuMei" style="width: 120px">

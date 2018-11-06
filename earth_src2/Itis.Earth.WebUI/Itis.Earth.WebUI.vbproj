@@ -119,6 +119,7 @@
     <Compile Include="common\CommonCheck.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="common\Salesforce.vb" />
     <Compile Include="common\UrlConst.vb" />
     <Compile Include="control\common_drop.ascx.designer.vb">
       <DependentUpon>common_drop.ascx</DependentUpon>
@@ -829,6 +830,7 @@
     <Content Include="img\roller.gif" />
     <Content Include="Itis.Earth.WebUI.Publish.xml" />
     <Content Include="js\jhsearth.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
     <Content Include="KairyKojSyubetuMaster.aspx" />
     <Content Include="KakusyuDataSyuturyokuMenu.aspx" />
     <Content Include="KameitenMasterErrorDetails.aspx" />

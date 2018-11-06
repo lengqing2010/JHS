@@ -14,6 +14,65 @@ Partial Public Class SeikyuuSakiMaster
 
     Private Const SEP_STRING As String = "$$$"
 
+
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim kameiten_cd As String = ""
+
+        If ddlSeikyuuSakiKbn.SelectedIndex = 1 Then
+            kameiten_cd = tbxSeikyuuSakiCd.Text
+        End If
+
+
+
+        Dim itKassei As Boolean = Iskassei(kameiten_cd, "")
+
+
+        '基本商品
+
+
+        tbxAnzenKyouryokuKaihi1.ReadOnly = Not itKassei
+        tbxAnzenKyouryokuKaihi1.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxAnzenKyouryokuKaihi2.ReadOnly = Not itKassei
+        tbxAnzenKyouryokuKaihi2.CssClass = IIf(itKassei, "", "readOnly")
+
+
+        ddlKyouryokuKaihiJigou.Enabled = itKassei
+        ddlKyouryokuKaihiJigou.CssClass = IIf(itKassei, "", "readOnly")
+
+     
+
+    End Sub
+
     ''' <summary>
     ''' ページロード
     ''' </summary>
@@ -124,6 +183,15 @@ Partial Public Class SeikyuuSakiMaster
             btnSyuusei.Enabled = False
             btnTouroku.Enabled = False
         End If
+
+        SetKassei()
+
+        Me.ddlSeikyuuSakiKbn.Attributes.Item("onchange") = "document.getElementById('" & Me.btnKassei.ClientID & "').click()"
+        Me.tbxSeikyuuSakiCd.Attributes.Item("onblur") = "document.getElementById('" & Me.btnKassei.ClientID & "').click()"
+
+
+
+
     End Sub
 
     ''' <summary>
@@ -174,6 +242,9 @@ Partial Public Class SeikyuuSakiMaster
             '明細データ取得
             GetMeisaiData(tbxSeikyuuSaki_Cd.Text, tbxSeikyuuSaki_Brc.Text, ddlSeikyuuSaki_Kbn.SelectedValue, "btnSearch")
         End If
+
+        SetKassei()
+
     End Sub
 
     ''' <summary>
@@ -2215,5 +2286,9 @@ Partial Public Class SeikyuuSakiMaster
         '「採番」ボタンをセットする
         Call Me.SetBtnSaiban()
 
+    End Sub
+
+    Private Sub btnKassei_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKassei.Click
+        SetKassei()
     End Sub
 End Class

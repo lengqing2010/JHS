@@ -174,6 +174,5 @@
         <asp:HiddenField ID="hidUpdTime1" runat="server" />  
         <asp:HiddenField ID="hidLastFocus" runat="server" />
         <asp:HiddenField ID="hidSeikyusaki" runat="server" />
-        
-            <asp:HiddenField ID="hidAutoKoumuFlg" runat="server" />
-                   <asp:HiddenField ID="hidAutoJituFlg" runat="server" />     
+        <asp:HiddenField ID="hidAutoKoumuFlg" runat="server" />
+        <asp:HiddenField ID="hidAutoJituFlg" runat="server" />     

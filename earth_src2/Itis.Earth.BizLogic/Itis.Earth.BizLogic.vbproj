@@ -100,6 +100,7 @@
     <Compile Include="Logic\KihonJyouhouLogic.vb" />
     <Compile Include="Logic\KojKakakuMasterLogic.vb" />
     <Compile Include="Logic\KyoutuuJyouhouLogic.vb" />
+    <Compile Include="Logic\SalesforceLogic.vb" />
     <Compile Include="Logic\SeikyuSakiMototyouOutputLogic.vb" />
     <Compile Include="Logic\SeikyusyoFcwOutputLogic.vb" />
     <Compile Include="Logic\SeikyuuSakiHenkouLogic.vb" />

@@ -97,6 +97,111 @@ Partial Public Class torihikiJyouhou
 
     End Property
 
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
+
+        '保証期間
+        tbxHosyouKigen.ReadOnly = Not itKassei
+        tbxHosyouKigen.CssClass = IIf(itKassei, "", "readOnly")
+
+        '保証書発行<br/>タイミング
+        ddlHosyousyoHakkou.Enabled = itKassei
+        ddlHosyousyoHakkou.CssClass = IIf(itKassei, "", "readOnly")
+
+        '自動発行_先方確認者
+        tbx_hosyousyo_hak_kakuninsya.ReadOnly = Not itKassei
+        tbx_hosyousyo_hak_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+
+        '自動発行_確認日
+        tbx_hosyousyo_hak_kakunin_date.ReadOnly = Not itKassei
+        tbx_hosyousyo_hak_kakunin_date.CssClass = IIf(itKassei, "", "readOnly")
+
+        '保証書引渡日印字有無
+        ddl_hikiwatasi_inji_umu.Enabled = itKassei
+        ddl_hikiwatasi_inji_umu.CssClass = IIf(itKassei, "", "readOnly")
+
+
+        '保証期間_先方確認者
+        tbx_hosyou_kikan_kakuninsya.ReadOnly = Not itKassei
+        tbx_hosyou_kikan_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+
+        '保証期<br />間適用開始日
+        tbx_hosyou_kikan_start_date.ReadOnly = Not itKassei
+        tbx_hosyou_kikan_start_date.CssClass = IIf(itKassei, "", "readOnly")
+
+        '保証書発送有無
+        ddl_hosyousyo_hassou_umu.Enabled = itKassei
+        ddl_hosyousyo_hassou_umu.CssClass = IIf(itKassei, "", "readOnly")
+
+        'サポート調査<br />保証付保FAX先方確認者
+        tbx_fuho_fax_kakuninsya.ReadOnly = Not itKassei
+        tbx_fuho_fax_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+
+        ' サポート調査<br />保証付保FAX確認日
+        tbx_fuho_fax_kakunin_date.ReadOnly = Not itKassei
+        tbx_fuho_fax_kakunin_date.CssClass = IIf(itKassei, "", "readOnly")
+
+        'サポート調査<br />保証付保FAX送付有無
+        ddl_fuho_fax_umu.Enabled = itKassei
+        ddl_fuho_fax_umu.CssClass = IIf(itKassei, "", "readOnly")
+
+
+
+
+        '報告書発行部数
+        tbxTysHks.ReadOnly = Not itKassei
+        tbxTysHks.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKjHks.ReadOnly = Not itKassei
+        tbxKjHks.CssClass = IIf(itKassei, "", "readOnly")
+
+
+
+
+
+        ddlHattyusyoFlg.Enabled = itKassei
+        ddlHattyusyoFlg.CssClass = IIf(itKassei, "", "readOnly")
+        ddl_shitei_seikyuusyo_umu.Enabled = itKassei
+        ddl_shitei_seikyuusyo_umu.CssClass = IIf(itKassei, "", "readOnly")
+
+
+
+
+
+
+
+
+    End Sub
+
+
     ''' <summary>
     ''' 画面ロード
     ''' </summary>
@@ -123,6 +228,8 @@ Partial Public Class torihikiJyouhou
             Call PageItemAddAttributes()
 
         End If
+
+        SetKassei()
 
     End Sub
 

@@ -108,6 +108,68 @@ Partial Public Class kameiten_tourokuryou
 
 #Region "画面"
 
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
+
+
+
+        tbxAddDate.ReadOnly = Not itKassei
+        tbxAddDate.CssClass = IIf(itKassei, "", "readOnly")
+
+
+
+        ddlSeikyuuUmu.Enabled = itKassei
+        ddlSeikyuuUmu.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxSyouhinCd.ReadOnly = Not itKassei
+        tbxSyouhinCd.CssClass = IIf(itKassei, "", "readOnly")
+
+        btnKansaku.Enabled = itKassei
+        btnKansaku.CssClass = IIf(itKassei, "", "readOnly")
+
+
+
+        tbxZeinuki.ReadOnly = Not itKassei
+        tbxZeinuki.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxSeikyuDate.ReadOnly = Not itKassei
+        tbxSeikyuDate.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxUriDate.ReadOnly = Not itKassei
+        tbxUriDate.CssClass = IIf(itKassei, "", "readOnly")
+
+        tbxBikou.ReadOnly = Not itKassei
+        tbxBikou.CssClass = IIf(itKassei, "", "readOnly")
+    End Sub
+
     ''' <summary>
     ''' 画面初期化
     ''' </summary>
@@ -149,7 +211,7 @@ Partial Public Class kameiten_tourokuryou
             'otherPageFunction.DoFunction(Parent.Page, "closecover")
 
         End If
-
+        SetKassei()
     End Sub
 
     ''' <summary>

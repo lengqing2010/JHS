@@ -82,6 +82,67 @@ Partial Public Class kameitenkihon_jyusho_user
 
 #Region "画面"
 
+
+
+    '編集項目非活性、活性設定対応　20180905　李松涛　対応　↓
+    'salesforce項目_編集非活性フラグ 取得
+    Private Function Iskassei(ByVal KameitenCd As String, ByVal kbn As String) As Boolean
+
+        If kbn.Trim <> "" Then
+            If ViewState("Iskassei") Is Nothing Then
+                If kbn = "" Then
+                    ViewState("Iskassei") = ""
+                Else
+                    ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlgByKbn(kbn)
+                End If
+
+            End If
+        Else
+
+            If ViewState("Iskassei") Is Nothing Then
+                ViewState("Iskassei") = (New Salesforce).GetSalesforceHikasseiFlg(KameitenCd)
+            End If
+
+        End If
+        Return ViewState("Iskassei").ToString <> "1"
+    End Function
+
+    '編集項目非活性、活性設定する
+    Public Sub SetKassei()
+
+        ViewState("Iskassei") = Nothing
+        Dim kbn As String = ""
+        Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
+
+        '保証期間
+        If Not itKassei Then
+
+            For Each c As Control In meisaiTbody5.Controls
+
+                Try
+                    CType(c, TextBox).ReadOnly = Not itKassei
+                    CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                Catch ex1 As Exception
+                    Try
+                        CType(c, Button).Enabled = itKassei
+                        CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                    Catch ex2 As Exception
+                        Try
+                            CType(c, DropDownList).Enabled = itKassei
+                            CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                        Catch ex As Exception
+                        End Try
+
+                    End Try
+                End Try
+            Next
+
+            Me.ddlTodoufuken.Enabled = False
+            Me.btnTouroku.Enabled = False
+
+        End If
+    End Sub
+
     ''' <summary>
     ''' 画面初期化
     ''' </summary>
@@ -94,6 +155,9 @@ Partial Public Class kameitenkihon_jyusho_user
             PageInit()
         
         End If
+
+        SetKassei()
+
     End Sub
 
     ''' <summary>
