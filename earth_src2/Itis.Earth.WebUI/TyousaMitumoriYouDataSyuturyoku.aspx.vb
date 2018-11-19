@@ -587,9 +587,10 @@ Partial Public Class TyousaMitumoriYouDataSyuturyoku
     ''' <remarks></remarks>
     Private Sub tbxBangou1_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbxBangou1.TextChanged
 
-        If Not Microsoft.VisualBasic.IsNumeric(Me.tbxBangou1.Text.Trim) And Me.tbxBangou1.Text.Trim <> String.Empty Then
+
+        If commoncheck.ChkHankakuEisuuji(Me.tbxBangou1.Text.Trim, "") <> "" And Me.tbxBangou1.Text.Trim <> String.Empty Then
             Me.tbxBangou1.Text = String.Empty
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", "alert('数値以外が入力されています');document.getElementById('" & Me.tbxBangou1.ClientID & "').focus();", True)
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", "alert('英数字以外が入力されています');document.getElementById('" & Me.tbxBangou1.ClientID & "').focus();", True)
         Else
             If Me.tbxBangou2.Text.Trim = String.Empty And Me.tbxBangou1.Text.Trim <> String.Empty Then
                 Me.tbxBangou2.Text = Me.tbxBangou1.Text.Trim
@@ -605,9 +606,9 @@ Partial Public Class TyousaMitumoriYouDataSyuturyoku
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub tbxBangou2_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbxBangou2.TextChanged
-        If Not Microsoft.VisualBasic.IsNumeric(Me.tbxBangou2.Text.Trim) And Me.tbxBangou2.Text.Trim <> String.Empty Then
+        If commoncheck.ChkHankakuEisuuji(Me.tbxBangou2.Text.Trim, "") <> "" And Me.tbxBangou2.Text.Trim <> String.Empty Then
             Me.tbxBangou2.Text = String.Empty
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", "alert('数値以外が入力されています');document.getElementById('" & Me.tbxBangou2.ClientID & "').focus();", True)
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", "alert('英数字以外が入力されています');document.getElementById('" & Me.tbxBangou2.ClientID & "').focus();", True)
         End If
     End Sub
 

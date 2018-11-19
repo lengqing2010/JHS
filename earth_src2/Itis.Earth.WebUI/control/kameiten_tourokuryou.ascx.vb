@@ -139,23 +139,19 @@ Partial Public Class kameiten_tourokuryou
         Dim kbn As String = ""
         Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
 
-
-
         tbxAddDate.ReadOnly = Not itKassei
         tbxAddDate.CssClass = IIf(itKassei, "", "readOnly")
 
 
-
-        ddlSeikyuuUmu.Enabled = itKassei
-        ddlSeikyuuUmu.CssClass = IIf(itKassei, "", "readOnly")
+        If Not itKassei Then
+            CommonKassei.SetDropdownListReadonly(ddlSeikyuuUmu)
+        End If
 
         tbxSyouhinCd.ReadOnly = Not itKassei
         tbxSyouhinCd.CssClass = IIf(itKassei, "", "readOnly")
 
         btnKansaku.Enabled = itKassei
         btnKansaku.CssClass = IIf(itKassei, "", "readOnly")
-
-
 
         tbxZeinuki.ReadOnly = Not itKassei
         tbxZeinuki.CssClass = IIf(itKassei, "", "readOnly")
@@ -1936,8 +1932,19 @@ Partial Public Class kameiten_tourokuryou
     ''' <remarks></remarks>
     Private Sub LockItemdrp(ByVal control As DropDownList)
         ' control.Enabled = False
-        control.Attributes.Add("disabled", "true")
-        control.Style.Add("background-color", "silver")
+        'control.Attributes.Add("disabled", "true")
+        'control.Style.Add("background-color", "silver")
+
+
+
+
+        'control.Attributes.Item("onfocus") = "this.defaultIndex=this.selectedIndex;"
+        'control.Attributes.Item("onchange") = "this.selectedIndex=this.defaultIndex;"
+
+        'control.CssClass = "readOnly"
+        'control.Style.Item("background-color") = "#D0D0D0"
+        CommonKassei.SetDropdownListReadonly(control)
+
     End Sub
 
     ''' <summary>
@@ -1947,8 +1954,11 @@ Partial Public Class kameiten_tourokuryou
     ''' <remarks></remarks>
     Private Sub UnLockItemdrp(ByVal control As DropDownList)
         '   control.Enabled = True
-        control.Attributes.Remove("disabled")
-        control.Style.Item("background-color") = ("white")
+        'control.Attributes.Remove("disabled")
+        'control.Style.Item("background-color") = ("white")
+
+        CommonKassei.SetDropdownListNotReadonly(control)
+
     End Sub
 
     ''' <summary>

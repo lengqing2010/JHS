@@ -66,10 +66,12 @@ Partial Public Class SeikyuuSakiMaster
         tbxAnzenKyouryokuKaihi2.CssClass = IIf(itKassei, "", "readOnly")
 
 
-        ddlKyouryokuKaihiJigou.Enabled = itKassei
-        ddlKyouryokuKaihiJigou.CssClass = IIf(itKassei, "", "readOnly")
+        'ddlKyouryokuKaihiJigou.Enabled = itKassei
+        'ddlKyouryokuKaihiJigou.CssClass = IIf(itKassei, "", "readOnly")
 
-     
+        If Not itKassei Then
+            CommonKassei.SetDropdownListReadonly(ddlKyouryokuKaihiJigou)
+        End If
 
     End Sub
 

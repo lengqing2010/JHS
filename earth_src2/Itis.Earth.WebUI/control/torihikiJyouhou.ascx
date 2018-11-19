@@ -210,18 +210,26 @@
                     <asp:TextBox ID="tbx_hosyou_kikan_kakuninsya" runat="server" MaxLength="25" Width="140px"></asp:TextBox>
                 </td>
                 <td class="koumokuMei">
-                    保証期<br />間適用開始日
+                    保証期間<br />適用開始日
                 </td>
-                <td class="">
+                <td class="" colspan="4">
                     <asp:TextBox ID="tbx_hosyou_kikan_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
                 </td>
+            </tr>
+            <tr>
                 <td class="koumokuMei" colspan="2">
-                    保証書発送有無 &nbsp;</td>
-                <td>
+                    保証書発送有無</td>
+                <td colspan="2">
                     <asp:DropDownList ID="ddl_hosyousyo_hassou_umu" runat="server">
                         <asp:ListItem Value="">郵送</asp:ListItem>
                         <asp:ListItem Value="1">1：不要</asp:ListItem>
                     </asp:DropDownList></td>
+                <td class="koumokuMei">
+                    保証書発送有無<br />間適用開始日
+                </td>
+                <td class="" colspan="4">
+                    <asp:TextBox ID="tbx_hosyousyo_hassou_umu_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                </td>
             </tr>
             
             
@@ -435,11 +443,11 @@
                                         
                                         <tr>
                                             <td >
-                                                <asp:TextBox ID="tbxTysHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px"></asp:TextBox></td>
+                                                <asp:TextBox ID="tbxTysHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px" style="text-align:right;"></asp:TextBox></td>
                                             <td >
-                                                <asp:TextBox ID="tbxKjHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px"></asp:TextBox></td>
+                                                <asp:TextBox ID="tbxKjHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px" style="text-align:right;"></asp:TextBox></td>
                                             <td >
-                                                <asp:TextBox ID="tbxKsHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px"></asp:TextBox></td>
+                                                <asp:TextBox ID="tbxKsHks" runat="server" CssClass="kingaku" MaxLength="2" Width="32px" style="text-align:right;"></asp:TextBox></td>
                                         </tr>
                                     </table>
                                             </td>

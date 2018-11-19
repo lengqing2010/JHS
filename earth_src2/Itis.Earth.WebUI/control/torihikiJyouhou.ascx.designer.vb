@@ -256,6 +256,15 @@ Partial Public Class torihikiJyouhou
     Protected WithEvents ddl_hosyousyo_hassou_umu As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''tbx_hosyousyo_hassou_umu_start_date コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents tbx_hosyousyo_hassou_umu_start_date As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''tbx_fuho_fax_kakuninsya コントロール。
     '''</summary>
     '''<remarks>

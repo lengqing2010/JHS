@@ -48,16 +48,24 @@ Partial Public Class TyuiJyouhouInquiry
 
         '基本商品
 
-        ddlKihonSyouhin.Enabled = itKassei
-        ddlKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
+        'ddlKihonSyouhin.Enabled = itKassei
+        'ddlKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
+        If Not itKassei Then
+            CommonKassei.SetDropdownListReadonly(ddlKihonSyouhin)
+        End If
+
         tbxKihonSyouhinTyuuibun.ReadOnly = Not itKassei
         tbxKihonSyouhinTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
         btnKihonSyouhin.Enabled = itKassei
         btnKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
 
         '基本調査方法
-        ddlKihonTyousaHouhou.Enabled = itKassei
-        ddlKihonTyousaHouhou.CssClass = IIf(itKassei, "", "readOnly")
+        'ddlKihonTyousaHouhou.Enabled = itKassei
+        'ddlKihonTyousaHouhou.CssClass = IIf(itKassei, "", "readOnly")
+
+        If Not itKassei Then
+            CommonKassei.SetDropdownListReadonly(ddlKihonTyousaHouhou)
+        End If
         tbxKihonTyousaHouhouTyuuibun.ReadOnly = Not itKassei
         tbxKihonTyousaHouhouTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
         btnKihonTyousaHouhou.Enabled = itKassei
@@ -76,8 +84,13 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
+
                             Catch ex As Exception
                             End Try
 
@@ -96,8 +109,12 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
                             Catch ex As Exception
                             End Try
 
@@ -116,8 +133,12 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
                             Catch ex As Exception
                             End Try
 
@@ -137,8 +158,12 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
                             Catch ex As Exception
                             End Try
 
@@ -158,8 +183,12 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
                             Catch ex As Exception
                             End Try
 
@@ -178,8 +207,11 @@ Partial Public Class TyuiJyouhouInquiry
                             CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
                         Catch ex2 As Exception
                             Try
-                                CType(c, DropDownList).Enabled = itKassei
-                                CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                'CType(c, DropDownList).Enabled = itKassei
+                                'CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                                If Not itKassei Then
+                                    CommonKassei.SetDropdownListReadonly(CType(c, DropDownList))
+                                End If
                             Catch ex As Exception
                             End Try
 
@@ -190,8 +222,11 @@ Partial Public Class TyuiJyouhouInquiry
         End If
 
 
-        ddl_koj_mitiraisyo_soufu_fuyou.Enabled = itKassei
-        ddl_koj_mitiraisyo_soufu_fuyou.CssClass = IIf(itKassei, "", "readOnly")
+        'ddl_koj_mitiraisyo_soufu_fuyou.Enabled = itKassei
+        'ddl_koj_mitiraisyo_soufu_fuyou.CssClass = IIf(itKassei, "", "readOnly")
+        If Not itKassei Then
+            CommonKassei.SetDropdownListReadonly(ddl_koj_mitiraisyo_soufu_fuyou)
+        End If
 
         btn_siyou_kakuninhi_jigyousya.Enabled = itKassei
         btn_siyou_kakuninhi_jigyousya.CssClass = IIf(itKassei, "", "readOnly")

@@ -45,7 +45,13 @@ Partial Public Class kihon_jyouhou
         tbxlblNenkanTousuu.CssClass = IIf(itKassei, "", "readOnly")
 
         'çHéñîÑè„éÌï 
-        Common_drop2.Enabled = itKassei
+        'Common_drop2.Enabled = itKassei
+
+        If Not itKassei Then
+            Common_drop2.Obj.Attributes.Item("onfocus") = "this.defaultIndex=this.selectedIndex;"
+            Common_drop2.Obj.Attributes.Item("onchange") = "this.selectedIndex=this.defaultIndex;"
+        End If
+
         Common_drop2.CssClass = IIf(itKassei, "", "readOnly")
 
 

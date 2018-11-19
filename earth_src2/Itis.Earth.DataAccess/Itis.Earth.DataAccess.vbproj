@@ -224,6 +224,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KameitenDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\KameitenDataSet.vb">
+      <DependentUpon>KameitenDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\KameitenjyushoDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

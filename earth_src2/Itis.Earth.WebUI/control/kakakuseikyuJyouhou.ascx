@@ -157,12 +157,12 @@
                                                         SDSà»äO å„ït
                                                         <br />âêÕïiéøï€èÿóø</td>
                                                     <td style="width: 110px;" >
-                                                        <asp:TextBox ID="tbxKaisekiHosyouKkk" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox></td>
+                                                        <asp:TextBox ID="tbxKaisekiHosyouKkk" runat="server" CssClass="kingaku" MaxLength="11" Width="96px" style="text-align:right;"></asp:TextBox></td>
                                                     <td class="koumokuMei" style="width: 116px">
                                                         SDS å„ït
                                                         <br />âêÕïiéøï€èÿóø</td>
                                                     <td style="width: 110px;" >
-                                                        <asp:TextBox ID="tbxSsgrKkk" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox></td>
+                                                        <asp:TextBox ID="tbxSsgrKkk" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"  style="text-align:right;"></asp:TextBox></td>
                                                     <td style="text-align: center; width: 97px; border: none;">
                                                         <asp:Button ID="btnKakaku" runat="server" Text="âøäiê›íË" OnClientClick="fncOpenHanbai();return false;" /></td>
                                                     <td style="border: none;">
@@ -173,14 +173,13 @@
                         
                                                     </td>
                                                     <td style="width: 110px">
-                                                     <asp:TextBox ID="tbx_ekijyouka_tokuyaku_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox>
+                                                     <asp:TextBox ID="tbx_ekijyouka_tokuyaku_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"  style="text-align:right;"></asp:TextBox>
                                                     </td>
                                                     <td class="koumokuMei" style="width: 116px">
-                                                    âtèÛâª<br />ä»à’îªíËâøäi
-
+                                                    SDSâøäiÅ{
                                                     </td>
                                                     <td style="width: 110px">
-                                                     <asp:TextBox ID="tbx_ekijyouka_kanihantei_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"></asp:TextBox>
+                                                     <asp:TextBox ID="tbx_ekijyouka_kanihantei_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"  style="text-align:right;"></asp:TextBox>
                                                     </td>
                                                     <td class="koumokuMei" style="width: 116px">
                                                     </td>

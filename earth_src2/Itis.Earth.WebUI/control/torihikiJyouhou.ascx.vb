@@ -161,6 +161,15 @@ Partial Public Class torihikiJyouhou
         '保証書発送有無
         ddl_hosyousyo_hassou_umu.Enabled = itKassei
         ddl_hosyousyo_hassou_umu.CssClass = IIf(itKassei, "", "readOnly")
+        'If Not itKassei Then
+        '    CommonKassei.SetDropdownListReadonly(ddl_hosyousyo_hassou_umu)
+        'End If
+
+        '保証書発行有無
+        '適用開始日
+        tbx_hosyousyo_hassou_umu_start_date.ReadOnly = Not itKassei
+        tbx_hosyousyo_hassou_umu_start_date.CssClass = IIf(itKassei, "", "readOnly")
+
 
         'サポート調査<br />保証付保FAX先方確認者
         tbx_fuho_fax_kakuninsya.ReadOnly = Not itKassei
@@ -315,6 +324,10 @@ Partial Public Class torihikiJyouhou
         Me.tbx_hosyou_kikan_start_date.Attributes.Add("onfocus", "return setOnfocusNengetu(this)")
         Me.tbx_hosyou_kikan_start_date.Attributes.Add("onblur", "LostFocusPostBack(this,1)")
 
+        '保証書発送有無_適用開始日
+        Me.tbx_hosyousyo_hassou_umu_start_date.Attributes.Add("onfocus", "return setOnfocusNengetu(this)")
+        Me.tbx_hosyousyo_hassou_umu_start_date.Attributes.Add("onblur", "LostFocusPostBack(this,1)")
+
         Me.tbx_fuho_fax_kakunin_date.Attributes.Add("onfocus", "return setOnfocusNengetu(this)")
         Me.tbx_fuho_fax_kakunin_date.Attributes.Add("onblur", "LostFocusPostBack(this,1)")
 
@@ -385,8 +398,14 @@ Partial Public Class torihikiJyouhou
         Else
             Me.tbx_hosyou_kikan_start_date.Text = CDate(dtKameiten.Rows(0).Item("hosyou_kikan_start_date").ToString).ToString("yyyy/MM/dd")
         End If
-        Me.ddl_hosyousyo_hassou_umu.SelectedValue = NullToEmpty(dtKameiten.Rows(0).Item("hosyousyo_hassou_umu"))
 
+        Me.ddl_hosyousyo_hassou_umu.SelectedValue = NullToEmpty(dtKameiten.Rows(0).Item("hosyousyo_hassou_umu"))
+        '保証書発送有無_適用開始日
+        If dtKameiten.Rows(0).Item("hosyousyo_hassou_umu_start_date") Is DBNull.Value Then
+            Me.tbx_hosyousyo_hassou_umu_start_date.Text = ""
+        Else
+            Me.tbx_hosyousyo_hassou_umu_start_date.Text = CDate(dtKameiten.Rows(0).Item("hosyousyo_hassou_umu_start_date").ToString).ToString("yyyy/MM/dd")
+        End If
 
         Me.tbx_fuho_fax_kakuninsya.Text = CommonLG.getDisplayString(dtKameiten.Rows(0).Item("fuho_fax_kakuninsya"))
         If dtKameiten.Rows(0).Item("fuho_fax_kakunin_date") Is DBNull.Value Then
@@ -528,7 +547,7 @@ Partial Public Class torihikiJyouhou
         '20180129李追加
         ListInit6869(Me.ddl_shitei_seikyuusyo_umu, MeisyouDataAccess.MeisyouType.SHITEI_SEIKYUUSYO_UMU, True, True)
         Me.ddl_shitei_seikyuusyo_umu.Items(0).Text = ""
-        Me.ddl_shitei_seikyuusyo_umu.Items(0).Value = "0"
+        Me.ddl_shitei_seikyuusyo_umu.Items(0).Value = ""
 
     End Sub
 
@@ -709,6 +728,9 @@ Partial Public Class torihikiJyouhou
 
             TbxItemInputCheck(Me.tbx_hosyousyo_hak_kakunin_date, "保証書自動発行_確認日", "日付")
             TbxItemInputCheck(Me.tbx_hosyou_kikan_start_date, "保証期間適用開始日", "日付")
+
+            TbxItemInputCheck(Me.tbx_hosyousyo_hassou_umu_start_date, "保証書発送有無適用開始日", "日付")
+
             TbxItemInputCheck(Me.tbx_fuho_fax_kakunin_date, "サポート調査保証付保FAX確認日", "日付")
 
 
@@ -932,6 +954,7 @@ Partial Public Class torihikiJyouhou
         tempTable.Rows(i).Item("hosyou_kikan_kakuninsya") = Me.tbx_hosyou_kikan_kakuninsya.Text
         tempTable.Rows(i).Item("hosyou_kikan_start_date") = Me.tbx_hosyou_kikan_start_date.Text
         tempTable.Rows(i).Item("hosyousyo_hassou_umu") = Me.ddl_hosyousyo_hassou_umu.Items(ddl_hosyousyo_hassou_umu.SelectedIndex).Value
+        tempTable.Rows(i).Item("hosyousyo_hassou_umu_start_date") = Me.tbx_hosyousyo_hassou_umu_start_date.Text
 
         tempTable.Rows(i).Item("fuho_fax_kakuninsya") = Me.tbx_fuho_fax_kakuninsya.Text
         tempTable.Rows(i).Item("fuho_fax_kakunin_date") = Me.tbx_fuho_fax_kakunin_date.Text
@@ -1152,6 +1175,21 @@ Partial Public Class torihikiJyouhou
             Exit Sub
         End If
     End Sub
+
+
+    '保証書発送有無_適用開始日
+    Protected Sub tbx_hosyousyo_hassou_umu_start_date_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbx_hosyousyo_hassou_umu_start_date.TextChanged
+
+        Dim dateValue As String
+        dateValue = chkDate(Me.tbx_hosyousyo_hassou_umu_start_date.Text)
+        If dateValue <> "false" Then
+            Me.tbx_hosyousyo_hassou_umu_start_date.Text = dateValue
+        Else
+            ShowMsg("日付以外が入力されています。", Me.tbx_hosyousyo_hassou_umu_start_date)
+            Exit Sub
+        End If
+    End Sub
+
 
     'サポート調査保証付保FAX確認日
     Protected Sub tbx_fuho_fax_kakunin_date_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbx_fuho_fax_kakunin_date.TextChanged

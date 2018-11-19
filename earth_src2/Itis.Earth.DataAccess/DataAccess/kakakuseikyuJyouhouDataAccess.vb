@@ -565,8 +565,8 @@ Public Class KakakuseikyuJyouhouDataAccess
 
         commandTextSb.AppendLine(" , ekijyouka_tokuyaku_kakaku ")
         commandTextSb.AppendLine(" , ekijyouka_kanihantei_kakaku ")
-
-
+        '保証書発送有無_適用開始日
+        commandTextSb.AppendLine(" , hosyousyo_hassou_umu_start_date ")
         commandTextSb.AppendLine(" FROM ")
         commandTextSb.AppendLine(" m_kameiten WITH (READCOMMITTED)")
         commandTextSb.AppendLine(" WHERE ")

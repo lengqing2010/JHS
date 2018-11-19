@@ -60,7 +60,7 @@
                         <asp:Label ID="lblSyouhinMei" runat="server" Width="144px" Style="word-wrap: break-word; word-break: break-all;" ></asp:Label>
                     </td>
                     <td style="width: 80px">
-                        <asp:TextBox ID="tbxZeinuki" runat="server" CssClass="kingaku" Width="64px" TabIndex="-1" ></asp:TextBox>
+                        <asp:TextBox ID="tbxZeinuki" runat="server" CssClass="kingaku" Width="64px" TabIndex="-1" style="text-align:right;"></asp:TextBox>
                     </td>
                     <td style="width: 60px; text-align: right">
                         <%--<asp:TextBox ID="tbxSyouhizei" runat="server" MaxLength="24" Width="120px"></asp:TextBox>--%>
@@ -70,7 +70,7 @@
                     </td>
                     <td style="width: 75px">
                         <asp:TextBox ID="tbxKoumutenSeikyuuGaku" runat="server" CssClass="kingaku" 
-                            Width="64px" OnTextChanged="tbxKoumutenSeikyuuGaku_TextChanged" TabIndex="-1"></asp:TextBox>
+                            Width="64px" OnTextChanged="tbxKoumutenSeikyuuGaku_TextChanged" TabIndex="-1"  style="text-align:right;"></asp:TextBox>
                     </td>
                     <td style="width: 92px">
                         <asp:TextBox ID="tbxSeikyuDate" runat="server" MaxLength="24" Width="65px" CssClass="codeNumber" TabIndex="-1"></asp:TextBox>
@@ -139,7 +139,7 @@
                         <%--<asp:TextBox ID="tbxSyouhinMei" runat="server" MaxLength="24" Width="110px"></asp:TextBox>--%>
                         <asp:Label ID="lblSyouhinMei1" runat="server" Style="word-break: break-all; word-wrap: break-word" Width="144px"></asp:Label></td>
                     <td style="width: 80px; height: 38px;">
-                        <asp:TextBox ID="tbxZeinuki1" runat="server" CssClass="kingaku"  Width="64px" TabIndex="-1"></asp:TextBox>
+                        <asp:TextBox ID="tbxZeinuki1" runat="server" CssClass="kingaku"  Width="64px" TabIndex="-1" style="text-align:right;"></asp:TextBox>
                     </td>
                     <td style="width: 60px; text-align: right; height: 38px;">
                         <%--<asp:TextBox ID="tbxSyouhizei" runat="server" MaxLength="24" Width="120px"></asp:TextBox>--%>

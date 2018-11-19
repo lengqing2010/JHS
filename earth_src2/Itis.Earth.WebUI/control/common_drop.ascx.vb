@@ -110,6 +110,11 @@ Partial Public Class common_drop
         End Set
     End Property
 
+    Public ReadOnly Property Obj() As DropDownList
+        Get
+            Return Me.ddlCommonDrop
+        End Get
+    End Property
 
     ''' <summary>
     ''' OnClick

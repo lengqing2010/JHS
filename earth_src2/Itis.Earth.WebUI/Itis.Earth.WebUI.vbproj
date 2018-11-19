@@ -119,6 +119,7 @@
     <Compile Include="common\CommonCheck.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="common\CommonKassei.vb" />
     <Compile Include="common\Salesforce.vb" />
     <Compile Include="common\UrlConst.vb" />
     <Compile Include="control\common_drop.ascx.designer.vb">
