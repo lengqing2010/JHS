@@ -229,6 +229,9 @@ Partial Public Class SeikyusyoFcwOutput
         editDt.Columns.Add("zeiritu", GetType(String)) 'Å—¦
         '===============ª2014/02/17 407662_Á”ïÅ‘Å‘Î‰_Earth Ô—´ C³ ŠJnª===========================
 
+        '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á Fontsize ‘Î‰«
+        editDt.Columns.Add("font_size", GetType(String))
+
     End Sub
 
     Private Sub AddFeild_XK(ByRef editDt As Data.DataTable)
@@ -347,7 +350,8 @@ Partial Public Class SeikyusyoFcwOutput
         '===============«2014/02/17 407662_Á”ïÅ‘Å‘Î‰_Earth Ô—´ C³ ŠJn«===========================
         editDt.Columns.Add("zeiritu", GetType(String)) 'Å—¦
         '===============ª2014/02/17 407662_Á”ïÅ‘Å‘Î‰_Earth Ô—´ C³ ŠJnª===========================
-
+        '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á Fontsize ‘Î‰«
+        editDt.Columns.Add("font_size", GetType(String))
     End Sub
 
     '‘SŒ¿‹‘—p†‚ğg—p 
@@ -1186,13 +1190,35 @@ Partial Public Class SeikyusyoFcwOutput
         End If
 
         editDR("kbnwihtbangou") = seikyusyoDataTable.Rows(i).Item("bukken_no")
-        editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei")
 
+
+        '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á «
+        'editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei")
+        'If seikyusyoDataTable.Rows(i).Item("bukken_mei").ToString.Trim = "" Then
+        '    editDR("bukenmei") = ""
+        'Else
+        '    editDR("bukenmei") = seikyusyoDataTable.Rows(i).Item("bukken_mei") & " “@"
+        'End If
+
+        '¤•i–¼ ˆË—Š’S“–Ò–¼’Ç‰Á
+        editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei").ToString.Trim & " " & _
+                    seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " —l"
+
+        '¤•i–¼ Œ_–ñNo’Ç‰Á
         If seikyusyoDataTable.Rows(i).Item("bukken_mei").ToString.Trim = "" Then
             editDR("bukenmei") = ""
         Else
             editDR("bukenmei") = seikyusyoDataTable.Rows(i).Item("bukken_mei") & " “@"
         End If
+        If seikyusyoDataTable.Rows(i).Item("keiyaku_no") <> "" Then
+            editDR("bukenmei") &= "(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+        End If
+
+        editDR("font_size") = GetFontSize(editDR("hinmei"))
+
+
+        '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á ª
+
 
         editDR("suu") = seikyusyoDataTable.Rows(i).Item("suu")
         editDR("tanka") = seikyusyoDataTable.Rows(i).Item("tanka")
@@ -1347,6 +1373,8 @@ Partial Public Class SeikyusyoFcwOutput
         editDt.Columns.Add("total_uriage_sotozei8", GetType(String)) '‡Œv_Å‹àŠz(Å—¦=8%)
         '===============ª2014/02/17 407662_Á”ïÅ‘Å‘Î‰_Earth Ô—´ ’Ç‰Á I—¹ª===========================
 
+        editDt.Columns.Add("font_size", GetType(String))
+
         '‰Šú‰»
         intPageTatal = 1
         intCurPageIndex = 1
@@ -1499,6 +1527,12 @@ Partial Public Class SeikyusyoFcwOutput
                 editDR("bukken_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_mei")) & " “@"
             End If
 
+            '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á «
+            If seikyusyoDataTable.Rows(i).Item("keiyaku_no") <> "" Then
+                editDR("bukken_mei") &= "(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            End If
+            '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á ª
+
             '¿‹‘—p†ˆêŒ…–Ú’l
             If TrimNull(seikyusyoDataTable.Rows(i).Item("furikomi_flg")) = "0" Then
 
@@ -1528,8 +1562,16 @@ Partial Public Class SeikyusyoFcwOutput
                 editDR("onkai_kaisyuu_yotei_date2") = "ã‹LŒä¿‹‹àŠz‚ğ" & Format(seikyusyoDataTable.Rows(i).Item("konkai_kaisyuu_yotei_date"), "yyyy”NMŒd“ú") & "‚Ü‚Å‚É‚¨U‚İ‰º‚³‚¢B"
             End If
 
+            '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á «
             '¤•i–¼
             editDR("hinmei") = TrimNull(seikyusyoDataTable.Rows(i).Item("hinmei"))
+
+            '¤•i–¼ ˆË—Š’S“–Ò–¼’Ç‰Á
+            editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei").ToString.Trim & " " & _
+                        seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " —l"
+
+            editDR("font_size") = GetFontSize(editDR("hinmei"))
+            '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á ª
 
             '”—Ê
             editDR("suu") = TrimNull(seikyusyoDataTable.Rows(i).Item("suu"))
@@ -2573,7 +2615,8 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uri_sotozei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
     End Function
 
@@ -2779,7 +2822,8 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
     End Function
 
@@ -2810,7 +2854,8 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
 
     End Function
@@ -2836,6 +2881,34 @@ Partial Public Class SeikyusyoFcwOutput
         Else
             Return Right(nowDate.Year(), 2) & "/" & Right("0" & nowDate.Month, 2) & "/" & Right("0" & nowDate.Day, 2)
         End If
+    End Function
+
+    ''' <summary>
+    ''' ’ •[¤•i–¼Fontsizeİ’è
+    ''' </summary>
+    ''' <param name="txt"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function GetFontSize(ByVal txt As String) As String
+
+        GetFontSize = 9
+
+        If Len(txt) > 40 / 2 Then
+            GetFontSize = 8
+        End If
+
+        If Len(txt) > 48 / 2 Then
+            GetFontSize = 7.5
+        End If
+
+        If Len(txt) > 52 / 2 Then
+            GetFontSize = 7
+        End If
+
+        If Len(txt) > 56 / 2 Then
+            GetFontSize = 6
+        End If
+
     End Function
 
 End Class

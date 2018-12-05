@@ -108,13 +108,25 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("             ,ISNULL(tu.seikyuu_saki_mei,'')  AS ten_mei    --(請求先)店名")
             .AppendLine("             ,tu.denpyou_uri_date                           --売上年月日")
             .AppendLine("             ,tu.syouhin_cd                                 --商品cd")
-            '.AppendLine("             ,tu.hinmei                                     --商品名")
+       
+            .AppendLine("             ,tu.hinmei                                     --商品名")
             .AppendLine(" ,CASE ")
             .AppendLine(" WHEN km1.code+km2.code IS NULL THEN ")
             .AppendLine("            tu.hinmei ")
             .AppendLine(" ELSE ")
             .AppendLine(" RTRIM(tu.hinmei)  +'['+m_tyousahouhou.tys_houhou_mei_ryaku+']' ")
             .AppendLine(" END AS hinmei--商品名 ")
+
+            ''2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目 追加 依頼担当者名↓
+            '.AppendLine(" ,CASE ")
+            '.AppendLine("       WHEN km1.code+km2.code IS NULL THEN ")
+            '.AppendLine("            tu.hinmei ")
+            '.AppendLine("  ELSE ")
+            '.AppendLine("       RTRIM(tu.hinmei)  +'['+m_tyousahouhou.tys_houhou_mei_ryaku+']' ")
+            '.AppendLine("  END + ' ' + tj.irai_tantousya_mei + ' 様' AS hinmei --商品名 ")
+            ''2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 依頼担当者名↑
+
+
             .AppendLine("             ,tu.suu                                        --数量")
             .AppendLine("             ,tu.tanka                                      --単価")
             .AppendLine("             ,tu.uri_gaku                                   --税別金額")
@@ -126,6 +138,14 @@ Public Class SeikyusyoFcwOutputDataAccess
             '===============↓2014/02/06 407662_消費税増税対応_Earth 車龍 追加 開始↓===========================
             .AppendLine(",MSZ.zeiritu ") '--税率
             '===============↑2014/02/06 407662_消費税増税対応_Earth 車龍 追加 終了↑===========================
+
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↓
+            '依頼担当者名
+            .AppendLine(",ISNULL(tj.irai_tantousya_mei,'') as irai_tantousya_mei  --依頼担当者名")
+            '契約No
+            .AppendLine(",ISNULL(tj.keiyaku_no,'') as keiyaku_no  --契約No")
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
+
             .AppendLine("")
             .AppendLine("FROM      t_seikyuu_kagami AS tk                            --請求鑑テーブル")
             .AppendLine("LEFT JOIN  t_seikyuu_meisai AS tm                           --請求明細テーブル")
