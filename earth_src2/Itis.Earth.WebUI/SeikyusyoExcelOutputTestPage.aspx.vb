@@ -257,7 +257,7 @@ Partial Public Class SeikyusyoExcelOutputTestPage
             .AppendLine("    }")
             .AppendLine("    function PopPrint(){")
             .AppendLine("       ShowModal();")
-            .AppendLine("       var objwindow=window.open(encodeURI('WaitMsg.aspx?url=SeikyusyoExcelOutput.aspx?strNoAddId=" & CStr(ViewState("strNo")) & "," & Me.buySelName.ClientID & "," & Me.disableDiv.ClientID & "'),'proxy_operation','width=450,height=150,status=no,resizable=no,directories=no,scrollbars=no,left=0,top=0');" & vbCrLf)
+            .AppendLine("       var objwindow=window.open(encodeURI('WaitMsg.aspx?url=SeikyusyoExcelOutput.aspx?strNoAddId=" & CStr(ViewState("strNo")) & "," & Me.buySelName.ClientID & "," & Me.disableDiv.ClientID & "'),'proxy_operation','width=450,height=550,status=no,resizable=no,directories=no,scrollbars=no,left=0,top=0');" & vbCrLf)
             .AppendLine("       objwindow.focus();")
             .AppendLine("    }" & vbCrLf)
             .AppendLine("</script>")

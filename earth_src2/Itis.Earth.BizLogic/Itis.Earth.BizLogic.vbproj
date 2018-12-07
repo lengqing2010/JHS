@@ -71,6 +71,7 @@
     <Compile Include="Common\Ninsyou.vb" />
     <Compile Include="Common\TableClassMapAttribute.vb" />
     <Compile Include="Common\TableMapAttribute.vb" />
+    <Compile Include="Common\FcwUtility63.vb" />
     <Compile Include="Logic\KensaHoukokusyoOutputLogic.vb" />
     <Compile Include="Logic\BukkenJyouhouInquiryLogic.vb" />
     <Compile Include="Logic\BukkenJyouhouLogic.vb" />

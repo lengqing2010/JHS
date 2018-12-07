@@ -4,7 +4,7 @@ Imports Itis.ApplicationBlocks.ExceptionManagement
 Imports System.Reflection
 Imports System.Data
 
-Partial Public Class SeikyusyoFcwOutput
+Partial Public Class SeikyusyoExcelOutput
     Inherits System.Web.UI.Page
 
 #Region "プライベート変数"
@@ -35,8 +35,16 @@ Partial Public Class SeikyusyoFcwOutput
 
 #End Region
 
+    Protected Const XltFolder As String = "C:\JHS\earth\"
+    Protected XltFile As String = ""
+    Protected Const CsvFolder As String = "C:\JHS\earth\download\"
+    Protected CsvDataFile As String = ""
+    Protected csvData As String = ""
+    Protected strErr As String = ""
+    Protected strKakutyoushi As String = ""
+    Private sb_T As New StringBuilder
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.Page.Form.Attributes.Add("onkeydown", "if(event.keyCode==13){return false;}")
 
         '基本認証
         If ninsyou.GetUserID() = "" Then
@@ -48,35 +56,54 @@ Partial Public Class SeikyusyoFcwOutput
 
         Me.tantouName = seikyusyoFcwLogic.GetLoginUserName(loginID)
 
-        CreateFcwTyouhyouData()
-        ''担当の名前を取得
-        'Me.tantouName = "横山"
+        Dim strNoAddId As String = Request.QueryString("strNoAddId").ToString
+
+        Dim strNo As String = strNoAddId.Split(",")(0)
+        Dim ID1 As String = strNoAddId.Split(",")(1)
+        Dim ID2 As String = strNoAddId.Split(",")(2)
+
+        Me.MakeJavaScript()
+
+        CsvDataFile = "ExcelOutput.csv"
+        XltFile = "ExcelOutput.xlt"
+
+        If Not IsPostBack Then
+            GetScriptValue(strNoAddId)
+        Else
+            If (Me.CreateExcelData(strNo) = True) Then
+                Dim arr() As String = sb_T.ToString.Split(vbCrLf)
+                For i As Integer = 0 To arr.Length - 1
+                    If arr(i) <> Chr(10) Then
+                        csvData = csvData & arr(i).Replace(Chr(10), "") & "@@@"
+                    End If
+                Next
+                csvData = csvData.Replace("'", "&")
+            Else
+                ClientScript.RegisterStartupScript(Me.GetType(), "CLOSE", "funBtnEnable();", True)
+            End If
+        End If
 
     End Sub
 
     ''' <summary>
-    ''' データファイルを作ります
+    ''' Excel出力
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub CreateFcwTyouhyouData()
-
-        'EMAB障害対応情報の格納処理
-        UnTrappedExceptionManager.AddMethodEntrance(MyClass.GetType.FullName & "." _
-        & MethodBase.GetCurrentMethod.Name)
+    ''' <history>2010/09/21 車龍(大連情報システム部)　新規作成</history>
+    Private Function CreateExcelData(ByVal strNo As String) As Boolean
 
         'インスタンスの生成
         Dim seikyusyoDataTable As Data.DataTable        'データdt
         Dim seikyusyoNoDataTable As Data.DataTable        'データdt
 
-        Dim sb_T As New StringBuilder
-
         Dim errMsg As String = String.Empty
+
         Dim syainCd As String                           '社員コード
         Dim seikyusyoNo As String       '請求書NO
 
         syainCd = loginID
 
-        seikyusyoNo = Request("seino")
+        seikyusyoNo = strNo
 
         fcw = New FcwUtility63(Page, syainCd, kinouId, ".fcx")
 
@@ -124,27 +151,17 @@ Partial Public Class SeikyusyoFcwOutput
 
             Next
 
-            'DATファイル作成
-            errMsg = fcw.GetErrMsg(fcw.WriteData(sb_T.ToString))
-
         Else
-
-            errMsg = fcw.GetErrMsg(PDFStatus.NoData)
-
+            errMsg = Messages.Instance.MSG034E
         End If
 
-        ' 請求先元帳帳票データPDF　出力
         If Not errMsg.Equals(String.Empty) Then
-            'メッセージ
-            Context.Items("strFailureMsg") = errMsg
-            Server.Transfer("CommonErr.aspx")
+            Return False
         Else
-            fcw.OpenPdf()
+            Return True
         End If
 
-        'sb_T.Length = 0
-
-    End Sub
+    End Function
 
     Private Sub AddFeild_ZK(ByRef editDt As Data.DataTable)
 
@@ -1425,7 +1442,7 @@ Partial Public Class SeikyusyoFcwOutput
         If Me.headFlg Then
         Else
             '[Head] 部作成
-            sb.Append(fcw.CreateDatHeader(APOST.ToString))
+            sb.AppendLine(fcw.CreateDatHeader(APOST.ToString))
             Me.headFlg = True
         End If
 
@@ -1451,6 +1468,13 @@ Partial Public Class SeikyusyoFcwOutput
         For i As Integer = 0 To seikyusyoDataTable.Rows.Count - 1
 
             If i <> 0 And TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_no")) <> oldBukkenNo Then
+
+                If intCurPageIndex > 1 Then
+                    '   [Form] 部作成
+                    sb.Append(vbCrLf)
+                    sb.AppendLine(fcw.CreateFormSection("PAGE=SB_SEIKYUSYO_BK"))
+                End If
+
                 intCurPageIndex = intCurPageIndex + 1
 
                 '===============↓2014/02/17 407662_消費税増税対応_Earth 車龍 追加 開始↓===========================
@@ -1589,8 +1613,6 @@ Partial Public Class SeikyusyoFcwOutput
             editDR("font_size") = GetFontSize(editDR("hinmei"))
             '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
 
-            '数量
-            editDR("suu") = TrimNull(seikyusyoDataTable.Rows(i).Item("suu"))
 
             '単価
             editDR("tanka") = TrimNull(seikyusyoDataTable.Rows(i).Item("tanka"))
@@ -1685,8 +1707,12 @@ Partial Public Class SeikyusyoFcwOutput
         Next
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 追加 終了↑===========================
 
-        '   [FixedDataSection] 部作成
+        '   [Form] 部作成
         sb.Append(vbCrLf)
+        If intPageTatal > 1 Then
+            sb.AppendLine(fcw.CreateFormSection("PAGE=SB_SEIKYUSYO_BK"))
+        End If
+        '   [FixedDataSection] 部作成
         sb.Append(fcw.CreateFixedDataSection(GetBukkenFixedDataSection(editDt)))
 
         '   [TableDataSection] 部作成
@@ -2899,6 +2925,49 @@ Partial Public Class SeikyusyoFcwOutput
         End If
     End Function
 
+
+
+
+
+    ''' <summary>
+    '''　前画面データ格納
+    ''' </summary>
+    ''' <param name="strId"></param>
+    ''' <remarks></remarks>
+    ''' <history>2010/09/19 付龍(大連情報システム部)　新規作成</history>
+    Protected Sub GetScriptValue(ByVal strId As String)
+
+        Dim csScript As New StringBuilder
+        With csScript
+            .Append("<script language='javascript' type='text/javascript'>  " & vbCrLf)
+            .Append("   document.getElementById('" & Me.hidSelName.ClientID & "').value='" & Split(strId, ",")(1) & "';" & vbCrLf)
+            .Append("   document.getElementById('" & Me.hidDisableDiv.ClientID & "').value='" & Split(strId, ",")(2) & "';" & vbCrLf)
+            .Append("   form1.submit();" & vbCrLf)
+            .Append("</script>" & vbCrLf)
+        End With
+        ClientScript.RegisterStartupScript(Me.GetType, "", csScript.ToString)
+
+    End Sub
+
+    Protected Sub MakeJavaScript()
+
+        Dim csType As Type = Page.GetType()
+        Dim csName As String = "setScript"
+        Dim csScript As New StringBuilder
+        With csScript
+            .Append("<script language='javascript' type='text/javascript'>  " & vbCrLf)
+            .Append("function funOutError(strERR)" & vbCrLf)
+            .Append("{" & vbCrLf)
+            .Append("if (strERR==''){" & vbCrLf)
+            .Append("   alert('指定した条件でデータはありません。');}else{" & vbCrLf)
+            .Append("   alert(strERR);" & vbCrLf)
+            .Append("}" & vbCrLf)
+            .Append("}" & vbCrLf)
+            .Append("</script>")
+        End With
+
+        ClientScript.RegisterClientScriptBlock(csType, csName, csScript.ToString)
+    End Sub
     ''' <summary>
     ''' 帳票商品名Fontsize設定
     ''' </summary>

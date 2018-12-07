@@ -14,7 +14,7 @@ Partial Public Class SeikyusyoExcelOutput
     Private ninsyou As New Ninsyou()
 
     'FCWのクラスを作成
-    Private fcw As Itis.Earth.BizLogic.FcwUtility
+    Private fcw As Itis.Earth.BizLogic.FcwUtility63
     Private kinouId As String = "SB_SEIKYUSYO"
 
     Private tantouName As String
@@ -35,17 +35,19 @@ Partial Public Class SeikyusyoExcelOutput
 
 #End Region
 
-    Protected Const XltFolder As String = "C:\JHS\earth\"
-    Protected XltFile As String = ""
-    Protected Const CsvFolder As String = "C:\JHS\earth\download\"
-    Protected CsvDataFile As String = ""
-    Protected csvData As String = ""
-    Protected strErr As String = ""
-    Protected strKakutyoushi As String = ""
+    Public Const XltFolder As String = "C:\JHS\earth\"
+    Public XltFile As String = ""
+    Public Const CsvFolder As String = "C:\JHS\earth\download\"
+    Public CsvDataFile As String = ""
+    Public csvData As String
+    Public strErr As String = ""
+    Public strKakutyoushi As String = ""
     Private sb_T As New StringBuilder
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    'Public tt As String = "msgbox 'aaaa'"
 
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'tt = "msgbox 'bbbb'"
         '基本認証
         If ninsyou.GetUserID() = "" Then
             Context.Items("strFailureMsg") = Messages.Instance.MSG2024E
@@ -67,20 +69,25 @@ Partial Public Class SeikyusyoExcelOutput
         CsvDataFile = "ExcelOutput.csv"
         XltFile = "ExcelOutput.xlt"
 
-        If Not IsPostBack Then
-            GetScriptValue(strNoAddId)
+
+        GetScriptValue(strNoAddId)
+
+        If (Me.CreateExcelData(strNo) = True) Then
+            Dim arr() As String = sb_T.ToString.Split(vbCrLf)
+            For i As Integer = 0 To arr.Length - 1
+                If arr(i) <> Chr(10) Then
+                    csvData = csvData & arr(i).Replace(Chr(10), "") & "@@@"
+                End If
+            Next
+            csvData = csvData.Replace("'", "&")
         Else
-            If (Me.CreateExcelData(strNo) = True) Then
-                Dim arr() As String = sb_T.ToString.Split(vbCrLf)
-                For i As Integer = 0 To arr.Length - 1
-                    If arr(i) <> Chr(10) Then
-                        csvData = csvData & arr(i).Replace(Chr(10), "") & "@@@"
-                    End If
-                Next
-                csvData = csvData.Replace("'", "&")
-            Else
-                ClientScript.RegisterStartupScript(Me.GetType(), "CLOSE", "funBtnEnable();", True)
-            End If
+            ClientScript.RegisterStartupScript(Me.GetType(), "CLOSE", "funBtnEnable();", True)
+        End If
+
+        If Not IsPostBack Then
+
+        Else
+
         End If
 
     End Sub
@@ -105,7 +112,7 @@ Partial Public Class SeikyusyoExcelOutput
 
         seikyusyoNo = strNo
 
-        fcw = New FcwUtility(Page, syainCd, kinouId, ".fcx")
+        fcw = New FcwUtility63(Page, syainCd, kinouId, ".fcx")
 
         '請求書データ取得
         seikyusyoNo = "'" & seikyusyoNo.Replace("$$$", "','") & "'"
@@ -246,6 +253,9 @@ Partial Public Class SeikyusyoExcelOutput
         editDt.Columns.Add("zeiritu", GetType(String)) '税率
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 修正 開始↑===========================
 
+        '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 Fontsize 対応↓
+        editDt.Columns.Add("font_size", GetType(String))
+
     End Sub
 
     Private Sub AddFeild_XK(ByRef editDt As Data.DataTable)
@@ -364,7 +374,8 @@ Partial Public Class SeikyusyoExcelOutput
         '===============↓2014/02/17 407662_消費税増税対応_Earth 車龍 修正 開始↓===========================
         editDt.Columns.Add("zeiritu", GetType(String)) '税率
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 修正 開始↑===========================
-
+        '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 Fontsize 対応↓
+        editDt.Columns.Add("font_size", GetType(String))
     End Sub
 
     '全件請求書用紙を使用 
@@ -1099,6 +1110,26 @@ Partial Public Class SeikyusyoExcelOutput
 
     End Function
 
+    ''' <summary>
+    ''' Ｄａｔａ Ｒｅｃｏｒｄ
+    ''' </summary>
+    ''' <param name="seikyusyoDataTable"></param>
+    ''' <param name="i"></param>
+    ''' <param name="editDR"></param>
+    ''' <param name="sum_uriage0"></param>
+    ''' <param name="sum_sotozei0"></param>
+    ''' <param name="sum_uriage_sotozei0"></param>
+    ''' <param name="sum_uriage5"></param>
+    ''' <param name="sum_sotozei5"></param>
+    ''' <param name="sum_uriage_sotozei5"></param>
+    ''' <param name="sum_uriage8"></param>
+    ''' <param name="sum_sotozei8"></param>
+    ''' <param name="sum_uriage_sotozei8"></param>
+    ''' <param name="pages"></param>
+    ''' <param name="errMsg"></param>
+    ''' <param name="pageIndex"></param>
+    ''' <param name="needSum"></param>
+    ''' <remarks></remarks>
     Private Sub editDR_data_settings(ByVal seikyusyoDataTable As Data.DataTable, _
                                       ByVal i As Integer, _
                                       ByRef editDR As Data.DataRow, _
@@ -1203,13 +1234,28 @@ Partial Public Class SeikyusyoExcelOutput
         End If
 
         editDR("kbnwihtbangou") = seikyusyoDataTable.Rows(i).Item("bukken_no")
-        editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei")
 
+
+        '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↓
+        'editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei")
+        'If seikyusyoDataTable.Rows(i).Item("bukken_mei").ToString.Trim = "" Then
+        '    editDR("bukenmei") = ""
+        'Else
+        '    editDR("bukenmei") = seikyusyoDataTable.Rows(i).Item("bukken_mei") & " 邸"
+        'End If
+
+        '商品名 依頼担当者名追加
+        editDR("hinmei") = seikyusyoDataTable.Rows(i).Item("hinmei").ToString.Trim & GetSyouhinMeiByFlg(seikyusyoDataTable, i)
+        '商品名 契約No追加
         If seikyusyoDataTable.Rows(i).Item("bukken_mei").ToString.Trim = "" Then
             editDR("bukenmei") = ""
         Else
             editDR("bukenmei") = seikyusyoDataTable.Rows(i).Item("bukken_mei") & " 邸"
         End If
+        editDR("bukenmei") &= GetBukenMeiByFlg(seikyusyoDataTable, i)
+        editDR("font_size") = GetFontSize(editDR("hinmei"))
+        '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
+
 
         editDR("suu") = seikyusyoDataTable.Rows(i).Item("suu")
         editDR("tanka") = seikyusyoDataTable.Rows(i).Item("tanka")
@@ -1308,7 +1354,7 @@ Partial Public Class SeikyusyoExcelOutput
         Dim editDt As New DataTable
         Dim editDR As Data.DataRow = editDt.NewRow
         Dim sb As New StringBuilder
-        Dim oldBukkenNo As String               '元物件No
+        Dim oldBukkenNo As String = ""               '元物件No
         Dim intTempRow As Integer               '総ページ数を計算用
         Dim intPageTatal As Integer             '総ページ数
         Dim strPageTotal As String              '総ページ数（表示用）
@@ -1364,6 +1410,8 @@ Partial Public Class SeikyusyoExcelOutput
         editDt.Columns.Add("total_uriage_sotozei8", GetType(String)) '合計_税込金額(税率=8%)
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 追加 終了↑===========================
 
+        editDt.Columns.Add("font_size", GetType(String))
+
         '初期化
         intPageTatal = 1
         intCurPageIndex = 1
@@ -1402,10 +1450,10 @@ Partial Public Class SeikyusyoExcelOutput
         Else
             '[Head] 部作成
             sb.AppendLine(fcw.CreateDatHeader(APOST.ToString))
-            '   [Form] 部作成
-
             Me.headFlg = True
         End If
+
+        '   [Form] 部作成
         sb.Append(vbCrLf)
         sb.Append(fcw.CreateFormSection("PAGE=SB_SEIKYUSYO_BK"))
 
@@ -1506,7 +1554,13 @@ Partial Public Class SeikyusyoExcelOutput
             editDR("seikyuu_saki_mei2") = TrimNull(seikyusyoDataTable.Rows(i).Item("seikyuu_saki_mei2"))
 
             '担当者名
-            editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+
+            'irai_tantousya_mei
+            If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+            Else
+                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+            End If
 
             'ログインユーザー名
             editDR("DisplayName") = "担当　" & Me.tantouName
@@ -1523,6 +1577,12 @@ Partial Public Class SeikyusyoExcelOutput
                 '物件名
                 editDR("bukken_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_mei")) & " 邸"
             End If
+
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↓
+            'If seikyusyoDataTable.Rows(i).Item("keiyaku_no") <> "" Then
+            '    editDR("bukken_mei") &= "(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            'End If
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
 
             '請求書用紙一桁目値
             If TrimNull(seikyusyoDataTable.Rows(i).Item("furikomi_flg")) = "0" Then
@@ -1553,8 +1613,12 @@ Partial Public Class SeikyusyoExcelOutput
                 editDR("onkai_kaisyuu_yotei_date2") = "上記御請求金額を" & Format(seikyusyoDataTable.Rows(i).Item("konkai_kaisyuu_yotei_date"), "yyyy年M月d日") & "までにお振込み下さい。"
             End If
 
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↓
+            editDR("bukken_mei") &= GetBukenMeiByFlg(seikyusyoDataTable, i)
             '商品名
             editDR("hinmei") = TrimNull(seikyusyoDataTable.Rows(i).Item("hinmei"))
+            editDR("font_size") = GetFontSize(editDR("hinmei"))
+            '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
 
             '数量
             editDR("suu") = TrimNull(seikyusyoDataTable.Rows(i).Item("suu"))
@@ -2602,7 +2666,8 @@ Partial Public Class SeikyusyoExcelOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uri_sotozei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
     End Function
 
@@ -2808,7 +2873,8 @@ Partial Public Class SeikyusyoExcelOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
     End Function
 
@@ -2839,7 +2905,8 @@ Partial Public Class SeikyusyoExcelOutput
                                                     ",uri_gaku" & _
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
-                                                    ",zeiritu")
+                                                    ",zeiritu" & _
+                                                    ",font_size")
 
 
     End Function
@@ -2884,7 +2951,7 @@ Partial Public Class SeikyusyoExcelOutput
             .Append("<script language='javascript' type='text/javascript'>  " & vbCrLf)
             .Append("   document.getElementById('" & Me.hidSelName.ClientID & "').value='" & Split(strId, ",")(1) & "';" & vbCrLf)
             .Append("   document.getElementById('" & Me.hidDisableDiv.ClientID & "').value='" & Split(strId, ",")(2) & "';" & vbCrLf)
-            .Append("   form1.submit();" & vbCrLf)
+            '.Append("   form1.submit();" & vbCrLf)
             .Append("</script>" & vbCrLf)
         End With
         ClientScript.RegisterStartupScript(Me.GetType, "", csScript.ToString)
@@ -2910,5 +2977,53 @@ Partial Public Class SeikyusyoExcelOutput
 
         ClientScript.RegisterClientScriptBlock(csType, csName, csScript.ToString)
     End Sub
+    ''' <summary>
+    ''' 帳票商品名Fontsize設定
+    ''' </summary>
+    ''' <param name="txt"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function GetFontSize(ByVal txt As String) As String
+
+        GetFontSize = 9
+
+        If Len(txt) > 40 / 2 Then
+            GetFontSize = 8
+        End If
+
+        If Len(txt) > 48 / 2 Then
+            GetFontSize = 7.5
+        End If
+
+        If Len(txt) > 52 / 2 Then
+            GetFontSize = 7
+        End If
+
+        If Len(txt) > 56 / 2 Then
+            GetFontSize = 6
+        End If
+
+    End Function
+
+    '1	：	今まで通り（今回追加の項目は出さない=特に変更なし）		
+    '2	：	要望①の追加 		※商品名の後ろに依頼担当者名を追加
+    '3	：	要望③の追加		※物件名の後ろに（契約No）を追加
+    '4	：	要望①＋③の追加		※商品名の後ろに依頼担当者名を追加、物件名の後ろに（契約No）を追加
+    Public Function GetSyouhinMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
+        If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
+        If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "2" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
+            Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+        Else
+            Return ""
+        End If
+    End Function
+    Public Function GetBukenMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
+        If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
+        If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "3" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
+            Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+        Else
+            Return ""
+        End If
+    End Function
 
 End Class

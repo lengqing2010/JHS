@@ -9,14 +9,20 @@
 
 <script language="vbscript" type="text/vbscript">
 <!--
+
+    Sub LoadExcel()
+        Call lo_c_Open_Excel("<%= xltFolder %>","<%= xltFile %>","<%= csvFolder %>","<%= csvDataFile %>","<%= csvData %>","<%= strErr %>")
+    End Sub
+
     ' CSV ファイルを作成し、Excel を起動
-   Sub lo_c_Open_Excel(XltFolder,XltFile,CsvFolder,CsvDataFile,csvData,strErr) 
+Sub lo_c_Open_Excel(XltFolder,XltFile,CsvFolder,CsvDataFile,csvData,strErr) 
+
     Dim objFso 
     Dim objTxtD
     Dim objXls 
     Dim objExcelApp 
     if strErr="" then
-    
+
         if  csvData <> "" Then 
             ' CSV ファイル作成 
             Set objFso = CreateObject("Scripting.FileSystemObject") 
@@ -31,7 +37,7 @@
             objTxtD.WriteLine(strRepAfterD) 
  
             objTxtD.Close 
-
+            
             ' Excel 起動 
             Set objXls = CreateObject("Excel.Application") 
             objXls.Visible = false 
@@ -39,8 +45,10 @@
             On Error resume next 
             Set objExcelApp = objXls.Workbooks.Open(XltFolder & XltFile) 
             If err.number = 0 Then 
-                objXls.Visible = True 
+                objXls.Visible = false 
+               
                 objXls.Run(objXls.ActiveWorkbook.name & "!Auto_open") 
+                objXls.Visible = True 
                 Set objXls = Nothing 
             Else 
                 Err.Clear 
@@ -56,22 +64,14 @@
     else
        call funOutError(strErr) 
     end if
-     call funBtnEnable()
+    
 End Sub
 
 //-->
 </script>
-<script language='javascript' type='text/javascript'>
-    function funBtnEnable(){
-        var buyDivID=document.getElementById('hidSelName').value;        
-        window.parent.opener.document.getElementById(buyDivID).style.display='none';
-        var DisableDivID=document.getElementById('hidDisableDiv').value;        
-        window.parent.opener.document.getElementById(DisableDivID).style.display='none';
-        window.parent.close();
-    }
-</script> 
 
-<body id="CreateCSV" onload="call lo_c_Open_Excel('<%= xltFolder %>','<%= xltFile %>','<%= csvFolder %>','<%= csvDataFile %>','<%= csvData %>','<%= strErr %>')">
+
+<body id="CreateCSV" onload="">
     <form id="form1" runat="server">
         <div>
             <asp:HiddenField ID="hidDenpyouTorihikisakis" runat="server" />
@@ -80,5 +80,43 @@ End Sub
             <asp:HiddenField ID="hidDisableDiv" runat="server" />
         </div>
     </form>
+    
+<script language='javascript' type='text/javascript'>
+    function funBtnEnable1(){
+        setTimeout(function(){
+            var buyDivID=document.getElementById('hidSelName').value;        
+            window.parent.opener.document.getElementById(buyDivID).style.display='none';
+            var DisableDivID=document.getElementById('hidDisableDiv').value;        
+            window.parent.opener.document.getElementById(DisableDivID).style.display='none';
+            //window.parent.close();        
+        },0);
+    }
+    function funBtnEnable(){
+            var buyDivID=document.getElementById('hidSelName').value;        
+            window.parent.opener.document.getElementById(buyDivID).style.display='none';
+            var DisableDivID=document.getElementById('hidDisableDiv').value;        
+            window.parent.opener.document.getElementById(DisableDivID).style.display='none';
+            window.parent.close();        
+    }
+    
+//    function Minimize() 
+//    {
+//    window.innerWidth = 100;
+//    window.innerHeight = 100;
+//    window.screenX = screen.width;
+//    window.screenY = screen.height;
+//    alwaysLowered = true;
+//    }
+
+
+//    Minimize();
+    setTimeout(function(){LoadExcel()},0);
+    setTimeout(function(){funBtnEnable()},1);
+    
+    
+
+
+    
+</script> 
 </body>
 </html>

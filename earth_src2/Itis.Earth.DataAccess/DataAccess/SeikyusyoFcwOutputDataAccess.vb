@@ -144,6 +144,8 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine(",ISNULL(tj.irai_tantousya_mei,'') as irai_tantousya_mei  --ˆË—Š’S“–Ò–¼")
             'Œ_–ñNo
             .AppendLine(",ISNULL(tj.keiyaku_no,'') as keiyaku_no  --Œ_–ñNo")
+
+            .AppendLine(",SUBSTRING(ISNULL(tk.kaisyuu_seikyuusyo_yousi,''),3,1) AS koumoku_hyouji_flg --€–Ú•\¦ƒtƒ‰ƒO")
             '2018/12/05 —›¼““ JHS0003_Earth¿‹‘’ •[‚Ì€–Ú’Ç‰Á ª
 
             .AppendLine("")

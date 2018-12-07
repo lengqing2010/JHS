@@ -1391,7 +1391,6 @@ Partial Public Class SeikyusyoFcwOutput
         '‰Šú‰»
         intPageTatal = 1
         intCurPageIndex = 1
-        oldBukkenNo = String.Empty
 
         'ƒy[ƒW”‚ğæ“¾‚·‚é
         For i As Integer = 0 To seikyusyoDataTable.Rows.Count - 1
