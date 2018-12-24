@@ -979,7 +979,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59265</DevelopmentServerPort>
+          <DevelopmentServerPort>12812</DevelopmentServerPort>
           <DevelopmentServerVPath>/jhs_earth</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
