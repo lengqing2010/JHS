@@ -824,7 +824,6 @@
     <Content Include="HanyouUriageInput.aspx" />
     <Content Include="HosyousyoBukkenItiran.aspx" />
     <Content Include="HoukokusyoPdfOutput.aspx" />
-    <Content Include="img\1.gif" />
     <Content Include="img\jhs_earth_logo1.gif" />
     <Content Include="img\menu_arrow.gif" />
     <Content Include="img\new.gif" />

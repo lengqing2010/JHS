@@ -1641,8 +1641,50 @@ Public Class KakusyuDataSyuturyokuMenuDataAccess
         paramList.Add(MakeParam("@fromDate", SqlDbType.VarChar, 10, strDateFrom))
         paramList.Add(MakeParam("@toDate", SqlDbType.VarChar, 10, strDateTo))
 
-        ' åüçıé¿çs
-        FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), dsDataSet, dsDataSet.UrikakekinZandakaHyou.TableName, paramList.ToArray)
+        ' åüçıé¿çs'
+        'FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), dsDataSet, dsDataSet.UrikakekinZandakaHyou.TableName, paramList.ToArray)
+        Dim timeout As Integer
+
+        Try
+            timeout = CInt(System.Configuration.ConfigurationManager.AppSettings("GetUrikakekinZandakaHyou").ToString)
+        Catch ex As Exception
+            timeout = 60
+        End Try
+
+        Dim InsPrintDataConnect As System.Data.SqlClient.SqlConnection = New System.Data.SqlClient.SqlConnection(connStr)
+        If InsPrintDataConnect.State = ConnectionState.Broken Then
+            InsPrintDataConnect.Close()
+            InsPrintDataConnect.Open()
+        Else
+            InsPrintDataConnect.Open()
+        End If
+
+        Dim sqlAdapter As SqlDataAdapter
+
+        Dim param1 As New SqlParameter()
+        param1.ParameterName = "@fromDate"
+        param1.DbType = DbType.String
+        param1.Value = strDateFrom
+
+        Dim param2 As New SqlParameter()
+        param2.ParameterName = "@toDate"
+        param2.DbType = DbType.String
+        param2.Value = strDateTo
+
+        Dim SQLCommand As New System.Data.SqlClient.SqlCommand
+        SQLCommand.CommandText = commandTextSb.ToString
+        SQLCommand.CommandType = CommandType.Text
+        SQLCommand.Connection = InsPrintDataConnect
+        SQLCommand.CommandTimeout = timeout
+        SQLCommand.Parameters.Add(param1)
+        SQLCommand.Parameters.Add(param2)
+        sqlAdapter = New SqlDataAdapter(SQLCommand)
+
+        sqlAdapter.Fill(dsDataSet.UrikakekinZandakaHyou)
+
+        SQLCommand.Dispose()
+        InsPrintDataConnect.Close()
+        InsPrintDataConnect.Dispose()
 
         'ñﬂÇÈ
         Return dsDataSet.UrikakekinZandakaHyou
