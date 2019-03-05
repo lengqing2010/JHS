@@ -72,15 +72,7 @@ End Sub
 
 
 <body id="CreateCSV" onload="">
-    <form id="form1" runat="server">
-        <div>
-            <asp:HiddenField ID="hidDenpyouTorihikisakis" runat="server" />
-            <asp:HiddenField ID="hidKeijyoubi" runat="server" />
-            <asp:HiddenField ID="hidSelName" runat="server" />
-            <asp:HiddenField ID="hidDisableDiv" runat="server" />
-        </div>
-    </form>
-    
+
 <script language='javascript' type='text/javascript'>
     function funBtnEnable1(){
         setTimeout(function(){
@@ -91,14 +83,25 @@ End Sub
             //window.parent.close();        
         },0);
     }
-    function funBtnEnable(){
+
+</script> 
+    <form id="form1" runat="server">
+        <div>
+            <asp:HiddenField ID="hidDenpyouTorihikisakis" runat="server" />
+            <asp:HiddenField ID="hidKeijyoubi" runat="server" />
+            <asp:HiddenField ID="hidSelName" runat="server" />
+            <asp:HiddenField ID="hidDisableDiv" runat="server" />
+        </div>
+    </form>
+    
+<script language='javascript' type='text/javascript'>
+        function funBtnEnable(){
             var buyDivID=document.getElementById('hidSelName').value;        
             window.parent.opener.document.getElementById(buyDivID).style.display='none';
             var DisableDivID=document.getElementById('hidDisableDiv').value;        
             window.parent.opener.document.getElementById(DisableDivID).style.display='none';
             window.parent.close();        
     }
-    
 //    function Minimize() 
 //    {
 //    window.innerWidth = 100;

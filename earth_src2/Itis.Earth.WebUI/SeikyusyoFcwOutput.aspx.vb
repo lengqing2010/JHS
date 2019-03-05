@@ -231,6 +231,7 @@ Partial Public Class SeikyusyoFcwOutput
 
         '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 Fontsize 対応↓
         editDt.Columns.Add("font_size", GetType(String))
+        editDt.Columns.Add("font_size2", GetType(String))
 
     End Sub
 
@@ -352,6 +353,7 @@ Partial Public Class SeikyusyoFcwOutput
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 修正 開始↑===========================
         '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 Fontsize 対応↓
         editDt.Columns.Add("font_size", GetType(String))
+        editDt.Columns.Add("font_size2", GetType(String))
     End Sub
 
     '全件請求書用紙を使用 
@@ -1230,6 +1232,7 @@ Partial Public Class SeikyusyoFcwOutput
         End If
         editDR("bukenmei") &= GetBukenMeiByFlg(seikyusyoDataTable, i)
         editDR("font_size") = GetFontSize(editDR("hinmei"))
+        editDR("font_size2") = GetFontSize(editDR("bukenmei"))
         '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
 
 
@@ -1387,6 +1390,7 @@ Partial Public Class SeikyusyoFcwOutput
         '===============↑2014/02/17 407662_消費税増税対応_Earth 車龍 追加 終了↑===========================
 
         editDt.Columns.Add("font_size", GetType(String))
+        editDt.Columns.Add("font_size2", GetType(String))
 
         '初期化
         intPageTatal = 1
@@ -1525,11 +1529,22 @@ Partial Public Class SeikyusyoFcwOutput
             '担当者名
 
             'irai_tantousya_mei
-            If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
-                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+            'If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+            '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+            'Else
+            '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+            'End If
+            If TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) <> "" Then
+                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) & " "
             Else
-                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+                If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+                    editDR("tantousya_mei") = "御担当者 "
+                Else
+                    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+                End If
             End If
+
+
 
             'ログインユーザー名
             editDR("DisplayName") = "担当　" & Me.tantouName
@@ -1587,6 +1602,7 @@ Partial Public Class SeikyusyoFcwOutput
             '商品名
             editDR("hinmei") = TrimNull(seikyusyoDataTable.Rows(i).Item("hinmei"))
             editDR("font_size") = GetFontSize(editDR("hinmei"))
+            editDR("font_size2") = GetFontSize(editDR("bukenmei"))
             '2018/12/05 李松涛 JHS0003_Earth請求書帳票の項目追加 ↑
 
             '数量
@@ -2632,7 +2648,7 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",sotozei_gaku" & _
                                                     ",uri_sotozei" & _
                                                     ",zeiritu" & _
-                                                    ",font_size")
+                                                    ",font_size,font_size2")
 
     End Function
 
@@ -2839,7 +2855,7 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
                                                     ",zeiritu" & _
-                                                    ",font_size")
+                                                    ",font_size,font_size2")
 
     End Function
 
@@ -2871,7 +2887,7 @@ Partial Public Class SeikyusyoFcwOutput
                                                     ",sotozei_gaku" & _
                                                     ",uriage_sotosei" & _
                                                     ",zeiritu" & _
-                                                    ",font_size")
+                                                    ",font_size,font_size2")
 
 
     End Function
@@ -2934,7 +2950,12 @@ Partial Public Class SeikyusyoFcwOutput
     Public Function GetSyouhinMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
         If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "2" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
-            Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+            If seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei").ToString.Trim = "" OrElse TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_no")) = "" Then
+                Return " 様"
+            Else
+                Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+            End If
+
         Else
             Return ""
         End If
@@ -2942,7 +2963,12 @@ Partial Public Class SeikyusyoFcwOutput
     Public Function GetBukenMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
         If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "3" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
-            Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            If seikyusyoDataTable.Rows(i).Item("keiyaku_no").ToString.Trim = "" Then
+                Return " 様"
+            Else
+                Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            End If
+            'Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
         Else
             Return ""
         End If

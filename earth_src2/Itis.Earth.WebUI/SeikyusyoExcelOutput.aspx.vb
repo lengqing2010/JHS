@@ -81,7 +81,7 @@ Partial Public Class SeikyusyoExcelOutput
             Next
             csvData = csvData.Replace("'", "&")
         Else
-            ClientScript.RegisterStartupScript(Me.GetType(), "CLOSE", "funBtnEnable();", True)
+            'ClientScript.RegisterStartupScript(Me.GetType(), "CLOSE", "funBtnEnable();", True)
         End If
 
         If Not IsPostBack Then
@@ -1556,10 +1556,20 @@ Partial Public Class SeikyusyoExcelOutput
             '担当者名
 
             'irai_tantousya_mei
-            If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
-                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+            'If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+            '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei"))
+            'Else
+            '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+            'End If
+
+            If TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) <> "" Then
+                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) & " "
             Else
-                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+                If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+                    editDR("tantousya_mei") = "御担当者 "
+                Else
+                    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+                End If
             End If
 
             'ログインユーザー名
@@ -3012,7 +3022,12 @@ Partial Public Class SeikyusyoExcelOutput
     Public Function GetSyouhinMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
         If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "2" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
-            Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+            'Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+            If seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei").ToString.Trim = "" OrElse TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_no")) = "" Then
+                Return " 様"
+            Else
+                Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
+            End If
         Else
             Return ""
         End If
@@ -3020,7 +3035,12 @@ Partial Public Class SeikyusyoExcelOutput
     Public Function GetBukenMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
         If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "3" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
-            Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            If seikyusyoDataTable.Rows(i).Item("keiyaku_no").ToString.Trim = "" Then
+                Return " 様"
+            Else
+                Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
+            End If
+
         Else
             Return ""
         End If
