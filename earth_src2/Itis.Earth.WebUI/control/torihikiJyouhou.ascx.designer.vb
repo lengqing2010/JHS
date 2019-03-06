@@ -202,6 +202,51 @@ Partial Public Class torihikiJyouhou
     Protected WithEvents ddl_shiroari_kensa_hyouji As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''titleText_torihiki2 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents titleText_torihiki2 As Global.System.Web.UI.HtmlControls.HtmlAnchor
+
+    '''<summary>
+    '''titleInfobarTorihiki2 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents titleInfobarTorihiki2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''UpdatePanel8 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents UpdatePanel8 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''btnTouroku2 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents btnTouroku2 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''meisaiTbody_torihiki2 コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents meisaiTbody_torihiki2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''tbx_hosyousyo_hak_kakuninsya コントロール。
     '''</summary>
     '''<remarks>

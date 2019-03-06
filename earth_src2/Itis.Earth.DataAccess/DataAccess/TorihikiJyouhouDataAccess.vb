@@ -478,9 +478,10 @@ Public Class TorihikiJyouhouDataAccess
     ''' [取引情報]用　加盟店マスタ、更新
     ''' </summary>
     ''' <param name="dtKameiten">加盟店テーブル</param>
+    ''' <param name="TorihikiFlg">取引情報FLG １： ２：</param>
     ''' <returns>TRUE:成功,FALSE:失敗</returns>
     ''' <remarks></remarks>
-    Public Function UpdKameiten(ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable) As Boolean
+    Public Function UpdKameiten(ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable, ByVal TorihikiFlg As String) As Boolean
 
         '戻り値
         UpdKameiten = False
@@ -493,39 +494,48 @@ Public Class TorihikiJyouhouDataAccess
         commandTextSb.AppendLine(" UPDATE m_kameiten ")
         commandTextSb.AppendLine(" WITH(UPDLOCK) ")
         commandTextSb.AppendLine(" SET ")
-        commandTextSb.AppendLine(" hosyou_kikan = @hosyou_kikan ")
-        commandTextSb.AppendLine(" ,hosyousyo_hak_umu = @hosyousyo_hak_umu ")
-        commandTextSb.AppendLine(" ,koj_gaisya_seikyuu_umu = @koj_gaisya_seikyuu_umu ")
-        commandTextSb.AppendLine(" ,koj_tantou_flg = @koj_tantou_flg ")
-        commandTextSb.AppendLine(" ,nyuukin_kakunin_jyouken = @nyuukin_kakunin_jyouken ")
-        commandTextSb.AppendLine(" ,nyuukin_kakunin_oboegaki = @nyuukin_kakunin_oboegaki ")
-        commandTextSb.AppendLine(" ,tys_mitsyo_flg = @tys_mitsyo_flg ")
-        commandTextSb.AppendLine(" ,hattyuusyo_flg = @hattyuusyo_flg ")
-        commandTextSb.AppendLine(" ,mitsyo_file_mei = @mitsyo_file_mei ")
-        commandTextSb.AppendLine(" ,upd_login_user_id = @upd_login_user_id ")
-        commandTextSb.AppendLine(" ,upd_datetime = getdate() ")
 
-        '==================2017/01/01 李松涛 追加 液状化特約管理 新特約切替日↓==========================
-        commandTextSb.AppendLine(" ,ekijyouka_tokuyaku_kanri = @ekijyouka_tokuyaku_kanri ")
-        commandTextSb.AppendLine(" ,shintokuyaku_kirikaedate = @shintokuyaku_kirikaedate ")
-        '==================2017/01/01 李松涛 追加 液状化特約管理 新特約切替日↑==========================
+        If TorihikiFlg = "1" Then
 
-        commandTextSb.AppendLine(" ,web_moushikomi_saiban_hanbetu_flg = @web_moushikomi_saiban_hanbetu_flg ")
-        commandTextSb.AppendLine(" ,hattyuusyo_michaku_renkei_taisyougai_flg = @hattyuusyo_michaku_renkei_taisyougai_flg ")
+            commandTextSb.AppendLine(" hosyou_kikan = @hosyou_kikan ")
+            commandTextSb.AppendLine(" ,hosyousyo_hak_umu = @hosyousyo_hak_umu ")
+            commandTextSb.AppendLine(" ,koj_gaisya_seikyuu_umu = @koj_gaisya_seikyuu_umu ")
+            commandTextSb.AppendLine(" ,koj_tantou_flg = @koj_tantou_flg ")
+            commandTextSb.AppendLine(" ,nyuukin_kakunin_jyouken = @nyuukin_kakunin_jyouken ")
+            commandTextSb.AppendLine(" ,nyuukin_kakunin_oboegaki = @nyuukin_kakunin_oboegaki ")
+            commandTextSb.AppendLine(" ,tys_mitsyo_flg = @tys_mitsyo_flg ")
+            commandTextSb.AppendLine(" ,hattyuusyo_flg = @hattyuusyo_flg ")
+            commandTextSb.AppendLine(" ,mitsyo_file_mei = @mitsyo_file_mei ")
+            commandTextSb.AppendLine(" ,upd_login_user_id = @upd_login_user_id ")
+            commandTextSb.AppendLine(" ,upd_datetime = getdate() ")
 
-        commandTextSb.AppendLine(" ,shitei_seikyuusyo_umu = @shitei_seikyuusyo_umu ")
-        commandTextSb.AppendLine(" ,shiroari_kensa_hyouji = @shiroari_kensa_hyouji ")
+            '==================2017/01/01 李松涛 追加 液状化特約管理 新特約切替日↓==========================
+            commandTextSb.AppendLine(" ,ekijyouka_tokuyaku_kanri = @ekijyouka_tokuyaku_kanri ")
+            commandTextSb.AppendLine(" ,shintokuyaku_kirikaedate = @shintokuyaku_kirikaedate ")
+            '==================2017/01/01 李松涛 追加 液状化特約管理 新特約切替日↑==========================
+            commandTextSb.AppendLine(" ,web_moushikomi_saiban_hanbetu_flg = @web_moushikomi_saiban_hanbetu_flg ")
+            commandTextSb.AppendLine(" ,hattyuusyo_michaku_renkei_taisyougai_flg = @hattyuusyo_michaku_renkei_taisyougai_flg ")
 
-        commandTextSb.AppendLine(" ,hosyousyo_hak_kakuninsya = @hosyousyo_hak_kakuninsya")
-        commandTextSb.AppendLine(" ,hosyousyo_hak_kakunin_date = @hosyousyo_hak_kakunin_date")
-        commandTextSb.AppendLine(" ,hikiwatasi_inji_umu = @hikiwatasi_inji_umu")
-        commandTextSb.AppendLine(" ,hosyou_kikan_kakuninsya = @hosyou_kikan_kakuninsya")
-        commandTextSb.AppendLine(" ,hosyou_kikan_start_date = @hosyou_kikan_start_date")
-        commandTextSb.AppendLine(" ,hosyousyo_hassou_umu = @hosyousyo_hassou_umu")
-        commandTextSb.AppendLine(" ,fuho_fax_kakuninsya = @fuho_fax_kakuninsya")
-        commandTextSb.AppendLine(" ,fuho_fax_kakunin_date = @fuho_fax_kakunin_date")
-        commandTextSb.AppendLine(" ,fuho_fax_umu = @fuho_fax_umu")
-        commandTextSb.AppendLine(" ,hosyousyo_hassou_umu_start_date = @hosyousyo_hassou_umu_start_date")
+        Else
+            commandTextSb.AppendLine(" shitei_seikyuusyo_umu = @shitei_seikyuusyo_umu ")
+            commandTextSb.AppendLine(" ,shiroari_kensa_hyouji = @shiroari_kensa_hyouji ")
+            commandTextSb.AppendLine(" ,hosyousyo_hak_kakuninsya = @hosyousyo_hak_kakuninsya")
+            commandTextSb.AppendLine(" ,hosyousyo_hak_kakunin_date = @hosyousyo_hak_kakunin_date")
+            commandTextSb.AppendLine(" ,hikiwatasi_inji_umu = @hikiwatasi_inji_umu")
+            commandTextSb.AppendLine(" ,hosyou_kikan_kakuninsya = @hosyou_kikan_kakuninsya")
+            commandTextSb.AppendLine(" ,hosyou_kikan_start_date = @hosyou_kikan_start_date")
+            commandTextSb.AppendLine(" ,hosyousyo_hassou_umu = @hosyousyo_hassou_umu")
+            commandTextSb.AppendLine(" ,hosyousyo_hassou_umu_start_date = @hosyousyo_hassou_umu_start_date")
+            commandTextSb.AppendLine(" ,fuho_fax_kakuninsya = @fuho_fax_kakuninsya")
+            commandTextSb.AppendLine(" ,fuho_fax_kakunin_date = @fuho_fax_kakunin_date")
+            commandTextSb.AppendLine(" ,fuho_fax_umu = @fuho_fax_umu")
+            commandTextSb.AppendLine(" ,upd_login_user_id = @upd_login_user_id ")
+            commandTextSb.AppendLine(" ,upd_datetime = getdate() ")
+
+        End If
+
+
+
 
 
         commandTextSb.AppendLine(" WHERE ")
@@ -585,7 +595,7 @@ Public Class TorihikiJyouhouDataAccess
             paramList.Add(MakeParam("@shitei_seikyuusyo_umu", SqlDbType.Int, 5, CInt(dtKameiten.Rows(0).Item("shitei_seikyuusyo_umu"))))
 
         End If
-         paramList.Add(MakeParam("@shiroari_kensa_hyouji", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("shiroari_kensa_hyouji")))
+        paramList.Add(MakeParam("@shiroari_kensa_hyouji", SqlDbType.Int, 4, dtKameiten.Rows(0).Item("shiroari_kensa_hyouji")))
 
         paramList.Add(MakeParam("@hosyousyo_hak_kakuninsya", SqlDbType.VarChar, 50, dtKameiten.Rows(0).Item("hosyousyo_hak_kakuninsya")))
         paramList.Add(MakeParam("@hosyousyo_hak_kakunin_date", SqlDbType.DateTime, 20, EmptyToNULL(dtKameiten.Rows(0).Item("hosyousyo_hak_kakunin_date"))))

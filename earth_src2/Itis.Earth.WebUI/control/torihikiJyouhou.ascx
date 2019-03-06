@@ -39,13 +39,15 @@
     }
   
     </script>
-   
+
+
+
+    
+    
     <table style="text-align: left; width:968px;margin-top:10px;" class="mainTable" cellpadding="1" id="Table2" >
         <thead>
             <tr>
                 <th class="tableTitle" colspan="8" rowspan="1" style="text-align: left">
-
-                   
                     <a id="titleText_torihiki" runat="server">éÊà¯èÓïÒ</a>
                     <span id="titleInfobarTorihiki" style="display: none;" runat="server">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode ="Conditional" RenderMode="Inline">
@@ -177,6 +179,40 @@
                     </asp:DropDownList>
                 </td>
             </tr>
+
+            <tr style="height:1px; size:1px;">
+                <td class="" colspan="7" style="font-size:0px; height:0px; border-style:none;"></td>
+                <td style="width: 34px;font-size:1px; height:0px;border-style:none;">&nbsp;</td>
+                <td  style="font-size:0px; height:0px;border-style:none;"></td>
+            </tr>
+            
+            
+            
+        </tbody>
+    </table>
+
+    <table style="text-align: left; width:968px;margin-top:10px;" class="mainTable" cellpadding="1" id="Table4" >
+        <thead>
+            <tr>
+                <th class="tableTitle" colspan="8" rowspan="1" style="text-align: left">
+
+                   
+                    <a id="titleText_torihiki2" runat="server">éÊà¯èÓïÒÇQ</a>
+                    <span id="titleInfobarTorihiki2" style="display: none;" runat="server">
+                <asp:UpdatePanel ID="UpdatePanel8" runat="server" UpdateMode ="Conditional" RenderMode="Inline">
+                   <ContentTemplate>
+                        <asp:Button ID="btnTouroku2" runat="server" Text="ìoò^" OnClick="btnTouroku2_Click" />
+                   </ContentTemplate>
+                </asp:UpdatePanel>
+                    </span>      
+                </th>
+                <th class="tableTitle" colspan="1" rowspan="1" style="text-align: left">
+                </th>
+            </tr>
+        </thead>
+        
+        <!--äÓñ{èÓïÒñæç◊-->
+        <tbody id="meisaiTbody_torihiki2" runat="server" style="display: none;"> 
             
             <tr>
                 <td class="koumokuMei" colspan="2">
@@ -261,11 +297,9 @@
                 <td  style="font-size:0px; height:0px;border-style:none;"></td>
             </tr>
             
-            
-            
         </tbody>
     </table>
-
+    
     <table style="text-align: left; margin-top:10px; width: 968px;" class="mainTable" cellpadding="1" id="Table1" >
         <thead>
             <tr>

@@ -251,6 +251,7 @@ Partial Public Class torihikiJyouhou
         Me.titleText_torihiki.HRef = "javascript:changeDisplay('" & Me.meisaiTbody_torihiki.ClientID & "');changeDisplay('" & Me.titleInfobarTorihiki.ClientID & "');"
         Me.titleText_gyoumu.HRef = "javascript:changeDisplay('" & Me.meisaiTbody_gyoumu.ClientID & "');changeDisplay('" & Me.titleInfobarTHgyoumu.ClientID & "');"
         Me.titleText_keiri.HRef = "javascript:changeDisplay('" & Me.meisaiTbody_keiri.ClientID & "');changeDisplay('" & Me.titleInfobarTHkeiri.ClientID & "');"
+        Me.titleText_torihiki2.HRef = "javascript:changeDisplay('" & Me.meisaiTbody_torihiki2.ClientID & "');changeDisplay('" & Me.titleInfobarTorihiki2.ClientID & "');"
 
     End Sub
 
@@ -598,7 +599,7 @@ Partial Public Class torihikiJyouhou
     End Sub
 
     ''' <summary>
-    ''' 登録ボタンをクリック時
+    ''' 登録ボタンをクリック時(取引情報)
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -617,7 +618,7 @@ Partial Public Class torihikiJyouhou
                 Exit Sub
             End If
 
-            updKekka = TorihikiBL.UpdKameiten(kameitenCd, makeAkameitenTable)
+            updKekka = TorihikiBL.UpdKameiten(kameitenCd, makeAkameitenTable, "1")
 
             '最新更新時間---更新
             If InStr(updKekka, Messages.Instance.MSG018S.ToString.Substring(7)) Then
@@ -628,6 +629,40 @@ Partial Public Class torihikiJyouhou
 
         End If
         
+    End Sub
+
+
+    ''' <summary>
+    ''' 登録ボタンをクリック時(取引情報２)
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Protected Sub btnTouroku2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        If PageItemInputCheck("torihiki") Then
+
+            Dim kameitenCd As String
+            Dim updKekka As String
+            Dim csScript As New StringBuilder
+
+            kameitenCd = ViewState.Item("kameiten_cd")
+
+            Dim otherPageFunction As New Itis.Earth.BizLogic.kihonjyouhou.OtherPageFunction
+            If Not otherPageFunction.DoFunction(Parent.Page, "Haitakameiten") Then
+                Exit Sub
+            End If
+
+            updKekka = TorihikiBL.UpdKameiten(kameitenCd, makeAkameitenTable, "2")
+
+            '最新更新時間---更新
+            If InStr(updKekka, Messages.Instance.MSG018S.ToString.Substring(7)) Then
+                otherPageFunction.DoFunction(Parent.Page, "SetKyoutuuKousin")
+            End If
+
+            ScriptManager.RegisterStartupScript(Me.Parent.Page, Me.Parent.Page.GetType(), "err", csScript.Append("alert('" & updKekka & "');").ToString, True)
+
+        End If
     End Sub
 
     ''' <summary>
@@ -947,18 +982,15 @@ Partial Public Class torihikiJyouhou
         '==================2017/01/01 李松涛 追加 液状化特約管理 新特約切替日↑==========================
 
 
-        tempTable.Rows(i).Item("hosyousyo_hak_kakuninsya") = Me.tbx_hosyousyo_hak_kakuninsya.Text
-        tempTable.Rows(i).Item("hosyousyo_hak_kakunin_date") = Me.tbx_hosyousyo_hak_kakunin_date.Text
-        tempTable.Rows(i).Item("hikiwatasi_inji_umu") = Me.ddl_hikiwatasi_inji_umu.Items(ddl_hikiwatasi_inji_umu.SelectedIndex).Value
 
-        tempTable.Rows(i).Item("hosyou_kikan_kakuninsya") = Me.tbx_hosyou_kikan_kakuninsya.Text
-        tempTable.Rows(i).Item("hosyou_kikan_start_date") = Me.tbx_hosyou_kikan_start_date.Text
-        tempTable.Rows(i).Item("hosyousyo_hassou_umu") = Me.ddl_hosyousyo_hassou_umu.Items(ddl_hosyousyo_hassou_umu.SelectedIndex).Value
-        tempTable.Rows(i).Item("hosyousyo_hassou_umu_start_date") = Me.tbx_hosyousyo_hassou_umu_start_date.Text
 
-        tempTable.Rows(i).Item("fuho_fax_kakuninsya") = Me.tbx_fuho_fax_kakuninsya.Text
-        tempTable.Rows(i).Item("fuho_fax_kakunin_date") = Me.tbx_fuho_fax_kakunin_date.Text
-        tempTable.Rows(i).Item("fuho_fax_umu") = Me.ddl_fuho_fax_umu.Items(ddl_fuho_fax_umu.SelectedIndex).Value
+
+
+
+
+
+
+
 
 
 
@@ -988,6 +1020,19 @@ Partial Public Class torihikiJyouhou
         'End If
         tempTable.Rows(i).Item("shitei_seikyuusyo_umu") = Me.ddl_shitei_seikyuusyo_umu.SelectedValue
         tempTable.Rows(i).Item("shiroari_kensa_hyouji") = Me.ddl_shiroari_kensa_hyouji.SelectedValue
+
+        '-----------------2---------
+        tempTable.Rows(i).Item("hosyousyo_hak_kakuninsya") = Me.tbx_hosyousyo_hak_kakuninsya.Text
+        tempTable.Rows(i).Item("hosyousyo_hak_kakunin_date") = Me.tbx_hosyousyo_hak_kakunin_date.Text
+        tempTable.Rows(i).Item("hikiwatasi_inji_umu") = Me.ddl_hikiwatasi_inji_umu.Items(ddl_hikiwatasi_inji_umu.SelectedIndex).Value
+        tempTable.Rows(i).Item("hosyou_kikan_kakuninsya") = Me.tbx_hosyou_kikan_kakuninsya.Text
+        tempTable.Rows(i).Item("hosyou_kikan_start_date") = Me.tbx_hosyou_kikan_start_date.Text
+        tempTable.Rows(i).Item("hosyousyo_hassou_umu") = Me.ddl_hosyousyo_hassou_umu.Items(ddl_hosyousyo_hassou_umu.SelectedIndex).Value
+        tempTable.Rows(i).Item("hosyousyo_hassou_umu_start_date") = Me.tbx_hosyousyo_hassou_umu_start_date.Text
+        tempTable.Rows(i).Item("fuho_fax_kakuninsya") = Me.tbx_fuho_fax_kakuninsya.Text
+        tempTable.Rows(i).Item("fuho_fax_kakunin_date") = Me.tbx_fuho_fax_kakunin_date.Text
+        tempTable.Rows(i).Item("fuho_fax_umu") = Me.ddl_fuho_fax_umu.Items(ddl_fuho_fax_umu.SelectedIndex).Value
+
 
         Return tempTable
 
@@ -1343,4 +1388,5 @@ Partial Public Class torihikiJyouhou
             Return v.ToString()
         End If
     End Function
+
 End Class

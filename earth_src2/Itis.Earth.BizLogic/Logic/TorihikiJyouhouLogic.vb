@@ -151,14 +151,14 @@ Public Class TorihikiJyouhouLogic
     ''' <param name="dtKameiten">‰Á–¿“Xƒe[ƒuƒ‹</param>
     ''' <returns>TRUE:¬Œ÷,FALSE:¸”s</returns>
     ''' <remarks></remarks>
-    Public Function UpdKameiten(ByVal KametenCd As String, ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable) As String
+    Public Function UpdKameiten(ByVal KametenCd As String, ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable, ByVal TorihikiFlg As String) As String
 
         Dim kino As String
 
         kino = "æˆøî•ñ‚Ì“o˜^"
 
         '“o˜^ˆ—
-        If UpdKameiten(dtKameiten) Then
+        If UpdKameiten(dtKameiten, TorihikiFlg) Then
             Return KakakuJyouhouBL.MakeMessage(Messages.Instance.MSG018S, kino)
         Else
             Return KakakuJyouhouBL.MakeMessage(Messages.Instance.MSG019E, kino)
@@ -172,10 +172,10 @@ Public Class TorihikiJyouhouLogic
     ''' <param name="dtKameiten">‰Á–¿“Xƒe[ƒuƒ‹</param>
     ''' <returns>TRUE:¬Œ÷,FALSE:¸”s</returns>
     ''' <remarks></remarks>
-    Public Function UpdKameiten(ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable) As Boolean
+    Public Function UpdKameiten(ByVal dtKameiten As KameitenDataSet.m_kameitenTableDataTable, ByVal TorihikiFlg As String) As Boolean
 
         Using scope As TransactionScope = New TransactionScope(TransactionScopeOption.Required)
-            If TorihikiJyouhouDA.UpdKameiten(dtKameiten) Then
+            If TorihikiJyouhouDA.UpdKameiten(dtKameiten, TorihikiFlg) Then
                 scope.Complete()
                 Return True
             Else
