@@ -13,6 +13,32 @@
         objWin.name = "earthMainWindow2"
         initPage(); //画面初期設定
         
+        
+        
+        document.onkeydown = function(){
+
+            
+            //Enter　Key時	
+            if(event.keyCode==13){
+                //Text　AREA　OK
+                if(event.srcElement.type=='textarea'){return true;}
+                //ボタン　　　OK
+//                if(event.srcElement.type=='submit'||event.srcElement.type=='button'){
+//                    return true;
+//                }
+                //Link　　　　OK
+                if(event.srcElement.tagName=='A'){
+                    event.keyCode=0;
+                    return true;         
+                }
+                //上記以外　Tab　Key           
+                event.keyCode=9;
+                return true;  
+            }
+
+
+            return true;
+        }
     </script>
 
     <!--基本情報明細-->
