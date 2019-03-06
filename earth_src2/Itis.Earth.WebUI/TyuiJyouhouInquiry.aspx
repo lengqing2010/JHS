@@ -210,7 +210,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="toraburuTbody" runat="server">
+            <tbody id="toraburuTbody" runat="server" style="display: none;">
                 <tr>
                     <td style="vertical-align: top;">
                         <table width="100%" class="gridviewTableHeader" cellpadding="0" cellspacing="0">
@@ -621,7 +621,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="naiyouTbody4" runat="server">
+            <tbody id="naiyouTbody4" runat="server" style="display: none;">
                 <tr>
                     <td>
                         <table width="100%" class="gridviewTableHeader" cellpadding="0" cellspacing="0">
