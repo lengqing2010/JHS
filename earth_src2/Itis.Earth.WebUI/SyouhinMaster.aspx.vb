@@ -2,6 +2,7 @@ Imports Itis.Earth.BizLogic
 Partial Public Class SyouhinMaster
     Inherits System.Web.UI.Page
     Private blnBtn As Boolean
+    Private KihonJyouhouLogic As New KihonJyouhouLogic
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim strNinsyou As String = ""
         Dim commonChk As New CommonCheck
@@ -10,6 +11,9 @@ Partial Public Class SyouhinMaster
         blnBtn = commonChk.CommonNinnsyou(strUserID, "keiri_gyoumu_kengen,kaiseki_master_kanri_kengen")
         ViewState("UserId") = strUserID
         If Not IsPostBack Then
+
+            GetTysSyouhinHyoujiKbnList()
+
             Dim SyouhinSearchLogic As New Itis.Earth.BizLogic.SyouhinMasterLogic
             Dim dtTable As New DataTable
             Dim intCount As Integer = 0
@@ -293,7 +297,7 @@ Partial Public Class SyouhinMaster
                 SetDropSelect(ddlSyouhinSyubetu16, TrimNull(.syouhin_syubetu16))
                 SetDropSelect(ddlSyouhinSyubetu17, TrimNull(.syouhin_syubetu17))
                 '2017/12/11 商品マスタの項目を追加する 李(大連) ↑
-
+                SetDropSelect(ddl_tys_syouhin_hyouji_kbn, TrimNull(.tys_syouhin_hyouji_kbn))
                 '標準価格
                 tbxHyoujun.Text = AddComa(.hyoujun_kkk)
                 '仕入価格
@@ -307,6 +311,9 @@ Partial Public Class SyouhinMaster
                 '2013/11/06 李宇追加 ↑
 
                 hidUPDTime.Value = TrimNull(.upd_datetime)
+
+
+
                 UpdatePanelA.Update()
             End With
             If Not blnBtn Then
@@ -419,6 +426,9 @@ Partial Public Class SyouhinMaster
         dtSyouhinDataSet.Item(0).syouhin_syubetu16 = ddlSyouhinSyubetu16.SelectedValue
         dtSyouhinDataSet.Item(0).syouhin_syubetu17 = ddlSyouhinSyubetu17.SelectedValue
         '2017/12/11 商品マスタの項目を追加する 李(大連) ↑
+
+        dtSyouhinDataSet.Item(0).tys_syouhin_hyouji_kbn = ddl_tys_syouhin_hyouji_kbn.SelectedValue
+
 
         dtSyouhinDataSet.Item(0).hyoujun_kkk = Replace(tbxHyoujun.Text, ",", "")
         dtSyouhinDataSet.Item(0).siire_kkk = Replace(tbxSiire.Text, ",", "")
@@ -654,4 +664,24 @@ Partial Public Class SyouhinMaster
     Protected Sub btnBack_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBack.Click
         Server.Transfer("MasterMainteMenu.aspx")
     End Sub
+
+
+    Private Sub GetTysSyouhinHyoujiKbnList()
+
+        'データを取得する
+        Dim dt As New Data.DataTable
+        dt = KihonJyouhouLogic.GetKakutyouMeisyouList(132, "")
+
+        With Me.ddl_tys_syouhin_hyouji_kbn
+            'ddlをBoundする
+            .DataValueField = "code"
+            .DataTextField = "meisyou"
+            .DataSource = dt
+            .DataBind()
+            '先頭行
+            .Items.Insert(0, New ListItem("全て", ""))
+        End With
+
+    End Sub
+
 End Class

@@ -41,13 +41,19 @@ Public Class KihonJyouhouDataAccess
         '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
 
 
+        commandTextSb.AppendLine(" ,taiou_syouhin_kbn ")
+        commandTextSb.AppendLine(" ,taiou_syouhin_kbn_set_date ")
+        commandTextSb.AppendLine(" ,tochirepo_muryou_flg ")
+        commandTextSb.AppendLine(" ,campaign_waribiki_flg ")
+        commandTextSb.AppendLine(" ,campaign_waribiki_set_date ")
+
+
         commandTextSb.AppendLine(" FROM  m_kameiten WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" LEFT JOIN  m_jhs_mailbox  AS  m_jhs_mailbox1  WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" ON m_jhs_mailbox1.PrimaryWindowsNTAccount=m_kameiten.eigyou_tantousya_mei ")
         commandTextSb.AppendLine(" LEFT JOIN  m_jhs_mailbox  AS  m_jhs_mailbox2  WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" ON m_jhs_mailbox2.PrimaryWindowsNTAccount=m_kameiten.kyuu_eigyou_tantousya_mei ")
 
-        commandTextSb.AppendLine("WHERE kameiten_cd = @kameiten_cd  ")
 
         'パラメータの設定
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
@@ -108,7 +114,9 @@ Public Class KihonJyouhouDataAccess
         commandTextSb.AppendLine(" fudousan_baibai_kensuu=@fudousan_baibai_kensuu, ")
         commandTextSb.AppendLine(" reform_zennendo_ukeoi_kingaku=@reform_zennendo_ukeoi_kingaku, ")
         '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
-
+        commandTextSb.AppendLine(" taiou_syouhin_kbn=@taiou_syouhin_kbn, ")
+        commandTextSb.AppendLine(" taiou_syouhin_kbn_set_date=GETDATE(), ")
+        commandTextSb.AppendLine(" campaign_waribiki_flg=@campaign_waribiki_flg, ")
 
 
         commandTextSb.AppendLine(" upd_datetime=GETDATE() ")
@@ -187,6 +195,16 @@ Public Class KihonJyouhouDataAccess
             paramList.Add(MakeParam("@reform_zennendo_ukeoi_kingaku", SqlDbType.VarChar, 20, .Item("reform_zennendo_ukeoi_kingaku")))
             '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
 
+            If .Item("taiou_syouhin_kbn").ToString.Trim = "" Then
+                paramList.Add(MakeParam("@taiou_syouhin_kbn", SqlDbType.VarChar, 40, DBNull.Value))
+            Else
+                paramList.Add(MakeParam("@taiou_syouhin_kbn", SqlDbType.VarChar, 40, .Item("taiou_syouhin_kbn")))
+            End If
+            If .Item("campaign_waribiki_flg").ToString.Trim = "" Then
+                paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.VarChar, 40, DBNull.Value))
+            Else
+                paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.VarChar, 40, .Item("campaign_waribiki_flg")))
+            End If
 
         End With
 
@@ -200,4 +218,49 @@ Public Class KihonJyouhouDataAccess
         UpdKihonJyouhouInfo = True
 
     End Function
+
+
+
+    ''' <summary>
+    ''' ddlのデータを取得する
+    ''' </summary>
+    ''' <returns>「取消」ddlのデータテーブル</returns>
+    ''' <remarks></remarks>
+    Public Function SelKakutyouMeisyouList(ByVal meisyou_syubetu As Integer, ByVal strCd As String) As Data.DataTable
+
+        ' DataSetインスタンスの生成()
+        Dim dsDataSet As New Data.DataSet
+
+        'SQL文の生成
+        Dim commandTextSb As New StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        'SQL文
+        With commandTextSb
+            .AppendLine("SELECT ")
+            .AppendLine("	code AS code  ")
+            .AppendLine("	,(code + ':' + ISNULL(meisyou,'')) AS meisyou ")
+            .AppendLine("FROM ")
+            .AppendLine("	m_kakutyou_meisyou WITH(READCOMMITTED) ")
+            .AppendLine("WHERE ")
+            .AppendLine("	meisyou_syubetu = @meisyou_syubetu ")
+            If Not strCd.Equals(String.Empty) Then
+                .AppendLine("	AND ")
+                .AppendLine("	code = @code ")
+            End If
+        End With
+
+        'パラメータの設定
+        paramList.Add(MakeParam("@meisyou_syubetu", SqlDbType.Int, 10, meisyou_syubetu))
+        paramList.Add(MakeParam("@code", SqlDbType.VarChar, 10, strCd))
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), dsDataSet, "m_kakutyou_meisyou", paramList.ToArray)
+
+        Return dsDataSet.Tables("m_kakutyou_meisyou")
+
+    End Function
+
 End Class

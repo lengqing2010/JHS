@@ -272,6 +272,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KihonJyouhouDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\KihonJyouhouDataSet.vb">
+      <DependentUpon>KihonJyouhouDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\KihonJyouhouInputDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

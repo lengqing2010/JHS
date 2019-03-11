@@ -567,6 +567,15 @@ Public Class KakakuseikyuJyouhouDataAccess
         commandTextSb.AppendLine(" , ekijyouka_kanihantei_kakaku ")
         '保証書発送有無_適用開始日
         commandTextSb.AppendLine(" , hosyousyo_hassou_umu_start_date ")
+
+
+        commandTextSb.AppendLine(" , taiou_syouhin_kbn ")
+        commandTextSb.AppendLine(" , taiou_syouhin_kbn_set_date ")
+        commandTextSb.AppendLine(" , tochirepo_muryou_flg ")
+        commandTextSb.AppendLine(" , campaign_waribiki_flg ")
+        commandTextSb.AppendLine(" , campaign_waribiki_set_date ")
+        commandTextSb.AppendLine(" , online_waribiki_flg ")
+
         commandTextSb.AppendLine(" FROM ")
         commandTextSb.AppendLine(" m_kameiten WITH (READCOMMITTED)")
         commandTextSb.AppendLine(" WHERE ")
@@ -1136,7 +1145,7 @@ Public Class KakakuseikyuJyouhouDataAccess
         '======================2011/06/28 車龍 追加 終了↑==================================
         commandTextSb.AppendLine(" , ekijyouka_tokuyaku_kakaku = @ekijyouka_tokuyaku_kakaku")
         commandTextSb.AppendLine(" , ekijyouka_kanihantei_kakaku = @ekijyouka_kanihantei_kakaku")
-
+        commandTextSb.AppendLine(" , online_waribiki_flg = @online_waribiki_flg")
 
         commandTextSb.AppendLine(" ,upd_login_user_id = @upd_login_user_id ")
         commandTextSb.AppendLine(" ,upd_datetime = getdate() ")
@@ -1211,6 +1220,9 @@ Public Class KakakuseikyuJyouhouDataAccess
         paramList.Add(MakeParam("@ekijyouka_tokuyaku_kakaku", SqlDbType.Int, 10, EmptyToNull(dtKameiten.Rows(0).Item("ekijyouka_tokuyaku_kakaku"))))
         paramList.Add(MakeParam("@ekijyouka_kanihantei_kakaku", SqlDbType.Int, 10, EmptyToNull(dtKameiten.Rows(0).Item("ekijyouka_kanihantei_kakaku"))))
 
+
+
+paramList.Add(MakeParam("@online_waribiki_flg", SqlDbType.Int, 4, EmptyToNull(dtKameiten.Rows(0).Item("online_waribiki_flg"))))
 
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, dtKameiten.Rows(0).Item("kameiten_cd")))
 

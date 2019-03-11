@@ -74,6 +74,9 @@ Partial Public Class kihon_jyouhou
     End Sub
     ''' <summary>ページロINIT</summary>
     Public Sub PageINIT()
+
+        GetKakutyouMeisyouList()
+
         Dim dtKihonJyouhouTable As New DataAccess.KihonJyouhouDataSet.KihonJyouhouTableDataTable
         dtKihonJyouhouTable = KihonJyouhouLogic.GetKihonJyouhouInfo(strKameitenCd)
         If dtKihonJyouhouTable.Rows.Count > 0 Then
@@ -144,6 +147,44 @@ Partial Public Class kihon_jyouhou
                 tbxFudouKensuu.Text = TrimNull(.Item("fudousan_baibai_kensuu"))
                 tbxZenNenUkeoiKin.Text = TrimNull(.Item("reform_zennendo_ukeoi_kingaku"))
                 '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
+
+                '対応商品区分
+                ddl_taiou_syouhin_kbn.SelectedValue = TrimNull(.Item("taiou_syouhin_kbn"))
+
+                If TrimNull(.Item("taiou_syouhin_kbn_set_date")) = "" Then
+                    lbl_taiou_syouhin_kbn_set_date.Text = ""
+                Else
+                    lbl_taiou_syouhin_kbn_set_date.Text = CDate(TrimNull(.Item("taiou_syouhin_kbn_set_date"))).ToString("yyyy/MM/dd")
+                End If
+
+
+
+                '土地レポ無料FLG
+                If TrimNull(.Item("tochirepo_muryou_flg")) = "1" Then
+                    lbl_tochirepo_muryou_flg.Text = "適用有り"
+                Else
+                    lbl_tochirepo_muryou_flg.Text = "適用無し"
+                End If
+
+                'キャンペーン割
+                If TrimNull(.Item("campaign_waribiki_flg")) = "1" Then
+                    ddl_campaign_waribiki_flg.SelectedIndex = 0
+                Else
+                    ddl_campaign_waribiki_flg.SelectedIndex = 1
+                End If
+
+
+                'データを取得する
+                Dim dt As New Data.DataTable
+                dt = KihonJyouhouLogic.GetKakutyouMeisyouList(131, "1")
+                If dt.Rows.Count > 0 Then
+
+                    lbl_campaign_waribiki_flg_txt.Text = Split(dt.Rows(0).Item("meisyou"), ":")(1)
+                End If
+
+
+
+                Dim campaign_waribiki_flg As String = ""
 
 
 
@@ -579,7 +620,8 @@ Partial Public Class kihon_jyouhou
                     .Item("reform_zennendo_ukeoi_kingaku") = tbxZenNenUkeoiKin.Text
                     '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
 
-
+                    .Item("taiou_syouhin_kbn") = Me.ddl_taiou_syouhin_kbn.SelectedValue
+                    .Item("campaign_waribiki_flg") = Me.ddl_campaign_waribiki_flg.SelectedValue
                 End With
                 KihonJyouhouLogic.SetUpdKihonJyouhouInfo(dtKihonJyouhouData)
                 setKousinHi(strKameitenCd)
@@ -663,5 +705,28 @@ Partial Public Class kihon_jyouhou
             Return v.ToString()
         End If
     End Function
+
+
+    Private Sub GetKakutyouMeisyouList()
+
+        'データを取得する
+        Dim dt As New Data.DataTable
+        dt = KihonJyouhouLogic.GetKakutyouMeisyouList(130, "")
+
+        With Me.ddl_taiou_syouhin_kbn
+            'ddlをBoundする
+            .DataValueField = "code"
+            .DataTextField = "meisyou"
+            .DataSource = dt
+            .DataBind()
+            '先頭行
+            .Items.Insert(0, New ListItem(String.Empty, ""))
+        End With
+
+
+
+
+
+    End Sub
    
 End Class

@@ -2948,10 +2948,10 @@ Partial Public Class SeikyusyoFcwOutput
     '3	：	要望③の追加		※物件名の後ろに（契約No）を追加
     '4	：	要望①＋③の追加		※商品名の後ろに依頼担当者名を追加、物件名の後ろに（契約No）を追加
     Public Function GetSyouhinMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
-        If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
+        If seikyusyoDataTable.Rows(i).Item("hinmei") IsNot DBNull.Value AndAlso seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "2" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
             If seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei").ToString.Trim = "" OrElse TrimNull(seikyusyoDataTable.Rows(i).Item("bukken_no")) = "" Then
-                Return " 様"
+                Return ""
             Else
                 Return "　" & seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei") & " 様"
             End If
@@ -2961,10 +2961,10 @@ Partial Public Class SeikyusyoFcwOutput
         End If
     End Function
     Public Function GetBukenMeiByFlg(ByVal seikyusyoDataTable As DataTable, ByVal i As Integer) As String
-        If seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
+        If seikyusyoDataTable.Rows(i).Item("hinmei") IsNot DBNull.Value AndAlso seikyusyoDataTable.Rows(i).Item("hinmei") = "　　　　　　　　　小　　　　計" Then Return ""
         If seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "3" OrElse seikyusyoDataTable.Rows(i).Item("koumoku_hyouji_flg") = "4" Then
             If seikyusyoDataTable.Rows(i).Item("keiyaku_no").ToString.Trim = "" Then
-                Return " 様"
+                Return " "
             Else
                 Return "　(" & seikyusyoDataTable.Rows(i).Item("keiyaku_no") & ")"
             End If

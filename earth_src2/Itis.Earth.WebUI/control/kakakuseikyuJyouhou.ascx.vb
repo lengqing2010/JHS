@@ -686,8 +686,15 @@ Partial Public Class kakakuseikyuJyouhou
                     'Me.tbxMoney3.Text = IIf(CommonLG.getDisplayString(tatou.Rows(i).Item("syouhin_cd")) = "00000", String.Empty, FormatNumber(tatou.Rows(i).Item("hyoujun_kkk"), 0) & "円")
                     '==================2011/05/11 車龍 多棟割引情報表示変更 追加 終了↑==========================
                 End If
-            Next
 
+
+
+            Next
+            If kameiten.Rows(0).Item("online_waribiki_flg").ToString = "1" Then
+                Me.ddlOnline.SelectedIndex = 0
+            Else
+                Me.ddlOnline.SelectedIndex = 1
+            End If
             kinoMsg = "情報コピー"
             kinoMsg = KihonJyouhouBL.MakeMessage(Messages.Instance.MSG018S, kinoMsg)
 
@@ -3113,6 +3120,7 @@ Partial Public Class kakakuseikyuJyouhou
 
         '(: 　請求先　　追加　↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
+        tempTable.Rows(i).Item("online_waribiki_flg") = ddlOnline.SelectedValue
 
         tempTable.Rows(i).Item("upd_login_user_id") = ViewState.Item("user_id")
 

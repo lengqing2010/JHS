@@ -827,6 +827,18 @@ Partial Public Class KameitenDataSet
         
         Private columnhosyousyo_hassou_umu_start_date As Global.System.Data.DataColumn
         
+        Private columntaiou_syouhin_kbn As Global.System.Data.DataColumn
+        
+        Private columntaiou_syouhin_kbn_set_date As Global.System.Data.DataColumn
+        
+        Private columntochirepo_muryou_flg As Global.System.Data.DataColumn
+        
+        Private columncampaign_waribiki_flg As Global.System.Data.DataColumn
+        
+        Private columncampaign_waribiki_set_date As Global.System.Data.DataColumn
+        
+        Private columnonline_waribiki_flg As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1538,6 +1550,48 @@ Partial Public Class KameitenDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property taiou_syouhin_kbnColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntaiou_syouhin_kbn
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property taiou_syouhin_kbn_set_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntaiou_syouhin_kbn_set_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tochirepo_muryou_flgColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntochirepo_muryou_flg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property campaign_waribiki_flgColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncampaign_waribiki_flg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property campaign_waribiki_set_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncampaign_waribiki_set_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property online_waribiki_flgColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnonline_waribiki_flg
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1664,9 +1718,15 @@ Partial Public Class KameitenDataSet
                     ByVal fuho_fax_umu As String,  _
                     ByVal ekijyouka_tokuyaku_kakaku As String,  _
                     ByVal ekijyouka_kanihantei_kakaku As String,  _
-                    ByVal hosyousyo_hassou_umu_start_date As String) As m_kameitenTableRow
+                    ByVal hosyousyo_hassou_umu_start_date As String,  _
+                    ByVal taiou_syouhin_kbn As String,  _
+                    ByVal taiou_syouhin_kbn_set_date As String,  _
+                    ByVal tochirepo_muryou_flg As String,  _
+                    ByVal campaign_waribiki_flg As String,  _
+                    ByVal campaign_waribiki_set_date As String,  _
+                    ByVal online_waribiki_flg As String) As m_kameitenTableRow
             Dim rowm_kameitenTableRow As m_kameitenTableRow = CType(Me.NewRow,m_kameitenTableRow)
-            Dim columnValuesArray() As Object = New Object() {kbn, kameiten_cd, torikesi, kameiten_mei1, tenmei_kana1, kameiten_mei2, tenmei_kana2, eigyousyo_cd, keiretu_cd, th_kasi_cd, danmenzu1, danmenzu2, danmenzu3, danmenzu4, danmenzu5, danmenzu6, danmenzu7, tys_seikyuu_saki, tys_seikyuu_sime_date, koj_seikyuusaki, koj_seikyuu_sime_date, hansokuhin_seikyuusaki, hansokuhin_seikyuu_sime_date, ss_kkk, sai_tys_kkk, ssgr_kkk, kaiseki_hosyou_kkk, hosyounasi_umu, kaiyaku_haraimodosi_kkk, todouhuken_cd, hosyou_kikan, hosyousyo_hak_umu, builder_no, koj_gaisya_seikyuu_umu, koj_tantou_flg, nenkan_tousuu, nyuukin_kakunin_jyouken, nyuukin_kakunin_oboegaki, eigyou_tantousya_mei, tys_mitsyo_flg, hattyuusyo_flg, mitsyo_file_mei, jizen_tys_kkk, jisin_hosyou_flg, jisin_hosyou_add_date, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, add_login_user_id, add_datetime, upd_login_user_id, upd_datetime, builder_mei, eigyousyo_mei, kbn_mei, keiretu_mei, simei, sansyou_date, hattyuu_teisi_flg, tys_seikyuu_saki_cd, tys_seikyuu_saki_brc, tys_seikyuu_saki_kbn, koj_seikyuu_saki_cd, koj_seikyuu_saki_brc, koj_seikyuu_saki_kbn, hansokuhin_seikyuu_saki_cd, hansokuhin_seikyuu_saki_brc, hansokuhin_seikyuu_saki_kbn, tatemono_seikyuu_saki_cd, tatemono_seikyuu_saki_brc, tatemono_seikyuu_saki_kbn, seikyuu_saki_cd5, seikyuu_saki_brc5, seikyuu_saki_kbn5, seikyuu_saki_cd6, seikyuu_saki_brc6, seikyuu_saki_kbn6, seikyuu_saki_cd7, seikyuu_saki_brc7, seikyuu_saki_kbn7, ekijyouka_tokuyaku_kanri, shintokuyaku_kirikaedate, web_moushikomi_saiban_hanbetu_flg, hattyuusyo_michaku_renkei_taisyougai_flg, shitei_seikyuusyo_umu, shiroari_kensa_hyouji, hosyousyo_hak_kakuninsya, hosyousyo_hak_kakunin_date, hikiwatasi_inji_umu, hosyou_kikan_kakuninsya, hosyou_kikan_start_date, hosyousyo_hassou_umu, fuho_fax_kakuninsya, fuho_fax_kakunin_date, fuho_fax_umu, ekijyouka_tokuyaku_kakaku, ekijyouka_kanihantei_kakaku, hosyousyo_hassou_umu_start_date}
+            Dim columnValuesArray() As Object = New Object() {kbn, kameiten_cd, torikesi, kameiten_mei1, tenmei_kana1, kameiten_mei2, tenmei_kana2, eigyousyo_cd, keiretu_cd, th_kasi_cd, danmenzu1, danmenzu2, danmenzu3, danmenzu4, danmenzu5, danmenzu6, danmenzu7, tys_seikyuu_saki, tys_seikyuu_sime_date, koj_seikyuusaki, koj_seikyuu_sime_date, hansokuhin_seikyuusaki, hansokuhin_seikyuu_sime_date, ss_kkk, sai_tys_kkk, ssgr_kkk, kaiseki_hosyou_kkk, hosyounasi_umu, kaiyaku_haraimodosi_kkk, todouhuken_cd, hosyou_kikan, hosyousyo_hak_umu, builder_no, koj_gaisya_seikyuu_umu, koj_tantou_flg, nenkan_tousuu, nyuukin_kakunin_jyouken, nyuukin_kakunin_oboegaki, eigyou_tantousya_mei, tys_mitsyo_flg, hattyuusyo_flg, mitsyo_file_mei, jizen_tys_kkk, jisin_hosyou_flg, jisin_hosyou_add_date, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, add_login_user_id, add_datetime, upd_login_user_id, upd_datetime, builder_mei, eigyousyo_mei, kbn_mei, keiretu_mei, simei, sansyou_date, hattyuu_teisi_flg, tys_seikyuu_saki_cd, tys_seikyuu_saki_brc, tys_seikyuu_saki_kbn, koj_seikyuu_saki_cd, koj_seikyuu_saki_brc, koj_seikyuu_saki_kbn, hansokuhin_seikyuu_saki_cd, hansokuhin_seikyuu_saki_brc, hansokuhin_seikyuu_saki_kbn, tatemono_seikyuu_saki_cd, tatemono_seikyuu_saki_brc, tatemono_seikyuu_saki_kbn, seikyuu_saki_cd5, seikyuu_saki_brc5, seikyuu_saki_kbn5, seikyuu_saki_cd6, seikyuu_saki_brc6, seikyuu_saki_kbn6, seikyuu_saki_cd7, seikyuu_saki_brc7, seikyuu_saki_kbn7, ekijyouka_tokuyaku_kanri, shintokuyaku_kirikaedate, web_moushikomi_saiban_hanbetu_flg, hattyuusyo_michaku_renkei_taisyougai_flg, shitei_seikyuusyo_umu, shiroari_kensa_hyouji, hosyousyo_hak_kakuninsya, hosyousyo_hak_kakunin_date, hikiwatasi_inji_umu, hosyou_kikan_kakuninsya, hosyou_kikan_start_date, hosyousyo_hassou_umu, fuho_fax_kakuninsya, fuho_fax_kakunin_date, fuho_fax_umu, ekijyouka_tokuyaku_kakaku, ekijyouka_kanihantei_kakaku, hosyousyo_hassou_umu_start_date, taiou_syouhin_kbn, taiou_syouhin_kbn_set_date, tochirepo_muryou_flg, campaign_waribiki_flg, campaign_waribiki_set_date, online_waribiki_flg}
             rowm_kameitenTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowm_kameitenTableRow)
             Return rowm_kameitenTableRow
@@ -1788,6 +1848,12 @@ Partial Public Class KameitenDataSet
             Me.columnekijyouka_tokuyaku_kakaku = MyBase.Columns("ekijyouka_tokuyaku_kakaku")
             Me.columnekijyouka_kanihantei_kakaku = MyBase.Columns("ekijyouka_kanihantei_kakaku")
             Me.columnhosyousyo_hassou_umu_start_date = MyBase.Columns("hosyousyo_hassou_umu_start_date")
+            Me.columntaiou_syouhin_kbn = MyBase.Columns("taiou_syouhin_kbn")
+            Me.columntaiou_syouhin_kbn_set_date = MyBase.Columns("taiou_syouhin_kbn_set_date")
+            Me.columntochirepo_muryou_flg = MyBase.Columns("tochirepo_muryou_flg")
+            Me.columncampaign_waribiki_flg = MyBase.Columns("campaign_waribiki_flg")
+            Me.columncampaign_waribiki_set_date = MyBase.Columns("campaign_waribiki_set_date")
+            Me.columnonline_waribiki_flg = MyBase.Columns("online_waribiki_flg")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1986,6 +2052,18 @@ Partial Public Class KameitenDataSet
             MyBase.Columns.Add(Me.columnekijyouka_kanihantei_kakaku)
             Me.columnhosyousyo_hassou_umu_start_date = New Global.System.Data.DataColumn("hosyousyo_hassou_umu_start_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnhosyousyo_hassou_umu_start_date)
+            Me.columntaiou_syouhin_kbn = New Global.System.Data.DataColumn("taiou_syouhin_kbn", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntaiou_syouhin_kbn)
+            Me.columntaiou_syouhin_kbn_set_date = New Global.System.Data.DataColumn("taiou_syouhin_kbn_set_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntaiou_syouhin_kbn_set_date)
+            Me.columntochirepo_muryou_flg = New Global.System.Data.DataColumn("tochirepo_muryou_flg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntochirepo_muryou_flg)
+            Me.columncampaign_waribiki_flg = New Global.System.Data.DataColumn("campaign_waribiki_flg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncampaign_waribiki_flg)
+            Me.columncampaign_waribiki_set_date = New Global.System.Data.DataColumn("campaign_waribiki_set_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncampaign_waribiki_set_date)
+            Me.columnonline_waribiki_flg = New Global.System.Data.DataColumn("online_waribiki_flg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnonline_waribiki_flg)
             Me.columnkbn.MaxLength = 1
             Me.columnkameiten_cd.MaxLength = 5
             Me.columnkameiten_mei1.MaxLength = 40
@@ -4223,6 +4301,90 @@ Partial Public Class KameitenDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property taiou_syouhin_kbn() As String
+            Get
+                If Me.Istaiou_syouhin_kbnNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.taiou_syouhin_kbnColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.taiou_syouhin_kbnColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property taiou_syouhin_kbn_set_date() As String
+            Get
+                If Me.Istaiou_syouhin_kbn_set_dateNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.taiou_syouhin_kbn_set_dateColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.taiou_syouhin_kbn_set_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tochirepo_muryou_flg() As String
+            Get
+                If Me.Istochirepo_muryou_flgNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.tochirepo_muryou_flgColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.tochirepo_muryou_flgColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property campaign_waribiki_flg() As String
+            Get
+                If Me.Iscampaign_waribiki_flgNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.campaign_waribiki_flgColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.campaign_waribiki_flgColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property campaign_waribiki_set_date() As String
+            Get
+                If Me.Iscampaign_waribiki_set_dateNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.campaign_waribiki_set_dateColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.campaign_waribiki_set_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property online_waribiki_flg() As String
+            Get
+                If Me.Isonline_waribiki_flgNull Then
+                    Return String.Empty
+                Else
+                    Return CType(Me(Me.tablem_kameitenTable.online_waribiki_flgColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tablem_kameitenTable.online_waribiki_flgColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IskbnNull() As Boolean
             Return Me.IsNull(Me.tablem_kameitenTable.kbnColumn)
         End Function
@@ -5190,6 +5352,66 @@ Partial Public Class KameitenDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Sethosyousyo_hassou_umu_start_dateNull()
             Me(Me.tablem_kameitenTable.hosyousyo_hassou_umu_start_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istaiou_syouhin_kbnNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.taiou_syouhin_kbnColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settaiou_syouhin_kbnNull()
+            Me(Me.tablem_kameitenTable.taiou_syouhin_kbnColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istaiou_syouhin_kbn_set_dateNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.taiou_syouhin_kbn_set_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settaiou_syouhin_kbn_set_dateNull()
+            Me(Me.tablem_kameitenTable.taiou_syouhin_kbn_set_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istochirepo_muryou_flgNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.tochirepo_muryou_flgColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settochirepo_muryou_flgNull()
+            Me(Me.tablem_kameitenTable.tochirepo_muryou_flgColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Iscampaign_waribiki_flgNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.campaign_waribiki_flgColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setcampaign_waribiki_flgNull()
+            Me(Me.tablem_kameitenTable.campaign_waribiki_flgColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Iscampaign_waribiki_set_dateNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.campaign_waribiki_set_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setcampaign_waribiki_set_dateNull()
+            Me(Me.tablem_kameitenTable.campaign_waribiki_set_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isonline_waribiki_flgNull() As Boolean
+            Return Me.IsNull(Me.tablem_kameitenTable.online_waribiki_flgColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setonline_waribiki_flgNull()
+            Me(Me.tablem_kameitenTable.online_waribiki_flgColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

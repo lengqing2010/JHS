@@ -123,6 +123,7 @@ Public Class SyouhinMasterDataAccess
         '2013/11/06 —›‰F’Ç‰Á «
         commandTextSb.AppendLine(" ,sds_jidou_set")
         '2013/11/06 —›‰F’Ç‰Á ª
+        commandTextSb.AppendLine(" ,tys_syouhin_hyouji_kbn")
         commandTextSb.AppendLine(" ,upd_login_user_id ")
         commandTextSb.AppendLine(" ,ISNULL(CONVERT(varchar(19),upd_datetime,21),'') AS upd_datetime")
         commandTextSb.AppendLine(" FROM m_syouhin WITH (READCOMMITTED)  ")
@@ -191,6 +192,7 @@ Public Class SyouhinMasterDataAccess
         '2013/11/06 —›‰F’Ç‰Á «
         commandTextSb.AppendLine(",sds_jidou_set")
         '2013/11/06 —›‰F’Ç‰Á ª
+        commandTextSb.AppendLine(",tys_syouhin_hyouji_kbn")
         commandTextSb.AppendLine(",add_login_user_id")
         commandTextSb.AppendLine(",add_datetime)")
         commandTextSb.AppendLine(" SELECT ")
@@ -237,6 +239,7 @@ Public Class SyouhinMasterDataAccess
 
         '2013/11/06 —›‰F’Ç‰Á «
         commandTextSb.AppendLine(",@sds_jidou_set")
+        commandTextSb.AppendLine(",@tys_syouhin_hyouji_kbn")
         '2013/11/06 —›‰F’Ç‰Á ª
         commandTextSb.AppendLine(",@add_login_user_id")
         commandTextSb.AppendLine(",GETDATE() ")
@@ -290,6 +293,9 @@ Public Class SyouhinMasterDataAccess
         paramList.Add(MakeParam("@sds_jidou_set", SqlDbType.Int, 10, IIf(dtSyouhin(0).sds_jidou_set = "", DBNull.Value, dtSyouhin(0).sds_jidou_set)))
         '2013/11/06 —›‰F’Ç‰Á ª
         paramList.Add(MakeParam("@add_login_user_id", SqlDbType.VarChar, 255, IIf(dtSyouhin(0).upd_login_user_id = "", DBNull.Value, dtSyouhin(0).upd_login_user_id)))
+
+        paramList.Add(MakeParam("@tys_syouhin_hyouji_kbn", SqlDbType.VarChar, 1, IIf(dtSyouhin(0).tys_syouhin_hyouji_kbn = "", DBNull.Value, dtSyouhin(0).tys_syouhin_hyouji_kbn)))
+
 
         ' ƒNƒGƒŠÀs
         Return ExecuteNonQuery(connStr, _
@@ -357,6 +363,8 @@ Public Class SyouhinMasterDataAccess
         commandTextSb.AppendLine(",upd_login_user_id=@add_login_user_id")
         commandTextSb.AppendLine(",upd_datetime=GETDATE() ")
 
+        commandTextSb.AppendLine(",tys_syouhin_hyouji_kbn=@tys_syouhin_hyouji_kbn ")
+
         commandTextSb.AppendLine(" WHERE syouhin_cd=@syouhin_cd")
         'ƒpƒ‰ƒ[ƒ^‚Ìİ’è()
         paramList.Add(MakeParam("@syouhin_cd", SqlDbType.VarChar, 255, dtSyouhin(0).syouhin_cd))
@@ -405,6 +413,7 @@ Public Class SyouhinMasterDataAccess
         paramList.Add(MakeParam("@sds_jidou_set", SqlDbType.Int, 10, IIf(dtSyouhin(0).sds_jidou_set = "", DBNull.Value, dtSyouhin(0).sds_jidou_set)))
         '2013/11/06 —›‰F’Ç‰Á ª
         paramList.Add(MakeParam("@add_login_user_id", SqlDbType.VarChar, 255, IIf(dtSyouhin(0).upd_login_user_id = "", DBNull.Value, dtSyouhin(0).upd_login_user_id)))
+        paramList.Add(MakeParam("@tys_syouhin_hyouji_kbn", SqlDbType.VarChar, 1, IIf(dtSyouhin(0).tys_syouhin_hyouji_kbn = "", DBNull.Value, dtSyouhin(0).tys_syouhin_hyouji_kbn)))
 
         ' ƒNƒGƒŠÀs
         Return ExecuteNonQuery(connStr, _

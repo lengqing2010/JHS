@@ -157,6 +157,15 @@ Partial Public Class kakakuseikyuJyouhou
     Protected WithEvents tbx_ekijyouka_kanihantei_kakaku As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''ddlOnline コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddlOnline As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''tbxSyouhinCd1 コントロール。
     '''</summary>
     '''<remarks>

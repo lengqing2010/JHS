@@ -176,14 +176,20 @@
                                                      <asp:TextBox ID="tbx_ekijyouka_tokuyaku_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"  style="text-align:right;"></asp:TextBox>
                                                     </td>
                                                     <td class="koumokuMei" style="width: 116px">
-                                                    SDSâøäiÅ{
+                                                    âtèÛâªè§ïi
+                                                    <br />SDSâøäiÅ{
                                                     </td>
                                                     <td style="width: 110px">
                                                      <asp:TextBox ID="tbx_ekijyouka_kanihantei_kakaku" runat="server" CssClass="kingaku" MaxLength="11" Width="96px"  style="text-align:right;"></asp:TextBox>
                                                     </td>
                                                     <td class="koumokuMei" style="width: 116px">
+                                                    ÉIÉìÉâÉCÉìäÑà¯
                                                     </td>
                                                     <td style="width: 110px">
+                                                        <asp:DropDownList ID="ddlOnline" runat="server">
+                                                            <asp:ListItem Value="1">óLÇË</asp:ListItem>
+                                                            <asp:ListItem Value="">ñ≥Çµ</asp:ListItem>
+                                                        </asp:DropDownList></td>
                                                     </td>
                                                     <td style="border-right: medium none; border-top: medium none; border-left: medium none;
                                                         width: 97px; border-bottom: medium none; text-align: center">

@@ -155,6 +155,33 @@
                             <asp:ListItem Value="">無し</asp:ListItem>
                         </asp:DropDownList></td>
                 </tr>
+                <tr>
+                    <td class="koumokuMei">
+                        対象商品区分
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddl_taiou_syouhin_kbn" runat="server">
+  
+                        </asp:DropDownList>&nbsp; &nbsp; &nbsp; &nbsp;
+                        <asp:Label ID="lbl_taiou_syouhin_kbn_set_date" runat="server" Text=""></asp:Label>
+                    </td>
+                    <td class="koumokuMei">
+                        土地レポ無料
+                    </td>
+                    <td>
+                        <asp:Label ID="lbl_tochirepo_muryou_flg" runat="server" Text=""></asp:Label>
+                    </td>
+                    <td class="koumokuMei">キャンペーン割
+                    </td>
+                    <td colspan="2">
+                        <asp:DropDownList ID="ddl_campaign_waribiki_flg" runat="server">
+                            <asp:ListItem Value="1">有り</asp:ListItem>
+                            <asp:ListItem Value="">無し</asp:ListItem>
+                        </asp:DropDownList>
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <asp:Label ID="lbl_campaign_waribiki_flg_txt" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <asp:HiddenField ID="hidHi" runat="server" />

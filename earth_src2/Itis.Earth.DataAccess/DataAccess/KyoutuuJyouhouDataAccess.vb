@@ -357,6 +357,58 @@ Public Class KyoutuuJyouhouDataAccess
 
     End Function
 
+
+    ''' <summary>加盟店対応商品区分切替履歴テーブル</summary>
+    Public Function UpdKameitenTaiouSyouhinKbnRireki(ByVal strKameitenCd As String, ByVal strUserId As String, ByVal taiou_syouhin_kbn As String) As Integer
+
+        'SQL文の生成
+        Dim commandTextSb As New StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        'SQL文
+
+        With commandTextSb
+
+            .AppendLine("Declare @kameiten_cd varchar(5)")
+            .AppendLine("Declare @koushin_no int")
+            .AppendLine("Declare @taiou_syouhin_kbn varchar(1)")
+            .AppendLine("Declare @user_id varchar(30)")
+            .AppendLine("")
+            .AppendLine("Set @kameiten_cd='" & strKameitenCd & "'")
+            .AppendLine("Set @taiou_syouhin_kbn='" & taiou_syouhin_kbn & "'")
+            .AppendLine("Set @user_id='" & strUserId & "'")
+
+
+            .AppendLine("SELECT @koushin_no = MAX(koushin_no)+1 FROM t_kameiten_taiou_syouhin_kbn_rireki ")
+            .AppendLine("WHERE kameiten_cd=@kameiten_cd")
+            .AppendLine("")
+            .AppendLine("If @koushin_no Is Null ")
+            .AppendLine("Begin")
+            .AppendLine("	Set @koushin_no = 1")
+            .AppendLine("End")
+            .AppendLine("")
+            .AppendLine("")
+            .AppendLine("Insert into t_kameiten_taiou_syouhin_kbn_rireki(kameiten_cd,koushin_no,taiou_syouhin_kbn,taiou_syouhin_kbn_set_date,taiou_syouhin_kbn_end_date,add_login_user_id,add_datetime,upd_login_user_id,upd_datetime)")
+            .AppendLine("SELECT @kameiten_cd,@koushin_no,@taiou_syouhin_kbn,getdate(),null,@user_id,getdate(),null,null")
+            .AppendLine("")
+            .AppendLine("Update t_kameiten_taiou_syouhin_kbn_rireki ")
+            .AppendLine("Set taiou_syouhin_kbn_end_date = getdate(),upd_login_user_id=@user_id,upd_datetime=getdate()")
+            .AppendLine("WHERE kameiten_cd=@kameiten_cd And koushin_no=@koushin_no-1")
+
+        End With
+
+        ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
+
+        '終了処理
+        commandTextSb = Nothing
+
+        '戻り値をセット成功の場合
+        Return True
+
+    End Function
+
     ''' <summary>
     ''' 「取消」ddlのデータを取得する
     ''' </summary>

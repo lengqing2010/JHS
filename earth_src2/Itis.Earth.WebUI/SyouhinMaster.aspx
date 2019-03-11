@@ -138,6 +138,9 @@
                         <td style="width: 160px;">
                             <asp:DropDownList ID="ddlSyouhinKBN1" runat="server">
                             </asp:DropDownList></td>
+                         <td colspan="2" rowspan="2" style="background-color:#fff">
+
+                        </td>
                     </tr>
                     <tr>
                         <td class="koumokuMei" style="width: 106px">
@@ -162,6 +165,13 @@
                         <td style="width: 160px;">
                             <asp:DropDownList ID="ddlSyouhinKBN3" CssClass="hissu" runat="server">
                             </asp:DropDownList></td>
+                        <td  class="koumokuMei" style="width: 160px">調査商品表示
+
+                        </td>
+                        <td style="width: 160px">
+                            <asp:DropDownList ID="ddl_tys_syouhin_hyouji_kbn" runat="server">
+                            </asp:DropDownList>&nbsp; &nbsp; &nbsp; &nbsp;
+                        </td>
                     </tr>
                 </tbody>
             </table>

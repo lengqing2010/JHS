@@ -40,7 +40,7 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("             ,tk.jyuusyo2                                   --住所2")
             .AppendLine("             ,tk.seikyuu_saki_mei                           --請求先名")
             .AppendLine("             ,tk.seikyuu_saki_mei2                          --請求先名2")
-            .AppendLine("             ,isnull(tk.tantousya_mei,'御担当者') ")
+            .AppendLine("             ,isnull(isnull(mss.tantousya_mei,tk.tantousya_mei),'御担当者') ")
             .AppendLine("                                         AS tantousya_mei   --担当者名")
             '===============2011/05/31 405693_EARTH経理２次要望対応 車龍 修正 開始↓===========================
             ''2010/10/22 汎用売上テーブル対象とする 付龍追加 ↓
@@ -91,7 +91,7 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("             ,LEFT(ISNULL(tk.kaisyuu_seikyuusyo_yousi,''),1) AS furikomi_flg --振込先表示内容フラグ")
             .AppendLine("             ,SUBSTRING(ISNULL(tk.kaisyuu_seikyuusyo_yousi,''),2,1) AS yousi_flg --用紙フラグ")
             .AppendLine("             ,CASE WHEN LEFT(tk.kaisyuu_seikyuusyo_yousi,1) = '1' THEN")
-            .AppendLine("                     nyuukin_kouza_no                       --入金口座番号")
+            .AppendLine("                     tk.nyuukin_kouza_no                       --入金口座番号")
             .AppendLine("              END nyuukin_kouza_no")
             .AppendLine("             ,tk.kurikosi_gaku                              --前回繰越残高")
             .AppendLine("             ,tk.gonyuukin_gaku                             --御入金額")
@@ -178,6 +178,12 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("m_syouhizei AS MSZ ") '--消費税マスタ
             .AppendLine("   ON ") '--税区分
             .AppendLine("       MSZ.zei_kbn = tu.zei_kbn ") '--税区分
+
+            .AppendLine("LEFT JOIN m_seikyuu_saki MSS")
+            .AppendLine("	ON MSS.seikyuu_saki_cd = tk.seikyuu_saki_cd")
+            .AppendLine("	AND MSS.[seikyuu_saki_brc] = tk.[seikyuu_saki_brc]")
+            .AppendLine("	AND MSS.[seikyuu_saki_kbn] = tk.[seikyuu_saki_kbn]")
+
             '===============↑2014/02/06 407662_消費税増税対応_Earth 車龍 追加 終了↑===========================
             .AppendLine("WHERE    tk.seikyuusyo_no =  '" & strSeikyusyo_no & "'")
             '===============↓2014/02/06 407662_消費税増税対応_Earth 車龍 修正 開始↓===========================
