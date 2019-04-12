@@ -131,36 +131,36 @@ Partial Public Class torihikiJyouhou
 
         '保証期間
         tbxHosyouKigen.ReadOnly = Not itKassei
-        tbxHosyouKigen.CssClass = IIf(itKassei, "", "readOnly")
+        tbxHosyouKigen.CssClass = GetCss(itKassei, tbxHosyouKigen.CssClass)
 
         '保証書発行<br/>タイミング
         ddlHosyousyoHakkou.Enabled = itKassei
-        ddlHosyousyoHakkou.CssClass = IIf(itKassei, "", "readOnly")
+        ddlHosyousyoHakkou.CssClass = GetCss(itKassei, ddlHosyousyoHakkou.CssClass)
 
         '自動発行_先方確認者
         tbx_hosyousyo_hak_kakuninsya.ReadOnly = Not itKassei
-        tbx_hosyousyo_hak_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_hosyousyo_hak_kakuninsya.CssClass = GetCss(itKassei, tbx_hosyousyo_hak_kakuninsya.CssClass)
 
         '自動発行_確認日
         tbx_hosyousyo_hak_kakunin_date.ReadOnly = Not itKassei
-        tbx_hosyousyo_hak_kakunin_date.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_hosyousyo_hak_kakunin_date.CssClass = GetCss(itKassei, tbx_hosyousyo_hak_kakunin_date.CssClass)
 
         '保証書引渡日印字有無
         ddl_hikiwatasi_inji_umu.Enabled = itKassei
-        ddl_hikiwatasi_inji_umu.CssClass = IIf(itKassei, "", "readOnly")
+        ddl_hikiwatasi_inji_umu.CssClass = GetCss(itKassei, ddl_hikiwatasi_inji_umu.CssClass)
 
 
         '保証期間_先方確認者
         tbx_hosyou_kikan_kakuninsya.ReadOnly = Not itKassei
-        tbx_hosyou_kikan_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_hosyou_kikan_kakuninsya.CssClass = GetCss(itKassei, tbx_hosyou_kikan_kakuninsya.CssClass)
 
         '保証期<br />間適用開始日
         tbx_hosyou_kikan_start_date.ReadOnly = Not itKassei
-        tbx_hosyou_kikan_start_date.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_hosyou_kikan_start_date.CssClass = GetCss(itKassei, tbx_hosyou_kikan_start_date.CssClass)
 
         '保証書発送有無
         ddl_hosyousyo_hassou_umu.Enabled = itKassei
-        ddl_hosyousyo_hassou_umu.CssClass = IIf(itKassei, "", "readOnly")
+        ddl_hosyousyo_hassou_umu.CssClass = GetCss(itKassei, ddl_hosyousyo_hassou_umu.CssClass)
         'If Not itKassei Then
         '    CommonKassei.SetDropdownListReadonly(ddl_hosyousyo_hassou_umu)
         'End If
@@ -168,48 +168,48 @@ Partial Public Class torihikiJyouhou
         '保証書発行有無
         '適用開始日
         tbx_hosyousyo_hassou_umu_start_date.ReadOnly = Not itKassei
-        tbx_hosyousyo_hassou_umu_start_date.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_hosyousyo_hassou_umu_start_date.CssClass = GetCss(itKassei, tbx_hosyousyo_hassou_umu_start_date.CssClass)
 
 
         'サポート調査<br />保証付保FAX先方確認者
         tbx_fuho_fax_kakuninsya.ReadOnly = Not itKassei
-        tbx_fuho_fax_kakuninsya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_fuho_fax_kakuninsya.CssClass = GetCss(itKassei, tbx_fuho_fax_kakuninsya.CssClass)
 
         ' サポート調査<br />保証付保FAX確認日
         tbx_fuho_fax_kakunin_date.ReadOnly = Not itKassei
-        tbx_fuho_fax_kakunin_date.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_fuho_fax_kakunin_date.CssClass = GetCss(itKassei, tbx_fuho_fax_kakunin_date.CssClass)
 
         'サポート調査<br />保証付保FAX送付有無
         ddl_fuho_fax_umu.Enabled = itKassei
-        ddl_fuho_fax_umu.CssClass = IIf(itKassei, "", "readOnly")
+        ddl_fuho_fax_umu.CssClass = GetCss(itKassei, ddl_fuho_fax_umu.CssClass)
 
 
 
 
         '報告書発行部数
         tbxTysHks.ReadOnly = Not itKassei
-        tbxTysHks.CssClass = IIf(itKassei, "", "readOnly")
+        tbxTysHks.CssClass = GetCss(itKassei, tbxTysHks.CssClass)
+
         tbxKjHks.ReadOnly = Not itKassei
-        tbxKjHks.CssClass = IIf(itKassei, "", "readOnly")
-
-
-
+        tbxKjHks.CssClass = GetCss(itKassei, tbxKjHks.CssClass)
 
 
         ddlHattyusyoFlg.Enabled = itKassei
-        ddlHattyusyoFlg.CssClass = IIf(itKassei, "", "readOnly")
+        ddlHattyusyoFlg.CssClass = GetCss(itKassei, ddlHattyusyoFlg.CssClass)
         ddl_shitei_seikyuusyo_umu.Enabled = itKassei
-        ddl_shitei_seikyuusyo_umu.CssClass = IIf(itKassei, "", "readOnly")
-
-
-
-
-
+        ddl_shitei_seikyuusyo_umu.CssClass = GetCss(itKassei, ddl_shitei_seikyuusyo_umu.CssClass)
 
 
 
     End Sub
 
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     ''' <summary>
     ''' 画面ロード
@@ -312,7 +312,10 @@ Partial Public Class torihikiJyouhou
     ''' <remarks></remarks>
     Protected Sub PageItemAddAttributes()
 
+        '入金確認覚書
+        Me.tbxNyukinKakuninKakusyo.Attributes.Add("onfocus", "return setOnfocusNengetu(this)")
         Me.tbxNyukinKakuninKakusyo.Attributes.Add("onblur", "checkDate(this);")
+
         Me.tbxProKakaninbi.Attributes.Add("onblur", "checkDate(this);")
 
 

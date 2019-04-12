@@ -157,7 +157,7 @@
                 </tr>
                 <tr>
                     <td class="koumokuMei">
-                        ‘ÎÛ¤•i‹æ•ª
+                        ‘ÎÛ¤•iFLG
                     </td>
                     <td>
                         <asp:DropDownList ID="ddl_taiou_syouhin_kbn" runat="server">

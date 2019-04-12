@@ -49,11 +49,16 @@ Partial Public Class common_drop
             ddlCommonDrop.Attributes.Add("disabled", value)
         End Set
     End Property
-    Public WriteOnly Property CssClass() As String
+    Public Property CssClass() As String
+        Get
+            Return ddlCommonDrop.CssClass
+        End Get
+
         Set(ByVal value As String)
             ddlCommonDrop.CssClass = value
         End Set
     End Property
+
     Public WriteOnly Property GetWidth() As Integer
         Set(ByVal value As Integer)
             ddlCommonDrop.Width = Unit.Pixel(value)

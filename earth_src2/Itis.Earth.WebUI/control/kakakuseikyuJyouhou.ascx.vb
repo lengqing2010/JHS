@@ -163,24 +163,33 @@ Partial Public Class kakakuseikyuJyouhou
 
         'SDSˆÈŠO Œã•t ‰ğÍ•i¿•ÛØ—¿
         tbxKaisekiHosyouKkk.ReadOnly = Not itKassei
-        tbxKaisekiHosyouKkk.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKaisekiHosyouKkk.CssClass = GetCss(itKassei, tbxKaisekiHosyouKkk.CssClass)
         'SDS     Œã•t ‰ğÍ•i¿•ÛØ—¿
         tbxSsgrKkk.ReadOnly = Not itKassei
-        tbxSsgrKkk.CssClass = IIf(itKassei, "", "readOnly")
+        tbxSsgrKkk.CssClass = GetCss(itKassei, tbxSsgrKkk.CssClass)
 
         '‰tó‰»“Á–ñ”ï
         tbx_ekijyouka_tokuyaku_kakaku.ReadOnly = Not itKassei
-        tbx_ekijyouka_tokuyaku_kakaku.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_ekijyouka_tokuyaku_kakaku.CssClass = GetCss(itKassei, tbx_ekijyouka_tokuyaku_kakaku.CssClass)
 
         ' ‰tó‰»<br />ŠÈˆÕ”»’è‰¿Ši
         tbx_ekijyouka_kanihantei_kakaku.ReadOnly = Not itKassei
-        tbx_ekijyouka_kanihantei_kakaku.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_ekijyouka_kanihantei_kakaku.CssClass = GetCss(itKassei, tbx_ekijyouka_kanihantei_kakaku.CssClass)
+
 
 
        
 
     End Sub
 
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
 
     ''' <summary>

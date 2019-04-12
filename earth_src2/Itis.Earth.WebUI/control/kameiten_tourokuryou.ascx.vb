@@ -140,7 +140,7 @@ Partial Public Class kameiten_tourokuryou
         Dim itKassei As Boolean = Iskassei(_kameiten_cd, "")
 
         tbxAddDate.ReadOnly = Not itKassei
-        tbxAddDate.CssClass = IIf(itKassei, "", "readOnly")
+        tbxAddDate.CssClass = GetCss(itKassei, tbxAddDate.CssClass)
 
 
         If Not itKassei Then
@@ -148,23 +148,31 @@ Partial Public Class kameiten_tourokuryou
         End If
 
         tbxSyouhinCd.ReadOnly = Not itKassei
-        tbxSyouhinCd.CssClass = IIf(itKassei, "", "readOnly")
+        tbxSyouhinCd.CssClass = GetCss(itKassei, tbxSyouhinCd.CssClass)
 
         btnKansaku.Enabled = itKassei
-        btnKansaku.CssClass = IIf(itKassei, "", "readOnly")
+        btnKansaku.CssClass = GetCss(itKassei, btnKansaku.CssClass)
 
         tbxZeinuki.ReadOnly = Not itKassei
-        tbxZeinuki.CssClass = IIf(itKassei, "", "readOnly")
+        tbxZeinuki.CssClass = GetCss(itKassei, tbxZeinuki.CssClass)
 
         tbxSeikyuDate.ReadOnly = Not itKassei
-        tbxSeikyuDate.CssClass = IIf(itKassei, "", "readOnly")
+        tbxSeikyuDate.CssClass = GetCss(itKassei, tbxSeikyuDate.CssClass)
 
         tbxUriDate.ReadOnly = Not itKassei
-        tbxUriDate.CssClass = IIf(itKassei, "", "readOnly")
+        tbxUriDate.CssClass = GetCss(itKassei, tbxUriDate.CssClass)
 
         tbxBikou.ReadOnly = Not itKassei
-        tbxBikou.CssClass = IIf(itKassei, "", "readOnly")
+        tbxBikou.CssClass = GetCss(itKassei, tbxBikou.CssClass)
     End Sub
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     ''' <summary>
     ''' âÊñ èâä˙âª

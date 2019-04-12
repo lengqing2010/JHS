@@ -49,17 +49,25 @@ Partial Public Class kyoutuu_jyouhou
 
 
         tbxKyoutuKameitenMei2.ReadOnly = Not itKassei
-        tbxKyoutuKameitenMei2.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKyoutuKameitenMei2.CssClass = GetCss(itKassei, tbxKyoutuKameitenMei2.CssClass)
 
         tbxKyoutukakeMei2.ReadOnly = Not itKassei
-        tbxKyoutukakeMei2.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKyoutukakeMei2.CssClass = GetCss(itKassei, tbxKyoutukakeMei2.CssClass)
 
         tbxKeiretuCd.ReadOnly = Not itKassei
-        tbxKeiretuCd.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKeiretuCd.CssClass = GetCss(itKassei, tbxKeiretuCd.CssClass)
         btnKeiretuCd.Enabled = itKassei
 
 
     End Sub
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
 

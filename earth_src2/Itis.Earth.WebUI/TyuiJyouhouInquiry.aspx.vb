@@ -38,6 +38,14 @@ Partial Public Class TyuiJyouhouInquiry
         Return ViewState("Iskassei").ToString <> "1"
     End Function
 
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
+
     '編集項目非活性、活性設定する
     Public Sub SetKassei()
 
@@ -55,9 +63,10 @@ Partial Public Class TyuiJyouhouInquiry
         End If
 
         tbxKihonSyouhinTyuuibun.ReadOnly = Not itKassei
-        tbxKihonSyouhinTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKihonSyouhinTyuuibun.CssClass = GetCss(itKassei, tbxKihonSyouhinTyuuibun.CssClass)
+
         btnKihonSyouhin.Enabled = itKassei
-        btnKihonSyouhin.CssClass = IIf(itKassei, "", "readOnly")
+        btnKihonSyouhin.CssClass = GetCss(itKassei, btnKihonSyouhin.CssClass)
 
         '基本調査方法
         'ddlKihonTyousaHouhou.Enabled = itKassei
@@ -67,9 +76,9 @@ Partial Public Class TyuiJyouhouInquiry
             CommonKassei.SetDropdownListReadonly(ddlKihonTyousaHouhou)
         End If
         tbxKihonTyousaHouhouTyuuibun.ReadOnly = Not itKassei
-        tbxKihonTyousaHouhouTyuuibun.CssClass = IIf(itKassei, "", "readOnly")
+        tbxKihonTyousaHouhouTyuuibun.CssClass = GetCss(itKassei, tbxKihonTyousaHouhouTyuuibun.CssClass)
         btnKihonTyousaHouhou.Enabled = itKassei
-        btnKihonTyousaHouhou.CssClass = IIf(itKassei, "", "readOnly")
+        btnKihonTyousaHouhou.CssClass = GetCss(itKassei, btnKihonTyousaHouhou.CssClass)
 
 
         If Not itKassei Then
@@ -77,11 +86,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou11.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -102,11 +111,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou13.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -126,11 +135,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou19.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -151,11 +160,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou21.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -176,11 +185,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou23.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -200,11 +209,11 @@ Partial Public Class TyuiJyouhouInquiry
                 For Each c As Control In grdNaiyou29.Rows(i).Controls(1).Controls
                     Try
                         CType(c, TextBox).ReadOnly = Not itKassei
-                        CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                     Catch ex1 As Exception
                         Try
                             CType(c, Button).Enabled = itKassei
-                            CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                         Catch ex2 As Exception
                             Try
                                 'CType(c, DropDownList).Enabled = itKassei
@@ -229,16 +238,18 @@ Partial Public Class TyuiJyouhouInquiry
         End If
 
         btn_siyou_kakuninhi_jigyousya.Enabled = itKassei
-        btn_siyou_kakuninhi_jigyousya.CssClass = IIf(itKassei, "", "readOnly")
+        btn_siyou_kakuninhi_jigyousya.CssClass = GetCss(itKassei, btn_siyou_kakuninhi_jigyousya.CssClass)
+
 
 
         tbx_siyou_kakuninhi_jigyousya.ReadOnly = Not itKassei
-        tbx_siyou_kakuninhi_jigyousya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_siyou_kakuninhi_jigyousya.CssClass = GetCss(itKassei, tbx_siyou_kakuninhi_jigyousya.CssClass)
+
         tbx_siyou_kakuninhi_kojkaisya.ReadOnly = Not itKassei
-        tbx_siyou_kakuninhi_kojkaisya.CssClass = IIf(itKassei, "", "readOnly")
+        tbx_siyou_kakuninhi_kojkaisya.CssClass = GetCss(itKassei, tbx_siyou_kakuninhi_kojkaisya.CssClass)
 
         btn_siyou_kakuninhi_kojkaisya.Enabled = itKassei
-        btn_siyou_kakuninhi_kojkaisya.CssClass = IIf(itKassei, "", "readOnly")
+        btn_siyou_kakuninhi_kojkaisya.CssClass = GetCss(itKassei, btn_siyou_kakuninhi_kojkaisya.CssClass)
 
     End Sub
 

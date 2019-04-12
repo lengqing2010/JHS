@@ -157,7 +157,7 @@
                                                         SDS以外 後付
                                                         <br />解析品質保証料</td>
                                                     <td style="width: 110px;" >
-                                                        <asp:TextBox ID="tbxKaisekiHosyouKkk" runat="server" CssClass="kingaku" MaxLength="11" Width="96px" style="text-align:right;"></asp:TextBox></td>
+                                                        <asp:TextBox ID="tbxKaisekiHosyouKkk" runat="server"  MaxLength="11" Width="96px" style="text-align:right;" CssClass="kingaku"></asp:TextBox></td>
                                                     <td class="koumokuMei" style="width: 116px">
                                                         SDS 後付
                                                         <br />解析品質保証料</td>

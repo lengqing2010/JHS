@@ -515,11 +515,11 @@ Public Class TorihikiJyouhouDataAccess
             '==================2017/01/01 —›¼““ ’Ç‰Á ‰tó‰»“Á–ñŠÇ— V“Á–ñØ‘Ö“úª==========================
             commandTextSb.AppendLine(" ,web_moushikomi_saiban_hanbetu_flg = @web_moushikomi_saiban_hanbetu_flg ")
             commandTextSb.AppendLine(" ,hattyuusyo_michaku_renkei_taisyougai_flg = @hattyuusyo_michaku_renkei_taisyougai_flg ")
-
-        Else
-            commandTextSb.AppendLine(" shitei_seikyuusyo_umu = @shitei_seikyuusyo_umu ")
+            commandTextSb.AppendLine(" ,shitei_seikyuusyo_umu = @shitei_seikyuusyo_umu ")
             commandTextSb.AppendLine(" ,shiroari_kensa_hyouji = @shiroari_kensa_hyouji ")
-            commandTextSb.AppendLine(" ,hosyousyo_hak_kakuninsya = @hosyousyo_hak_kakuninsya")
+        Else
+
+            commandTextSb.AppendLine(" hosyousyo_hak_kakuninsya = @hosyousyo_hak_kakuninsya")
             commandTextSb.AppendLine(" ,hosyousyo_hak_kakunin_date = @hosyousyo_hak_kakunin_date")
             commandTextSb.AppendLine(" ,hikiwatasi_inji_umu = @hikiwatasi_inji_umu")
             commandTextSb.AppendLine(" ,hosyou_kikan_kakuninsya = @hosyou_kikan_kakuninsya")

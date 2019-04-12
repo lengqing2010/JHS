@@ -1534,17 +1534,17 @@ Partial Public Class SeikyusyoFcwOutput
             'Else
             '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
             'End If
-            If TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) <> "" Then
-                editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) & " "
-            Else
-                If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
-                    editDR("tantousya_mei") = "å‰íSìñé“ "
-                Else
-                    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
-                End If
-            End If
+            'If TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) <> "" Then
+            '    editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("tantousya_mei")) & " "
+            'Else
+            '    If TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) = "" Then
+            '        editDR("tantousya_mei") = "å‰íSìñé“ "
+            '    Else
+            '        editDR("tantousya_mei") = TrimNull(seikyusyoDataTable.Rows(i).Item("irai_tantousya_mei")) & " "
+            '    End If
+            'End If
 
-
+            editDR("tantousya_mei") = seikyusyoDataTable.Rows(i).Item("tantousya_mei_bk") & " "
 
             'ÉçÉOÉCÉìÉÜÅ[ÉUÅ[ñº
             editDR("DisplayName") = "íSìñÅ@" & Me.tantouName
@@ -1602,7 +1602,7 @@ Partial Public Class SeikyusyoFcwOutput
             'è§ïiñº
             editDR("hinmei") = TrimNull(seikyusyoDataTable.Rows(i).Item("hinmei"))
             editDR("font_size") = GetFontSize(editDR("hinmei"))
-            editDR("font_size2") = GetFontSize(editDR("bukenmei"))
+            editDR("font_size2") = GetFontSize(editDR("bukken_mei"))
             '2018/12/05 óõèºìì JHS0003_EarthêøãÅèëí†ï[ÇÃçÄñ⁄í«â¡ Å™
 
             'êîó 
@@ -1950,9 +1950,9 @@ Partial Public Class SeikyusyoFcwOutput
 
                 With seikyusyoDataTable.Rows(i)
 
-                    decUriGaku = IIf(.Item("uri_gaku").Equals(DBNull.Value), 0, CDec(.Item("uri_gaku")))
-                    decSotozeiGaku = IIf(.Item("sotozei_gaku").Equals(DBNull.Value), 0, CDec(.Item("sotozei_gaku")))
-                    decZeikomiGaku = IIf(.Item("zeikomi_gaku").Equals(DBNull.Value), 0, CDec(.Item("zeikomi_gaku")))
+                    decUriGaku = IsNullTo0(.Item("uri_gaku")) ' IIf(.Item("uri_gaku").Equals(DBNull.Value), 0, CDec(.Item("uri_gaku")))
+                    decSotozeiGaku = IsNullTo0(.Item("sotozei_gaku")) ' IIf(.Item("sotozei_gaku").Equals(DBNull.Value), 0, CDec(.Item("sotozei_gaku")))
+                    decZeikomiGaku = IsNullTo0(.Item("zeikomi_gaku")) ' IIf(.Item("zeikomi_gaku").Equals(DBNull.Value), 0, CDec(.Item("zeikomi_gaku")))
 
                     strZeiritu = TrimNull(.Item("zeiritu"))
                     If Not strZeiritu.Equals(String.Empty) Then
@@ -2023,9 +2023,9 @@ Partial Public Class SeikyusyoFcwOutput
 
                 With seikyusyoDataTable.Rows(i + 1)
 
-                    decUriGaku = IIf(.Item("uri_gaku").Equals(DBNull.Value), 0, CDec(.Item("uri_gaku")))
-                    decSotozeiGaku = IIf(.Item("sotozei_gaku").Equals(DBNull.Value), 0, CDec(.Item("sotozei_gaku")))
-                    decZeikomiGaku = IIf(.Item("zeikomi_gaku").Equals(DBNull.Value), 0, CDec(.Item("zeikomi_gaku")))
+                    decUriGaku = IsNullTo0(.Item("uri_gaku")) ' IIf(.Item("uri_gaku").Equals(DBNull.Value), 0, CDec(.Item("uri_gaku")))
+                    decSotozeiGaku = IsNullTo0(.Item("sotozei_gaku")) 'IIf(.Item("sotozei_gaku").Equals(DBNull.Value), 0, CDec(.Item("sotozei_gaku")))
+                    decZeikomiGaku = IsNullTo0(.Item("zeikomi_gaku")) 'IIf(.Item("zeikomi_gaku").Equals(DBNull.Value), 0, CDec(.Item("zeikomi_gaku")))
 
                     strZeiritu = TrimNull(.Item("zeiritu"))
                     If Not strZeiritu.Equals(String.Empty) Then
@@ -2972,6 +2972,15 @@ Partial Public Class SeikyusyoFcwOutput
         Else
             Return ""
         End If
+    End Function
+
+    Public Function IsNullTo0(ByVal v As Object) As Decimal
+        If v Is DBNull.Value Then
+            Return 0
+        Else
+            Return CDec(v)
+        End If
+
     End Function
 
 End Class

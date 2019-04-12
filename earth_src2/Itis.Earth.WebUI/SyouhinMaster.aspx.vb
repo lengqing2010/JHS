@@ -642,6 +642,11 @@ Partial Public Class SyouhinMaster
         '2013/11/06 —›‰F’Ç‰Á «
         SetDropSelect(ddlSdsSeltutei, "")
         '2013/11/06 —›‰F’Ç‰Á ª
+
+        If ddl_tys_syouhin_hyouji_kbn.SelectedIndex > 0 Then
+            ddl_tys_syouhin_hyouji_kbn.SelectedIndex = 0
+        End If
+
         If Not blnBtn Then
             btnSyuusei.Enabled = False
             btnTouroku.Enabled = False

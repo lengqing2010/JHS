@@ -138,8 +138,11 @@
                         <td style="width: 160px;">
                             <asp:DropDownList ID="ddlSyouhinKBN1" runat="server">
                             </asp:DropDownList></td>
-                         <td colspan="2" rowspan="2" style="background-color:#fff">
-
+                         <td class="koumokuMei">
+&nbsp;
+                        </td>
+                         <td >
+&nbsp;
                         </td>
                     </tr>
                     <tr>
@@ -153,6 +156,12 @@
                         <td style="width: 160px;">
                             <asp:DropDownList ID="ddlSyouhinKBN2" runat="server">
                             </asp:DropDownList></td>
+                         <td class="koumokuMei">
+&nbsp;
+                        </td>
+                         <td >
+&nbsp;
+                        </td>  
                     </tr>
                     <tr>
                         <td class="koumokuMei" style="width: 106px">

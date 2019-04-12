@@ -60,10 +60,10 @@ Partial Public Class SeikyuuSakiMaster
 
 
         tbxAnzenKyouryokuKaihi1.ReadOnly = Not itKassei
-        tbxAnzenKyouryokuKaihi1.CssClass = IIf(itKassei, "", "readOnly")
+        tbxAnzenKyouryokuKaihi1.CssClass = GetCss(itKassei, tbxAnzenKyouryokuKaihi1.CssClass)
 
         tbxAnzenKyouryokuKaihi2.ReadOnly = Not itKassei
-        tbxAnzenKyouryokuKaihi2.CssClass = IIf(itKassei, "", "readOnly")
+        tbxAnzenKyouryokuKaihi2.CssClass = GetCss(itKassei, tbxAnzenKyouryokuKaihi2.CssClass)
 
 
         'ddlKyouryokuKaihiJigou.Enabled = itKassei
@@ -74,6 +74,14 @@ Partial Public Class SeikyuuSakiMaster
         End If
 
     End Sub
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     ''' <summary>
     ''' ページロード

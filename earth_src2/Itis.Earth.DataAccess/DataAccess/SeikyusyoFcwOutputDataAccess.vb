@@ -40,8 +40,14 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("             ,tk.jyuusyo2                                   --ZŠ2")
             .AppendLine("             ,tk.seikyuu_saki_mei                           --¿‹æ–¼")
             .AppendLine("             ,tk.seikyuu_saki_mei2                          --¿‹æ–¼2")
-            .AppendLine("             ,isnull(isnull(mss.tantousya_mei,tk.tantousya_mei),'Œä’S“–Ò') ")
+
+            .AppendLine("             ,isnull(tk.tantousya_mei,'Œä’S“–Ò') ")
             .AppendLine("                                         AS tantousya_mei   --’S“–Ò–¼")
+
+            .AppendLine("             ,isnull(isnull(tk.tantousya_mei,isnull(mss.tantousya_mei,tj.irai_tantousya_mei)),'Œä’S“–Ò') ")
+            .AppendLine("                                         AS tantousya_mei_bk   --’S“–Ò–¼")
+
+
             '===============2011/05/31 405693_EARTHŒo—‚QŸ—v–]‘Î‰ Ô—´ C³ ŠJn«===========================
             ''2010/10/22 ”Ä—p”„ãƒe[ƒuƒ‹‘ÎÛ‚Æ‚·‚é •t—´’Ç‰Á «
             ''.AppendLine("             ,ISNULL(tu.kbn,'') + ISNULL(tu.bangou,'') as bukken_no --•¨Œ”Ô†")
@@ -109,7 +115,7 @@ Public Class SeikyusyoFcwOutputDataAccess
             .AppendLine("             ,tu.denpyou_uri_date                           --”„ã”NŒ“ú")
             .AppendLine("             ,tu.syouhin_cd                                 --¤•icd")
        
-            .AppendLine("             ,tu.hinmei                                     --¤•i–¼")
+            '.AppendLine("             ,tu.hinmei                                     --¤•i–¼")
             .AppendLine(" ,CASE ")
             .AppendLine(" WHEN km1.code+km2.code IS NULL THEN ")
             .AppendLine("            tu.hinmei ")

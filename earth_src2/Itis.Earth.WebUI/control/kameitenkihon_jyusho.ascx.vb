@@ -121,15 +121,15 @@ Partial Public Class kameitenkihon_jyusho_user
 
                 Try
                     CType(c, TextBox).ReadOnly = Not itKassei
-                    CType(c, TextBox).CssClass = IIf(itKassei, "", "readOnly")
+                    CType(c, TextBox).CssClass = GetCss(itKassei, CType(c, TextBox).CssClass)
                 Catch ex1 As Exception
                     Try
                         CType(c, Button).Enabled = itKassei
-                        CType(c, Button).CssClass = IIf(itKassei, "", "readOnly")
+                        CType(c, Button).CssClass = GetCss(itKassei, CType(c, Button).CssClass)
                     Catch ex2 As Exception
                         Try
                             CType(c, DropDownList).Enabled = itKassei
-                            CType(c, DropDownList).CssClass = IIf(itKassei, "", "readOnly")
+                            CType(c, DropDownList).CssClass = GetCss(itKassei, CType(c, DropDownList).CssClass)
                         Catch ex As Exception
                         End Try
 
@@ -142,6 +142,14 @@ Partial Public Class kameitenkihon_jyusho_user
 
         End If
     End Sub
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     ''' <summary>
     ''' âÊñ èâä˙âª

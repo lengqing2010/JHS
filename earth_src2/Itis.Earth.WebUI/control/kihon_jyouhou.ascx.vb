@@ -42,7 +42,7 @@ Partial Public Class kihon_jyouhou
 
         '年間棟数
         tbxlblNenkanTousuu.ReadOnly = Not itKassei
-        tbxlblNenkanTousuu.CssClass = IIf(itKassei, "", "readOnly")
+        tbxlblNenkanTousuu.CssClass = GetCss(itKassei, tbxlblNenkanTousuu.CssClass)
 
         '工事売上種別
         'Common_drop2.Enabled = itKassei
@@ -52,10 +52,18 @@ Partial Public Class kihon_jyouhou
             Common_drop2.Obj.Attributes.Item("onchange") = "this.selectedIndex=this.defaultIndex;"
         End If
 
-        Common_drop2.CssClass = IIf(itKassei, "", "readOnly")
+        Common_drop2.CssClass = GetCss(itKassei, Common_drop2.CssClass)
 
 
     End Sub
+
+    Public Function GetCss(ByVal itKassei As Boolean, ByVal css As String)
+        If itKassei Then
+            Return Microsoft.VisualBasic.Strings.Replace(css, "readOnly", "", 1, -1, CompareMethod.Text)
+        Else
+            Return css & " readOnly"
+        End If
+    End Function
 
     '編集項目非活性、活性設定対応　20180905　李松涛　対応　↑
 
@@ -149,6 +157,7 @@ Partial Public Class kihon_jyouhou
                 '==================2017/01/01 李松涛 追加 新築住宅引渡し（販売）件数 不動産売買件数 リフォーム前年度請負金額↑==========================
 
                 '対応商品区分
+                ViewState("old_taiou_syouhin_kbn") = TrimNull(.Item("taiou_syouhin_kbn"))
                 ddl_taiou_syouhin_kbn.SelectedValue = TrimNull(.Item("taiou_syouhin_kbn"))
 
                 If TrimNull(.Item("taiou_syouhin_kbn_set_date")) = "" Then
@@ -623,7 +632,7 @@ Partial Public Class kihon_jyouhou
                     .Item("taiou_syouhin_kbn") = Me.ddl_taiou_syouhin_kbn.SelectedValue
                     .Item("campaign_waribiki_flg") = Me.ddl_campaign_waribiki_flg.SelectedValue
                 End With
-                KihonJyouhouLogic.SetUpdKihonJyouhouInfo(dtKihonJyouhouData)
+                KihonJyouhouLogic.SetUpdKihonJyouhouInfo(dtKihonJyouhouData, ViewState("old_taiou_syouhin_kbn").ToString)
                 setKousinHi(strKameitenCd)
                 Dim dtKyoutuuJyouhouTable As Itis.Earth.DataAccess.KyoutuuJyouhouDataSet.KyoutuuJyouhouTableDataTable
                 Dim KyoutuuJyouhouLogic As New KyoutuuJyouhouLogic
@@ -720,7 +729,7 @@ Partial Public Class kihon_jyouhou
             .DataSource = dt
             .DataBind()
             '先頭行
-            .Items.Insert(0, New ListItem(String.Empty, ""))
+            '.Items.Insert(0, New ListItem(String.Empty, ""))
         End With
 
 

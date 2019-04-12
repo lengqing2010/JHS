@@ -53,7 +53,7 @@ Public Class KihonJyouhouDataAccess
         commandTextSb.AppendLine(" ON m_jhs_mailbox1.PrimaryWindowsNTAccount=m_kameiten.eigyou_tantousya_mei ")
         commandTextSb.AppendLine(" LEFT JOIN  m_jhs_mailbox  AS  m_jhs_mailbox2  WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" ON m_jhs_mailbox2.PrimaryWindowsNTAccount=m_kameiten.kyuu_eigyou_tantousya_mei ")
-
+        commandTextSb.AppendLine("WHERE kameiten_cd = @kameiten_cd  ")
 
         'ÉpÉâÉÅÅ[É^ÇÃê›íË
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))

@@ -225,7 +225,7 @@
                     自動発行_確認日
                 </td>
                 <td class="">
-                    <asp:TextBox ID="tbx_hosyousyo_hak_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                    <asp:TextBox ID="tbx_hosyousyo_hak_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber" style="ime-mode:disabled"></asp:TextBox>
                 </td>
                 <td  class="koumokuMei" colspan="2">
                     保証書引渡日印字有無 &nbsp;</td>
@@ -249,7 +249,7 @@
                     保証期間<br />適用開始日
                 </td>
                 <td class="" colspan="4">
-                    <asp:TextBox ID="tbx_hosyou_kikan_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                    <asp:TextBox ID="tbx_hosyou_kikan_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber" style="ime-mode:disabled"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -264,7 +264,7 @@
                     保証書発送有無<br />間適用開始日
                 </td>
                 <td class="" colspan="4">
-                    <asp:TextBox ID="tbx_hosyousyo_hassou_umu_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                    <asp:TextBox ID="tbx_hosyousyo_hassou_umu_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber" style="ime-mode:disabled"></asp:TextBox>
                 </td>
             </tr>
             
@@ -280,7 +280,7 @@
                     サポート調査<br />保証付保FAX確認日
                 </td>
                 <td class="">
-                    <asp:TextBox ID="tbx_fuho_fax_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber"></asp:TextBox>
+                    <asp:TextBox ID="tbx_fuho_fax_kakunin_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber" style="ime-mode:disabled"></asp:TextBox>
                 </td>
                 <td class="koumokuMei" colspan="2">
                     サポート調査<br />保証付保FAX送付有無 &nbsp;</td>

@@ -9,11 +9,16 @@ Public Class KihonJyouhouLogic
         Return KihonJyouhouDA.SelKihonJyouhouInfo(strKameitenCd)
     End Function
     ''' <summary>基本情報を更新する</summary>
-    Public Function SetUpdKihonJyouhouInfo(ByVal dtKihonJyouhouData As KihonJyouhouDataSet.KihonJyouhouTableDataTable) As Boolean
+    Public Function SetUpdKihonJyouhouInfo(ByVal dtKihonJyouhouData As KihonJyouhouDataSet.KihonJyouhouTableDataTable, ByVal old_taiou_syouhin_kbn As String) As Boolean
         Using scope As TransactionScope = New TransactionScope(TransactionScopeOption.Required)
             KihonJyouhouDA.UpdKihonJyouhouInfo(dtKihonJyouhouData)
             KyoutuuJyouhouDataSet.UpdKyoutuuJyouhouRenkei(dtKihonJyouhouData.Rows(0).Item("kameiten_cd"), dtKihonJyouhouData.Rows(0).Item("upd_login_user_id"))
-            KyoutuuJyouhouDataSet.UpdKameitenTaiouSyouhinKbnRireki(dtKihonJyouhouData.Rows(0).Item("kameiten_cd"), dtKihonJyouhouData.Rows(0).Item("upd_login_user_id"), dtKihonJyouhouData.Rows(0).Item("taiou_syouhin_kbn"))
+
+            '対象商品区分(が変更されたタイミングで対象商品区分設定日や
+            '加盟店対応商品区分切替履歴テーブルへの書込みを実施
+            If old_taiou_syouhin_kbn <> dtKihonJyouhouData.Rows(0).Item("taiou_syouhin_kbn") Then
+                KyoutuuJyouhouDataSet.UpdKameitenTaiouSyouhinKbnRireki(dtKihonJyouhouData.Rows(0).Item("kameiten_cd"), dtKihonJyouhouData.Rows(0).Item("upd_login_user_id"), dtKihonJyouhouData.Rows(0).Item("taiou_syouhin_kbn"))
+            End If
             scope.Complete()
             Return True
         End Using
