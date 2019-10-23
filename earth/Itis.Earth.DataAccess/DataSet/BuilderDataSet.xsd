@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BuilderDataSet" targetNamespace="http://tempuri.org/BuilderDataSet.xsd" xmlns:mstns="http://tempuri.org/BuilderDataSet.xsd" xmlns="http://tempuri.org/BuilderDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BuilderDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BuilderDataSet" msprop:Generator_DataSetName="BuilderDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BuilderTable" msprop:Generator_UserTableName="BuilderTable" msprop:Generator_RowDeletedName="BuilderTableRowDeleted" msprop:Generator_TableClassName="BuilderTableDataTable" msprop:Generator_RowChangedName="BuilderTableRowChanged" msprop:Generator_RowClassName="BuilderTableRow" msprop:Generator_RowChangingName="BuilderTableRowChanging" msprop:Generator_RowEvArgName="BuilderTableRowChangeEvent" msprop:Generator_RowEvHandlerName="BuilderTableRowChangeEventHandler" msprop:Generator_TablePropName="BuilderTable" msprop:Generator_TableVarName="tableBuilderTable" msprop:Generator_RowDeletingName="BuilderTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nyuuryoku_no" msprop:Generator_UserColumnName="nyuuryoku_no" msprop:Generator_ColumnPropNameInRow="nyuuryoku_no" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_no" msprop:Generator_ColumnPropNameInTable="nyuuryoku_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="tyuuijikou_syubetu" msprop:Generator_UserColumnName="tyuuijikou_syubetu" msprop:Generator_ColumnPropNameInRow="tyuuijikou_syubetu" msprop:Generator_ColumnVarNameInTable="columntyuuijikou_syubetu" msprop:Generator_ColumnPropNameInTable="tyuuijikou_syubetuColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="nyuuryoku_date" msprop:Generator_UserColumnName="nyuuryoku_date" msprop:Generator_ColumnPropNameInRow="nyuuryoku_date" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_date" msprop:Generator_ColumnPropNameInTable="nyuuryoku_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="uketukesya_mei" msprop:Generator_UserColumnName="uketukesya_mei" msprop:Generator_ColumnPropNameInRow="uketukesya_mei" msprop:Generator_ColumnVarNameInTable="columnuketukesya_mei" msprop:Generator_ColumnPropNameInTable="uketukesya_meiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="naiyou" msprop:Generator_UserColumnName="naiyou" msprop:Generator_ColumnPropNameInRow="naiyou" msprop:Generator_ColumnVarNameInTable="columnnaiyou" msprop:Generator_ColumnPropNameInTable="naiyouColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

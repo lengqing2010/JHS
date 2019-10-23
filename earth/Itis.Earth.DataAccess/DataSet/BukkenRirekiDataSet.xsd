@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BukkenRirekiDataSet" targetNamespace="http://tempuri.org/BukkenRirekiDataSet.xsd" xmlns:mstns="http://tempuri.org/BukkenRirekiDataSet.xsd" xmlns="http://tempuri.org/BukkenRirekiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString2" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BukkenRirekiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BukkenRirekiDataSet" msprop:Generator_DataSetName="BukkenRirekiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BukkenRirekiTable" msprop:Generator_UserTableName="BukkenRirekiTable" msprop:Generator_RowDeletedName="BukkenRirekiTableRowDeleted" msprop:Generator_RowChangedName="BukkenRirekiTableRowChanged" msprop:Generator_RowClassName="BukkenRirekiTableRow" msprop:Generator_RowChangingName="BukkenRirekiTableRowChanging" msprop:Generator_RowEvArgName="BukkenRirekiTableRowChangeEvent" msprop:Generator_RowEvHandlerName="BukkenRirekiTableRowChangeEventHandler" msprop:Generator_TableClassName="BukkenRirekiTableDataTable" msprop:Generator_TableVarName="tableBukkenRirekiTable" msprop:Generator_RowDeletingName="BukkenRirekiTableRowDeleting" msprop:Generator_TablePropName="BukkenRirekiTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_no" msprop:Generator_UserColumnName="hosyousyo_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rireki_syubetu" msprop:Generator_UserColumnName="rireki_syubetu" msprop:Generator_ColumnVarNameInTable="columnrireki_syubetu" msprop:Generator_ColumnPropNameInRow="rireki_syubetu" msprop:Generator_ColumnPropNameInTable="rireki_syubetuColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rireki_no" msprop:Generator_UserColumnName="rireki_no" msprop:Generator_ColumnVarNameInTable="columnrireki_no" msprop:Generator_ColumnPropNameInRow="rireki_no" msprop:Generator_ColumnPropNameInTable="rireki_noColumn" type="xs:int" />
+              <xs:element name="nyuuryoku_no" msprop:Generator_UserColumnName="nyuuryoku_no" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_no" msprop:Generator_ColumnPropNameInRow="nyuuryoku_no" msprop:Generator_ColumnPropNameInTable="nyuuryoku_noColumn" type="xs:int" />
+              <xs:element name="naiyou" msprop:Generator_UserColumnName="naiyou" msprop:Generator_ColumnVarNameInTable="columnnaiyou" msprop:Generator_ColumnPropNameInRow="naiyou" msprop:Generator_ColumnPropNameInTable="naiyouColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="512" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hanyou_date" msprop:Generator_UserColumnName="hanyou_date" msprop:Generator_ColumnVarNameInTable="columnhanyou_date" msprop:Generator_ColumnPropNameInRow="hanyou_date" msprop:Generator_ColumnPropNameInTable="hanyou_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hanyou_cd" msprop:Generator_UserColumnName="hanyou_cd" msprop:Generator_ColumnVarNameInTable="columnhanyou_cd" msprop:Generator_ColumnPropNameInRow="hanyou_cd" msprop:Generator_ColumnPropNameInTable="hanyou_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kanri_date" msprop:Generator_UserColumnName="kanri_date" msprop:Generator_ColumnVarNameInTable="columnkanri_date" msprop:Generator_ColumnPropNameInRow="kanri_date" msprop:Generator_ColumnPropNameInTable="kanri_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="kanri_cd" msprop:Generator_UserColumnName="kanri_cd" msprop:Generator_ColumnVarNameInTable="columnkanri_cd" msprop:Generator_ColumnPropNameInRow="kanri_cd" msprop:Generator_ColumnPropNameInTable="kanri_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="henkou_kahi_flg" msprop:Generator_UserColumnName="henkou_kahi_flg" msprop:Generator_ColumnVarNameInTable="columnhenkou_kahi_flg" msprop:Generator_ColumnPropNameInRow="henkou_kahi_flg" msprop:Generator_ColumnPropNameInTable="henkou_kahi_flgColumn" type="xs:int" />
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="add_login_user_id" msprop:Generator_UserColumnName="add_login_user_id" msprop:Generator_ColumnVarNameInTable="columnadd_login_user_id" msprop:Generator_ColumnPropNameInRow="add_login_user_id" msprop:Generator_ColumnPropNameInTable="add_login_user_idColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="add_datetime" msprop:Generator_UserColumnName="add_datetime" msprop:Generator_ColumnVarNameInTable="columnadd_datetime" msprop:Generator_ColumnPropNameInRow="add_datetime" msprop:Generator_ColumnPropNameInTable="add_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="upd_login_user_id" msprop:Generator_UserColumnName="upd_login_user_id" msprop:Generator_ColumnVarNameInTable="columnupd_login_user_id" msprop:Generator_ColumnPropNameInRow="upd_login_user_id" msprop:Generator_ColumnPropNameInTable="upd_login_user_idColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="upd_datetime" msprop:Generator_UserColumnName="upd_datetime" msprop:Generator_ColumnVarNameInTable="columnupd_datetime" msprop:Generator_ColumnPropNameInRow="upd_datetime" msprop:Generator_ColumnPropNameInTable="upd_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MaxNyuuryokuNoTable" msprop:Generator_UserTableName="MaxNyuuryokuNoTable" msprop:Generator_RowDeletedName="MaxNyuuryokuNoTableRowDeleted" msprop:Generator_RowChangedName="MaxNyuuryokuNoTableRowChanged" msprop:Generator_RowClassName="MaxNyuuryokuNoTableRow" msprop:Generator_RowChangingName="MaxNyuuryokuNoTableRowChanging" msprop:Generator_RowEvArgName="MaxNyuuryokuNoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="MaxNyuuryokuNoTableRowChangeEventHandler" msprop:Generator_TableClassName="MaxNyuuryokuNoTableDataTable" msprop:Generator_TableVarName="tableMaxNyuuryokuNoTable" msprop:Generator_RowDeletingName="MaxNyuuryokuNoTableRowDeleting" msprop:Generator_TablePropName="MaxNyuuryokuNoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="max_no" msprop:Generator_UserColumnName="max_no" msprop:Generator_ColumnPropNameInRow="MAX_NO" msprop:Generator_ColumnVarNameInTable="columnMAX_NO" msprop:Generator_ColumnPropNameInTable="MAX_NOColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BukkenRirekiTable" />
+      <xs:field xpath="mstns:kbn" />
+      <xs:field xpath="mstns:hosyousyo_no" />
+      <xs:field xpath="mstns:nyuuryoku_no" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

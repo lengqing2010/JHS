@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HosyousyoHakJykyDataSet" targetNamespace="http://tempuri.org/HosyousyoHakJykyDataSet.xsd" xmlns:mstns="http://tempuri.org/HosyousyoHakJykyDataSet.xsd" xmlns="http://tempuri.org/HosyousyoHakJykyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HosyousyoHakJykyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HosyousyoHakJykyDataSet" msprop:Generator_DataSetName="HosyousyoHakJykyDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HosyousyoHakJykyTable" msprop:Generator_UserTableName="HosyousyoHakJykyTable" msprop:Generator_RowDeletedName="HosyousyoHakJykyTableRowDeleted" msprop:Generator_TableClassName="HosyousyoHakJykyTableDataTable" msprop:Generator_RowChangedName="HosyousyoHakJykyTableRowChanged" msprop:Generator_RowClassName="HosyousyoHakJykyTableRow" msprop:Generator_RowChangingName="HosyousyoHakJykyTableRowChanging" msprop:Generator_RowEvArgName="HosyousyoHakJykyTableRowChangeEvent" msprop:Generator_RowEvHandlerName="HosyousyoHakJykyTableRowChangeEventHandler" msprop:Generator_TablePropName="HosyousyoHakJykyTable" msprop:Generator_TableVarName="tableHosyousyoHakJykyTable" msprop:Generator_RowDeletingName="HosyousyoHakJykyTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hosyousyo_hak_jyky_no" msprop:Generator_UserColumnName="hosyousyo_hak_jyky_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_hak_jyky_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_hak_jyky_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_hak_jyky_noColumn" type="xs:int" />
+              <xs:element name="hosyousyo_hak_jyky" msprop:Generator_UserColumnName="hosyousyo_hak_jyky" msprop:Generator_ColumnPropNameInRow="hosyousyo_hak_jyky" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_hak_jyky" msprop:Generator_ColumnPropNameInTable="hosyousyo_hak_jykyColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mihak_list_inji_umu" msprop:Generator_UserColumnName="mihak_list_inji_umu" msprop:Generator_ColumnPropNameInRow="mihak_list_inji_umu" msprop:Generator_ColumnVarNameInTable="columnmihak_list_inji_umu" msprop:Generator_ColumnPropNameInTable="mihak_list_inji_umuColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kokyaku_list_inji_umu" msprop:Generator_UserColumnName="kokyaku_list_inji_umu" msprop:Generator_ColumnPropNameInRow="kokyaku_list_inji_umu" msprop:Generator_ColumnVarNameInTable="columnkokyaku_list_inji_umu" msprop:Generator_ColumnPropNameInTable="kokyaku_list_inji_umuColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:HosyousyoHakJykyTable" />
+      <xs:field xpath="mstns:hosyousyo_hak_jyky_no" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

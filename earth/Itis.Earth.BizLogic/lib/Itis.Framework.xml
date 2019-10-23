@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Itis.Framework
+</name>
+</assembly>
+<members>
+<member name="F:Itis.Framework.Report.PrintMode.Unknown">
+	<summary>
+ 不明。この値はセットしないでください。この値をセットした場合はPrintMode.PDFを指定したものとみなされます。
+ Unknown PrintMode. Can not set this to any properties.  
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.PrintMode.PDF">
+	<summary>
+ PDF形式でプレビュー表示します。
+ Client side preview by PDF.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.PrintMode.Preview">
+	<summary>
+ CSM形式でプレビュー表示します。
+ Client side preview by CSM.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.PrintMode.PrintDirect">
+	<summary>
+ CSM形式で印刷ダイアログを表示しないで印刷します。
+ Client side printing immediately on default printer.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.PrintMode.PrintDialog">
+	<summary>
+ CSM形式で印刷ダイアログを表示し印刷します。
+ This shows print dialog at client side.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.PrintMode.ServerSave">
+	<summary>
+ PDFファイルをサーバーに保存します。
+ Save pdf at server. you need use Parameters.OutFile too.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Itis.Framework.Report.PrintMode">
+	<summary>
+ 帳票出力形式です。PrintManagerクラスのPrintModeプロパティで使用します。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Report.ReportManager.ReportServerURLBody">
+	<summary>
+ ReportServerURLの末尾に追加されるURLです。（ "/iwfm/servlet/FMServlet"）
+ </summary>
+	<remarks>
+ ReportServerURL = ConfigurationManager.AppSettings("ReportServerUrl") ＆ ReportServerURLBody
+ </remarks>
+</member><member name="F:Itis.Framework.Report.ReportManager.WebServiceURLBody">
+	<summary>
+ WebServiceURL末尾にに追加されるURLです。（ "/axis/services/iWFM2?wsdl"）
+ </summary>
+	<remarks>
+ ReportServerURL = ConfigurationManager.AppSettings("ReportServerUrl") ＆ ReportServerURLBody
+ </remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.Parameters">
+	<summary>
+ URLの各種Getパラメータを設定または取得します。
+ Get or set URL get parameters
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.#ctor">
+	<summary>
+ コンストラクタ。
+ Constructer.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.#ctor(System.String,System.String,Itis.Framework.Report.PrintMode)">
+	<summary>
+ コンストラクタ。典型的なURLであればこのコンストラクタだけで生成できます。
+ URLを取得するにはURLプロパティを使用してください。
+ Constructer.You can generate popular URL by only using this constructer.
+ please use URL property to get URL.
+ </summary>
+	<param name="pFormFileName">
+ フォームファイル名を指定します。これはfcpファイルはまたはfcxファイルです
+ 指定は既定のフォルダ(forms)からの相対パスで行います。
+ fcp file name or fcx file name with parent folder name.
+ 例：sinseikun/myform.fcp
+ </param>
+	<param name="pFieldDataFileName">
+ データファイル名を指定します。
+ 指定は既定のフォルダ(data)からの相対パスで行います。
+ data file name (ex csv,dat, and so on) with parent folder name.
+ 例：sinseikun/mydata.csv
+ </param>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.ReportServerURL">
+	<summary>
+ レポートサーバーのURLを取得または設定します。web.configまたはapp.configで設定された値にServletのパス（/iwfm/servlet/FMServlet）を追加しURLを作成します。
+ configファイル内ではaddConfigセクション内にキー名ReportServerUrlを作成してください。
+ web.configまたはapp.configの値はURLのすべてではなくドメイン名までを設定します。
+ 良い例：http://report1-t.intra.tostem.co.jp:8080、
+ 悪い例：http://report1-t.intra.tostem.co.jp:8080/iwfm/servlet/FMServlet
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.WebServiceURL">
+	<summary>
+ ExecuteServerSaveメソッド内で使用するWebサービスのURLを取得または設定します。
+ web.configまたはapp.configで設定された値にWebサービスのパス（/axis/services/iWFM2?wsdl）を追加しURLを作成します。
+ configファイル内のReportServerUrlを使用しています。
+ web.configまたはapp.configの値はURLのすべてではなくドメイン名までを設定します。
+ SSOが関与しない場合、web.configまたはapp.configに別途設定する必要はなくReportServerUrlの値が代用されます。
+ SSOが関与する場合はweb.configまたはapp.configにはSSOを経由しないURLを指定します。
+ SSOが関与する場合の設定例：
+ &lt;add key="ReportServerUrl" value="http://sso-t.tostem.co.jp/fw/dfw/report1-t"/&gt;
+ &lt;add key="ReportWebServiceUrl" value="http://report1-t.intra.tostem.co.jp:8080"/&gt;
+ get or set web Service URL on ExecuteServerSave. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.WebServiceLifeTime">
+	<summary>
+ WebServiceのセッションライフタイム（単位：秒）を取得または設定します。初期値は190です。
+ 変更する場合はconfigファイルのaddConfigセクション内にキー名ReportWebServiceLifeTimeを作成してください。
+ get or set web service timeout (session life time). Value means seconds.
+ Default value is 190. You can overwrite default value by ReportWebServiceLifeTime key in web.config-addConfig section
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.Chop(System.String)">
+	<summary>
+ 文字列から最後の文字を削除します。
+ </summary>
+	<param name="value">変更する文字列</param>
+	<returns>切り取った値</returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.ChopIf(System.String,System.String)">
+	<summary>
+ 文字列の最後に指定された文字が存在したら削除します。
+ </summary>
+	<param name="value">変更する文字列</param>
+	<param name="letter">削除する文字</param>
+	<returns>削除した結果</returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.PrintMode">
+	<summary>
+ 帳票の出力形式を取得または設定します。
+ 設定値の詳細はPrintMode列挙体を参照してください。
+ See PrintMode enumeration. In other words hint of Enum PrintMode.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.URL">
+	<summary>
+ 帳票出力を実行するURLを取得します。
+ 実際に帳票を出力するにはこのURLにResponse.Redirect等でアクセスします。
+ Get url for output report.
+ Your program must access this url for output report.ex)Response.Redirect.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.URLParameter">
+	<summary>
+ 帳票を出力するためのURLのGetパラメータを取得します。
+ 生成されるURLは設定したプロパティ等の値によって異なります。
+ Get url get parameter for output report.
+ </summary>
+	<value></value>
+	<returns>iWFMで帳票を出力するためのURLのGetパラメータを返します。;</returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.Check">
+	<summary>
+ パラメータのチェックを行います。
+ 問題がある場合はApplicationExceptionを発生させます。問題の詳細についてはApplicationExceptionに含まれるメッセージを参照してください。
+ 戻り値は常にTrueです。
+ Check parameters. If any problems, throw ApplicationException. see message include the exception.
+ Return value is permanently True.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.ExecuteWebService">
+	<summary>
+ Webサービスを実行します。現在はサーバ保存のみで使用します。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManager.ExecuteServerSave">
+	<summary>
+ WebサービスでPDFファイルをサーバに保存します。実行時、PrintModeはServerSaveが設定されます。
+ Create PDF file on server. ReportManager gets PDF file name from Parameters.OutPut property.
+ This method accesses reporting server.
+ If sccess, return true.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManager.IsAutoCheck">
+	<summary>
+ Trueのとき、URLParameterプロパティ呼び出し時にパラメータの組み合わせのチェックを行います。既定値はTrueです。
+ If True, ReportManager check parameter automatically when access URL property or URLParameter property.
+ Default value is True.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Itis.Framework.Report.ReportManager">
+	<summary>
+ 帳票を出力するためのURLまたはGetパラメータを生成します。
+ Generate URL or Get parameter for reporting server. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyy_MM_dd">
+	<summary>yyyy/MM/ddフォーマット(例：2008/12/31)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yy_MM_dd">
+	<summary>yy/MM/ddフォーマット(例：08/12/31)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyy年MM月dd日">
+	<summary>yyyy年MM月dd日フォーマット(例：2008年12月31日)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ggyy_MM_dd">
+	<summary>ggyy/MM/ddフォーマット(例：平成20/12/31)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ggyy年MM月dd日">
+	<summary>ggyy年MM月dd日フォーマット(例：平成20年12月31日)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyyMMdd">
+	<summary>yyyyMMddフォーマット(例：20081231)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yy年MM月dd日">
+	<summary>yy年MM月dd日フォーマット(例：08年12月31日)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyMMdd">
+	<summary>yyMMddフォーマット(例：081231)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyy_MM">
+	<summary>yyyy/MMフォーマット(例：200812)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyyDatMMDatdd">
+	<summary>yyyy-MM-ddフォーマット(例：2008-12-31)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ddDatMMDatyy">
+	<summary>dd-MM-yyフォーマット(例：31-12-08)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ddDatMMMMDatyyyy">
+	<summary>dd-MMMM-yyyyフォーマット(例：31-12-2008)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.dd_MM_yyyy">
+	<summary>dd/MM/yyyyフォーマット(例：31/12/2008)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ggyy年MM月">
+	<summary>ggyy年MM月フォーマット(例：平成20年12月)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ggyy年">
+	<summary>ggyy年フォーマット(例：平成20年)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyy年MM月">
+	<summary>yyyy年MM月フォーマット(例：2008年12月)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyyyMM">
+	<summary>yyyyMMフォーマット(例：200812)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yy_MM">
+	<summary>yy/MMフォーマット(例：08/12)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yyMM">
+	<summary>yyMMフォーマット(例：0812)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.yy年MM月">
+	<summary>yy年MM月フォーマット(例：08年12月)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.ggyy_MM">
+	<summary>GGyy/MM年フォーマット(例：平成20/12)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.MM_dd">
+	<summary>MM/ddフォーマット(例：12/31)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.MMdd">
+	<summary>MMddフォーマット(例：1231)</summary>
+</member><member name="F:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames.MM月dd日">
+	<summary>MM月dd日年フォーマット(例：12月31日)</summary>
+</member><member name="T:Itis.Framework.WebUI.DateTimeValidator.DateTimeFormatNames">
+	<summary>日付書式の列挙体です</summary>
+	<remarks>DateTimeValidatorのInputFormatで使用します<br/>
+ 「_」は「/」を意味します。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.DateTimeValidator.InputFormat">
+	<summary>入力可能な書式を取得・設定します。
+ </summary>
+	<remarks>InputFormatを設定してください。<br/>
+	</remarks>
+</member><member name="P:Itis.Framework.WebUI.DateTimeValidator.ClientValidationFunction">
+	<summary>クライアント側の検証メソッド</summary>
+	<remarks>クライアントサイド・スクリプトとしては、（当然）JavaScript、VBScriptなどのスクリプト言語を採用する <br/>
+          ClientValidatorFunction属性を指定した場合にも、EnableClientScript属性がFalseに設定されている場合にはクライアントサイド検証は無効にする</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.ControlPropertiesValid">
+	<summary>検証対象の入力コントロール</summary>
+	<remarks>ControlToValidate プロパティを使用して、<br/>
+ 検証対象の入力コントロールを指定します。このプロパティは、<br/>
+ すべての検証コントロールについて入力コントロールの ID に設定する必要があります。</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.EvaluateIsValid">
+	<summary>派生クラスでオーバーライドされると、このメソッドには入力コントロールの値が有効かどうかを示すコードが格納されます。</summary>
+	<remarks>入力コントロールの値が有効である場合は true。それ以外の場合は false。</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.EvaluateIsChecked">
+	<summary>日付チェック</summary>
+	<remarks>入力コントロールの値が有効である場合は true。それ以外の場合は false。<br/>
+ 日付の最小値：1868/9/8 最大値： 9999/12/31</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.checkGengou(System.String)">
+	<summary>Check year of japan </summary>
+	<param name="data">year of japane</param>
+	<returns>Year of english</returns>
+	<remarks>明治,大正,昭和,平成</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.checkSeireki(System.String,System.String)">
+	<summary>西暦を和暦に変更する</summary>
+	<param name="gengou">げんごうあたい</param>
+	<param name="kaigen">かいげんあたい</param>
+	<returns>和暦値</returns>
+	<remarks>西暦を和暦に変更する。戻る値は和暦日付です</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.getDay(System.String,System.String)">
+	<summary>日付のフォーマット</summary>
+	<remarks>日付のフォーマットが不正な場合は、空白が返却されます。</remarks>
+</member><member name="M:Itis.Framework.WebUI.DateTimeValidator.OnPreRender(System.EventArgs)">
+	<summary>PreRender イベントを発生させます。</summary>
+	<remarks>メソッドは、ビューステートの保存や内容の表示の前に、必要な表示前の手順を実行するようサーバー コントロールに通知します。</remarks>
+</member><member name="T:Itis.Framework.WebUI.DateTimeValidator">
+	<summary>日付検証コントロール</summary>
+	<remarks>
+ 指定された書式以外の日付が入力された場合、エラーになります。<br/>
+ InputFormatプロパティの中から書式を選択してください。<br/>
+	</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowAlphabetHalf">
+	<summary>半角英字を許可します。</summary>
+	<remarks>Trueにすると、半角のA～Z、a～zが入力可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowAlphabetFull">
+	<summary>全角英字を許可します。</summary>
+	<remarks>Trueにすると、全角のＡ～Ｚ、ａ～ｚが入力可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowNumberHalf">
+	<summary>半角数字を許可します。</summary>
+	<remarks>Trueにすると、半角の0～9が入力可能になります。<br/>
+ 数値の範囲指定や、書式を指定したい場合は「NumericValidator」を使用してください。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowNumberFull">
+	<summary>全角数字を許可します。</summary>
+	<remarks>Trueにすると、全角の０～９が入力可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowJapaneseFull">
+	<summary>全角文字（英字・数字・カナ以外）を許可します。</summary>
+	<remarks>Trueにすると、全角文字が入力可能になります。<br/>
+ 全角英字・全角数字・全角カナを入力可能にするには、各型に対応したプロパティを変更してください。<br/>
+ Trueに設定すると、「文字コードに関する方針」に含まれない文字もエラーになります
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowKanaHalf">
+	<summary>半角カナを許可します。</summary>
+	<remarks>Trueにすると、半角カナが入力可能になります。<br/>
+ ※半角カナは「文字コードに関する方針」の対象外になります。<br/>
+ 　通常はFalseを設定してください。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowKanaFull">
+	<summary>全角カナを許可します。</summary>
+	<remarks>Trueにすると、全角カナが入力可能になります。<br/>
+ ※「ヵ」「ヶ」も全角カナに含まれます。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.PossibleSymbol">
+	<summary>入力可能な半角記号を取得・設定します。</summary>
+	<remarks>入力可能にしたい半角記号を"!#/:;="のように設定してください。<br/>
+ ※設定可能な文字以外が設定された場合、検証時には無視されます。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.ByteLength">
+	<summary>入力可能なバイト数を取得・設定します。</summary>
+	<remarks>半角1バイト全角2バイトで計算しています。<br/>
+ 0以下の数字が設定された場合、検証は行いません。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.MaxLength">
+	<summary>入力可能な文字数を取得・設定します。</summary>
+	<remarks>0以下の数字が設定された場合、検証は行いません。</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.ClientValidationFunction">
+	<summary>クライアント側の検証メソッド</summary>
+	<remarks>クライアントサイド・スクリプトとしては、（当然）JavaScript、VBScriptなどのスクリプト言語を採用する <br/>
+          ClientValidatorFunction属性を指定した場合にも、EnableClientScript属性がFalseに設定されている場合にはクライアントサイド検証は無効にする</remarks>
+</member><member name="P:Itis.Framework.WebUI.CharValidator.AllowHostChars">
+	<summary>ホスト禁則文字を許可します。</summary>
+	<remarks>Trueにすると、ホスト禁則文字が入力可能になります。<br/>
+ AllowJapaneseFull(全角文字)がFalseの時はチェックされません。
+ ホスト禁則文字は次の文字になります。<br/>
+ ℡①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳─│┌┐┘└├┬┤┴┼━┃┏┓┛┗┣┳┫┻╋┠┯┨┷┿┝┰┥┸╂〝〟㈲㈹㊤㊥㊦㊧㊨㍉㌔㌢㍍㌘㌧㌃㌶㍑㍗㌍㌦㌣㌫㍊㌻㍻㍾㍽㍼㎜㎝㎞㎎㎏㏄㎡㏍
+ ※ホスト禁則文字は「文字コードに関する方針」の対象外になります。<br/>
+ 　通常はFalseを設定してください。
+ </remarks>
+</member><member name="M:Itis.Framework.WebUI.CharValidator.ControlPropertiesValid">
+	<summary>検証対象の入力コントロール</summary>
+	<remarks>ControlToValidate プロパティを使用して、<br/>
+ 検証対象の入力コントロールを指定します。このプロパティは、<br/>
+ すべての検証コントロールについて入力コントロールの ID に設定する必要があります。</remarks>
+</member><member name="M:Itis.Framework.WebUI.CharValidator.EvaluateIsValid">
+	<summary>派生クラスでオーバーライドされると、このメソッドには入力コントロールの値が有効かどうかを示すコードが格納されます。</summary>
+	<remarks>入力コントロールの値が有効である場合は true。それ以外の場合は false。</remarks>
+</member><member name="M:Itis.Framework.WebUI.CharValidator.EvaluateIsChecked">
+	<summary>入力文字の検証を行います。</summary>
+	<remarks>入力コントロールの値が有効である場合は true。それ以外の場合は false。</remarks>
+</member><member name="M:Itis.Framework.WebUI.CharValidator.OnPreRender(System.EventArgs)">
+	<summary>PreRender イベントを発生させます。</summary>
+	<remarks>メソッドは、ビューステートの保存や内容の表示の前に、必要な表示前の手順を実行するようサーバー コントロールに通知します。</remarks>
+</member><member name="T:Itis.Framework.WebUI.CharValidator">
+	<summary>文字型検証コントロール</summary>
+	<remarks>
+ 指定された型以外が入力されたらエラーになります。<br/>
+ プロパティで入力可能な型を指定(複数可)してください。<br/>
+ 入力可能桁数（バイト・文字数）を指定できます。
+</remarks>
+</member><member name="M:Itis.Framework.Converter.DateConverter.ToGregorianDate(System.String,System.String)">
+	<summary>西暦フォーマットを変換する</summary>
+	<param name="dateConvert">日付値</param>
+	<param name="formatDate">日付のフォーマット</param>
+	<returns>西暦値</returns>
+	<remarks>
+ 日付のフォーマット例 <br/>
+                     :yyyy/MM/dd<br/>
+                     :yyyy/MM<br/>
+                     :yyyy-MM-dd<br/>
+                     :dd-MM-yy<br/>
+                     :dd-MMMM-yyyy<br/>
+                     :dd/MM/yyyy<br/>
+ 上記以外の書式も指定できます。<br/>
+ 日付のフォーマットが不正な場合は、String.Emptyが返却されます。
+ </remarks>
+</member><member name="M:Itis.Framework.Converter.DateConverter.ToJapaneseDate(System.String,System.String)">
+	<summary>和暦フォーマットを変換する</summary>
+	<param name="dataConvert">日付値</param>
+	<param name="formatDate">日付のフォーマット</param>
+	<returns>和暦値</returns>
+	<remarks>
+ 日付のフォーマット例:<br/>
+                   　　　　　:ggyy/MM/dd<br/>
+                   　　　　　:ggyy/MM<br/>
+                   　　　　　:ggyy年MM月dd日<br/>
+                   　　　　　:ggyy年MM月<br/>
+                   　　　　　:ggyy年<br/>
+                   　　　　　:ggyy<br/>
+ 上記以外の書式も指定できます。<br/>
+ 日付のフォーマットが不正な場合は、String.Emptyが返却されます。
+ </remarks>
+</member><member name="T:Itis.Framework.Converter.DateConverter">
+	<summary>
+ 日付のフォーマット処理を行います
+・処理対象データは西暦データである事が前提条件
+・和暦 ⇔西暦
+ </summary>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.BaseReportManager">
+	<summary>
+ このパラメータクラスを保持しているReportManagerクラスを示します。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.FormDownload">
+	<summary>
+ CSM のフォーム配信タイプを取得または設定します。初期値は "yes"です。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.NewSession">
+	<summary>
+ セッションの開始かどうか取得または設定します。yesが指定されるとセッションを開始します。初期値は"yes"です。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.EndSession">
+	<summary>
+ セッションの最後かどうか取得または設定します。yesが指定されるとセッションを終了します。初期値は"yes"です。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.Overlay">
+	<summary>
+ オーバレイ実行を取得または設定します。初期値は"3"です。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.OutFile">
+	<summary>
+ サーバー保存する時の保存先(storeディレクトリからのパス)を取得または設定します。例：sinseikun\test2013
+ PrintModeにServerSaveを指定した場合は必ず設定してください。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.OutputType">
+	<summary>
+ 最終的に出力されるデータのタイプを取得または設定します。"pdf", "csm"などを指定します。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.Target">
+	<summary>
+ オーバレイ結果の出力先を取得または設定します。"client", "server"などを指定します。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.Action">
+	<summary>
+ オーバレイ結果の動作属性を取得または設定します。"view", "save","print"などを指定します。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.Printer">
+	<summary>
+ ファイル生成または印刷時に使用するプリンタ名を取得または設定します。プリンタ名またはDefaultを指定して下さい。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.FormFileName">
+	<summary>
+ オーバレイに使用する、コンポーザまたはエージェント(CSM 時）上にあるフォームファイルの名前を取得または設定します。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.FieldDataFileName">
+	<summary>
+ フィールドデータのファイル名を、data ディレクトリからの相対パスで取得または設定します。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.ReturnURL">
+	<summary>
+ サーバ保存実行後に表示されるページの戻り先のURLを取得または設定します。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.ResourceFileNames">
+	<summary>
+ リソースファイル（イメージファイルなど）のパスのリストを取得または設定します。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ ファイルを追加する際は「ResourceFileName.Add(フォルダ名/ファイル名）」でリストに追加してください。
+ 複数ファイル指定する際はその都度追加してください。（カンマ区切りでは指定できません）
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.CSMFormFileNames">
+	<summary>
+ CSM でダウンロードするファイルのパスのリストを取得または設定します。
+ 値を設定する場合はURLエンコードしていない状態で渡してください。
+ ファイルを追加する際は「CSMFormFileNames.Add(フォルダ名/ファイル名）」でリストに追加してください。
+ 複数ファイル指定する際はその都度追加してください。（カンマ区切りでは指定できません）
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.NCopy">
+	<summary>
+ 印刷部数を取得または設定します。
+ 0を設定すると実行時にApplicationExceptionが発生します。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Itis.Framework.Report.ReportManagerParameters.CustomParameter">
+	<summary>
+ プロパティとして実装されていないパラメータの指定を蓄積します。
+ このプロパティはライブラリ内部で使用されることを想定しています。
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManagerParameters.AddCustomParameter(System.String,System.String)">
+	<summary>
+ パラメータ名と値を直接指定して追加します。
+ この関数を使用することでプロパティに定義されていないパラメータも追加できます。
+ 追加したパラメータをクリアするにはClearCustomParameter関数を使用します。
+ </summary>
+	<param name="strParamName">パラメータ名を指定します。fm-formentryのようにfm-も含めて正確に指定します。</param>
+	<param name="strValue">パラメータの値を指定します。</param>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Report.ReportManagerParameters.ClearCustomParameter">
+	<summary>
+  AddCustomParameter関数で追加したパラメータ名を削除します。
+  複数のパラメータを追加した場合個別の削除はできず、全部が一度に削除されます。
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Itis.Framework.Report.ReportManagerParameters">
+	<summary>
+ 帳票を出力するためのURLのGetパラメータをあらわします。
+ ReportManager内で使用されることを想定しています。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Itis.Framework.Security.EncryptService._key">
+	<summary>暗号キー</summary>
+</member><member name="M:Itis.Framework.Security.EncryptService.#ctor">
+	<summary>コンストラクタ</summary>
+</member><member name="M:Itis.Framework.Security.EncryptService.Encrypt(System.String,System.String)">
+	<summary>DESを使用して文字列を暗号化する</summary>
+	<param name="target">暗号化対象文字列</param>
+	<param name="key">暗号キー</param>
+	<returns>暗号化された文字列</returns>
+</member><member name="M:Itis.Framework.Security.EncryptService.Encrypt(System.String)">
+	<summary>DESを使用して文字列を暗号化する</summary>
+	<param name="target">暗号化対象文字列</param>
+	<returns>暗号化された文字列</returns>
+</member><member name="M:Itis.Framework.Security.EncryptService.Decrypt(System.String,System.String)">
+	<summary>DES形式で暗号化した文字列を復号化する</summary>
+	<param name="target">復号化対象文字列</param>
+	<param name="key">復号キー</param>
+	<returns>復号化された文字列</returns>
+</member><member name="M:Itis.Framework.Security.EncryptService.Decrypt(System.String)">
+	<summary>DES形式で暗号化した文字列を復号化する</summary>
+	<param name="target">復号化対象文字列</param>
+	<returns>復号化された文字列</returns>
+</member><member name="M:Itis.Framework.Security.EncryptService.ResizeBytesArray(System.Byte[],System.Int32)">
+	<summary>共有キー用に、バイト配列のサイズを変更する</summary>
+	<param name="bytes">サイズを変更するバイト配列</param>
+	<param name="newSize">バイト配列の新しい大きさ</param>
+	<returns>サイズが変更されたバイト配列</returns>
+</member><member name="T:Itis.Framework.Security.EncryptService">
+	<summary>DESを使用した暗号化サービスクラス</summary>
+</member><member name="P:Itis.Framework.WebUI.CheckBoxListValidator.MinimumValue">
+	<summary>チェック可能な最小値を取得・設定します。</summary>
+	<remarks>CheckBoxListでチェックされた項目数が、設定された値未満の場合エラーになります。<br/>
+ 最小値を設定しない場合は、「0」を設定してください。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CheckBoxListValidator.MaximumValue">
+	<summary>チェック可能な最大値を取得・設定します。</summary>
+	<remarks>CheckBoxListでチェックされた項目数が、設定された値より大きい場合エラーになります。<br/>
+ 最大値を設定しない場合は、「0」を設定してください。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.CheckBoxListValidator.ClientValidationFunction">
+	<summary>クライアント側の検証メソッド</summary>
+	<remarks>クライアントサイド・スクリプトとしては、（当然）JavaScript、VBScriptなどのスクリプト言語を採用する <br/>
+          ClientValidatorFunction属性を指定した場合にも、EnableClientScript属性がFalseに設定されている場合にはクライアントサイド検証は無効にする</remarks>
+</member><member name="M:Itis.Framework.WebUI.CheckBoxListValidator.ControlPropertiesValid">
+	<summary>検証対象の入力コントロール</summary>
+	<remarks>ControlToValidateのプロパティを使用して、コントロールのプロパティに有効な値が設定されているか検証します。</remarks>
+</member><member name="M:Itis.Framework.WebUI.CheckBoxListValidator.EvaluateIsValid">
+	<summary>BaseValidator.EvaluateIsValid をオーバーライドします。このメソッドには入力コントロールの値が有効かどうかを示すコードが格納されます。</summary>
+	<remarks>入力コントロールの値が有効である場合は true。それ以外の場合は false。</remarks>
+</member><member name="M:Itis.Framework.WebUI.CheckBoxListValidator.EvaluateIsChecked">
+	<summary>サーバのチェック</summary>
+	<remarks>プロパティで最大値・最小値を設定し、
+最小値以上かつ最大値以下ならOKとする</remarks>
+</member><member name="M:Itis.Framework.WebUI.CheckBoxListValidator.OnPreRender(System.EventArgs)">
+	<summary>PreRender イベントを発生させます。BaseValidator から継承されます。</summary>
+	<remarks>クライアントのチェック処理を行う。
+ プロパティで最大値・最小値を設定し、
+最小値以上かつ最大値以下ならOKとする</remarks>
+</member><member name="T:Itis.Framework.WebUI.CheckBoxListValidator">
+	<summary>CheckBoxList検証コントロール</summary>
+	<remarks>CheckBoxListでチェックされた項目数が、設定した範囲内に含まれない場合エラーになります。<br/>
+ デザイナでControlToValidateを設定する際は、リストにCheckBoxListが表示されないので、<br/>
+ コントロール名を入力してください。
+ </remarks>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.#ctor">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.overlayCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.startSessionCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.endSessionCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.cancelOverlayCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.uploadResourceCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.createCSMXCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.downloadResourceCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.asyncOverlayCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.aliveTestCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.getResourceCompleted">
+	<remarks/>
+</member><member name="E:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.checkStatusCompleted">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.overlay(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.overlayAsync(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.overlayAsync(Itis.Framework.FMWFormJobControlService.FMWRequest,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.startSession(System.Int32)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.startSessionAsync(System.Int32)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.startSessionAsync(System.Int32,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.endSession">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.endSessionAsync">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.endSessionAsync(System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.cancelOverlay">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.cancelOverlayAsync">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.cancelOverlayAsync(System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.uploadResource(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.uploadResourceAsync(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.uploadResourceAsync(Itis.Framework.FMWFormJobControlService.FMWRequest,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.createCSMX(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.createCSMXAsync(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.createCSMXAsync(Itis.Framework.FMWFormJobControlService.FMWRequest,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.downloadResource(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.downloadResourceAsync(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.downloadResourceAsync(Itis.Framework.FMWFormJobControlService.FMWRequest,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.asyncOverlay(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.asyncOverlayAsync(Itis.Framework.FMWFormJobControlService.FMWRequest)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.asyncOverlayAsync(Itis.Framework.FMWFormJobControlService.FMWRequest,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.aliveTest(System.Int32)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.aliveTestAsync(System.Int32)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.aliveTestAsync(System.Int32,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.getResource(Itis.Framework.FMWFormJobControlService.FMWResponse)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.getResourceAsync(Itis.Framework.FMWFormJobControlService.FMWResponse)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.getResourceAsync(Itis.Framework.FMWFormJobControlService.FMWResponse,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.checkStatus(Itis.Framework.FMWFormJobControlService.FMWResponse)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.checkStatusAsync(Itis.Framework.FMWFormJobControlService.FMWResponse)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.checkStatusAsync(Itis.Framework.FMWFormJobControlService.FMWResponse,System.Object)">
+	<remarks/>
+</member><member name="M:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.FMWFormJobControlService">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWRequest.attachments">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWRequest.parameters">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWRequest.targetManager">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.FMWRequest">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWAttachment.byteArray">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWAttachment.name">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWAttachment.type">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.FMWAttachment">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWResponse.attachments">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWResponse.parameters">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.FMWResponse">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWParameter.dataType">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWParameter.key">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWParameter.option">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.FMWParameter.value">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.FMWParameter">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.overlayCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.overlayCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.overlayCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.startSessionCompletedEventHandler">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.endSessionCompletedEventHandler">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.cancelOverlayCompletedEventHandler">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.uploadResourceCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.uploadResourceCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.uploadResourceCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.createCSMXCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.createCSMXCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.createCSMXCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.downloadResourceCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.downloadResourceCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.downloadResourceCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.asyncOverlayCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.asyncOverlayCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.asyncOverlayCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.aliveTestCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.aliveTestCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.aliveTestCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.getResourceCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.getResourceCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.getResourceCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.checkStatusCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Itis.Framework.FMWFormJobControlService.checkStatusCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Itis.Framework.FMWFormJobControlService.checkStatusCompletedEventArgs">
+	<remarks/>
+</member><member name="F:Itis.Framework.Calculation.CalculateService.OVERFLOW_VALUE">
+	<summary>オーバーフローを表す値</summary>
+	<remarks>オーバーフローを表す値</remarks>
+</member><member name="F:Itis.Framework.Calculation.CalculateService.CALCULATE_MAX_VALUE">
+	<summary>計算できる最大値</summary>
+	<remarks>計算できる最大値</remarks>
+</member><member name="F:Itis.Framework.Calculation.CalculateService.CALCULATE_MIN_VALUE">
+	<summary>計算できる最小値</summary>
+	<remarks>計算できる最小値</remarks>
+</member><member name="F:Itis.Framework.Calculation.CalculateService.BASE_MONTH_OF_NOT_CORRECTON">
+	<summary>築年の計算で補正を行わない基準となる月</summary>
+	<remarks>築年の計算で補正を行わない基準となる月</remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.CalcNumberOfYears(System.String,System.DateTime)">
+	<summary>
+ 対象年月日からシステム日付までの経過年数を取得します。
+ 対象年月日は、yyyyMMddフォーマットの文字列を指定します。
+ 
+ この関数は、誕生日からの年齢算出、築年からの築年数算出に使用します。
+ ex)
+   <code>Dim age As String = CalculateService.CalcNumberOfYears("20010101")</code>
+	</summary>
+	<param name="targetDateStr">対象年月日(yyyyMMddフォーマット)</param>
+	<param name="systemDate">システム日付</param>
+	<returns>経過年数</returns>
+	<remarks>
+ 対象年月日のフォーマットが不正な場合は、String.Emptyが返却されます。
+ ※※※注釈  ↑Empty ではなく "0" を返したいところではあるが、築年と築年数の入力欄のように片方の値でもう片方の値を
+   算出・表示している場合、"0" を返すともう片方の値が 0 を元に再計算されてしまうため Empty で良いものとする
+ ※※※注釈  対象年月日の値は未来日付でもOKとする
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.CalcCompletionYear(System.String,System.DateTime)">
+	<summary>
+ 築年数から築年を計算します。
+ </summary>
+	<param name="passedYears">築年数</param>
+	<param name="systemDate">システム日付</param>
+	<returns>築年</returns>
+	<remarks>
+ 築年の型が不正な場合は、String.Emptyが返却されます。
+ ※※※注釈  築年数はマイナスの値でもOKとする
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.CalcNumberOfYears(System.String)">
+	<summary>
+ 対象年月日からシステム日付までの経過年数を取得します。
+ 対象年月日は、yyyyMMddフォーマットの文字列を指定します。
+ 
+ この関数は、誕生日からの年齢算出、築年からの築年数算出に使用します。
+ ex)
+   <code>Dim age As String = CalculateService.CalcNumberOfYears("20010101")</code>
+	</summary>
+	<param name="targetDateStr">対象年月日(yyyyMMddフォーマット)</param>
+	<returns>経過年数</returns>
+	<remarks>対象年月日のフォーマットが不正な場合は、String.Emptyが返却されます。</remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.CalcCompletionYear(System.String)">
+	<summary>
+ 築年数から築年を計算します。
+ </summary>
+	<param name="passedYears">築年数</param>
+	<returns>築年</returns>
+	<remarks>築年の型が不正な場合は、String.Emptyが返却されます。</remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Add(System.Object,System.Object)">
+	<summary>指定した2つの値を加算します</summary>
+	<param name="d1">加算値1</param>
+	<param name="d2">加算値2</param>
+	<returns>d1とd2の和である値</returns>
+	<remarks>
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Add(System.Object,System.Object,System.Type)">
+	<summary>指定した2つの値を加算します</summary>
+	<param name="d1">加算値1</param>
+	<param name="d2">加算値2</param>
+	<param name="t">計算結果を変換する型</param>
+	<returns>d1とd2の和である値</returns>
+	<remarks>
+ パラメータ<code>t</code>の型に変換して返します
+ ※※※注意   変換する型に不適切な型を指定した場合や、例えばInt32を超えている値をInt32に変換しようとすると例外が発生します
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 	
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Add(System.Object,System.Object,System.Object,System.Object)">
+	<summary>
+ 指定した2つの値を加算します
+ ・オーバーフロー値（定数）を超えた場合、
+   オーバーフロー値を返します
+ </summary>
+	<param name="d1">加算値1</param>
+	<param name="d2">加算値2</param>
+	<param name="overflow1">最小値</param>
+	<param name="overflow2">最大値</param>
+	<returns>d1とd2の和である値</returns>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Subtract(System.Object,System.Object)">
+	<summary>指定した Decimal 値から、指定したもう 1 つの値を減算します。</summary>
+	<param name="d1">被減数</param>
+	<param name="d2">減数</param>
+	<returns>d1からd2を減算した値</returns>
+	<remarks>
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Subtract(System.Object,System.Object,System.Type)">
+	<summary>指定した Decimal 値から、指定したもう 1 つの値を減算します。</summary>
+	<param name="d1">被減数</param>
+	<param name="d2">減数</param>
+	<returns>d1からd2を減算した値</returns>
+	<remarks>
+ パラメータ<code>t</code>の型に変換して返します
+ ※※※注意   変換する型に不適切な型を指定した場合や、例えばInt32を超えている値をInt32に変換しようとすると例外が発生します
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更  
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Subtract(System.Object,System.Object,System.Object,System.Object)">
+	<summary>
+ 指定した Decimal 値から、指定したもう 1 つの値を減算します。
+ </summary>
+	<param name="d1">被減数</param>
+	<param name="d2">減数</param>
+	<param name="overflow1">最小値</param>
+	<param name="overflow2">最大値</param>
+	<returns>d1からd2を減算した値</returns>
+	<remarks>指定した2つの値を減算しま
+ ・オーバーフロー値（定数）を超えた場合、
+ 　オーバーフロー値を返します
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Devide(System.Object,System.Object)">
+	<summary>指定した2つの値を除算します</summary>
+	<param name="d1">被除数</param>
+	<param name="d2">除数</param>
+	<returns>d1をd2で除算した結果</returns>
+	<remarks>
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Devide(System.Object,System.Object,System.Type)">
+	<summary>指定した2つの値を除算します</summary>
+	<param name="d1">被除数</param>
+	<param name="d2">除数</param>
+	<param name="t">計算結果を変換する型</param>
+	<returns>d1をd2で除算した結果</returns>
+	<remarks>
+ パラメータ<code>t</code>の型に変換して返します
+ ※※※注意   変換する型に不適切な型を指定した場合や、例えばInt32を超えている値をInt32に変換しようとすると例外が発生します
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Devide(System.Object,System.Object,System.Object,System.Object)">
+	<summary>指定した2つの値を除算します</summary>
+	<param name="d1">被除数</param>
+	<param name="d2">除数</param>
+	<param name="overflow1">最小値</param>
+	<param name="overflow2">最大値</param>
+	<returns>d1とd2で除算した結果</returns>
+	<remarks>被除数と除数で除算した結果＞最大値の場合は最大値を返す.
+          被除数と除数で除算した結果＜最小値の場合は最大値を返す.
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Multiply(System.Object,System.Object)">
+	<summary>指定した2値を乗算します</summary>
+	<param name="d1">被乗数</param>
+	<param name="d2">乗数</param>
+	<returns>d1とd2を乗算した結果</returns>
+	<remarks>
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Multiply(System.Object,System.Object,System.Type)">
+	<summary>指定した2値を乗算します</summary>
+	<param name="d1">被乗数</param>
+	<param name="d2">乗数</param>
+	<param name="t">計算結果を変換する型</param>
+	<returns>d1とd2を乗算した結果</returns>
+	<remarks>
+ パラメータ<code>t</code>の型に変換して返します
+ ※※※注意   変換する型に不適切な型を指定した場合や、例えばInt32を超えている値をInt32に変換しようとすると例外が発生します
+ ※※※注釈  計算対象値に異常値（Decimalに変換できない値）をセットされた場合、0 として計算される
+ 計算結果がオーバーフローになった場合はオーバーフロー値を返すように変更 
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.Multiply(System.Object,System.Object,System.Object,System.Object)">
+	<summary>指定した2つの値を乗算します
+ ・オーバーフロー値（定数）を超えた場合
+   オーバーフロー値を返します
+ </summary>
+	<param name="d1">被乗数</param>
+	<param name="d2">乗数</param>
+	<param name="overFlow1">計算できる最小値</param>
+	<param name="overFlow2">計算できる最大値</param>
+	<returns>d1とd2を乗算した結果</returns>
+	<remarks>被乗数と乗数を乗算した結果＞最大値は最大値を返す
+          被乗数と乗数を乗算した結果＜最大値は最小値を返す
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.GetRateOfReturn(System.Object,System.Object)">
+	<summary>利益率を計算する。</summary>
+	<param name="sales">売上</param>
+	<param name="cost">原価</param>
+	<returns>利益率を文字列にフォーマットしたデータ</returns>
+	<remarks>
+ 利益 = (売上 - 原価) / 売上
+ 利益率の範囲は、-999.99 ～ 999.99 です。
+ この範囲を超えた場合は、***.*** を返します。
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.GetRateOfReturn(System.Object,System.Object,System.Object,System.Object)">
+	<summary>利益率を計算する。</summary>
+	<param name="sales">売上</param>
+	<param name="cost">原価</param>
+	<param name="val1">利益率の範囲</param>
+	<param name="val2">利益率の範囲</param>
+	<returns>利益率を文字列にフォーマットしたデータ</returns>
+	<remarks>
+ 利益 = (売上 - 原価) / 売上
+ 利益率の範囲は、val1 ～ val2 です。
+ この範囲を超えた場合は、***.*** を返します。
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.ConvertToDecimal(System.Object)">
+	<summary>四則演算用にデータを<code>Decimal</code>に変換する</summary>
+	<param name="val">変換データ</param>
+	<returns><code>Decimal</code>に変換された値</returns>
+	<remarks>
+ 対象値がオーバーフローしている値だった場合オーバーフロー値（定数）を返すように変更  2008/01/17 Y.Akita
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.IsOverFlow(System.Object)">
+	<summary>データが当システムでの数値範囲を超えているか判定する</summary>
+	<param name="val">検証データ</param>
+	<returns>数値範囲を超えている時は<code>True</code>を、超えていない時は<code>False</code>を返す</returns>
+	<remarks>
+		<code>Decimal</code>型に変換できない値を渡された場合でも落ちないように<code>Try</code>文を追加  2008/01/11 Y.Akita
+ ※※※注釈  対象値に<code>Decimal</code>型に変換できない値をセットされた場合、<code>True</code>が帰る
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.IsOverFlow(System.Decimal)">
+	<summary>データが当システムでの数値範囲を超えているか判定する</summary>
+	<param name="val">検証データ</param>
+	<returns>数値範囲を超えている時は<code>True</code>を、超えていない時は<code>False</code>を返す</returns>
+	<remarks>
+ ※※※注釈  対象値が既定範囲内の値だった場合のみ<code>False</code>が帰る。それ以外や例外発生の場合<code>True</code>が帰る
+ </remarks>
+</member><member name="M:Itis.Framework.Calculation.CalculateService.IsOverFlow(System.Decimal,System.Decimal,System.Decimal)">
+	<summary>
+ データが当システムでの数値範囲を超えているか判定する
+ </summary>
+	<param name="val">検証データ</param>
+	<param name="minOverFlow">計算できる小値</param>
+	<param name="maxOverFlow">計算できる最大値</param>
+	<returns>Boolean</returns>
+	<remarks>データが当システムでの数値範囲を超えているか判定する</remarks>
+</member><member name="T:Itis.Framework.Calculation.CalculateService">
+	<summary>各種計算処理サービスを提供するクラス</summary>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Security.Certification.GetIceWallIpList">
+	<summary>
+ IceWall の IP リストを取得します。
+ </summary>
+	<returns>取得したIPを1次元配列で返します。</returns>
+</member><member name="M:Itis.Framework.Security.Certification.GetUserID">
+	<summary>
+ ユーザIDを取得します。
+ </summary>
+	<returns>ユーザID</returns>
+</member><member name="M:Itis.Framework.Security.Certification.EndResponseWithAccessDeny">
+	<summary>
+ HTTP レスポンスをアクセス拒否で終了します。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Itis.Framework.Security.Certification.IsUserLogon">
+	<summary>
+ ユーザがログオンしているかどうかを判別します。
+ </summary>
+	<returns>ユーザがログオンしている場合は True、そうでない場合は False を返します。</returns>
+</member><member name="T:Itis.Framework.Security.Certification">
+	<summary>
+ 認証をサポートします。
+ </summary>
+	<remarks>SSO認証・基本認証の切り分けを行います。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.NumericValidator.AllowComma">
+	<summary>桁区切りの入力を許可します。</summary>
+	<remarks>Trueが設定された場合、下3桁ごとに「,」が入力可能になります。<br/>
+ Trueが設定されて、「,」が入力されていない場合はエラーになりません。
+ </remarks>
+</member><member name="P:Itis.Framework.WebUI.NumericValidator.DecimalLength">
+	<summary>小数点以下の桁数を取得・設定します。</summary>
+	<remarks>0以下が設定された場合、小数点が入力可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.NumericValidator.MaxValue">
+	<summary>入力可能な最大値を取得・設定します。</summary>
+	<remarks>負数が設定された場合、マイナス記号の入力が可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.NumericValidator.MinValue">
+	<summary>入力可能な最小値を取得・設定します。</summary>
+	<remarks>負数が設定された場合、マイナス記号の入力が可能になります。</remarks>
+</member><member name="P:Itis.Framework.WebUI.NumericValidator.ClientValidationFunction">
+	<summary>クライアント側の検証メソッド</summary>
+	<remarks>クライアントサイド・スクリプトとしては、（当然）JavaScript、VBScriptなどのスクリプト言語を採用する <br/>
+          ClientValidatorFunction属性を指定した場合にも、EnableClientScript属性がFalseに設定されている場合にはクライアントサイド検証は無効にする</remarks>
+</member><member name="M:Itis.Framework.WebUI.NumericValidator.ControlPropertiesValid">
+	<summary>検証対象の入力コントロール</summary>
+	<remarks>ControlToValidate プロパティを使用して、
+ 検証対象の入力コントロールを指定します。このプロパティは、
+ すべての検証コントロールについて入力コントロールの ID に設定する必要があります。</remarks>
+</member><member name="M:Itis.Framework.WebUI.NumericValidator.EvaluateIsValid">
+	<summary>数値チェック</summary>
+	<remarks>指定された書式以外の数値ならエラー</remarks>
+</member><member name="M:Itis.Framework.WebUI.NumericValidator.EvaluateIsChecked">
+	<summary>数値チェック</summary>
+	<remarks>プロパティで最大値・最小値・小数点桁数を設定し、
+最小値以上かつ最大値以下ならOKとする</remarks>
+</member><member name="M:Itis.Framework.WebUI.NumericValidator.OnPreRender(System.EventArgs)">
+	<summary>PreRender イベントを発生させます。</summary>
+	<remarks>プロパティで最大値・最小値・小数点桁数を設定し、
+最小値以上かつ最大値以下ならOKとする</remarks>
+</member><member name="T:Itis.Framework.WebUI.NumericValidator">
+	<summary>
+ 数値検証コントロール
+ </summary>
+	<remarks>
+ 数値を検証します。<br/>
+ 指定された範囲に含まれない値が入力された場合、エラーになります。<br/>
+ ◆範囲に負数が含まれると、マイナス記号が入力可能になります。<br/>
+ ◆DecimalLengthプロパティに1以上が設定された場合、小数点が入力可能になります。<br/>
+ ◆AllowCommaプロパティにTrueが設定された場合、3桁区切りで入力できます。
+</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.#ctor">
+	<summary>
+ コンストラクタ
+ </summary>
+	<remarks>Validatorのコンストラクタです</remarks>
+</member><member name="P:Itis.Framework.WebUI.ValidationService.ErrorList">
+	<summary>
+ ErrorListの読み取り専用プロパティ。エラーメッセージが格納されているリストを返却します。
+ </summary>
+	<value>エラーリスト</value>
+	<returns>エラーリスト</returns>
+	<remarks>設定されているエラーリストを返却します。</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.ValidateChar(System.String,System.String)">
+	<summary>
+ 使用可能文字の検証を行うメソッドです。
+ 使用可能文字以外の文字がある場合はエラーメッセージをエラーリストに格納します。
+ </summary>
+	<param name="inString">チェック対象文字列</param>
+	<param name="errorMassage">エラーメッセージ</param>
+	<returns>チェック結果<br/>
+ 使用可能文字のみであった場合：TRUE<br/>
+ 使用可能文字以外の文字が存在した場合：FALSE
+ </returns>
+	<remarks>使用可能文字のパターンを取得し、チェック対象文字列をチェックし結果を返却します。
+ 使用可能文字以外の文字が存在した場合はエラーメッセージをエラーリストに格納します。
+ 以下の文字を使用可能文字とします。
+ 　・ANK（JIS X 0201）（Web禁止文字・半角カタカナを除く）
+ 　・JIS基本文字（JIS X 0208）
+ 　　　・記号、英数字、かな（01区～08区）
+ 　　　・13区の一部（Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ ㈱ №）
+ 　・第1水準漢字（16区～47区）
+ 　・第2水準漢字（48区～84区）
+ 　<br/>
+		<code> Dim validator As New Validator()
+ Dim result As Boolean = validator.Validate(TextBox1.Text,"エラーメッセージ")
+ </code>
+	</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.ValidateChar(System.String,System.String,System.Boolean,System.String,System.Boolean)">
+	<summary>
+ 使用可能文字の検証を行うメソッドです。<br/>CharValidatorで使用しています。<br/>
+ 使用可能文字以外の文字がある場合はエラーメッセージをエラーリストに格納します。
+ </summary>
+	<param name="inString">チェック対象文字列</param>
+	<param name="errorMassage">エラーメッセージ</param>
+	<param name="isKanaHalf">半角カタカナ許可</param>
+	<param name="possibleSymbol">許可半角記号</param>
+	<param name="allowHostChars">ホスト禁則文字チェックフラグ</param>
+	<returns>チェック結果<br/>
+ 使用可能文字のみであった場合：TRUE<br/>
+ 使用可能文字以外の文字が存在した場合：FALSE
+ </returns>
+	<remarks>使用可能文字のパターンを取得し、チェック対象文字列をチェックし結果を返却します。
+ 使用可能文字以外の文字が存在した場合はエラーメッセージをエラーリストに格納します。
+ 以下の文字を使用可能文字とします。
+ 　・ANK（JIS X 0201）（Web禁止文字・半角カタカナを除く）
+ 　・JIS基本文字（JIS X 0208）
+ 　　　・記号、英数字、かな（01区～08区）
+ 　　　・13区の一部（Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ ㈱ №）
+ 　・第1水準漢字（16区～47区）
+ 　・第2水準漢字（48区～84区）
+ 　<br/>
+		<code> Dim validator As New Validator()<br/>
+ Dim result As Boolean = validator.Validate(TextBox1.Text,"エラーメッセージ",True,"!"#$%")
+ </code>
+ 　<br/>
+ ※このメソッドでは全角・半角の数字、英字、全角カタカナはチェック対象外になります。　<br/>
+ 　通常のチェックはValidateChar(String, String)を使用してください。
+ </remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.ValidateChar(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ 使用可能文字の検証を行うメソッドです。<br/>CharValidatorで使用しています。<br/>
+ 使用可能文字以外の文字がある場合はエラーメッセージをエラーリストに格納します。
+ </summary>
+	<param name="inString">チェック対象文字列</param>
+	<param name="errorMassage">エラーメッセージ</param>
+	<param name="isKanaHalf">半角カタカナ許可</param>
+	<param name="possibleSymbol">許可半角記号</param>
+	<returns>チェック結果<br/>
+ 使用可能文字のみであった場合：TRUE<br/>
+ 使用可能文字以外の文字が存在した場合：FALSE
+ </returns>
+	<remarks>使用可能文字のパターンを取得し、チェック対象文字列をチェックし結果を返却します。
+ 使用可能文字以外の文字が存在した場合はエラーメッセージをエラーリストに格納します。
+ 以下の文字を使用可能文字とします。
+ 　・ANK（JIS X 0201）（Web禁止文字・半角カタカナを除く）
+ 　・JIS基本文字（JIS X 0208）
+ 　　　・記号、英数字、かな（01区～08区）
+ 　　　・13区の一部（Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ ㈱ №）
+ 　・第1水準漢字（16区～47区）
+ 　・第2水準漢字（48区～84区）
+ 　<br/>
+		<code> Dim validator As New Validator()<br/>
+ Dim result As Boolean = validator.Validate(TextBox1.Text,"エラーメッセージ",True,"!"#$%")
+ </code>
+ 　<br/>
+ ※このメソッドでは全角・半角の数字、英字、全角カタカナはチェック対象外になります。　<br/>
+ 　通常のチェックはValidateChar(String, String)を使用してください。
+ </remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.GetPatternCode">
+	<summary>
+ 使用可能文字のパターンを取得するメソッドです。
+ </summary>
+	<returns>使用可能文字の正規表現化したパターン</returns>
+	<remarks>正規表現化したUnicodeのパターンを返却します。</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.ChekReg(System.String,System.String)">
+	<summary>
+ 正規表現チェックを行うメソッドです。
+ </summary>
+	<param name="targetStr">チェック対象文字列</param>
+	<param name="pattern">正規表現パターン</param>
+	<returns>チェック結果<br/>
+ パターンに一致した場合：TRUE
+ パターンと一致しなかった場合：FALSE</returns>
+	<remarks>
+		<code>ChekReg("正規表現パターン", "チェック対象文字列")</code>
+	</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.Dispose(System.Boolean)">
+	<summary>
+ 自動生成されたデストラクタです
+ </summary>
+	<param name="disposing">リソース開放許可</param>
+	<remarks>自動生成されたデストラクタです</remarks>
+</member><member name="M:Itis.Framework.WebUI.ValidationService.Dispose">
+	<summary>
+ 自動生成されたデストラクタです。
+ </summary>
+	<remarks>破棄可能なパターンを正しく実装できるように Visual Basic によって追加されました。</remarks>
+</member><member name="T:Itis.Framework.WebUI.ValidationService">
+	<summary>
+ 文字列検証クラス
+ </summary>
+	<remarks>文字列の検証を行うクラスです</remarks>
+</member>
+</members>
+</doc>

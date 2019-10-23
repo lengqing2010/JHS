@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{979090A4-DEF6-49EC-B826-E7FED28552BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Itis.Earth.Utilities</RootNamespace>
+    <AssemblyName>Itis.Earth.Utilities</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.Utilities.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.Utilities.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itis.ApplicationBlocks.ExceptionManagement, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Itis.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DataLogic.vb" />
+    <Compile Include="Common\MessageLogic.vb" />
+    <Compile Include="Common\StringLogic.vb" />
+    <Compile Include="Const\EarthConst.vb" />
+    <Compile Include="Const\EarthEnum.vb" />
+    <Compile Include="Const\Messages.vb" />
+    <Compile Include="Const\UrlConst.vb" />
+    <Compile Include="File\FileDownloadHelper.vb" />
+    <Compile Include="Mail\SendMailHelper.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Records\BuilderInfoRecord.vb" />
+    <Compile Include="Records\BukkenRirekiHaitaRecord.vb" />
+    <Compile Include="Records\BukkenRirekiRecord.vb" />
+    <Compile Include="Records\BukkenRirekiTorikesiRecord.vb" />
+    <Compile Include="Records\GenkaRecord.vb" />
+    <Compile Include="Records\HosyousyoDbRecord.vb" />
+    <Compile Include="Records\HosyousyoKanriRecord.vb" />
+    <Compile Include="Records\JibanRecordMousikomiJutyuu.vb" />
+    <Compile Include="Records\KaikakeDataRecord.vb" />
+    <Compile Include="Records\KameitenDefaultSeikyuuSakiInfoRecord.vb" />
+    <Compile Include="Records\KameiTokubetuTaiouRecord.vb" />
+    <Compile Include="Records\KoujiKakakuKeyRecord.vb" />
+    <Compile Include="Records\KoujiKakakuRecord.vb" />
+    <Compile Include="Records\KousinRirekiDataKeyRecord.vb" />
+    <Compile Include="Records\KousinRirekiDataRecord.vb" />
+    <Compile Include="Records\MousikomiKeyRecord.vb" />
+    <Compile Include="Records\MousikomiRecord.vb" />
+    <Compile Include="Records\MousikomiSyuuseiJytyzumiRecord.vb" />
+    <Compile Include="Records\MousikomiSyuuseiMijytyRecord.vb" />
+    <Compile Include="Records\ReportIfGetRecord.vb" />
+    <Compile Include="Records\SeikyuuDateIkkatuHenkouRecord.vb" />
+    <Compile Include="Records\SeikyuuSakiMototyouRecord.vb" />
+    <Compile Include="Records\SeikyuuSimeDateRirekiKeyRecord.vb" />
+    <Compile Include="Records\SeikyuuSimeDateRirekiRecord.vb" />
+    <Compile Include="Records\SeikyuuSimeDateRirekiSyuuseiRecord.vb.vb" />
+    <Compile Include="Records\SiharaiSakiMototyouRecord.vb" />
+    <Compile Include="Records\SiharaiSearchResultRecord.vb" />
+    <Compile Include="Records\SiireSearchResultRecord.vb" />
+    <Compile Include="Records\SinkaikeiSiharaiSakiRecord.vb" />
+    <Compile Include="Records\TeibetuNyuukinUpdateRecord.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordSeikyuuSiireSakiHenkou.vb" />
+    <Compile Include="Records\TokubetuTaiouMstRecord.vb" />
+    <Compile Include="Records\TokubetuTaiouRecord.vb" />
+    <Compile Include="Records\TyousahouhouRecord.vb" />
+    <Compile Include="Records\TyousakaisyaSearchRecord.vb" />
+    <Compile Include="Records\DenpyouRecord.vb" />
+    <Compile Include="Records\EigyousyoSearchRecord.vb" />
+    <Compile Include="Records\HannyouUriageDataKeyRecord.vb" />
+    <Compile Include="Records\HidukeSaveRecord.vb" />
+    <Compile Include="Records\JibanHaitaRecord.vb" />
+    <Compile Include="Records\JibanKeyRecord.vb" />
+    <Compile Include="Records\JibanRecord.vb" />
+    <Compile Include="Records\JibanRecordBase.vb" />
+    <Compile Include="Records\JibanRecordHosyou.vb" />
+    <Compile Include="Records\JibanRecordHoukokusyo.vb" />
+    <Compile Include="Records\JibanRecordIkkatuHenkouKihon.vb" />
+    <Compile Include="Records\JibanRecordIkkatuHenkouTysSyouhin.vb" />
+    <Compile Include="Records\JibanRecordKairyouKouji.vb" />
+    <Compile Include="Records\JibanRecordMousikomiInput.vb" />
+    <Compile Include="Records\JibanRecordTeibetuNyuukin.vb" />
+    <Compile Include="Records\JibanRecordTeibetuSyuusei.vb" />
+    <Compile Include="Records\JibanRenkeiRecord.vb" />
+    <Compile Include="Records\JibanSearchKeyRecord.vb" />
+    <Compile Include="Records\JibanSearchRecord.vb" />
+    <Compile Include="Records\KakakuSetteiRecord.vb" />
+    <Compile Include="Records\KameitenSearchRecord.vb" />
+    <Compile Include="Records\KeiretuSearchRecord.vb" />
+    <Compile Include="Records\KisoSiyouRecord.vb" />
+    <Compile Include="Records\KoujiCopyRecord.vb" />
+    <Compile Include="Records\KousinRirekiRenkeiRecord.vb" />
+    <Compile Include="Records\KubunRecord.vb" />
+    <Compile Include="Records\LoginUserInfo.vb" />
+    <Compile Include="Records\NyuukinDataCsvRecord.vb" />
+    <Compile Include="Records\NyuukinDataKeyRecord.vb" />
+    <Compile Include="Records\NyuukinDataRecord.vb" />
+    <Compile Include="Records\NyuukinDataSearchKeyRecord.vb" />
+    <Compile Include="Records\NyuukinErrorRecord.vb" />
+    <Compile Include="Records\NyuukinFileTorikomiHaitaRecord.vb" />
+    <Compile Include="Records\NyuukinFileTorikomiKeyRecord.vb" />
+    <Compile Include="Records\NyuukinFileTorikomiRecord.vb" />
+    <Compile Include="Records\OsiraseRecord.vb" />
+    <Compile Include="Records\ParamRecord.vb" />
+    <Compile Include="Records\ReportIfChkRecord.vb" />
+    <Compile Include="Records\ReportIfRecord.vb" />
+    <Compile Include="Records\SeikyuuDataRecord.vb" />
+    <Compile Include="Records\SeikyuuSakiInfoRecord.vb" />
+    <Compile Include="Records\SeikyuuSiireSakiHenkouRecord.vb" />
+    <Compile Include="Records\SiireDataCsvRecord.vb" />
+    <Compile Include="Records\SiireDataKeyRecord.vb" />
+    <Compile Include="Records\SiireDataRecord.vb" />
+    <Compile Include="Records\SiireDataSearchKeyRecord.vb" />
+    <Compile Include="Records\SiireSakiInfoRecord.vb" />
+    <Compile Include="Records\Syouhin1AutoSetRecord.vb" />
+    <Compile Include="Records\Syouhin1InfoRecord.vb" />
+    <Compile Include="Records\Syouhin23InfoRecord.vb" />
+    <Compile Include="Records\Syouhin23Record.vb" />
+    <Compile Include="Records\SyouhinMeisaiRecord.vb" />
+    <Compile Include="Records\SyouhinRecord.vb" />
+    <Compile Include="Records\TableMapClasses\TableClassMapAttribute.vb" />
+    <Compile Include="Records\TableMapClasses\TableMapAttribute.vb" />
+    <Compile Include="Records\TeibetuNyuukinRecord.vb" />
+    <Compile Include="Records\TeibetuNyuukinRenkeiRecordOld.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecord.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRenkeiRecord.vb" />
+    <Compile Include="Records\TenbetuDataSyuuseiRecord.vb" />
+    <Compile Include="Records\TenbetuHansokuHinRecord.vb" />
+    <Compile Include="Records\TenbetuSeikyuuRecord.vb" />
+    <Compile Include="Records\TenbetuSeikyuuRenkeiRecord.vb.vb" />
+    <Compile Include="Records\TenbetuSyokiSeikyuuRecord.vb" />
+    <Compile Include="Records\TenbetuSyokiSeikyuuRenkeiRecord.vb" />
+    <Compile Include="Records\TenbetuToolRyouRecord.vb" />
+    <Compile Include="Records\TenbetuTourokuRyouRecord.vb" />
+    <Compile Include="Records\TyoufukuRecord.vb" />
+    <Compile Include="Records\TysKaisyaRecord.vb" />
+    <Compile Include="Records\UploadKanriRecord.vb" />
+    <Compile Include="Records\UriageDataCsvRecord.vb" />
+    <Compile Include="Records\UriageDataKeyRecord.vb" />
+    <Compile Include="Records\UriageDataRecord.vb" />
+    <Compile Include="Records\UriageDataSearchKeyRecord.vb" />
+    <Compile Include="Records\UriageSearchResultRecord.vb" />
+    <Compile Include="Records\UrikakeDataRecord.vb" />
+    <Compile Include="Records\YosinCheckTaisyouKanriRecord.vb" />
+    <Compile Include="Records\YosinEigyouTantousyaMailTargetRecord.vb" />
+    <Compile Include="Records\YosinKanriRecord.vb" />
+    <Compile Include="Records\YosinKanrisyaRecord.vb" />
+    <Compile Include="Records\YosinMailTargetDARecord.vb" />
+    <Compile Include="Records\YosinMailTargetRecord.vb" />
+    <Compile Include="Records\YosinTenbetuRecord.vb" />
+    <Compile Include="Records\HannyouUriageRecord.vb" />
+    <Compile Include="Records\KameitenSeikyuuSakiInfoRecord.vb" />
+    <Compile Include="Records\TeibetuNyuukinRenkeiRecord.vb" />
+    <Compile Include="Records\HannyouSiireRecord.vb" />
+    <Compile Include="Records\HannyouSiireDataKeyRecord.vb" />
+    <Compile Include="Records\SiharaiDataRecord.vb" />
+    <Compile Include="Records\SiharaiDataKeyRecord.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordKairyouKouji.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordTuikaKouji.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordKoujiHoukokusyo.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordHosyousyoSaihakkou.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordKaiyakuHaraimodosi.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordTysHoukokusyo.vb" />
+    <Compile Include="Records\SeikyuuDataKeyRecord.vb" />
+    <Compile Include="Records\SeikyuuDataSyuuseiRecord.vb" />
+    <Compile Include="Records\SeikyuuDataHakkouRecord.vb" />
+    <Compile Include="Records\TokubetuTaiouRecordBase.vb" />
+    <Compile Include="Records\TokubetuTaiouTeibetuKeyRecord.vb" />
+    <Compile Include="Records\TeibetuSeikyuuRecordTokubetuTaiou.vb" />
+    <Compile Include="Records\TokubetuTaiouKkkSyoriRecord.vb" />
+    <Compile Include="Records\FcMousikomiKeyRecord.vb" />
+    <Compile Include="Records\FcMousikomiRecord.vb" />
+    <Compile Include="Records\FcMousikomiSyuuseiJytyzumiRecord.vb" />
+    <Compile Include="Records\FcMousikomiSyuuseiMijytyRecord.vb" />
+    <Compile Include="Records\JibanRecordFcMousikomiJutyuu.vb" />
+    <Compile Include="Records\FcMousikomiSyuuseiJytyHoryuuRecord.vb" />
+    <Compile Include="Records\MousikomiSyuuseiJytyHoryuuRecord.vb" />
+    <Compile Include="Records\HinsituHosyousyoJyoukyouKeyRecord.vb" />
+    <Compile Include="Records\HinsituHosyousyoJyoukyouSearchRecord.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SQL\StoredProcedure\fnGetSeikyuuSakiName.sql" />
+    <None Include="SQL\StoredProcedure\fnGetShriSakiName.sql" />
+    <None Include="SQL\StoredProcedure\trSiireDataByTeibetuOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTeibetuOnDel.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTeibetuOnInsUpd.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Itis.ApplicationBlocks.ExceptionManagement.dll" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="SQL\SQLServerオブジェクトソース取得.exe" />
+    <None Include="SQL\SQLServerオブジェクトソース取得.udl" />
+    <None Include="SQL\StoredProcedure\fnGetAddUpdUserName.sql" />
+    <None Include="SQL\StoredProcedure\fnGetBukkenJyky.sql" />
+    <None Include="SQL\StoredProcedure\fnGetHokenSinseiDataTable.sql" />
+    <None Include="SQL\StoredProcedure\fnGetHosyousyoJyky.sql" />
+    <None Include="SQL\StoredProcedure\fnGetHosyousyoKanriKeyDataTable.sql" />
+    <None Include="SQL\StoredProcedure\fnGetHwHokenDataTable.sql" />
+    <None Include="SQL\StoredProcedure\fnGetLastDay.sql" />
+    <None Include="SQL\StoredProcedure\fnGetLastMonthFirstDay.sql" />
+    <None Include="SQL\StoredProcedure\fnGetNyuukinJyky.sql" />
+    <None Include="SQL\StoredProcedure\fnGetSeikyuuDateFromTeibetu.sql" />
+    <None Include="SQL\StoredProcedure\fnGetSeikyuuSakiKeyDataTable.sql" />
+    <None Include="SQL\StoredProcedure\fnGetSeikyuuDate.sql" />
+    <None Include="SQL\StoredProcedure\fnGetShriSakiKeyDataTable.sql" />
+    <None Include="SQL\StoredProcedure\fnGetTeibetuMinUriDateDataTable.sql" />
+    <None Include="SQL\StoredProcedure\spGetujiKakuteiSyuukei.sql" />
+    <None Include="SQL\StoredProcedure\spSetDenpyouNo.sql" />
+    <None Include="SQL\StoredProcedure\spSetGetujiBukkenRireki.sql" />
+    <None Include="SQL\StoredProcedure\spSetGetujiHosyousyo.sql" />
+    <None Include="SQL\StoredProcedure\spSetGetujiHosyousyo_setup.sql" />
+    <None Include="SQL\StoredProcedure\spSetGetujiHosyousyo_yotei_date.sql" />
+    <None Include="SQL\StoredProcedure\spSetHosyousyoKanri.sql" />
+    <None Include="SQL\StoredProcedure\spSetHosyousyoKanri_bukken.sql" />
+    <None Include="SQL\StoredProcedure\trNyuukinDataByNyuukinFileOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trSiharaiDataBySkkSiwakeDataOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trSiharaiDataByTgkSiwakeDataOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trSiireDataByHanyouOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trSiireDataByTeibetuOnDel.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByHanyouOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTenbetuOnDel.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTenbetuOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTenbetuSyokiOnInsUpd.sql" />
+    <None Include="SQL\StoredProcedure\trUriageDataByTenbetuSyokiOnDel.sql" />
+    <None Include="SQL\VIEW\VIEW_請求先情報.sql" />
+    <None Include="SQL\VIEW\v_hanbai_kakaku.sql" />
+    <None Include="SQL\VIEW\v_seikyuusyo_mihakkou_uri_data.sql" />
+    <None Include="SQL\VIEW\v_seikyuu_nyuukin_jouhou.sql" />
+    <None Include="SQL\VIEW\v_seikyuu_saki_info.sql" />
+    <None Include="SQL\VIEW\v_syouhin_seikyuusaki_kameiten.sql" />
+    <None Include="SQL\VIEW\v_syouhin_siire_seikyuu_saki_jiban_tyskaisya.sql" />
+    <None Include="SQL\VIEW\v_th_seikyuu.sql" />
+    <None Include="SQL\VIEW\v_uriage_parent_key_info.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

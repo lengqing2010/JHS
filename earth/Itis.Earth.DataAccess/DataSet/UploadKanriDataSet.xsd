@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UploadKanriDataSet" targetNamespace="http://tempuri.org/UploadKanriDataSet.xsd" xmlns:mstns="http://tempuri.org/UploadKanriDataSet.xsd" xmlns="http://tempuri.org/UploadKanriDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString1" Provider="System.Data.SqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="UploadKanriDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="UploadKanriDataSet" msprop:Generator_DataSetName="UploadKanriDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EdiJouhou" msprop:Generator_UserTableName="EdiJouhou" msprop:Generator_RowDeletedName="EdiJouhouRowDeleted" msprop:Generator_RowChangedName="EdiJouhouRowChanged" msprop:Generator_RowClassName="EdiJouhouRow" msprop:Generator_RowChangingName="EdiJouhouRowChanging" msprop:Generator_RowEvArgName="EdiJouhouRowChangeEvent" msprop:Generator_RowEvHandlerName="EdiJouhouRowChangeEventHandler" msprop:Generator_TableClassName="EdiJouhouDataTable" msprop:Generator_TableVarName="tableEdiJouhou" msprop:Generator_RowDeletingName="EdiJouhouRowDeleting" msprop:Generator_TablePropName="EdiJouhou">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="edi_jouhou_sakusei_date" msprop:Generator_UserColumnName="edi_jouhou_sakusei_date" msprop:Generator_ColumnVarNameInTable="columnedi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInRow="edi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInTable="edi_jouhou_sakusei_dateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UploadJouhou" msprop:Generator_UserTableName="UploadJouhou" msprop:Generator_RowDeletedName="UploadJouhouRowDeleted" msprop:Generator_TableClassName="UploadJouhouDataTable" msprop:Generator_RowChangedName="UploadJouhouRowChanged" msprop:Generator_RowClassName="UploadJouhouRow" msprop:Generator_RowChangingName="UploadJouhouRowChanging" msprop:Generator_RowEvArgName="UploadJouhouRowChangeEvent" msprop:Generator_RowEvHandlerName="UploadJouhouRowChangeEventHandler" msprop:Generator_TablePropName="UploadJouhou" msprop:Generator_TableVarName="tableUploadJouhou" msprop:Generator_RowDeletingName="UploadJouhouRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="syori_datetime" msprop:Generator_UserColumnName="syori_datetime" msprop:Generator_ColumnPropNameInRow="syori_datetime" msprop:Generator_ColumnVarNameInTable="columnsyori_datetime" msprop:Generator_ColumnPropNameInTable="syori_datetimeColumn" type="xs:dateTime" />
+              <xs:element name="edi_jouhou_sakusei_date" msprop:Generator_UserColumnName="edi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInRow="edi_jouhou_sakusei_date" msprop:Generator_ColumnVarNameInTable="columnedi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInTable="edi_jouhou_sakusei_dateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nyuuryoku_file_mei" msprop:Generator_UserColumnName="nyuuryoku_file_mei" msprop:Generator_ColumnPropNameInRow="nyuuryoku_file_mei" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_file_mei" msprop:Generator_ColumnPropNameInTable="nyuuryoku_file_meiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="error_umu" msprop:Generator_UserColumnName="error_umu" msprop:Generator_ColumnPropNameInRow="error_umu" msprop:Generator_ColumnVarNameInTable="columnerror_umu" msprop:Generator_ColumnPropNameInTable="error_umuColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:UploadJouhou" />
+      <xs:field xpath="mstns:syori_datetime" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

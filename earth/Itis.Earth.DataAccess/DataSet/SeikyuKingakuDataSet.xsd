@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SeikyuKingakuDataSet" targetNamespace="http://tempuri.org/SeikyuKingakuDataSet.xsd" xmlns:mstns="http://tempuri.org/SeikyuKingakuDataSet.xsd" xmlns="http://tempuri.org/SeikyuKingakuDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SeikyuKingakuDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="SeikyuKingakuDataSet" msprop:Generator_DataSetName="SeikyuKingakuDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_KameitenMuke" msprop:Generator_UserTableName="dt_KameitenMuke" msprop:Generator_RowDeletedName="dt_KameitenMukeRowDeleted" msprop:Generator_RowChangedName="dt_KameitenMukeRowChanged" msprop:Generator_RowClassName="dt_KameitenMukeRow" msprop:Generator_RowChangingName="dt_KameitenMukeRowChanging" msprop:Generator_RowEvArgName="dt_KameitenMukeRowChangeEvent" msprop:Generator_RowEvHandlerName="dt_KameitenMukeRowChangeEventHandler" msprop:Generator_TableClassName="dt_KameitenMukeDataTable" msprop:Generator_TableVarName="tabledt_KameitenMuke" msprop:Generator_RowDeletingName="dt_KameitenMukeRowDeleting" msprop:Generator_TablePropName="dt_KameitenMuke">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kameiten_muke_kkk" msprop:Generator_UserColumnName="kameiten_muke_kkk" msprop:Generator_ColumnPropNameInRow="kameiten_muke_kkk" msprop:Generator_ColumnVarNameInTable="columnkameiten_muke_kkk" msprop:Generator_ColumnPropNameInTable="kameiten_muke_kkkColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kakeritu" msprop:Generator_UserColumnName="kakeritu" msprop:Generator_ColumnPropNameInRow="kakeritu" msprop:Generator_ColumnVarNameInTable="columnkakeritu" msprop:Generator_ColumnPropNameInTable="kakerituColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_SyutokuKakaku" msprop:Generator_UserTableName="dt_SyutokuKakaku" msprop:Generator_RowDeletedName="dt_SyutokuKakakuRowDeleted" msprop:Generator_RowChangedName="dt_SyutokuKakakuRowChanged" msprop:Generator_RowClassName="dt_SyutokuKakakuRow" msprop:Generator_RowChangingName="dt_SyutokuKakakuRowChanging" msprop:Generator_RowEvArgName="dt_SyutokuKakakuRowChangeEvent" msprop:Generator_RowEvHandlerName="dt_SyutokuKakakuRowChangeEventHandler" msprop:Generator_TableClassName="dt_SyutokuKakakuDataTable" msprop:Generator_TableVarName="tabledt_SyutokuKakaku" msprop:Generator_RowDeletingName="dt_SyutokuKakakuRowDeleting" msprop:Generator_TablePropName="dt_SyutokuKakaku">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="syutoku_kakaku" msprop:Generator_UserColumnName="syutoku_kakaku" msprop:Generator_ColumnPropNameInRow="syutoku_kakaku" msprop:Generator_ColumnVarNameInTable="columnsyutoku_kakaku" msprop:Generator_ColumnPropNameInTable="syutoku_kakakuColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dt_Kakeritu" msprop:Generator_UserTableName="dt_Kakeritu" msprop:Generator_RowDeletedName="dt_KakerituRowDeleted" msprop:Generator_RowChangedName="dt_KakerituRowChanged" msprop:Generator_RowClassName="dt_KakerituRow" msprop:Generator_RowChangingName="dt_KakerituRowChanging" msprop:Generator_RowEvArgName="dt_KakerituRowChangeEvent" msprop:Generator_RowEvHandlerName="dt_KakerituRowChangeEventHandler" msprop:Generator_TableClassName="dt_KakerituDataTable" msprop:Generator_TableVarName="tabledt_Kakeritu" msprop:Generator_RowDeletingName="dt_KakerituRowDeleting" msprop:Generator_TablePropName="dt_Kakeritu">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kakeritu" msprop:Generator_UserColumnName="kakeritu" msprop:Generator_ColumnPropNameInRow="kakeritu" msprop:Generator_ColumnVarNameInTable="columnkakeritu" msprop:Generator_ColumnPropNameInTable="kakerituColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1304,12 +1304,12 @@ Partial Public Class SeikyusyoFcwOutput
                     editDR("zeiritu") = String.Empty
                     editDR("sotozei_gaku") = String.Empty
 
-                Case "5"
+                Case "8" 'å≥ÇTÅÀÇW
                     sum_uriage5 += decUriGaku 'è¨åv_ê≈ï ã‡äz(ê≈ó¶=5%)
                     sum_sotozei5 += decSotozeiGaku 'è¨åv_è¡îÔê≈(ê≈ó¶=5%)
                     sum_uriage_sotozei5 += decUriageSotosei 'è¨åv_ê≈çûã‡äz(ê≈ó¶=5%)
 
-                Case "8"
+                Case "10" 'å≥ÇWÅÀÇPÇO
                     sum_uriage8 += decUriGaku 'è¨åv_ê≈ï ã‡äz(ê≈ó¶=8%)
                     sum_sotozei8 += decSotozeiGaku 'è¨åv_è¡îÔê≈(ê≈ó¶=8%)
                     sum_uriage_sotozei8 += decUriageSotosei 'è¨åv_ê≈çûã‡äz(ê≈ó¶=8%)
@@ -1649,7 +1649,7 @@ Partial Public Class SeikyusyoFcwOutput
                         editDR("zeiritu") = String.Empty
                         editDR("sotozei_gaku") = String.Empty
 
-                    Case "5"
+                    Case "8" 'å≥ÇTÅÀÇW
                         If Not editDR("uri_gaku").Equals(String.Empty) Then
                             total_uriage5 += Convert.ToDecimal(editDR("uri_gaku")) 'çáåv_ê≈ï ã‡äz(ê≈ó¶=5%)
                         End If
@@ -1662,7 +1662,7 @@ Partial Public Class SeikyusyoFcwOutput
                             total_uriage_sotozei5 += Convert.ToDecimal(editDR("uri_sotozei")) 'çáåv_ê≈çûã‡äz(ê≈ó¶=5%)
                         End If
 
-                    Case "8"
+                    Case "10" 'å≥ÇWÅÀÇPÇO
                         If Not editDR("uri_gaku").Equals(String.Empty) Then
                             total_uriage8 += Convert.ToDecimal(editDR("uri_gaku")) 'çáåv_ê≈ï ã‡äz(ê≈ó¶=8%)
                         End If
@@ -1965,12 +1965,12 @@ Partial Public Class SeikyusyoFcwOutput
                             sum_sotozei0 += decSotozeiGaku
                             sum_uriage_sotozei0 += decZeikomiGaku
 
-                        Case "5"
+                        Case "8" 'å≥ÇTÅÀÇW
                             sum_uriage5 += decUriGaku
                             sum_sotozei5 += decSotozeiGaku
                             sum_uriage_sotozei5 += decZeikomiGaku
 
-                        Case "8"
+                        Case "10" 'å≥ÇWÅÀÇPÇO
                             sum_uriage8 += decUriGaku
                             sum_sotozei8 += decSotozeiGaku
                             sum_uriage_sotozei8 += decZeikomiGaku
@@ -2048,12 +2048,12 @@ Partial Public Class SeikyusyoFcwOutput
                             sum_sotozei0 = decSotozeiGaku
                             sum_uriage_sotozei0 = decZeikomiGaku
 
-                        Case "5"
+                        Case "8" 'å≥ÇTÅÀÇW
                             sum_uriage5 = decUriGaku
                             sum_sotozei5 = decSotozeiGaku
                             sum_uriage_sotozei5 = decZeikomiGaku
 
-                        Case "8"
+                        Case "10" 'å≥ÇWÅÀÇPÇO
                             sum_uriage8 = decUriGaku
                             sum_sotozei8 = decSotozeiGaku
                             sum_uriage_sotozei8 = decZeikomiGaku

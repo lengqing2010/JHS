@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56D2E445-A8A1-4992-994A-16E583C818C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Itis.Earth.DataAccess</RootNamespace>
+    <AssemblyName>Itis.Earth.DataAccess</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.DataAccess.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.DataAccess.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itis.ApplicationBlocks.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Itis.ApplicationBlocks.ExceptionManagement, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Itis.ApplicationBlocks.Data" />
+    <Import Include="Itis.ApplicationBlocks.Data.SQLHelper" />
+    <Import Include="Itis.ApplicationBlocks.ExceptionManagement" />
+    <Import Include="Itis.Earth.Utilities" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionManager.vb" />
+    <Compile Include="DataAccess\BukkenRirekiDataAccess.vb" />
+    <Compile Include="DataAccess\BukkenSintyokuJykyDataAccess.vb" />
+    <Compile Include="DataAccess\GenkaDataAccess.vb" />
+    <Compile Include="DataAccess\HanbaiKakakuDataAccess.vb" />
+    <Compile Include="DataAccess\HosyousyoDbDataAccess.vb" />
+    <Compile Include="DataAccess\KoujiKakakuDataAccess.vb" />
+    <Compile Include="DataAccess\KousinRirekiDataAccess.vb" />
+    <Compile Include="DataAccess\MototyouDataAccess.vb" />
+    <Compile Include="DataAccess\MousikomiDataAccess.vb" />
+    <Compile Include="DataAccess\SaibanDataAccess.vb" />
+    <Compile Include="DataAccess\SeikyuuDateIkkatuHenkouDataAccess.vb" />
+    <Compile Include="DataAccess\SeikyuuMiinsatuDataAccess.vb" />
+    <Compile Include="DataAccess\SeikyuuSimeDateRerekiDataAccess.vb" />
+    <Compile Include="DataAccess\SeikyuusyoDataSakuseiDataAccess.vb" />
+    <Compile Include="DataAccess\TeibetuNyuukinSyuuseiDataAccess.vb" />
+    <Compile Include="DataAccess\TodoufukenDataAccess.vb" />
+    <Compile Include="DataAccess\TokubetuTaiouDataAccess.vb" />
+    <Compile Include="DataAccess\TokubetuTaiouMstDataAccess.vb" />
+    <Compile Include="DataAccess\TyousakaisyaSearchDataAccess.vb" />
+    <Compile Include="DataAccess\CmnDataAccess.vb" />
+    <Compile Include="DataAccess\EigyousyoSearchDataAccess.vb" />
+    <Compile Include="DataAccess\GetujiIkkatuUpdateDataAccess.vb" />
+    <Compile Include="DataAccess\HkksJuriAccess.vb" />
+    <Compile Include="DataAccess\HokenKaisyaAccess.vb" />
+    <Compile Include="DataAccess\HosyousyoDataAccess.vb" />
+    <Compile Include="DataAccess\AbsDataAccess.vb" />
+    <Compile Include="DataAccess\HosyousyoHakJykyAccess.vb" />
+    <Compile Include="DataAccess\IKeiretuDataAccess.vb" />
+    <Compile Include="DataAccess\JhsNyuukinTorikomiDataAccess.vb" />
+    <Compile Include="DataAccess\KoujiSyouhinDataAccess.vb" />
+    <Compile Include="DataAccess\KairyouKoujiSyubetuAccess.vb" />
+    <Compile Include="DataAccess\KaisouDataAccess.vb" />
+    <Compile Include="DataAccess\KameitenDataAccess.vb" />
+    <Compile Include="DataAccess\KameitenSearchDataAccess.vb" />
+    <Compile Include="DataAccess\KeiretuAifuruDataAccess.vb" />
+    <Compile Include="DataAccess\KeiretuDataAccess.vb" />
+    <Compile Include="DataAccess\KeiretuSearchDataAccess.vb" />
+    <Compile Include="DataAccess\KeiretuThDataAccess.vb" />
+    <Compile Include="DataAccess\KeiretuWandaDataAccess.vb" />
+    <Compile Include="DataAccess\KouzouDataAccess.vb" />
+    <Compile Include="DataAccess\KsSiyouSetuzokusiAccess.vb" />
+    <Compile Include="DataAccess\KubunDataAccess.vb" />
+    <Compile Include="DataAccess\NyuukinDataAccess.vb" />
+    <Compile Include="DataAccess\NyuukinErrorDataAccess.vb" />
+    <Compile Include="DataAccess\NyuukinSyoriDataAccess.vb" />
+    <Compile Include="DataAccess\PdfRenrakuDataAccess.vb" />
+    <Compile Include="DataAccess\RenkeiKanriDataAccess.vb" />
+    <Compile Include="DataAccess\ShintikuTatekaeDataAccess.vb" />
+    <Compile Include="DataAccess\SiireDataAccess.vb" />
+    <Compile Include="DataAccess\SyakoDataAccess.vb" />
+    <Compile Include="DataAccess\Syouhin4DataAccess.vb" />
+    <Compile Include="DataAccess\SyouhinDataAccess.vb" />
+    <Compile Include="DataAccess\TantousyaAccess.vb" />
+    <Compile Include="DataAccess\TenbetuSyuuseiDataAccess.vb" />
+    <Compile Include="DataAccess\TenbetuSyuuseiSyouhinDataAccess.vb" />
+    <Compile Include="DataAccess\TyousagaiyouDataAccess.vb" />
+    <Compile Include="DataAccess\TyousahouhouDataAccess.vb" />
+    <Compile Include="DataAccess\UriageDataAccess.vb" />
+    <Compile Include="DataAccess\UriageSiireSakuseiDataAccess.vb" />
+    <Compile Include="DataAccess\YoteikisoDataAccess.vb" />
+    <Compile Include="DataAccess\TatemonoYoutoDataAccess.vb" />
+    <Compile Include="DataAccess\DataHakiDataAccess.vb" />
+    <Compile Include="DataAccess\TyoufukuDataAccess.vb" />
+    <Compile Include="DataAccess\SyoudakusyoKingakuDataAccess.vb" />
+    <Compile Include="DataAccess\OsiraseDataAccess.vb" />
+    <Compile Include="DataAccess\AccountDataAccess.vb" />
+    <Compile Include="DataAccess\MeisyouDataAccess.vb" />
+    <Compile Include="DataAccess\JibanDataAccess.vb" />
+    <Compile Include="DataAccess\BuilderDataAccess.vb" />
+    <Compile Include="DataAccess\KeiyuDataAccess.vb" />
+    <Compile Include="DataAccess\ReportIfDataAccess.vb" />
+    <Compile Include="DataAccess\KubunDataAccess2.vb" />
+    <Compile Include="DataAccess\KisoSiyouDataAccess.vb" />
+    <Compile Include="DataAccess\YosinDataAccess.vb" />
+    <Compile Include="DataAccess\HidukeSaveDataAccess.vb" />
+    <Compile Include="DataAccess\KameitenBikouSetteiDataAccess.vb" />
+    <Compile Include="DataAccess\HannyouUriageDataAccess.vb" />
+    <Compile Include="DataAccess\KakutyouMeisyouDataAccess.vb" />
+    <Compile Include="DataAccess\SyouhizeiDataAccess.vb" />
+    <Compile Include="DataAccess\HannyouSiireDataAccess.vb" />
+    <Compile Include="DataAccess\SiharaiDataAccess.vb" />
+    <Compile Include="DataAccess\SeikyuuDataAccess.vb" />
+    <Compile Include="DataAccess\FcMousikomiDataAccess.vb" />
+    <Compile Include="DataSet\AccountDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BuilderDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuilderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BukkenRirekiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BukkenRirekiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BukkenRirekiDataSet.vb">
+      <DependentUpon>BukkenRirekiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\JibanDataSet.vb">
+      <DependentUpon>JibanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TyousakaisyaSearchDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TyousakaisyaSearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataHakiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataHakiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\JhsNyuukinTorikomiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JhsNyuukinTorikomiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\JhsNyuukinTorikomiDataSet.vb">
+      <DependentUpon>JhsNyuukinTorikomiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\NyuukinDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NyuukinDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SiireDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiireDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuSeikyuuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenbetuSeikyuuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuSyokiSeikyuuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenbetuSyokiSeikyuuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuSyuuseiDataSet.vb">
+      <DependentUpon>TenbetuSyuuseiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\UriageDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UriageDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\YosinDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YosinDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DenpyouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DenpyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\EigyousyoSearchDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EigyousyoSearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\HidukeSaveDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HidukeSaveDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\HkksJuriDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HkksJuriDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\HokenKaisyaDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HokenKaisyaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\HosyousyoHakJykyDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosyousyoHakJykyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\HosyousyoNoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosyousyoNoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\IkkatuNyuukinTaisyouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IkkatuNyuukinTaisyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\JibanDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JibanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\JibanRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JibanRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KairyouKoujiSyubetuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KairyouKoujiSyubetuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KaisouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KaisouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KakakuSetteiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KakakuSetteiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KameitenKakakuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KameitenKakakuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KameitenSearchDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KameitenSearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KeiretuSearchDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeiretuSearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KeiretuSearchDataSet.vb">
+      <DependentUpon>KeiretuSearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KeiyuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeiyuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KisoSiyouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KisoSiyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KisoSiyouDataSet.vb">
+      <DependentUpon>KisoSiyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KousinRirekiRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KousinRirekiRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KouzouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KouzouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KouzouDataSet.vb">
+      <DependentUpon>KouzouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KsSiyouSetuzokusiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsSiyouSetuzokusiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\KubunDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KubunDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\MeisyouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeisyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\MeisyouDataSet.vb">
+      <DependentUpon>MeisyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\NyuukinCsvDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NyuukinCsvDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\NyuukinErrorDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NyuukinErrorDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\OsiraseDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OsiraseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ReportIfDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportIfDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SeikyuKingakuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeikyuKingakuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ShintikuTatekaeDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShintikuTatekaeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SyakoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyakoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SyoudakusyoKingakuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyoudakusyoKingakuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SyouhinDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyouhinDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SyouhinTaxDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyouhinTaxDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SyouhinTaxDataSet.vb">
+      <DependentUpon>SyouhinTaxDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TantousyaDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TantousyaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TatemonoYoutoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TatemonoYoutoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TeibetuNyuukinRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeibetuNyuukinRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TeibetuRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeibetuRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TeibetuSeikyuuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeibetuSeikyuuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TeibetuSeikyuuDataSet.vb">
+      <DependentUpon>TeibetuSeikyuuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenbetuRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuRenkeiDataSet.vb">
+      <DependentUpon>TenbetuRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuSyokiRenkeiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenbetuSyokiRenkeiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TenbetuSyuuseiDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TenbetuSyuuseiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TyoufukuDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TyoufukuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TyousagaiyouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TyousagaiyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TyousagaiyouDataSet.vb">
+      <DependentUpon>TyousagaiyouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\TyousahouhouDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TyousahouhouDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\UploadKanriDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadKanriDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\UploadKanriDataSet.vb">
+      <DependentUpon>UploadKanriDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\UriageSiireCsvDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UriageSiireCsvDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\UriageSiireCsvDataSet.vb">
+      <DependentUpon>UriageSiireCsvDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\YosinDataSet.vb">
+      <DependentUpon>YosinDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\YoteiKisoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YoteiKisoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSet\AccountDataSet.xsc">
+      <DependentUpon>AccountDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\AccountDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AccountDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\AccountDataSet.xss">
+      <DependentUpon>AccountDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BuilderDataSet.xsc">
+      <DependentUpon>BuilderDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BuilderDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuilderDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\BuilderDataSet.xss">
+      <DependentUpon>BuilderDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BukkenRirekiDataSet.xsc">
+      <DependentUpon>BukkenRirekiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BukkenRirekiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BukkenRirekiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\BukkenRirekiDataSet.xss">
+      <DependentUpon>BukkenRirekiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousakaisyaSearchDataSet.xsc">
+      <DependentUpon>TyousakaisyaSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousakaisyaSearchDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TyousakaisyaSearchDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TyousakaisyaSearchDataSet.xss">
+      <DependentUpon>TyousakaisyaSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataHakiDataSet.xsc">
+      <DependentUpon>DataHakiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataHakiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataHakiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataHakiDataSet.xss">
+      <DependentUpon>DataHakiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JhsNyuukinTorikomiDataSet.xsc">
+      <DependentUpon>JhsNyuukinTorikomiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JhsNyuukinTorikomiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JhsNyuukinTorikomiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\JhsNyuukinTorikomiDataSet.xss">
+      <DependentUpon>JhsNyuukinTorikomiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinDataSet.xsc">
+      <DependentUpon>NyuukinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NyuukinDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\NyuukinDataSet.xss">
+      <DependentUpon>NyuukinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SiireDataSet.xsc">
+      <DependentUpon>SiireDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SiireDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SiireDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SiireDataSet.xss">
+      <DependentUpon>SiireDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSeikyuuDataSet.xsc">
+      <DependentUpon>TenbetuSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSeikyuuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TenbetuSeikyuuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TenbetuSeikyuuDataSet.xss">
+      <DependentUpon>TenbetuSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyokiSeikyuuDataSet.xsc">
+      <DependentUpon>TenbetuSyokiSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyokiSeikyuuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TenbetuSyokiSeikyuuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TenbetuSyokiSeikyuuDataSet.xss">
+      <DependentUpon>TenbetuSyokiSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UriageDataSet.xsc">
+      <DependentUpon>UriageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UriageDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UriageDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\UriageDataSet.xss">
+      <DependentUpon>UriageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\YosinDataSet.xsc">
+      <DependentUpon>YosinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\YosinDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>YosinDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\YosinDataSet.xss">
+      <DependentUpon>YosinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DenpyouDataSet.xsc">
+      <DependentUpon>DenpyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DenpyouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DenpyouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DenpyouDataSet.xss">
+      <DependentUpon>DenpyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\EigyousyoSearchDataSet.xsc">
+      <DependentUpon>EigyousyoSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\EigyousyoSearchDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EigyousyoSearchDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\EigyousyoSearchDataSet.xss">
+      <DependentUpon>EigyousyoSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HidukeSaveDataSet.xsc">
+      <DependentUpon>HidukeSaveDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HidukeSaveDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HidukeSaveDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\HidukeSaveDataSet.xss">
+      <DependentUpon>HidukeSaveDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HkksJuriDataSet.xsc">
+      <DependentUpon>HkksJuriDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HkksJuriDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HkksJuriDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\HkksJuriDataSet.xss">
+      <DependentUpon>HkksJuriDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HokenKaisyaDataSet.xsc">
+      <DependentUpon>HokenKaisyaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HokenKaisyaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HokenKaisyaDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\HokenKaisyaDataSet.xss">
+      <DependentUpon>HokenKaisyaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HosyousyoHakJykyDataSet.xsc">
+      <DependentUpon>HosyousyoHakJykyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HosyousyoHakJykyDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosyousyoHakJykyDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\HosyousyoHakJykyDataSet.xss">
+      <DependentUpon>HosyousyoHakJykyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HosyousyoNoDataSet.xsc">
+      <DependentUpon>HosyousyoNoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\HosyousyoNoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosyousyoNoDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\HosyousyoNoDataSet.xss">
+      <DependentUpon>HosyousyoNoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\IkkatuNyuukinTaisyouDataSet.xsc">
+      <DependentUpon>IkkatuNyuukinTaisyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\IkkatuNyuukinTaisyouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IkkatuNyuukinTaisyouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\IkkatuNyuukinTaisyouDataSet.xss">
+      <DependentUpon>IkkatuNyuukinTaisyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JibanDataSet.xsc">
+      <DependentUpon>JibanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JibanDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JibanDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\JibanDataSet.xss">
+      <DependentUpon>JibanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JibanRenkeiDataSet.xsc">
+      <DependentUpon>JibanRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\JibanRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JibanRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\JibanRenkeiDataSet.xss">
+      <DependentUpon>JibanRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KairyouKoujiSyubetuDataSet.xsc">
+      <DependentUpon>KairyouKoujiSyubetuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KairyouKoujiSyubetuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KairyouKoujiSyubetuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KairyouKoujiSyubetuDataSet.xss">
+      <DependentUpon>KairyouKoujiSyubetuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KaisouDataSet.xsc">
+      <DependentUpon>KaisouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KaisouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KaisouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KaisouDataSet.xss">
+      <DependentUpon>KaisouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KakakuSetteiDataSet.xsc">
+      <DependentUpon>KakakuSetteiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KakakuSetteiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KakakuSetteiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KakakuSetteiDataSet.xss">
+      <DependentUpon>KakakuSetteiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KameitenKakakuDataSet.xsc">
+      <DependentUpon>KameitenKakakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KameitenKakakuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KameitenKakakuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KameitenKakakuDataSet.xss">
+      <DependentUpon>KameitenKakakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KameitenSearchDataSet.xsc">
+      <DependentUpon>KameitenSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KameitenSearchDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KameitenSearchDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KameitenSearchDataSet.xss">
+      <DependentUpon>KameitenSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KeiretuSearchDataSet.xsc">
+      <DependentUpon>KeiretuSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KeiretuSearchDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KeiretuSearchDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KeiretuSearchDataSet.xss">
+      <DependentUpon>KeiretuSearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KeiyuDataSet.xsc">
+      <DependentUpon>KeiyuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KeiyuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KeiyuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KeiyuDataSet.xss">
+      <DependentUpon>KeiyuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KisoSiyouDataSet.xsc">
+      <DependentUpon>KisoSiyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KisoSiyouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KisoSiyouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KisoSiyouDataSet.xss">
+      <DependentUpon>KisoSiyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KousinRirekiRenkeiDataSet.xsc">
+      <DependentUpon>KousinRirekiRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KousinRirekiRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KousinRirekiRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KousinRirekiRenkeiDataSet.xss">
+      <DependentUpon>KousinRirekiRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KouzouDataSet.xsc">
+      <DependentUpon>KouzouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KouzouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KouzouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KouzouDataSet.xss">
+      <DependentUpon>KouzouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KsSiyouSetuzokusiDataSet.xsc">
+      <DependentUpon>KsSiyouSetuzokusiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KsSiyouSetuzokusiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsSiyouSetuzokusiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KsSiyouSetuzokusiDataSet.xss">
+      <DependentUpon>KsSiyouSetuzokusiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KubunDataSet.xsc">
+      <DependentUpon>KubunDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\KubunDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KubunDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\KubunDataSet.xss">
+      <DependentUpon>KubunDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\MeisyouDataSet.xsc">
+      <DependentUpon>MeisyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\MeisyouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MeisyouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\MeisyouDataSet.xss">
+      <DependentUpon>MeisyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinCsvDataSet.xsc">
+      <DependentUpon>NyuukinCsvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinCsvDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NyuukinCsvDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\NyuukinCsvDataSet.xss">
+      <DependentUpon>NyuukinCsvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinErrorDataSet.xsc">
+      <DependentUpon>NyuukinErrorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NyuukinErrorDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NyuukinErrorDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\NyuukinErrorDataSet.xss">
+      <DependentUpon>NyuukinErrorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\OsiraseDataSet.xsc">
+      <DependentUpon>OsiraseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\OsiraseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OsiraseDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\OsiraseDataSet.xss">
+      <DependentUpon>OsiraseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ReportIfDataSet.xsc">
+      <DependentUpon>ReportIfDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ReportIfDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportIfDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\ReportIfDataSet.xss">
+      <DependentUpon>ReportIfDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SeikyuKingakuDataSet.xsc">
+      <DependentUpon>SeikyuKingakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SeikyuKingakuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SeikyuKingakuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SeikyuKingakuDataSet.xss">
+      <DependentUpon>SeikyuKingakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ShintikuTatekaeDataSet.xsc">
+      <DependentUpon>ShintikuTatekaeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ShintikuTatekaeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShintikuTatekaeDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\ShintikuTatekaeDataSet.xss">
+      <DependentUpon>ShintikuTatekaeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyakoDataSet.xsc">
+      <DependentUpon>SyakoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyakoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyakoDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SyakoDataSet.xss">
+      <DependentUpon>SyakoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyoudakusyoKingakuDataSet.xsc">
+      <DependentUpon>SyoudakusyoKingakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyoudakusyoKingakuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyoudakusyoKingakuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SyoudakusyoKingakuDataSet.xss">
+      <DependentUpon>SyoudakusyoKingakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyouhinDataSet.xsc">
+      <DependentUpon>SyouhinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyouhinDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyouhinDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SyouhinDataSet.xss">
+      <DependentUpon>SyouhinDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyouhinTaxDataSet.xsc">
+      <DependentUpon>SyouhinTaxDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SyouhinTaxDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyouhinTaxDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\SyouhinTaxDataSet.xss">
+      <DependentUpon>SyouhinTaxDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TantousyaDataSet.xsc">
+      <DependentUpon>TantousyaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TantousyaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TantousyaDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TantousyaDataSet.xss">
+      <DependentUpon>TantousyaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TatemonoYoutoDataSet.xsc">
+      <DependentUpon>TatemonoYoutoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TatemonoYoutoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TatemonoYoutoDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TatemonoYoutoDataSet.xss">
+      <DependentUpon>TatemonoYoutoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuNyuukinRenkeiDataSet.xsc">
+      <DependentUpon>TeibetuNyuukinRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuNyuukinRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeibetuNyuukinRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TeibetuNyuukinRenkeiDataSet.xss">
+      <DependentUpon>TeibetuNyuukinRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuRenkeiDataSet.xsc">
+      <DependentUpon>TeibetuRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeibetuRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TeibetuRenkeiDataSet.xss">
+      <DependentUpon>TeibetuRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuSeikyuuDataSet.xsc">
+      <DependentUpon>TeibetuSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TeibetuSeikyuuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeibetuSeikyuuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TeibetuSeikyuuDataSet.xss">
+      <DependentUpon>TeibetuSeikyuuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuRenkeiDataSet.xsc">
+      <DependentUpon>TenbetuRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TenbetuRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TenbetuRenkeiDataSet.xss">
+      <DependentUpon>TenbetuRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyokiRenkeiDataSet.xsc">
+      <DependentUpon>TenbetuSyokiRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyokiRenkeiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TenbetuSyokiRenkeiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TenbetuSyokiRenkeiDataSet.xss">
+      <DependentUpon>TenbetuSyokiRenkeiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyuuseiDataSet.xsc">
+      <DependentUpon>TenbetuSyuuseiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TenbetuSyuuseiDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TenbetuSyuuseiDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TenbetuSyuuseiDataSet.xss">
+      <DependentUpon>TenbetuSyuuseiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyoufukuDataSet.xsc">
+      <DependentUpon>TyoufukuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyoufukuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TyoufukuDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TyoufukuDataSet.xss">
+      <DependentUpon>TyoufukuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousagaiyouDataSet.xsc">
+      <DependentUpon>TyousagaiyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousagaiyouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TyousagaiyouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TyousagaiyouDataSet.xss">
+      <DependentUpon>TyousagaiyouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousahouhouDataSet.xsc">
+      <DependentUpon>TyousahouhouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\TyousahouhouDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TyousahouhouDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\TyousahouhouDataSet.xss">
+      <DependentUpon>TyousahouhouDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UploadKanriDataSet.xsc">
+      <DependentUpon>UploadKanriDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UploadKanriDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UploadKanriDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\UploadKanriDataSet.xss">
+      <DependentUpon>UploadKanriDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UriageSiireCsvDataSet.xsc">
+      <DependentUpon>UriageSiireCsvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\UriageSiireCsvDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UriageSiireCsvDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\UriageSiireCsvDataSet.xss">
+      <DependentUpon>UriageSiireCsvDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\YoteiKisoDataSet.xsc">
+      <DependentUpon>YoteiKisoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\YoteiKisoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>YoteiKisoDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\YoteiKisoDataSet.xss">
+      <DependentUpon>YoteiKisoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Itis.ApplicationBlocks.Data.dll" />
+    <Content Include="lib\Itis.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.Data.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Itis.Earth.Utilities\Itis.Earth.Utilities.vbproj">
+      <Project>{979090A4-DEF6-49EC-B826-E7FED28552BA}</Project>
+      <Name>Itis.Earth.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TantousyaDataSet" targetNamespace="http://tempuri.org/TantousyaDataSet.xsd" xmlns:mstns="http://tempuri.org/TantousyaDataSet.xsd" xmlns="http://tempuri.org/TantousyaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TantousyaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TantousyaDataSet" msprop:Generator_DataSetName="TantousyaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TantousyaTable" msprop:Generator_UserTableName="TantousyaTable" msprop:Generator_RowDeletedName="TantousyaTableRowDeleted" msprop:Generator_RowChangedName="TantousyaTableRowChanged" msprop:Generator_RowClassName="TantousyaTableRow" msprop:Generator_RowChangingName="TantousyaTableRowChanging" msprop:Generator_RowEvArgName="TantousyaTableRowChangeEvent" msprop:Generator_RowEvHandlerName="TantousyaTableRowChangeEventHandler" msprop:Generator_TableClassName="TantousyaTableDataTable" msprop:Generator_TableVarName="tableTantousyaTable" msprop:Generator_RowDeletingName="TantousyaTableRowDeleting" msprop:Generator_TablePropName="TantousyaTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tantousya_cd" msprop:Generator_UserColumnName="tantousya_cd" msprop:Generator_ColumnVarNameInTable="columntantousya_cd" msprop:Generator_ColumnPropNameInRow="tantousya_cd" msprop:Generator_ColumnPropNameInTable="tantousya_cdColumn" type="xs:int" />
+              <xs:element name="tantousya_mei" msprop:Generator_UserColumnName="tantousya_mei" msprop:Generator_ColumnVarNameInTable="columntantousya_mei" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="tantousya_mei" msprop:Generator_ColumnPropNameInTable="tantousya_meiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TantousyaTable" />
+      <xs:field xpath="mstns:tantousya_cd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

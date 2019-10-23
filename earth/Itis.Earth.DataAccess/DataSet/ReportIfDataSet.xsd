@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportIfDataSet" targetNamespace="http://tempuri.org/ReportIfDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportIfDataSet.xsd" xmlns="http://tempuri.org/ReportIfDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportIfDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ReportIfDataSet" msprop:Generator_DataSetName="ReportIfDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportIfTable" msprop:Generator_UserTableName="ReportIfTable" msprop:Generator_RowDeletedName="ReportIfTableRowDeleted" msprop:Generator_TableClassName="ReportIfTableDataTable" msprop:Generator_RowChangedName="ReportIfTableRowChanged" msprop:Generator_RowClassName="ReportIfTableRow" msprop:Generator_RowChangingName="ReportIfTableRowChanging" msprop:Generator_RowEvArgName="ReportIfTableRowChangeEvent" msprop:Generator_RowEvHandlerName="ReportIfTableRowChangeEventHandler" msprop:Generator_TablePropName="ReportIfTable" msprop:Generator_TableVarName="tableReportIfTable" msprop:Generator_RowDeletingName="ReportIfTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kokyaku_no" msprop:Generator_UserColumnName="kokyaku_no" msprop:Generator_ColumnPropNameInRow="kokyaku_no" msprop:Generator_ColumnVarNameInTable="columnkokyaku_no" msprop:Generator_ColumnPropNameInTable="kokyaku_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="kokyaku_brc" msprop:Generator_UserColumnName="kokyaku_brc" msprop:Generator_ColumnPropNameInRow="kokyaku_brc" msprop:Generator_ColumnVarNameInTable="columnkokyaku_brc" msprop:Generator_ColumnPropNameInTable="kokyaku_brcColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="syouken_no" msprop:Generator_UserColumnName="syouken_no" msprop:Generator_ColumnPropNameInRow="syouken_no" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnsyouken_no" msprop:Generator_ColumnPropNameInTable="syouken_noColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

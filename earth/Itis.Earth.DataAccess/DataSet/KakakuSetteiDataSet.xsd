@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KakakuSetteiDataSet" targetNamespace="http://tempuri.org/KakakuSetteiDataSet.xsd" xmlns:mstns="http://tempuri.org/KakakuSetteiDataSet.xsd" xmlns="http://tempuri.org/KakakuSetteiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KakakuSetteiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KakakuSetteiDataSet" msprop:Generator_DataSetName="KakakuSetteiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SyouhinKakakuSetteiTable" msprop:Generator_UserTableName="SyouhinKakakuSetteiTable" msprop:Generator_RowDeletedName="SyouhinKakakuSetteiTableRowDeleted" msprop:Generator_RowChangedName="SyouhinKakakuSetteiTableRowChanged" msprop:Generator_RowClassName="SyouhinKakakuSetteiTableRow" msprop:Generator_RowChangingName="SyouhinKakakuSetteiTableRowChanging" msprop:Generator_RowEvArgName="SyouhinKakakuSetteiTableRowChangeEvent" msprop:Generator_RowEvHandlerName="SyouhinKakakuSetteiTableRowChangeEventHandler" msprop:Generator_TableClassName="SyouhinKakakuSetteiTableDataTable" msprop:Generator_TableVarName="tableSyouhinKakakuSetteiTable" msprop:Generator_RowDeletingName="SyouhinKakakuSetteiTableRowDeleting" msprop:Generator_TablePropName="SyouhinKakakuSetteiTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="syouhin_kbn" msprop:Generator_UserColumnName="syouhin_kbn" msprop:Generator_ColumnPropNameInRow="syouhin_kbn" msprop:Generator_ColumnVarNameInTable="columnsyouhin_kbn" msprop:Generator_ColumnPropNameInTable="syouhin_kbnColumn" type="xs:int" />
+              <xs:element name="tys_houhou_no" msprop:Generator_UserColumnName="tys_houhou_no" msprop:Generator_ColumnPropNameInRow="tys_houhou_no" msprop:Generator_ColumnVarNameInTable="columntys_houhou_no" msprop:Generator_ColumnPropNameInTable="tys_houhou_noColumn" type="xs:int" />
+              <xs:element name="tys_gaiyou" msprop:Generator_UserColumnName="tys_gaiyou" msprop:Generator_ColumnPropNameInRow="tys_gaiyou" msprop:Generator_ColumnVarNameInTable="columntys_gaiyou" msprop:Generator_ColumnPropNameInTable="tys_gaiyouColumn" type="xs:int" />
+              <xs:element name="syouhin_cd" msprop:Generator_UserColumnName="syouhin_cd" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnsyouhin_cd" msprop:Generator_ColumnPropNameInTable="syouhin_cdColumn" msprop:Generator_ColumnPropNameInRow="syouhin_cd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kkk_settei_basyo" msprop:Generator_UserColumnName="kkk_settei_basyo" msprop:Generator_ColumnPropNameInRow="kkk_settei_basyo" msprop:Generator_ColumnVarNameInTable="columnkkk_settei_basyo" msprop:Generator_ColumnPropNameInTable="kkk_settei_basyoColumn" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SyouhinKakakuSetteiTable" />
+      <xs:field xpath="mstns:syouhin_kbn" />
+      <xs:field xpath="mstns:tys_houhou_no" />
+      <xs:field xpath="mstns:tys_gaiyou" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

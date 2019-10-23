@@ -269,7 +269,7 @@ return false;
                     <td colspan="2" class="koumokuMei">
                         TH‡Í·rÉRÅ[Éh</td>
                     <td colspan="4" style="height: 20px">
-                        <asp:TextBox ID="tbxThKasiCd" runat="server" Width="65px"></asp:TextBox>
+                        <asp:TextBox ID="tbxThKasiCd" runat="server" Width="65px" Style="ime-mode: disabled;"></asp:TextBox>
                     </td>
                 </tr>
             </tbody>

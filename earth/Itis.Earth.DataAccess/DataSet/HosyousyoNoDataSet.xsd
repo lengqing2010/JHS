@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HosyousyoNoDataSet" targetNamespace="http://tempuri.org/HosyousyoNoDataSet.xsd" xmlns:mstns="http://tempuri.org/HosyousyoNoDataSet.xsd" xmlns="http://tempuri.org/HosyousyoNoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HosyousyoNoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HosyousyoNoDataSet" msprop:Generator_DataSetName="HosyousyoNoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HosyousyoNoTable" msprop:Generator_UserTableName="HosyousyoNoTable" msprop:Generator_RowDeletedName="HosyousyoNoTableRowDeleted" msprop:Generator_RowChangedName="HosyousyoNoTableRowChanged" msprop:Generator_RowClassName="HosyousyoNoTableRow" msprop:Generator_RowChangingName="HosyousyoNoTableRowChanging" msprop:Generator_RowEvArgName="HosyousyoNoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="HosyousyoNoTableRowChangeEventHandler" msprop:Generator_TableClassName="HosyousyoNoTableDataTable" msprop:Generator_TableVarName="tableHosyousyoNoTable" msprop:Generator_RowDeletingName="HosyousyoNoTableRowDeleting" msprop:Generator_TablePropName="HosyousyoNoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nengetu" msprop:Generator_UserColumnName="nengetu" msprop:Generator_ColumnPropNameInRow="nengetu" msprop:Generator_ColumnVarNameInTable="columnnengetu" msprop:Generator_ColumnPropNameInTable="nengetuColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saisyuu_no" msprop:Generator_UserColumnName="saisyuu_no" msprop:Generator_ColumnPropNameInRow="saisyuu_no" msprop:Generator_ColumnVarNameInTable="columnsaisyuu_no" msprop:Generator_ColumnPropNameInTable="saisyuu_noColumn" type="xs:int" default="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:HosyousyoNoTable" />
+      <xs:field xpath="mstns:kbn" />
+      <xs:field xpath="mstns:nengetu" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

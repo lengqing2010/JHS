@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HidukeSaveDataSet" targetNamespace="http://tempuri.org/HidukeSaveDataSet.xsd" xmlns:mstns="http://tempuri.org/HidukeSaveDataSet.xsd" xmlns="http://tempuri.org/HidukeSaveDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HidukeSaveDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HidukeSaveDataSet" msprop:Generator_DataSetName="HidukeSaveDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HidukeSaveTable" msprop:Generator_UserTableName="HidukeSaveTable" msprop:Generator_RowDeletedName="HidukeSaveTableRowDeleted" msprop:Generator_RowChangedName="HidukeSaveTableRowChanged" msprop:Generator_RowClassName="HidukeSaveTableRow" msprop:Generator_RowChangingName="HidukeSaveTableRowChanging" msprop:Generator_RowEvArgName="HidukeSaveTableRowChangeEvent" msprop:Generator_RowEvHandlerName="HidukeSaveTableRowChangeEventHandler" msprop:Generator_TableClassName="HidukeSaveTableDataTable" msprop:Generator_TableVarName="tableHidukeSaveTable" msprop:Generator_RowDeletingName="HidukeSaveTableRowDeleting" msprop:Generator_TablePropName="HidukeSaveTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn" msprop:Generator_ColumnVarNameInTable="columnkbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_hak_date" msprop:Generator_UserColumnName="hosyousyo_hak_date" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_hak_date" msprop:Generator_ColumnPropNameInTable="hosyousyo_hak_dateColumn" msprop:Generator_ColumnPropNameInRow="hosyousyo_hak_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hosyousyo_no_nengetu" msprop:Generator_UserColumnName="hosyousyo_no_nengetu" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no_nengetu" msprop:Generator_ColumnPropNameInTable="hosyousyo_no_nengetuColumn" msprop:Generator_ColumnPropNameInRow="hosyousyo_no_nengetu" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hkks_hassou_date" msprop:Generator_UserColumnName="hkks_hassou_date" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnhkks_hassou_date" msprop:Generator_ColumnPropNameInTable="hkks_hassou_dateColumn" msprop:Generator_ColumnPropNameInRow="hkks_hassou_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="upd_login_user_id" msprop:Generator_UserColumnName="upd_login_user_id" msprop:Generator_ColumnPropNameInRow="upd_login_user_id" msprop:Generator_ColumnVarNameInTable="columnupd_login_user_id" msprop:Generator_ColumnPropNameInTable="upd_login_user_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="upd_datetime" msprop:Generator_UserColumnName="upd_datetime" msprop:Generator_ColumnPropNameInRow="upd_datetime" msprop:Generator_ColumnVarNameInTable="columnupd_datetime" msprop:Generator_ColumnPropNameInTable="upd_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:HidukeSaveTable" />
+      <xs:field xpath="mstns:kbn" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

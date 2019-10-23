@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TenbetuRenkeiDataSet" targetNamespace="http://tempuri.org/TenbetuRenkeiDataSet.xsd" xmlns:mstns="http://tempuri.org/TenbetuRenkeiDataSet.xsd" xmlns="http://tempuri.org/TenbetuRenkeiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TenbetuRenkeiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TenbetuRenkeiDataSet" msprop:Generator_DataSetName="TenbetuRenkeiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RenkeiTable" msprop:Generator_UserTableName="RenkeiTable" msprop:Generator_RowDeletedName="RenkeiTableRowDeleted" msprop:Generator_RowChangedName="RenkeiTableRowChanged" msprop:Generator_RowClassName="RenkeiTableRow" msprop:Generator_RowChangingName="RenkeiTableRowChanging" msprop:Generator_RowEvArgName="RenkeiTableRowChangeEvent" msprop:Generator_RowEvHandlerName="RenkeiTableRowChangeEventHandler" msprop:Generator_TableClassName="RenkeiTableDataTable" msprop:Generator_TableVarName="tableRenkeiTable" msprop:Generator_RowDeletingName="RenkeiTableRowDeleting" msprop:Generator_TablePropName="RenkeiTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="renkei_siji_cd" msprop:Generator_UserColumnName="renkei_siji_cd" msprop:Generator_ColumnVarNameInTable="columnrenkei_siji_cd" msprop:Generator_ColumnPropNameInRow="renkei_siji_cd" msprop:Generator_ColumnPropNameInTable="renkei_siji_cdColumn" type="xs:int" />
+              <xs:element name="sousin_jyky_cd" msprop:Generator_UserColumnName="sousin_jyky_cd" msprop:Generator_ColumnVarNameInTable="columnsousin_jyky_cd" msprop:Generator_ColumnPropNameInRow="sousin_jyky_cd" msprop:Generator_ColumnPropNameInTable="sousin_jyky_cdColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TenbetuKey" msprop:Generator_UserTableName="TenbetuKey" msprop:Generator_RowDeletedName="TenbetuKeyRowDeleted" msprop:Generator_RowChangedName="TenbetuKeyRowChanged" msprop:Generator_RowClassName="TenbetuKeyRow" msprop:Generator_RowChangingName="TenbetuKeyRowChanging" msprop:Generator_RowEvArgName="TenbetuKeyRowChangeEvent" msprop:Generator_RowEvHandlerName="TenbetuKeyRowChangeEventHandler" msprop:Generator_TableClassName="TenbetuKeyDataTable" msprop:Generator_TableVarName="tableTenbetuKey" msprop:Generator_RowDeletingName="TenbetuKeyRowDeleting" msprop:Generator_TablePropName="TenbetuKey">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mise_cd" msprop:Generator_UserColumnName="mise_cd" msprop:Generator_ColumnPropNameInRow="mise_cd" msprop:Generator_ColumnVarNameInTable="columnmise_cd" msprop:Generator_ColumnPropNameInTable="mise_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nyuuryoku_date" msprop:Generator_UserColumnName="nyuuryoku_date" msprop:Generator_ColumnPropNameInRow="nyuuryoku_date" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_date" msprop:Generator_ColumnPropNameInTable="nyuuryoku_dateColumn" type="xs:dateTime" />
+              <xs:element name="nyuuryoku_date_no" msprop:Generator_UserColumnName="nyuuryoku_date_no" msprop:Generator_ColumnPropNameInRow="nyuuryoku_date_no" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_date_no" msprop:Generator_ColumnPropNameInTable="nyuuryoku_date_noColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TenbetuRenkeiTarget" msprop:Generator_UserTableName="TenbetuRenkeiTarget" msprop:Generator_RowDeletedName="TenbetuRenkeiTargetRowDeleted" msprop:Generator_RowChangedName="TenbetuRenkeiTargetRowChanged" msprop:Generator_RowClassName="TenbetuRenkeiTargetRow" msprop:Generator_RowChangingName="TenbetuRenkeiTargetRowChanging" msprop:Generator_RowEvArgName="TenbetuRenkeiTargetRowChangeEvent" msprop:Generator_RowEvHandlerName="TenbetuRenkeiTargetRowChangeEventHandler" msprop:Generator_TableClassName="TenbetuRenkeiTargetDataTable" msprop:Generator_TableVarName="tableTenbetuRenkeiTarget" msprop:Generator_RowDeletingName="TenbetuRenkeiTargetRowDeleting" msprop:Generator_TablePropName="TenbetuRenkeiTarget">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mise_cd" msprop:Generator_UserColumnName="mise_cd" msprop:Generator_ColumnVarNameInTable="columnmise_cd" msprop:Generator_ColumnPropNameInRow="mise_cd" msprop:Generator_ColumnPropNameInTable="mise_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nyuuryoku_date" msprop:Generator_UserColumnName="nyuuryoku_date" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_date" msprop:Generator_ColumnPropNameInRow="nyuuryoku_date" msprop:Generator_ColumnPropNameInTable="nyuuryoku_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nyuuryoku_date_no" msprop:Generator_UserColumnName="nyuuryoku_date_no" msprop:Generator_ColumnVarNameInTable="columnnyuuryoku_date_no" msprop:Generator_ColumnPropNameInRow="nyuuryoku_date_no" msprop:Generator_ColumnPropNameInTable="nyuuryoku_date_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="renkei_siji_cd" msprop:Generator_UserColumnName="renkei_siji_cd" msprop:Generator_ColumnVarNameInTable="columnrenkei_siji_cd" msprop:Generator_ColumnPropNameInRow="renkei_siji_cd" msprop:Generator_ColumnPropNameInTable="renkei_siji_cdColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="sousin_jyky_cd" msprop:Generator_UserColumnName="sousin_jyky_cd" msprop:Generator_ColumnVarNameInTable="columnsousin_jyky_cd" msprop:Generator_ColumnPropNameInRow="sousin_jyky_cd" msprop:Generator_ColumnPropNameInTable="sousin_jyky_cdColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

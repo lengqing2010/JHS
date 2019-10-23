@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83C3BE50-870D-49B7-BCCE-1A60E343DE83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Itis.Earth.BizLogic</RootNamespace>
+    <AssemblyName>Itis.Earth.BizLogic</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.BizLogic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.BizLogic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itis.ApplicationBlocks.ExceptionManagement, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Itis.Framework, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Itis.ApplicationBlocks.ExceptionManagement" />
+    <Import Include="Itis.Earth.DataAccess" />
+    <Import Include="Itis.Earth.Utilities" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DataMappingHelper.vb" />
+    <Compile Include="Common\DropDownLogicHelper.vb" />
+    <Compile Include="Common\FcwManager.vb" />
+    <Compile Include="Common\ISqlStringHelper.vb" />
+    <Compile Include="Common\LoginUserLogic.vb" />
+    <Compile Include="Common\Ninsyou.vb" />
+    <Compile Include="Common\UpdateStringHelper.vb" />
+    <Compile Include="Common\RecordMappingHelper.vb" />
+    <Compile Include="Common\RecordCompareHelper.vb" />
+    <Compile Include="Common\InsertStringHelper.vb" />
+    <Compile Include="Common\DeleteStringHelper.vb" />
+    <Compile Include="Logic\BukkenRirekiLogic.vb" />
+    <Compile Include="Logic\BukkenSintyokuJykyLogic.vb" />
+    <Compile Include="Logic\KousinRirekiLogic.vb" />
+    <Compile Include="Logic\MototyouLogic.vb" />
+    <Compile Include="Logic\MousikomiSearchLogic.vb" />
+    <Compile Include="Logic\SeikyuuDateIkkatuHenkouLogic.vb" />
+    <Compile Include="Logic\SeikyuuMiinsatuDataSearchLogic.vb" />
+    <Compile Include="Logic\SeikyuuSimeDateRerekiSearchLogic.vb" />
+    <Compile Include="Logic\SeikyuusyoDataSakuseiLogic.vb" />
+    <Compile Include="Logic\TokubetuTaiouLogic.vb" />
+    <Compile Include="Logic\TokubetuTaiouMstLogic.vb" />
+    <Compile Include="Logic\TyousakaisyaSearchLogic.vb" />
+    <Compile Include="Logic\EARTH_ClassTemplate1.vb" />
+    <Compile Include="Logic\EARTH_ClassTemplate2.vb" />
+    <Compile Include="Logic\EigyousyoSearchLogic.vb" />
+    <Compile Include="Logic\GetujiIkkatuUpdateLogic.vb" />
+    <Compile Include="Logic\HidukeLogic.vb" />
+    <Compile Include="Logic\HosyouLogic.vb" />
+    <Compile Include="Logic\HoukokusyoLogic.vb" />
+    <Compile Include="Logic\JhsNyuukinTorikomiLogic.vb" />
+    <Compile Include="Logic\KeiretuSearchLogic.vb" />
+    <Compile Include="Logic\JibanLogic.vb" />
+    <Compile Include="Common\DropDownLogic.vb" />
+    <Compile Include="Logic\KameitenSearchLogic.vb" />
+    <Compile Include="Logic\KisoSiyouLogic.vb" />
+    <Compile Include="Logic\KubunLogic.vb" />
+    <Compile Include="Logic\NyuukinDataSearchLogic.vb" />
+    <Compile Include="Logic\NyuukinErrorLogic.vb" />
+    <Compile Include="Logic\NyuukinSyoriLogic.vb" />
+    <Compile Include="Logic\Pdf_RenrakuLogic.vb" />
+    <Compile Include="Logic\RenkeiKanriLogic.vb" />
+    <Compile Include="Logic\SeikyuuSiireSakiHenkouLogic.vb" />
+    <Compile Include="Logic\SiireDataSearchLogic.vb" />
+    <Compile Include="Logic\Syouhin4Logic.vb" />
+    <Compile Include="Logic\SyouhinSearchLogic.vb" />
+    <Compile Include="Logic\TeibetuNyuukinLogic.vb" />
+    <Compile Include="Logic\TeibetuSyuuseiLogic.vb" />
+    <Compile Include="Logic\TenbetuSyuuseiLogic.vb" />
+    <Compile Include="Logic\UriageDataSearchLogic.vb" />
+    <Compile Include="Logic\UriageSiireSakuseiLogic.vb" />
+    <Compile Include="Logic\YosinLogic.vb" />
+    <Compile Include="Logic\KairyouKoujiLogic.vb" />
+    <Compile Include="Logic\MousikomiInputLogic.vb" />
+    <Compile Include="Logic\IkkatuHenkouKihonLogic.vb" />
+    <Compile Include="Logic\IkkatuHenkouTysSyouhinLogic.vb" />
+    <Compile Include="Logic\NyuukinTorikomiLogic.vb" />
+    <Compile Include="Logic\HannyouUriageLogic.vb" />
+    <Compile Include="Common\CommonBizLogic.vb" />
+    <Compile Include="Logic\HannyouSiireLogic.vb" />
+    <Compile Include="Logic\SiharaiDataSearchLogic.vb" />
+    <Compile Include="Logic\SeikyuuDataSearchLogic.vb" />
+    <Compile Include="Logic\FcMousikomiSearchLogic.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="Template\EarthTemplateLogic.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Itis.Earth.DataAccess\Itis.Earth.DataAccess.vbproj">
+      <Project>{56D2E445-A8A1-4992-994A-16E583C818C7}</Project>
+      <Name>Itis.Earth.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itis.Earth.Utilities\Itis.Earth.Utilities.vbproj">
+      <Project>{979090A4-DEF6-49EC-B826-E7FED28552BA}</Project>
+      <Name>Itis.Earth.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Itis.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Itis.Framework.dll" />
+    <Content Include="lib\Itis.Framework.xml" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DenpyouDataSet" targetNamespace="http://tempuri.org/DenpyouDataSet.xsd" xmlns:mstns="http://tempuri.org/DenpyouDataSet.xsd" xmlns="http://tempuri.org/DenpyouDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DenpyouDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DenpyouDataSet" msprop:Generator_DataSetName="DenpyouDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LastUpdJouhou" msprop:Generator_UserTableName="LastUpdJouhou" msprop:Generator_RowDeletedName="LastUpdJouhouRowDeleted" msprop:Generator_TableClassName="LastUpdJouhouDataTable" msprop:Generator_RowChangedName="LastUpdJouhouRowChanged" msprop:Generator_RowClassName="LastUpdJouhouRow" msprop:Generator_RowChangingName="LastUpdJouhouRowChanging" msprop:Generator_RowEvArgName="LastUpdJouhouRowChangeEvent" msprop:Generator_RowEvHandlerName="LastUpdJouhouRowChangeEventHandler" msprop:Generator_TablePropName="LastUpdJouhou" msprop:Generator_TableVarName="tableLastUpdJouhou" msprop:Generator_RowDeletingName="LastUpdJouhouRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="denpyou_syubetu" msprop:Generator_UserColumnName="denpyou_syubetu" msprop:Generator_ColumnPropNameInRow="denpyou_syubetu" msprop:Generator_ColumnVarNameInTable="columndenpyou_syubetu" msprop:Generator_ColumnPropNameInTable="denpyou_syubetuColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saisyuu_denpyou_no" msprop:Generator_UserColumnName="saisyuu_denpyou_no" msprop:Generator_ColumnPropNameInRow="saisyuu_denpyou_no" msprop:Generator_ColumnVarNameInTable="columnsaisyuu_denpyou_no" msprop:Generator_ColumnPropNameInTable="saisyuu_denpyou_noColumn" type="xs:int" />
+              <xs:element name="saisyuu_sakusei_datetime" msprop:Generator_UserColumnName="saisyuu_sakusei_datetime" msprop:Generator_ColumnPropNameInRow="saisyuu_sakusei_datetime" msprop:Generator_ColumnVarNameInTable="columnsaisyuu_sakusei_datetime" msprop:Generator_ColumnPropNameInTable="saisyuu_sakusei_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:LastUpdJouhou" />
+      <xs:field xpath="mstns:denpyou_syubetu" />
+      <xs:field xpath="mstns:saisyuu_denpyou_no" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

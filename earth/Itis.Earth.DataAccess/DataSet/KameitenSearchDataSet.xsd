@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KameitenSearchDataSet" targetNamespace="http://tempuri.org/KameitenSearch.xsd" xmlns:mstns="http://tempuri.org/KameitenSearch.xsd" xmlns="http://tempuri.org/KameitenSearch.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="earthConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="earthConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.earthConnectionString1" Provider="System.Data.SqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KameitenSearchDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KameitenSearchDataSet" msprop:Generator_DataSetName="KameitenSearchDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KameitenSearchTable" msprop:Generator_UserTableName="KameitenSearchTable" msprop:Generator_RowDeletedName="KameitenSearchTableRowDeleted" msprop:Generator_RowChangedName="KameitenSearchTableRowChanged" msprop:Generator_RowClassName="KameitenSearchTableRow" msprop:Generator_RowChangingName="KameitenSearchTableRowChanging" msprop:Generator_RowEvArgName="KameitenSearchTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KameitenSearchTableRowChangeEventHandler" msprop:Generator_TableClassName="KameitenSearchTableDataTable" msprop:Generator_TableVarName="tableKameitenSearchTable" msprop:Generator_RowDeletingName="KameitenSearchTableRowDeleting" msprop:Generator_TablePropName="KameitenSearchTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="kameiten_mei1" msprop:Generator_UserColumnName="kameiten_mei1" msprop:Generator_ColumnPropNameInRow="kameiten_mei1" msprop:Generator_ColumnVarNameInTable="columnkameiten_mei1" msprop:Generator_ColumnPropNameInTable="kameiten_mei1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tenmei_kana1" msprop:Generator_UserColumnName="tenmei_kana1" msprop:Generator_ColumnPropNameInRow="tenmei_kana1" msprop:Generator_ColumnVarNameInTable="columntenmei_kana1" msprop:Generator_ColumnPropNameInTable="tenmei_kana1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tenmei_kana2" msprop:Generator_UserColumnName="tenmei_kana2" msprop:Generator_ColumnPropNameInRow="tenmei_kana2" msprop:Generator_ColumnVarNameInTable="columntenmei_kana2" msprop:Generator_ColumnPropNameInTable="tenmei_kana2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="todouhuken_mei" msprop:Generator_UserColumnName="todouhuken_mei" msprop:Generator_ColumnPropNameInRow="todouhuken_mei" msprop:Generator_ColumnVarNameInTable="columntodouhuken_mei" msprop:Generator_ColumnPropNameInTable="todouhuken_meiColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KameitenDispSearchTable" msprop:Generator_UserTableName="KameitenDispSearchTable" msprop:Generator_RowDeletedName="KameitenDispSearchTableRowDeleted" msprop:Generator_RowChangedName="KameitenDispSearchTableRowChanged" msprop:Generator_RowClassName="KameitenDispSearchTableRow" msprop:Generator_RowChangingName="KameitenDispSearchTableRowChanging" msprop:Generator_RowEvArgName="KameitenDispSearchTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KameitenDispSearchTableRowChangeEventHandler" msprop:Generator_TableClassName="KameitenDispSearchTableDataTable" msprop:Generator_TableVarName="tableKameitenDispSearchTable" msprop:Generator_RowDeletingName="KameitenDispSearchTableRowDeleting" msprop:Generator_TablePropName="KameitenDispSearchTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="kameiten_mei1" msprop:Generator_UserColumnName="kameiten_mei1" msprop:Generator_ColumnVarNameInTable="columnkameiten_mei1" msprop:Generator_ColumnPropNameInRow="kameiten_mei1" msprop:Generator_ColumnPropNameInTable="kameiten_mei1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tenmei_kana1" msprop:Generator_UserColumnName="tenmei_kana1" msprop:Generator_ColumnVarNameInTable="columntenmei_kana1" msprop:Generator_ColumnPropNameInRow="tenmei_kana1" msprop:Generator_ColumnPropNameInTable="tenmei_kana1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="eigyousyo_mei" msdata:Caption="kameiten_mei2" msprop:Generator_UserColumnName="eigyousyo_mei" msprop:Generator_ColumnVarNameInTable="columneigyousyo_mei" msprop:Generator_ColumnPropNameInRow="eigyousyo_mei" msprop:Generator_ColumnPropNameInTable="eigyousyo_meiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tenmei_kana2" msprop:Generator_UserColumnName="tenmei_kana2" msprop:Generator_ColumnVarNameInTable="columntenmei_kana2" msprop:Generator_ColumnPropNameInRow="tenmei_kana2" msprop:Generator_ColumnPropNameInTable="tenmei_kana2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="keiretu_cd" msprop:Generator_UserColumnName="keiretu_cd" msprop:Generator_ColumnVarNameInTable="columnkeiretu_cd" msprop:Generator_ColumnPropNameInRow="keiretu_cd" msprop:Generator_ColumnPropNameInTable="keiretu_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tys_seikyuu_saki" msprop:Generator_UserColumnName="tys_seikyuu_saki" msprop:Generator_ColumnVarNameInTable="columntys_seikyuu_saki" msprop:Generator_ColumnPropNameInRow="tys_seikyuu_saki" msprop:Generator_ColumnPropNameInTable="tys_seikyuu_sakiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="builder_no" msprop:Generator_UserColumnName="builder_no" msprop:Generator_ColumnVarNameInTable="columnbuilder_no" msprop:Generator_ColumnPropNameInRow="builder_no" msprop:Generator_ColumnPropNameInTable="builder_noColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="koj_tantou_flg" msprop:Generator_UserColumnName="koj_tantou_flg" msprop:Generator_ColumnPropNameInRow="koj_tantou_flg" msprop:Generator_ColumnVarNameInTable="columnkoj_tantou_flg" msprop:Generator_ColumnPropNameInTable="koj_tantou_flgColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="tys_mitsyo_flg" msprop:Generator_UserColumnName="tys_mitsyo_flg" msprop:Generator_ColumnVarNameInTable="columntys_mitsyo_flg" msprop:Generator_ColumnPropNameInRow="tys_mitsyo_flg" msprop:Generator_ColumnPropNameInTable="tys_mitsyo_flgColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hattyuusyo_flg" msprop:Generator_UserColumnName="hattyuusyo_flg" msprop:Generator_ColumnVarNameInTable="columnhattyuusyo_flg" msprop:Generator_ColumnPropNameInRow="hattyuusyo_flg" msprop:Generator_ColumnPropNameInTable="hattyuusyo_flgColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="tel_no" msprop:Generator_UserColumnName="tel_no" msprop:Generator_ColumnVarNameInTable="columntel_no" msprop:Generator_ColumnPropNameInRow="tel_no" msprop:Generator_ColumnPropNameInTable="tel_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="fax_no" msprop:Generator_UserColumnName="fax_no" msprop:Generator_ColumnVarNameInTable="columnfax_no" msprop:Generator_ColumnPropNameInRow="fax_no" msprop:Generator_ColumnPropNameInTable="fax_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="builder_count" msprop:Generator_UserColumnName="builder_count" msprop:Generator_ColumnVarNameInTable="columnbuilder_count" msprop:Generator_ColumnPropNameInRow="builder_count" msprop:Generator_ColumnPropNameInTable="builder_countColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="keiretu_mei" msprop:Generator_UserColumnName="keiretu_mei" msprop:Generator_ColumnVarNameInTable="columnkeiretu_mei" msprop:Generator_ColumnPropNameInRow="keiretu_mei" msprop:Generator_ColumnPropNameInTable="keiretu_meiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="tys_mitsyo_msg" msprop:Generator_UserColumnName="tys_mitsyo_msg" msprop:Generator_ColumnVarNameInTable="columntys_mitsyo_msg" msprop:Generator_ColumnPropNameInRow="tys_mitsyo_msg" msprop:Generator_ColumnPropNameInTable="tys_mitsyo_msgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="hattyuusyo_msg" msprop:Generator_UserColumnName="hattyuusyo_msg" msprop:Generator_ColumnVarNameInTable="columnhattyuusyo_msg" msprop:Generator_ColumnPropNameInRow="hattyuusyo_msg" msprop:Generator_ColumnPropNameInTable="hattyuusyo_msgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="kahi_kbn" msprop:Generator_UserColumnName="kahi_kbn" msprop:Generator_ColumnVarNameInTable="columnkahi_kbn" msprop:Generator_ColumnPropNameInRow="kahi_kbn" msprop:Generator_ColumnPropNameInTable="kahi_kbnColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="mail_address" msprop:Generator_UserColumnName="mail_address" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnmail_address" msprop:Generator_ColumnPropNameInTable="mail_addressColumn" msprop:Generator_ColumnPropNameInRow="mail_address" type="xs:string" minOccurs="0" />
+              <xs:element name="hosyousyo_hak_umu" msprop:Generator_UserColumnName="hosyousyo_hak_umu" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_hak_umu" msprop:Generator_ColumnPropNameInRow="hosyousyo_hak_umu" msprop:Generator_ColumnPropNameInTable="hosyousyo_hak_umuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hosyou_kikan" msprop:Generator_UserColumnName="hosyou_kikan" msprop:Generator_ColumnVarNameInTable="columnhosyou_kikan" msprop:Generator_ColumnPropNameInRow="hosyou_kikan" msprop:Generator_ColumnPropNameInTable="hosyou_kikanColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="koj_gaisya_seikyuu_umu" msprop:Generator_UserColumnName="koj_gaisya_seikyuu_umu" msprop:Generator_ColumnVarNameInTable="columnkoj_gaisya_seikyuu_umu" msprop:Generator_ColumnPropNameInRow="koj_gaisya_seikyuu_umu" msprop:Generator_ColumnPropNameInTable="koj_gaisya_seikyuu_umuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="hansokuhin_seikyuusaki" msprop:Generator_UserColumnName="hansokuhin_seikyuusaki" msprop:Generator_ColumnVarNameInTable="columnhansokuhin_seikyuusaki" msprop:Generator_ColumnPropNameInRow="hansokuhin_seikyuusaki" msprop:Generator_ColumnPropNameInTable="hansokuhin_seikyuusakiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="eigyousyo_cd" msprop:Generator_UserColumnName="eigyousyo_cd" msprop:Generator_ColumnVarNameInTable="columneigyousyo_cd" msprop:Generator_ColumnPropNameInRow="eigyousyo_cd" msprop:Generator_ColumnPropNameInTable="eigyousyo_cdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="koj_seikyuusaki" msprop:Generator_UserColumnName="koj_seikyuusaki" msprop:Generator_ColumnPropNameInRow="koj_seikyuusaki" msprop:Generator_ColumnVarNameInTable="columnkoj_seikyuusaki" msprop:Generator_ColumnPropNameInTable="koj_seikyuusakiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="jyuusyo" msprop:Generator_UserColumnName="jyuusyo" msprop:Generator_ColumnPropNameInRow="jyuusyo" msprop:Generator_ColumnVarNameInTable="columnjyuusyo" msprop:Generator_ColumnPropNameInTable="jyuusyoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="jiosaki_flg" msprop:Generator_UserColumnName="jiosaki_flg" msprop:Generator_ColumnPropNameInRow="jiosaki_flg" msprop:Generator_ColumnVarNameInTable="columnjiosaki_flg" msprop:Generator_ColumnPropNameInTable="jiosaki_flgColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="kt_torikesi_riyuu" msprop:Generator_UserColumnName="kt_torikesi_riyuu" msprop:Generator_ColumnVarNameInTable="columnkt_torikesi_riyuu" msprop:Generator_ColumnPropNameInRow="kt_torikesi_riyuu" msprop:Generator_ColumnPropNameInTable="kt_torikesi_riyuuColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KameitenKoujiKaisyaNGTable" msprop:Generator_UserTableName="KameitenKoujiKaisyaNGTable" msprop:Generator_RowDeletedName="KameitenKoujiKaisyaNGTableRowDeleted" msprop:Generator_RowChangedName="KameitenKoujiKaisyaNGTableRowChanged" msprop:Generator_RowClassName="KameitenKoujiKaisyaNGTableRow" msprop:Generator_RowChangingName="KameitenKoujiKaisyaNGTableRowChanging" msprop:Generator_RowEvArgName="KameitenKoujiKaisyaNGTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KameitenKoujiKaisyaNGTableRowChangeEventHandler" msprop:Generator_TableClassName="KameitenKoujiKaisyaNGTableDataTable" msprop:Generator_TableVarName="tableKameitenKoujiKaisyaNGTable" msprop:Generator_RowDeletingName="KameitenKoujiKaisyaNGTableRowDeleting" msprop:Generator_TablePropName="KameitenKoujiKaisyaNGTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="kahi_kbn" msprop:Generator_UserColumnName="kahi_kbn" msprop:Generator_ColumnPropNameInRow="kahi_kbn" msprop:Generator_ColumnVarNameInTable="columnkahi_kbn" msprop:Generator_ColumnPropNameInTable="kahi_kbnColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KameitenFuhoTable" msprop:Generator_UserTableName="KameitenFuhoTable" msprop:Generator_RowDeletedName="KameitenFuhoTableRowDeleted" msprop:Generator_RowChangedName="KameitenFuhoTableRowChanged" msprop:Generator_RowClassName="KameitenFuhoTableRow" msprop:Generator_RowChangingName="KameitenFuhoTableRowChanging" msprop:Generator_RowEvArgName="KameitenFuhoTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KameitenFuhoTableRowChangeEventHandler" msprop:Generator_TableClassName="KameitenFuhoTableDataTable" msprop:Generator_TableVarName="tableKameitenFuhoTable" msprop:Generator_RowDeletingName="KameitenFuhoTableRowDeleting" msprop:Generator_TablePropName="KameitenFuhoTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kameiten_cd" msprop:Generator_UserColumnName="kameiten_cd" msprop:Generator_ColumnVarNameInTable="columnkameiten_cd" msprop:Generator_ColumnPropNameInRow="kameiten_cd" msprop:Generator_ColumnPropNameInTable="kameiten_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="fuho_syoumeisyo_flg" msprop:Generator_UserColumnName="fuho_syoumeisyo_flg" msprop:Generator_ColumnVarNameInTable="columnfuho_syoumeisyo_flg" msprop:Generator_ColumnPropNameInRow="fuho_syoumeisyo_flg" msprop:Generator_ColumnPropNameInTable="fuho_syoumeisyo_flgColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="fuho_syoumeisyo_kaisi_nengetu" msprop:Generator_UserColumnName="fuho_syoumeisyo_kaisi_nengetu" msprop:Generator_ColumnVarNameInTable="columnfuho_syoumeisyo_kaisi_nengetu" msprop:Generator_ColumnPropNameInRow="fuho_syoumeisyo_kaisi_nengetu" msprop:Generator_ColumnPropNameInTable="fuho_syoumeisyo_kaisi_nengetuColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KameitenSearchTable" />
+      <xs:field xpath="mstns:kameiten_cd" />
+    </xs:unique>
+    <xs:unique name="KameitenDispSearchTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KameitenDispSearchTable" />
+      <xs:field xpath="mstns:kameiten_cd" />
+    </xs:unique>
+    <xs:unique name="KameitenKoujiKaisyaNGTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KameitenKoujiKaisyaNGTable" />
+      <xs:field xpath="mstns:kameiten_cd" />
+    </xs:unique>
+    <xs:unique name="KameitenFuhoTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KameitenFuhoTable" />
+      <xs:field xpath="mstns:kameiten_cd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

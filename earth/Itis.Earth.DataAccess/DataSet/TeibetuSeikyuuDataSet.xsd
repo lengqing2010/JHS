@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TeibetuSeikyuuDataSet" targetNamespace="http://tempuri.org/TeibetuSeikyuuDataSet.xsd" xmlns:mstns="http://tempuri.org/TeibetuSeikyuuDataSet.xsd" xmlns="http://tempuri.org/TeibetuSeikyuuDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TeibetuSeikyuuDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TeibetuSeikyuuDataSet" msprop:Generator_DataSetName="TeibetuSeikyuuDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IkkatuNyuukinTaisyouTable" msprop:Generator_UserTableName="IkkatuNyuukinTaisyouTable" msprop:Generator_RowDeletedName="IkkatuNyuukinTaisyouTableRowDeleted" msprop:Generator_TableClassName="IkkatuNyuukinTaisyouTableDataTable" msprop:Generator_RowChangedName="IkkatuNyuukinTaisyouTableRowChanged" msprop:Generator_RowClassName="IkkatuNyuukinTaisyouTableRow" msprop:Generator_RowChangingName="IkkatuNyuukinTaisyouTableRowChanging" msprop:Generator_RowEvArgName="IkkatuNyuukinTaisyouTableRowChangeEvent" msprop:Generator_RowEvHandlerName="IkkatuNyuukinTaisyouTableRowChangeEventHandler" msprop:Generator_TablePropName="IkkatuNyuukinTaisyouTable" msprop:Generator_TableVarName="tableIkkatuNyuukinTaisyouTable" msprop:Generator_RowDeletingName="IkkatuNyuukinTaisyouTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_no" msprop:Generator_UserColumnName="hosyousyo_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zeikomi_uriage_gaku" msdata:Caption="uri_gaku" msprop:Generator_UserColumnName="zeikomi_uriage_gaku" msprop:Generator_ColumnPropNameInRow="zeikomi_uriage_gaku" msprop:Generator_ColumnVarNameInTable="columnzeikomi_uriage_gaku" msprop:Generator_ColumnPropNameInTable="zeikomi_uriage_gakuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nyuukin_flg" msdata:Caption="uri_keijyou_flg" msprop:Generator_UserColumnName="nyuukin_flg" msprop:Generator_ColumnPropNameInRow="nyuukin_flg" msprop:Generator_ColumnVarNameInTable="columnnyuukin_flg" msprop:Generator_ColumnPropNameInTable="nyuukin_flgColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NyuukinCsvDataSet" targetNamespace="http://tempuri.org/NyuukinCsvDataSet.xsd" xmlns:mstns="http://tempuri.org/NyuukinCsvDataSet.xsd" xmlns="http://tempuri.org/NyuukinCsvDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NyuukinCsvDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="NyuukinCsvDataSet" msprop:Generator_DataSetName="NyuukinCsvDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NyuukinKey" msprop:Generator_UserTableName="NyuukinKey" msprop:Generator_RowDeletedName="NyuukinKeyRowDeleted" msprop:Generator_RowChangedName="NyuukinKeyRowChanged" msprop:Generator_RowClassName="NyuukinKeyRow" msprop:Generator_RowChangingName="NyuukinKeyRowChanging" msprop:Generator_RowEvArgName="NyuukinKeyRowChangeEvent" msprop:Generator_RowEvHandlerName="NyuukinKeyRowChangeEventHandler" msprop:Generator_TableClassName="NyuukinKeyDataTable" msprop:Generator_TableVarName="tableNyuukinKey" msprop:Generator_RowDeletingName="NyuukinKeyRowDeleting" msprop:Generator_TablePropName="NyuukinKey">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_no" msprop:Generator_UserColumnName="hosyousyo_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NyuukinGassan" msprop:Generator_UserTableName="NyuukinGassan" msprop:Generator_RowDeletedName="NyuukinGassanRowDeleted" msprop:Generator_RowChangedName="NyuukinGassanRowChanged" msprop:Generator_RowClassName="NyuukinGassanRow" msprop:Generator_RowChangingName="NyuukinGassanRowChanging" msprop:Generator_RowEvArgName="NyuukinGassanRowChangeEvent" msprop:Generator_RowEvHandlerName="NyuukinGassanRowChangeEventHandler" msprop:Generator_TableClassName="NyuukinGassanDataTable" msprop:Generator_TableVarName="tableNyuukinGassan" msprop:Generator_RowDeletingName="NyuukinGassanRowDeleting" msprop:Generator_TablePropName="NyuukinGassan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_no" msprop:Generator_UserColumnName="hosyousyo_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zeikomi_nyuukin_gaku" msprop:Generator_UserColumnName="zeikomi_nyuukin_gaku" msprop:Generator_ColumnVarNameInTable="columnzeikomi_nyuukin_gaku" msprop:Generator_ColumnPropNameInRow="zeikomi_nyuukin_gaku" msprop:Generator_ColumnPropNameInTable="zeikomi_nyuukin_gakuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="zeikomi_henkin_gaku" msprop:Generator_UserColumnName="zeikomi_henkin_gaku" msprop:Generator_ColumnVarNameInTable="columnzeikomi_henkin_gaku" msprop:Generator_ColumnPropNameInRow="zeikomi_henkin_gaku" msprop:Generator_ColumnPropNameInTable="zeikomi_henkin_gakuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="saisyuu_nyuukin_date" msprop:Generator_UserColumnName="saisyuu_nyuukin_date" msprop:Generator_ColumnVarNameInTable="columnsaisyuu_nyuukin_date" msprop:Generator_ColumnPropNameInRow="saisyuu_nyuukin_date" msprop:Generator_ColumnPropNameInTable="saisyuu_nyuukin_dateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NyuukinErr" msprop:Generator_UserTableName="NyuukinErr" msprop:Generator_RowDeletedName="NyuukinErrRowDeleted" msprop:Generator_RowChangedName="NyuukinErrRowChanged" msprop:Generator_RowClassName="NyuukinErrRow" msprop:Generator_RowChangingName="NyuukinErrRowChanging" msprop:Generator_RowEvArgName="NyuukinErrRowChangeEvent" msprop:Generator_RowEvHandlerName="NyuukinErrRowChangeEventHandler" msprop:Generator_TableClassName="NyuukinErrDataTable" msprop:Generator_TableVarName="tableNyuukinErr" msprop:Generator_RowDeletingName="NyuukinErrRowDeleting" msprop:Generator_TablePropName="NyuukinErr">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInTable="kbnColumn" msprop:Generator_ColumnPropNameInRow="kbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hosyousyo_no" msprop:Generator_UserColumnName="hosyousyo_no" msprop:Generator_ColumnPropNameInRow="hosyousyo_no" msprop:Generator_ColumnVarNameInTable="columnhosyousyo_no" msprop:Generator_ColumnPropNameInTable="hosyousyo_noColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bunrui_cd" msprop:Generator_UserColumnName="bunrui_cd" msprop:Generator_ColumnPropNameInRow="bunrui_cd" msprop:Generator_ColumnVarNameInTable="columnbunrui_cd" msprop:Generator_ColumnPropNameInTable="bunrui_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="edi_jouhou_sakusei_date" msprop:Generator_UserColumnName="edi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInRow="edi_jouhou_sakusei_date" msprop:Generator_ColumnVarNameInTable="columnedi_jouhou_sakusei_date" msprop:Generator_ColumnPropNameInTable="edi_jouhou_sakusei_dateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gyou_no" msprop:Generator_UserColumnName="gyou_no" msprop:Generator_ColumnPropNameInRow="gyou_no" msprop:Generator_ColumnVarNameInTable="columngyou_no" msprop:Generator_ColumnPropNameInTable="gyou_noColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="syori_datetime" msprop:Generator_UserColumnName="syori_datetime" msprop:Generator_ColumnPropNameInRow="syori_datetime" msprop:Generator_ColumnVarNameInTable="columnsyori_datetime" msprop:Generator_ColumnPropNameInTable="syori_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="group_cd" msprop:Generator_UserColumnName="group_cd" msprop:Generator_ColumnPropNameInRow="group_cd" msprop:Generator_ColumnVarNameInTable="columngroup_cd" msprop:Generator_ColumnPropNameInTable="group_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kokyaku_cd" msprop:Generator_UserColumnName="kokyaku_cd" msprop:Generator_ColumnPropNameInRow="kokyaku_cd" msprop:Generator_ColumnVarNameInTable="columnkokyaku_cd" msprop:Generator_ColumnPropNameInTable="kokyaku_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tekiyou" msprop:Generator_UserColumnName="tekiyou" msprop:Generator_ColumnPropNameInRow="tekiyou" msprop:Generator_ColumnVarNameInTable="columntekiyou" msprop:Generator_ColumnPropNameInTable="tekiyouColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="510" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zeikomi_nyuukin_gaku" msprop:Generator_UserColumnName="zeikomi_nyuukin_gaku" msprop:Generator_ColumnPropNameInRow="zeikomi_nyuukin_gaku" msprop:Generator_ColumnVarNameInTable="columnzeikomi_nyuukin_gaku" msprop:Generator_ColumnPropNameInTable="zeikomi_nyuukin_gakuColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="syouhin_cd" msprop:Generator_UserColumnName="syouhin_cd" msprop:Generator_ColumnPropNameInRow="syouhin_cd" msprop:Generator_ColumnVarNameInTable="columnsyouhin_cd" msprop:Generator_ColumnPropNameInTable="syouhin_cdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NyuukinGassan" />
+      <xs:field xpath="mstns:kbn" />
+      <xs:field xpath="mstns:hosyousyo_no" />
+      <xs:field xpath="mstns:bunrui_cd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

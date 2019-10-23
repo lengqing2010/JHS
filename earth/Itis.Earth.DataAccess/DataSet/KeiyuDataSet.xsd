@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KeiyuDataSet" targetNamespace="http://tempuri.org/KeiyuDataSet.xsd" xmlns:mstns="http://tempuri.org/KeiyuDataSet.xsd" xmlns="http://tempuri.org/KeiyuDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KeiyuDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KeiyuDataSet" msprop:Generator_DataSetName="KeiyuDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KeiyuTable" msprop:Generator_UserTableName="KeiyuTable" msprop:Generator_RowDeletedName="KeiyuTableRowDeleted" msprop:Generator_TableClassName="KeiyuTableDataTable" msprop:Generator_RowChangedName="KeiyuTableRowChanged" msprop:Generator_RowClassName="KeiyuTableRow" msprop:Generator_RowChangingName="KeiyuTableRowChanging" msprop:Generator_RowEvArgName="KeiyuTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KeiyuTableRowChangeEventHandler" msprop:Generator_TablePropName="KeiyuTable" msprop:Generator_TableVarName="tableKeiyuTable" msprop:Generator_RowDeletingName="KeiyuTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="meisyou" msprop:Generator_UserColumnName="meisyou" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnmeisyou" msprop:Generator_ColumnPropNameInTable="meisyouColumn" msprop:Generator_ColumnPropNameInRow="meisyou" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

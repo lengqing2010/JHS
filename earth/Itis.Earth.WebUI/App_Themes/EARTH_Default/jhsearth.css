@@ -1,0 +1,557 @@
+body
+{
+    font-family: "ＭＳ Ｐゴシック" ,sans-serif;
+}
+td {
+    white-space: nowrap;
+    font-size: 13px;
+}
+th {
+    white-space: nowrap;
+}
+img 
+{
+    border-style: none;
+}
+input
+{
+    ime-mode:active;
+}
+a
+{ 
+    color: blue; 
+}
+.hissu
+{
+    background-color: bisque;
+}
+.textCenter
+{
+	text-align:center;
+}
+.kingaku,.number
+{
+    ime-mode:disabled;
+    text-align:right;
+}
+.pullCd
+{
+    ime-mode: disabled;
+    width: 30px;
+}
+.codeNumber
+{
+    ime-mode: disabled;
+}
+.dataGridHeader {
+    border: 1px inset #999999;
+    position: relative;
+    left: 0px;
+    height: 200px;
+    width: 800px;
+    overflow: auto;
+    padding-top: 0px;
+}
+table.scrolltablestyle thead tr {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.dataGridContent {
+    /*overflow: auto;
+    height: 170px;*/
+}
+table.scrolltablestyle tbody tr td {
+    padding: 3px 1px;
+    font-size: 13px;
+}
+table.scrolltablestyle thead tr th {
+    border-left: none;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    padding: 4px 3px;
+    white-space: nowrap;
+    background-color: #ffffd9;
+    font-size: 12px;
+}
+table.scrolltablestyle tbody tr td {
+    border-left: none;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+th.tableTitle {
+    text-align:left;
+    border: none;
+    background-color: #ccffff;
+    height:24px;
+}
+table.mainTable {
+    border: 2px solid gray;
+    border-collapse: collapse;
+    background-color:#e6e6e6;
+}
+table.mainTable td.narrow {
+    border: 1px solid gray;
+    padding:2px;
+    font-size:13px;
+    background-color: #D9EBFF;
+	font-weight:bold;
+	white-space:nowrap;
+	text-align:center;
+}
+table.mainTableNoneFrame{
+    border-collapse: collapse;
+    background-color:#e6e6e6;
+}
+table.mainTable td {
+    border: 1px solid gray;
+    padding:3px;
+    font-size:15px;
+}
+table.subTable td {
+    border:  none;
+}
+table.subTableNarrow td {
+    border:  none;
+    font-size:13px;
+}
+.shouhinTableTitle
+{
+    white-space: nowrap;
+    text-align: center;
+    background-color: #ffffcc;
+    padding: 3px;
+    font-weight:bold;
+}
+td.yohaku
+{
+	padding:10px;
+}	
+/* テーブル内・入金額および残額の背景色(深緑色) */
+td.shouhinTableTitleNyuukin {
+	background-color: #99CC99;
+	/*width: 100px;*/
+	width: 5.5em;
+	text-align:center;
+	font-weight:bold;
+}
+/* テーブル内・合計金額の背景色(深緑色) */
+td.shouhinTableTitleSum {
+	background-color: #99CC99;
+	/*width:160px;*/
+	width: 12em;
+	text-align:center;
+	font-weight:bold;
+}
+th.shouhinTableTitleNyuukin {
+    background-color: #ccffff;
+}
+th.shouhinTableTitleNyuukin input{
+    background-color: #ccffff;
+}
+/* テーブル内・副項目の背景色(深緑色) */
+td.mousikomiTableSubTitle
+{
+	background-color: #99CC99;
+	width: 10.5em;
+	text-align: left;
+	font-weight: bold;
+}
+table.menuLinkBar 
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table.menuLinkBar td
+{
+    white-space: nowrap;
+    font-size: 13px;
+    border: 1px solid black;
+    width: 120px;
+    background-color: lightyellow;
+    text-align: center;
+}
+table.menuLinkBar img
+{
+    width: 12px;
+    height: 12px;
+}
+td.tableFooter
+{
+    background-color: papayawhip;
+    text-align: center;
+}
+td.tableFooter input
+{
+    font-size:14px
+}
+table.itemTable td
+{
+    text-align:center;
+}
+table.itemTableNarrow td
+{
+    text-align:center;
+    font-size:13px;
+    padding:1px;
+}
+table.itemTable input, table.itemTableNarrow input
+{
+    padding:1px;
+    margin:0px;
+}
+table.itemTable input.readOnlyStyle, table.itemTableNarrow input.readOnlyStyle
+{
+    border: none;
+    background-color:transparent;
+}
+table.itemTableNarrow td.itemNm, table.itemTable td.itemNm
+{
+    text-align: left;
+    white-space: normal;
+}
+input.itemNm
+{
+    /*width: 200px;*/
+}
+input.itemCd
+{
+    width: 3em;
+    ime-mode:disabled;
+}
+input.itemSearchBtn
+{
+    width: 1.5em;
+}
+/* 業務画面内テーブルの検索ボタン */
+input.gyoumuSearchBtn
+{
+    width: 2.6em;
+    height:1.7em;
+}
+input.date
+{
+    width: 5.4em;
+    ime-mode:disabled;
+}
+input.kingaku
+{
+    width: 4.5em;
+    ime-mode:disabled;
+}
+table.innerTable{
+    width:100%;
+    border-collapse: collapse;
+}
+table.skeltonTable,table.skeltonTable td, table.skeltonTable th{
+    width:100%;
+    border-collapse: collapse;
+    border: none;
+    white-space:nowrap;
+}
+table.innerTable td, table.innerTable th{
+    border: none;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    white-space:nowrap;
+}
+table.innerTable td.firstCol{
+    border-left:none;
+}
+table.innerTable tr.firstRow td{
+    border-top:none;
+}
+input.searchBtn
+{
+    height: 23px;
+}
+table.veiwMode input
+{
+    border-style:none;
+}
+table.veiwMode input.btnEdit
+{
+    border-style:outset;
+}
+input.readOnlyStyle, textarea.readOnlyStyle
+{
+    border-style:none;
+    border-bottom: 1px solid black;
+    background-color:transparent;
+}
+span.readOnlyStyle
+{
+    border-style:none;
+    border-bottom: 1px solid black;
+    background-color:transparent;
+    font-size:13px;
+}
+input.readOnlyStyle2, textarea.readOnlyStyle2
+{
+    border-style:none;
+    background-color:transparent;
+}
+td.tableSpacer, th.tableSpacer
+{
+    padding:0px 0px 0px 0px;
+    margin:0px 0px 0px 0px
+    font-size:1px;
+    height: 1px;
+    background-color: gray;
+}
+table.titleTable th
+{
+    font-size: 16px;
+}
+.searchReturnValues 
+{
+    display:none;
+}
+table.osiraseTable td
+{
+    font-size:15px;
+}
+.menuBar td
+{
+    font-size: 18px;
+}
+.menuBar .menuKoumkuIcon
+{
+    width:50px;
+    text-align:right;
+    vertical-align: top;
+    font-size: 18px;
+}
+.menuBar .menuKoumkuIcon img
+{
+    width: 25px;
+    height: 20px;
+}
+.menuBar .menuDaiKoumoku
+{
+    font-weight: bold;
+    font-size: 16px;
+    background-color:#ABFCE8;
+    padding:3px;
+}
+#kanriMenuFS
+{
+    width:190px;
+}
+#kanriLinksList
+{
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: left;
+    width:150px;
+}
+.dataGridHeader2 {
+    border: 1px inset #999999;
+    position: relative;
+    left: 0px;
+    height: 200px;
+    overflow: auto;
+    padding-top: 0px;
+}
+/* テーブル内・項目名の背景色(淡い灰色) */
+td.koumokuMei,tr.koumokuMei td{
+	background-color: #D9EBFF;
+	font-weight:bold;
+	white-space:nowrap;
+}
+/* テーブル内・小分類の背景色(緑色) */
+.mainTable td.syoBunrui{
+	background-color: #99CC99;
+	text-align: left;
+	font-weight:bold;
+}
+/* テーブル内・文字フォントサイズ(小さめ) */
+.mainTable td.itemMei_small{
+    /*font-size: 10px;*/
+}
+/* テーブル内・奇数行の背景色 */
+.mainTable tr.odd{
+}
+/* テーブル内・偶数行の背景色 */
+.mainTable tr.even{
+    background-color: #D4FAD5;
+}
+.selectedStyleG, .selectedStyleG input{
+    background-color: #D4FAD5;
+}
+.selectedStyleB, .selectedStyleB input{
+    background-color: #B9C4F6;
+}
+/* mainTableのborder細い版 */
+table.miniTable {
+  border: 0.5px solid gray;
+  border-collapse: collapse;
+}
+.openTyousaMitsumorisyo
+{
+    width:6em;
+    background-color: #FF8C00;
+}
+.openHosyousyoDB
+{
+    width:5em;
+    background-color: #ffb6c1;
+}
+.openRJHS
+{
+    width:4em;
+    background-color: #a52800;
+    color:white;
+}
+.openMousikomi
+{
+    width:6em;
+    background-color: #a52800;
+    color:white;
+}
+/* 注意情報ボタン*/
+.btnKameitenTyuuijouhou
+{
+    width:5.0em;
+}
+/* 物件情報ボタン */
+.btnBukkenJouhouSyoukai
+{
+    width:4.5em;    
+}
+.button
+{
+    height:1.4em;
+}
+table.paddinNarrow td
+{
+    padding:1px;
+}
+.masterHeader
+{
+    background-color: #98F898;
+}
+.InfoText
+{
+	color:#660066;
+	font-weight:bold;
+	font-size: 15px;
+	text-align:left;
+	font-family: "ＭＳ　ゴシック" ,sans-serif;
+}
+.InfoArea
+{
+	border: 0.5px solid gray;
+	background-color: #FFFFFF;
+	font-family: "ＭＳ　ゴシック" ,sans-serif;
+}
+.buttonKidou
+{
+    background-color: #ccffff;
+    width: 200px;
+    height:30px;
+}
+.SyoriKensuuMessageButton
+{
+	font-size: 20px;
+	border:none;
+    background-color: #adff2f;
+    height: 50px;
+}
+.GamenSeigyoKaijoButton
+{
+	font-size: 15px;
+    background-color: #adff2f;
+    height: 30px;
+}
+
+/*
+拡張型スクロールテーブル
+*/
+
+table.scrolltablestyle2 thead tr {
+    top: 0;
+    left: 0;
+    background-color: #ccffff;
+}
+table.scrolltablestyle2 
+{
+    direction:ltr;
+    table-layout: fixed;
+}
+table.scrolltablestyle2 tbody tr td {
+    padding: 3px 1px;
+    border-left: none;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    font-size: 13px;
+    white-space: normal;
+    word-break:break-all;
+}
+table.scrolltablestyle2 th {
+    padding: 3px 1px;
+    border-left: none;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    font-size: 12px;
+    white-space: nowrap;
+    background-color: #ffffd9;
+    text-align:center;
+}
+div.scrollDivStyle2
+{
+    overflow: scroll;
+}
+div.scrollDivLeftTitleStyle2
+{
+    text-align:right;
+}
+div.scrollDivRightTitleStyle2
+{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: left;
+}
+div.scrollLeftDivStyle2
+{
+    border-left: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    direction:rtl;
+}
+
+/* テーブル内・項目名の背景色(淡い灰色) 中央寄せ */
+td.koumokuMei2,tr.koumokuMei2 td{
+	background-color: #D9EBFF;
+	font-weight:bold;
+	white-space:nowrap;
+	text-align:center;
+}
+/*  コピー用ボタン */
+input.button_copy{
+    background-color: #ffffce;
+}
+/* SPANの項目 */
+span.koumokuMei
+{
+    font-size:15px;
+    font-weight:bold ;
+}
+/* SPANの日付(申込入力) */
+span.hizuke
+{
+    font-size:21px;
+    font-weight:bold;
+}
+/* TEXTBOXの日付(申込入力) */
+input.hizuke
+{
+    font-size:17px;
+    text-align :center;
+    ime-mode:disabled;
+}
+/* テーブル内・文字フォントサイズ(小さめ) */
+table.mainTablefont td{
+	font-size:13px;
+}	

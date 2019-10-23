@@ -1,0 +1,224 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" Codebehind="EarthMasterPage.Master.vb"
+    Inherits="Itis.Earth.WebUI.EarthMasterPage" %>
+<%@ Import Namespace="Itis.Earth.Utilities" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EARTH</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    </script>
+
+    <form id="formTitleMenu" runat="server">
+        <asp:ScriptManager ID="AjaxScriptManager1" runat="server" AllowCustomErrorsRedirect="false">
+        </asp:ScriptManager>
+        <div>
+            <table id="mainMenuTable" style="width: 100%; display: none;" cellpadding="0" cellspacing="0">
+                <tr class="masterHeader">
+                    <td style="width: 220px; text-align: center;">
+                        <img src="images/jhs_earth_logo1.gif" alt="logo" /></td>
+                    <td>
+                        <table style="width: 100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="text-align: right;" colspan="2">
+                                    <table cellpadding="2" style="width: 481px">
+                                        <tr>
+                                            <td style="width: 62px; height: 6px;">
+                                                所属部署：
+                                            </td>
+                                            <td id="TdBusyoName" runat="server" style="width: 190px; height: 6px;" align="left">
+                                            </td>
+                                            <td style="width: 68px; height: 6px;">
+                                                ログイン者：
+                                            </td>
+                                            <td id="TdUserName" runat="server" style="width: 100px; height: 6px;" align="left">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height: 5px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left">
+                                    <table class="menuLinkBar" cellpadding="2">
+                                        <tr>
+                                            <td id="menu_lnk_main">
+                                                <a id="LinkMain" runat="server">メイン</a></td>
+                                            <td id="menu_lnk_sinki">
+                                                <a id="LinkSinkiJutyuu" runat="server">新規受注</a>
+                                                <ul id="UlSinkiJutyuuList" runat="server" style="font-size: 12px; display: none;
+                                                    margin: 0px; background-color: #FFD5E7; z-index: 10001; position: absolute; white-space: nowrap;
+                                                    text-align: left; padding: 3px;">
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkMousikomiNyuuryoku" runat="server">申込入力</a></li>
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkJutyuuTouroku" runat="server">受注登録</a></li>
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkMousikomiKensaku" runat="server">申込検索</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkMousikomiKensakuOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkFcMousikomiKensaku" runat="server">FC申込検索</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkFcMousikomiKensakuOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                </ul>
+                                                <iframe id="IframeSinkiJutyuuList" runat="server" style="display: none; position: absolute;
+                                                    z-index: 10000;" scrolling="no" frameborder="0"></iframe>
+                                            </td>
+                                            <td id="menu_lnk_kensaku">
+                                                <a id="LinkMenuBukkenKensaku" runat="server">物件検索</a>
+                                                <ul id="UlBukkenKensakuList" runat="server" style="font-size: 12px; display: none;
+                                                    margin: 0px; background-color: #FFD5E7; z-index: 10001; position: absolute; white-space: nowrap;
+                                                    text-align: left; padding: 3px;">
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkBukkenKensaku" runat="server">物件検索</a>&nbsp;
+                                                    <a id="LinkBukkenKensakuOW" runat="server" target="searchWindowB"><img src="images/otherWin.gif" alt="別ウィンドウで開く" /></a></li>
+                                                    <li style="margin:8px 5px 5px 0px;"><a id="LinkHinsituHosyousyoJyoukyouKensaku" runat="server">品質保証書状況検索</a>&nbsp;
+                                                    <a id="LinkHinsituHosyousyoJyoukyouKensakuOW" runat="server" target="searchWindowB"><img src="images/otherWin.gif" alt="別ウィンドウで開く" /></a></li>
+                                                </ul>
+                                                <iframe id="IframeBukkenKensakuList" runat="server" style="display: none; position: absolute;
+                                                    z-index: 10000;" scrolling="no" frameborder="0"></iframe>
+                                            </td>
+                                            <td id="menu_lnk_syuusei_keiri">
+                                                <a id="LinkKeiriHansokuhin" runat="server">経理・販促品</a>
+                                                <ul id="UlKeiriLinksList" runat="server" style="font-size: 12px; display: none; margin: 0px;
+                                                    background-color: #FFD5E7; z-index: 10001; position: absolute; white-space: nowrap;
+                                                    text-align: left; padding: 3px;">
+                                                    <li><a id="LinkHansokuhinSeikyuu" runat="server">販促品請求</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkHansokuhinSeikyuuOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkTeibetuSyuusei" runat="server">邸別データ修正</a>&nbsp;<a id="LinkTeibetuSyuuseiOW"
+                                                        runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkTeibetuNyuukinSyuusei" runat="server">邸別入金修正</a>&nbsp;<a id="LinkTeibetuNyuukinSyuuseiOW"
+                                                        runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkTenbetuSyuusei" runat="server">店別データ修正</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkTenbetuSyuuseiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkUriageSiireSakusei" runat="server">売上/仕入データ作成</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkUriageSiireSakuseiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkGetujiIkkatuSyuusei" runat="server">月次データ一括修正</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkGetujiIkkatuSyuuseiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkNyuukinSyori" runat="server">入金処理</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkNyuukinSyoriOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchUriageData" runat="server">売上伝票照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchUriageDataOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchSiireData" runat="server">仕入伝票照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchSiireDataOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchNyuukinData" runat="server">入金伝票照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchNyuukinDataOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchSiharaiData" runat="server">支払伝票照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchSiharaiDataOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchNyuukinTorikomi" runat="server">入金取込データ照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchNyuukinTorikomiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchHannyouUriage" runat="server">汎用売上データ照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchHannyouUriageOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSearchHannyouSiire" runat="server">汎用仕入データ照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSearchHannyouSiireOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSeikyuusyoDataSakusei" runat="server">請求書データ作成</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSeikyuusyoDataSakuseiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>                               
+                                                    <li><a id="LinkSeikyuuSakiMototyou" runat="server">請求先元帳</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSeikyuuSakiMototyouOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSiharaiSakiMototyou" runat="server">支払先元帳</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkSiharaiSakiMototyouOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSeikyuuDateIkkatuHenkou" runat="server">請求年月日一括変更</a>&nbsp;<a id="LinkSeikyuuDateIkkatuHenkouOW"
+                                                        runat="server" target="searchWindowB"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkKakusyuDataSyuturyoku" runat="server">各種データ出力</a>&nbsp;<a id="LinkKakusyuDataSyuturyokuOW"
+                                                        runat="server" target="searchWindowB"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkSeikyuuSiireHenkou" runat="server">請求先・仕入先変更</a>&nbsp;<a id="LinkSeikyuuSiireHenkouOW"
+                                                        runat="server" target="searchWindowB"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                </ul>
+                                                <iframe id="IframeKeiriLinksList" runat="server" style="display: none; position: absolute;
+                                                    z-index: 10000;" scrolling="no" frameborder="0"></iframe>
+                                            </td>
+                                            <td id="menu_lnk_kameiten_bukken_syoukai">
+                                                <a id="LinkKameitenSyoukaiTouroku" runat="server">加盟店照会・登録</a><a id="LinkKameitenSyoukaiTourokuOW"
+                                                    runat="server" target="searchWindowB">
+                                                    <img src="images/otherWin.gif" alt="別ウィンドウで開く" /></a>
+                                            </td>
+                                            <td id="menu_lnk_kameiten_syoukai_touroku">
+                                                <a id="LinkEigyouMenu" runat="server">営業メニュー</a>
+                                                <ul id="UlEigyouMenuList" runat="server" style="font-size: 12px; display: none; margin: 0px;
+                                                    background-color: #FFD5E7; z-index: 10001; position: absolute; white-space: nowrap;
+                                                    text-align: left; padding: 3px;">
+                                                    <li><a id="LinkKameitenSyoukai" runat="server">加盟店照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkKameitenSyoukaiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                    <li><a id="LinkBukkenSyoukai" runat="server">物件照会</a>&nbsp;<a target="searchWindowB"
+                                                        id="LinkBukkenSyoukaiOW" runat="server"><img alt="別ウィンドウで開く" src="images/otherWin.gif" /></a></li>
+                                                </ul>
+                                                <iframe id="IframeEigyouMenuList" runat="server" style="display: none; position: absolute;
+                                                    z-index: 10000;" scrolling="no" frameborder="0"></iframe>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td id="">
+                                    &nbsp;</td>
+                                <td id="">
+                                    &nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="CPH1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script type="text/javascript">
+        //メインウィンドウではない場合、メインメニューを隠す
+        if(window.name == "<%=EarthConst.MAIN_WINDOW_NAME %>"){
+            document.getElementById("mainMenuTable").style.display = "inline";
+        }else{
+            document.getElementById("mainMenuTable").style.display = "none";
+        }
+        
+        //サブメニューの位置を設定
+        function dispSubMenu(obj,ulId,iframeId){
+            setSubMenuPosi(obj,iframeId);
+            changeDisplay(iframeId);
+            setSubMenuPosi(obj,ulId);
+            changeDisplay(ulId);
+            
+            objEBI(iframeId).style.width = objEBI(ulId).clientWidth + "px";
+            objEBI(iframeId).style.height = objEBI(ulId).clientHeight + "px";
+        }
+        function setSubMenuPosi(objThis,targetId){
+            var objTarget = objEBI(targetId);
+            var objParent = objThis.parentNode;
+            objTarget.style.left = offsetLeftDoc(objParent) + 30 + "px";
+            objTarget.style.top = offsetTopDoc(objParent) + objParent.clientHeight - 1 + "px";
+        }
+        </script>
+
+    </form>
+    <!-- 検索画面遷移用フォーム -->
+    <form id="searchForm" method="post" action="">
+        <!-- 検索条件値格納用 -->
+        <input type="hidden" id="sendSearchTerms" name="sendSearchTerms" />
+        <!-- 検索結果セット先ID格納用 -->
+        <input type="hidden" id="returnTargetIds" name="returnTargetIds" />
+        <!-- 結果セット後実行ボタンID格納用 -->
+        <input type="hidden" id="afterEventBtnId" name="afterEventBtnId" />
+        <!-- PDF出力・請求書NO格納用 -->
+        <input type="hidden" id="seino" name="seino" />
+    </form>
+    <!-- 画面遷移用フォーム -->
+    <form id="openPageForm" method="post" action="">
+        <!-- 画面モード指定 -->
+        <input type="hidden" id="st" name="st" />
+        <!-- 画面引渡し情報 -->
+        <input type="hidden" id="sendPage_kubun" name="sendPage_kubun" />
+        <input type="hidden" id="sendPage_hosyoushoNo" name="sendPage_hosyoushoNo" />
+        <input type="hidden" id="kbn" name="kbn" />
+        <input type="hidden" id="no" name="no" />
+        <input type="hidden" id="sendPageHidden1" name="sendPageHidden1" />
+        <input type="hidden" id="sendPageHidden2" name="sendPageHidden2" />
+        <input type="hidden" id="sendPageHidden3" name="sendPageHidden3" />
+        <input type="hidden" id="sendPageHidden4" name="sendPageHidden4" />
+        <input type="hidden" id="sendPageHidden5" name="sendPageHidden5" />
+    </form>
+</body>
+</html>

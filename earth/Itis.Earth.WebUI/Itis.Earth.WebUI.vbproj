@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{147142FB-CDE6-4260-AB6A-DD736A042A6B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Itis.Earth.WebUI</RootNamespace>
+    <AssemblyName>Itis.Earth.WebUI</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.WebUI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Itis.Earth.WebUI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itis.ApplicationBlocks.ExceptionManagement, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement, Version=1.0.2854.33221, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces, Version=1.0.2854.33220, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.Extensions\1.0.61025.0__31bf3856ad364e35\System.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Itis.ApplicationBlocks.ExceptionManagement" />
+    <Import Include="Itis.Earth.BizLogic" />
+    <Import Include="Itis.Earth.Utilities" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="control\BukkenRirekiRecordCtrl.ascx.designer.vb">
+      <DependentUpon>BukkenRirekiRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\BukkenRirekiRecordCtrl.ascx.vb">
+      <DependentUpon>BukkenRirekiRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouKihonRecordCtrl.ascx.designer.vb">
+      <DependentUpon>IkkatuHenkouKihonRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouKihonRecordCtrl.ascx.vb">
+      <DependentUpon>IkkatuHenkouKihonRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouTysSyouhin1RecordCtrl.ascx.designer.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin1RecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouTysSyouhin1RecordCtrl.ascx.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin1RecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouTysSyouhin2RecordCtrl.ascx.designer.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin2RecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\IkkatuHenkouTysSyouhin2RecordCtrl.ascx.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin2RecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\NyuukinZangakuCtrl.ascx.designer.vb">
+      <DependentUpon>NyuukinZangakuCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\NyuukinZangakuCtrl.ascx.vb">
+      <DependentUpon>NyuukinZangakuCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireLinkCtrl.ascx.designer.vb">
+      <DependentUpon>SeikyuuSiireLinkCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireLinkCtrl.ascx.vb">
+      <DependentUpon>SeikyuuSiireLinkCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireSyouhinHeaderCtrl.ascx.designer.vb">
+      <DependentUpon>SeikyuuSiireSyouhinHeaderCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireSyouhinHeaderCtrl.ascx.vb">
+      <DependentUpon>SeikyuuSiireSyouhinHeaderCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireSyouhinRecordCtrl.ascx.designer.vb">
+      <DependentUpon>SeikyuuSiireSyouhinRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\SeikyuuSiireSyouhinRecordCtrl.ascx.vb">
+      <DependentUpon>SeikyuuSiireSyouhinRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\Syouhin4RecordCtrl.ascx.designer.vb">
+      <DependentUpon>Syouhin4RecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\Syouhin4RecordCtrl.ascx.vb">
+      <DependentUpon>Syouhin4RecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuIraiNaiyouCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuIraiNaiyouCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuIraiNaiyouCtrl.ascx.vb">
+      <DependentUpon>TeibetuIraiNaiyouCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuKoujiRecordCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuKoujiRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuKoujiRecordCtrl.ascx.vb">
+      <DependentUpon>TeibetuKoujiRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuKyoutuuCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuKyoutuuCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuKyoutuuCtrl.ascx.vb">
+      <DependentUpon>TeibetuKyoutuuCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuNyuukinRecordCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuNyuukinRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuNyuukinRecordCtrl.ascx.vb">
+      <DependentUpon>TeibetuNyuukinRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuNyuukinRecordCtrlTop.ascx.designer.vb">
+      <DependentUpon>TeibetuNyuukinRecordCtrlTop.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuNyuukinRecordCtrlTop.ascx.vb">
+      <DependentUpon>TeibetuNyuukinRecordCtrlTop.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhin2Ctrl.ascx.designer.vb">
+      <DependentUpon>TeibetuSyouhin2Ctrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhin2Ctrl.ascx.vb">
+      <DependentUpon>TeibetuSyouhin2Ctrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhin3Ctrl.ascx.designer.vb">
+      <DependentUpon>TeibetuSyouhin3Ctrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhin3Ctrl.ascx.vb">
+      <DependentUpon>TeibetuSyouhin3Ctrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhinHeaderCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuSyouhinHeaderCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhinHeaderCtrl.ascx.vb">
+      <DependentUpon>TeibetuSyouhinHeaderCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhinRecordCtrl.ascx.designer.vb">
+      <DependentUpon>TeibetuSyouhinRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeibetuSyouhinRecordCtrl.ascx.vb">
+      <DependentUpon>TeibetuSyouhinRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TokubetuTaiouToolTipCtrl.ascx.designer.vb">
+      <DependentUpon>TokubetuTaiouToolTipCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TokubetuTaiouToolTipCtrl.ascx.vb">
+      <DependentUpon>TokubetuTaiouToolTipCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\TokubetuTaiouRecordCtrl.ascx.designer.vb">
+      <DependentUpon>TokubetuTaiouRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TokubetuTaiouRecordCtrl.ascx.vb">
+      <DependentUpon>TokubetuTaiouRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EarthError.aspx.designer.vb">
+      <DependentUpon>EarthError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EarthError.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>EarthError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditConfig.aspx.designer.vb">
+      <DependentUpon>EditConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditConfig.aspx.vb">
+      <DependentUpon>EditConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IkkatuHenkouKihon.aspx.designer.vb">
+      <DependentUpon>IkkatuHenkouKihon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IkkatuHenkouKihon.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>IkkatuHenkouKihon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IkkatuHenkouTysSyouhin.aspx.designer.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IkkatuHenkouTysSyouhin.aspx.vb">
+      <DependentUpon>IkkatuHenkouTysSyouhin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MousikomiSyuusei.aspx.designer.vb">
+      <DependentUpon>MousikomiSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MousikomiSyuusei.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>MousikomiSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupBukkenSintyokuJyky.aspx.designer.vb">
+      <DependentUpon>PopupBukkenSintyokuJyky.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupBukkenSintyokuJyky.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupBukkenSintyokuJyky.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupDenpyouSiireDateHenkou.aspx.designer.vb">
+      <DependentUpon>PopupDenpyouSiireDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupDenpyouSiireDateHenkou.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupDenpyouSiireDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupDenpyouUriageDateHenkou.aspx.designer.vb">
+      <DependentUpon>PopupDenpyouUriageDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupDenpyouUriageDateHenkou.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupDenpyouUriageDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSeikyuuDateHenkou.aspx.designer.vb">
+      <DependentUpon>PopupSeikyuuDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSeikyuuDateHenkou.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupSeikyuuDateHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KeiriMenu.aspx.designer.vb">
+      <DependentUpon>KeiriMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KeiriMenu.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>KeiriMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSeikyuusyoMiinsatu.aspx.designer.vb">
+      <DependentUpon>PopupSeikyuusyoMiinsatu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSeikyuusyoMiinsatu.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupSeikyuusyoMiinsatu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKousinRireki.aspx.designer.vb">
+      <DependentUpon>SearchKousinRireki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKousinRireki.aspx.vb">
+      <DependentUpon>SearchKousinRireki.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupBukkenSitei.aspx.designer.vb">
+      <DependentUpon>PopupBukkenSitei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupBukkenSitei.aspx.vb">
+      <DependentUpon>PopupBukkenSitei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\IraiSession.vb" />
+    <Compile Include="control\GyoumuKyoutuuCtrl.ascx.designer.vb">
+      <DependentUpon>GyoumuKyoutuuCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\GyoumuKyoutuuCtrl.ascx.vb">
+      <DependentUpon>GyoumuKyoutuuCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\HansokuRecordCtrl.ascx.designer.vb">
+      <DependentUpon>HansokuRecordCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\HansokuRecordCtrl.ascx.vb">
+      <DependentUpon>HansokuRecordCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetujiIkkatuSyuusei.aspx.designer.vb">
+      <DependentUpon>GetujiIkkatuSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetujiIkkatuSyuusei.aspx.vb">
+      <DependentUpon>GetujiIkkatuSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="BuilderInfo.aspx.designer.vb">
+      <DependentUpon>BuilderInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuilderInfo.aspx.vb">
+      <DependentUpon>BuilderInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\CommonLogic.vb" />
+    <Compile Include="common\DropDownHelper.vb" />
+    <Compile Include="control\IraiCtrl1.ascx.designer.vb">
+      <DependentUpon>IraiCtrl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\IraiCtrl1.ascx.vb">
+      <DependentUpon>IraiCtrl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="control\IraiCtrl2.ascx.designer.vb">
+      <DependentUpon>IraiCtrl2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="control\IraiCtrl2.ascx.vb">
+      <DependentUpon>IraiCtrl2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EarthMasterPage.Master.designer.vb">
+      <DependentUpon>EarthMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="EarthMasterPage.Master.vb">
+      <DependentUpon>EarthMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterHiduke.aspx.designer.vb">
+      <DependentUpon>MasterHiduke.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterHiduke.aspx.vb">
+      <DependentUpon>MasterHiduke.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hosyou.aspx.designer.vb">
+      <DependentUpon>Hosyou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hosyou.aspx.vb">
+      <DependentUpon>Hosyou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Houkokusyo.aspx.designer.vb">
+      <DependentUpon>Houkokusyo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Houkokusyo.aspx.vb">
+      <DependentUpon>Houkokusyo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IraiStep1.aspx.designer.vb">
+      <DependentUpon>IraiStep1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IraiStep1.aspx.vb">
+      <DependentUpon>IraiStep1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IraiStep2.aspx.designer.vb">
+      <DependentUpon>IraiStep2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IraiStep2.aspx.vb">
+      <DependentUpon>IraiStep2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IraiKakunin.aspx.designer.vb">
+      <DependentUpon>IraiKakunin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IraiKakunin.aspx.vb">
+      <DependentUpon>IraiKakunin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KairyouKouji.aspx.designer.vb">
+      <DependentUpon>KairyouKouji.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KairyouKouji.aspx.vb">
+      <DependentUpon>KairyouKouji.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupGamenKidou.aspx.designer.vb">
+      <DependentUpon>PopupGamenKidou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupGamenKidou.aspx.vb">
+      <DependentUpon>PopupGamenKidou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupSeikyuuSiireSakiHenkou.aspx.designer.vb">
+      <DependentUpon>PopupSeikyuuSiireSakiHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSeikyuuSiireSakiHenkou.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupSeikyuuSiireSakiHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSyouhin4.aspx.designer.vb">
+      <DependentUpon>PopupSyouhin4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupSyouhin4.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>PopupSyouhin4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="records\IkkatuSyouhin2CtrlReord.vb" />
+    <Compile Include="records\TeibetuSettingInfoRecord.vb" />
+    <Compile Include="SearchBukken.aspx.designer.vb">
+      <DependentUpon>SearchBukken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBukken.aspx.vb">
+      <DependentUpon>SearchBukken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.vb">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.vb">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupMiseSitei.aspx.designer.vb">
+      <DependentUpon>PopupMiseSitei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupMiseSitei.aspx.vb">
+      <DependentUpon>PopupMiseSitei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NyuukinError.aspx.designer.vb">
+      <DependentUpon>NyuukinError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NyuukinError.aspx.vb">
+      <DependentUpon>NyuukinError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NyuukinSyori.aspx.designer.vb">
+      <DependentUpon>NyuukinSyori.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NyuukinSyori.aspx.vb">
+      <DependentUpon>NyuukinSyori.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfRenraku.aspx.designer.vb">
+      <DependentUpon>PdfRenraku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfRenraku.aspx.vb">
+      <DependentUpon>PdfRenraku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="records\SyouhinCtrlRecord.vb" />
+    <Compile Include="SearchHannyouUriage.aspx.designer.vb">
+      <DependentUpon>SearchHannyouUriage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchHannyouUriage.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchHannyouUriage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKameiten.aspx.designer.vb">
+      <DependentUpon>SearchKameiten.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKameiten.aspx.vb">
+      <DependentUpon>SearchKameiten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchMousikomi.aspx.designer.vb">
+      <DependentUpon>SearchMousikomi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchMousikomi.aspx.vb">
+      <DependentUpon>SearchMousikomi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchNyuukinData.aspx.designer.vb">
+      <DependentUpon>SearchNyuukinData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchNyuukinData.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchNyuukinData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeikyuuSaki.aspx.designer.vb">
+      <DependentUpon>SearchSeikyuuSaki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeikyuuSaki.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchSeikyuuSaki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeikyuusyoSimeDateRireki.aspx.designer.vb">
+      <DependentUpon>SearchSeikyuusyoSimeDateRireki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeikyuusyoSimeDateRireki.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchSeikyuusyoSimeDateRireki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSiireData.aspx.designer.vb">
+      <DependentUpon>SearchSiireData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSiireData.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchSiireData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSiireSaki.aspx.designer.vb">
+      <DependentUpon>SearchSiireSaki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSiireSaki.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchSiireSaki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTyousakaisya.aspx.designer.vb">
+      <DependentUpon>SearchTyousakaisya.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTyousakaisya.aspx.vb">
+      <DependentUpon>SearchTyousakaisya.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchSyouhin.aspx.designer.vb">
+      <DependentUpon>SearchSyouhin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSyouhin.aspx.vb">
+      <DependentUpon>SearchSyouhin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchKeiretu.aspx.designer.vb">
+      <DependentUpon>SearchKeiretu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKeiretu.aspx.vb">
+      <DependentUpon>SearchKeiretu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchTyoufuku.aspx.designer.vb">
+      <DependentUpon>SearchTyoufuku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTyoufuku.aspx.vb">
+      <DependentUpon>SearchTyoufuku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="common\JibanSessionManager.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Jiban.vb" />
+    <Compile Include="SearchEigyousyo.aspx.designer.vb">
+      <DependentUpon>SearchEigyousyo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEigyousyo.aspx.vb">
+      <DependentUpon>SearchEigyousyo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchHantei.aspx.designer.vb">
+      <DependentUpon>SearchHantei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchHantei.aspx.vb">
+      <DependentUpon>SearchHantei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchUriageData.aspx.designer.vb">
+      <DependentUpon>SearchUriageData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchUriageData.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SearchUriageData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuDateIkkatuHenkou.aspx.designer.vb">
+      <DependentUpon>SeikyuuDateIkkatuHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuDateIkkatuHenkou.aspx.vb">
+      <SubType>ASPXCodebehind</SubType>
+      <DependentUpon>SeikyuuDateIkkatuHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuSiireSakiHenkou.aspx.designer.vb">
+      <DependentUpon>SeikyuuSiireSakiHenkou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuSiireSakiHenkou.aspx.vb">
+      <DependentUpon>SeikyuuSiireSakiHenkou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeikyuusyoDataSakusei.aspx.designer.vb">
+      <DependentUpon>SeikyuusyoDataSakusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuusyoDataSakusei.aspx.vb">
+      <DependentUpon>SeikyuusyoDataSakusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeikyuusyoSyuusei.aspx.designer.vb">
+      <DependentUpon>SeikyuusyoSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuusyoSyuusei.aspx.vb">
+      <DependentUpon>SeikyuusyoSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMail.aspx.designer.vb">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendMail.aspx.vb">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeibetuNyuukinSyuusei.aspx.designer.vb">
+      <DependentUpon>TeibetuNyuukinSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeibetuNyuukinSyuusei.aspx.vb">
+      <DependentUpon>TeibetuNyuukinSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeibetuSyuusei.aspx.designer.vb">
+      <DependentUpon>TeibetuSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeibetuSyuusei.aspx.vb">
+      <DependentUpon>TeibetuSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenbetuSyuusei.aspx.designer.vb">
+      <DependentUpon>TenbetuSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenbetuSyuusei.aspx.vb">
+      <DependentUpon>TenbetuSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UriageSiireSakusei.aspx.designer.vb">
+      <DependentUpon>UriageSiireSakusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UriageSiireSakusei.aspx.vb">
+      <DependentUpon>UriageSiireSakusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeikyuuSiireCheckList.aspx.designer.vb">
+      <DependentUpon>SeikyuuSiireCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuSiireCheckList.aspx.vb">
+      <DependentUpon>SeikyuuSiireCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchKouji.aspx.designer.vb">
+      <DependentUpon>SearchKouji.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchKouji.aspx.vb">
+      <DependentUpon>SearchKouji.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MousikomiInput.aspx.designer.vb">
+      <DependentUpon>MousikomiInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MousikomiInput.aspx.vb">
+      <DependentUpon>MousikomiInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupBukkenRireki.aspx.designer.vb">
+      <DependentUpon>PopupBukkenRireki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupBukkenRireki.aspx.vb">
+      <DependentUpon>PopupBukkenRireki.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NyuukinTorikomiSyuusei.aspx.designer.vb">
+      <DependentUpon>NyuukinTorikomiSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NyuukinTorikomiSyuusei.aspx.vb">
+      <DependentUpon>NyuukinTorikomiSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchNyuukinTorikomi.aspx.designer.vb">
+      <DependentUpon>SearchNyuukinTorikomi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchNyuukinTorikomi.aspx.vb">
+      <DependentUpon>SearchNyuukinTorikomi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupBukkenRirekiSyuusei.aspx.designer.vb">
+      <DependentUpon>PopupBukkenRirekiSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupBukkenRirekiSyuusei.aspx.vb">
+      <DependentUpon>PopupBukkenRirekiSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HannyouUriageSyuusei.aspx.designer.vb">
+      <DependentUpon>HannyouUriageSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HannyouUriageSyuusei.aspx.vb">
+      <DependentUpon>HannyouUriageSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchHannyouSiire.aspx.designer.vb">
+      <DependentUpon>SearchHannyouSiire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchHannyouSiire.aspx.vb">
+      <DependentUpon>SearchHannyouSiire.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="HannyouSiireSyuusei.aspx.designer.vb">
+      <DependentUpon>HannyouSiireSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HannyouSiireSyuusei.aspx.vb">
+      <DependentUpon>HannyouSiireSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchSiharaiData.aspx.designer.vb">
+      <DependentUpon>SearchSiharaiData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSiharaiData.aspx.vb">
+      <DependentUpon>SearchSiharaiData.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SeikyuuSakiMototyou.aspx.designer.vb">
+      <DependentUpon>SeikyuuSakiMototyou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeikyuuSakiMototyou.aspx.vb">
+      <DependentUpon>SeikyuuSakiMototyou.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SiharaiSakiMototyou.aspx.designer.vb">
+      <DependentUpon>SiharaiSakiMototyou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiharaiSakiMototyou.aspx.vb">
+      <DependentUpon>SiharaiSakiMototyou.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SearchSeikyuusyo.aspx.designer.vb">
+      <DependentUpon>SearchSeikyuusyo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeikyuusyo.aspx.vb">
+      <DependentUpon>SearchSeikyuusyo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupTokubetuTaiou.aspx.designer.vb">
+      <DependentUpon>PopupTokubetuTaiou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupTokubetuTaiou.aspx.vb">
+      <DependentUpon>PopupTokubetuTaiou.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SearchFcMousikomi.aspx.designer.vb">
+      <DependentUpon>SearchFcMousikomi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchFcMousikomi.aspx.vb">
+      <DependentUpon>SearchFcMousikomi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FcMousikomiSyuusei.aspx.designer.vb">
+      <DependentUpon>FcMousikomiSyuusei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FcMousikomiSyuusei.aspx.vb">
+      <DependentUpon>FcMousikomiSyuusei.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SearchHinsituHosyousyoJyoukyou.aspx.designer.vb">
+      <DependentUpon>SearchHinsituHosyousyoJyoukyou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchHinsituHosyousyoJyoukyou.aspx.vb">
+      <DependentUpon>SearchHinsituHosyousyoJyoukyou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\EARTH_Default\jhsearth.css" />
+    <Content Include="App_Themes\EARTH_Dev\jhsearth.css" />
+    <Content Include="App_Themes\EARTH_Test\jhsearth.css" />
+    <Content Include="control\BukkenRirekiRecordCtrl.ascx" />
+    <Content Include="control\IkkatuHenkouKihonRecordCtrl.ascx" />
+    <Content Include="control\IkkatuHenkouTysSyouhin1RecordCtrl.ascx" />
+    <Content Include="control\IkkatuHenkouTysSyouhin2RecordCtrl.ascx" />
+    <Content Include="control\NyuukinZangakuCtrl.ascx" />
+    <Content Include="control\SeikyuuSiireLinkCtrl.ascx" />
+    <Content Include="control\SeikyuuSiireSyouhinHeaderCtrl.ascx" />
+    <Content Include="control\SeikyuuSiireSyouhinRecordCtrl.ascx" />
+    <Content Include="control\Syouhin4RecordCtrl.ascx" />
+    <Content Include="control\TeibetuIraiNaiyouCtrl.ascx" />
+    <Content Include="control\TeibetuKoujiRecordCtrl.ascx" />
+    <Content Include="control\TeibetuKyoutuuCtrl.ascx" />
+    <Content Include="control\TeibetuNyuukinRecordCtrl.ascx" />
+    <Content Include="control\TeibetuNyuukinRecordCtrlTop.ascx" />
+    <Content Include="control\TeibetuSyouhin2Ctrl.ascx" />
+    <Content Include="control\TeibetuSyouhin3Ctrl.ascx" />
+    <Content Include="control\TeibetuSyouhinHeaderCtrl.ascx" />
+    <Content Include="control\TeibetuSyouhinRecordCtrl.ascx" />
+    <Content Include="control\TokubetuTaiouToolTipCtrl.ascx" />
+    <Content Include="control\TokubetuTaiouRecordCtrl.ascx" />
+    <Content Include="EarthError.aspx" />
+    <Content Include="EditConfig.aspx" />
+    <Content Include="IkkatuHenkouKihon.aspx" />
+    <Content Include="IkkatuHenkouTysSyouhin.aspx" />
+    <Content Include="images\arrow-down.gif" />
+    <Content Include="images\arrow-up.gif" />
+    <Content Include="images\calender.gif" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\sortable_ja.js" />
+    <Content Include="js\sortable_sync_ja.js" />
+    <Content Include="MousikomiSyuusei.aspx" />
+    <Content Include="PopupBukkenSintyokuJyky.aspx" />
+    <Content Include="PopupDenpyouSiireDateHenkou.aspx" />
+    <Content Include="PopupDenpyouUriageDateHenkou.aspx" />
+    <Content Include="PopupSeikyuuDateHenkou.aspx" />
+    <Content Include="KeiriMenu.aspx" />
+    <Content Include="PopupSeikyuusyoMiinsatu.aspx" />
+    <Content Include="SearchKousinRireki.aspx" />
+    <Content Include="PopupBukkenSitei.aspx" />
+    <Content Include="control\GyoumuKyoutuuCtrl.ascx" />
+    <Content Include="control\HansokuRecordCtrl.ascx" />
+    <Content Include="GetujiIkkatuSyuusei.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="BuilderInfo.aspx" />
+    <Content Include="control\IraiCtrl1.ascx" />
+    <Content Include="control\IraiCtrl2.ascx" />
+    <Content Include="EarthMasterPage.Master" />
+    <Content Include="MasterHiduke.aspx" />
+    <Content Include="Hosyou.aspx" />
+    <Content Include="Houkokusyo.aspx" />
+    <Content Include="images\jhs_earth_logo1.gif" />
+    <Content Include="images\menu_arrow.gif" />
+    <Content Include="images\new.gif" />
+    <Content Include="images\otherWin.gif" />
+    <Content Include="images\roller.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="IraiStep1.aspx" />
+    <Content Include="IraiStep2.aspx" />
+    <Content Include="IraiKakunin.aspx" />
+    <Content Include="js\jhsearth.js" />
+    <Content Include="KairyouKouji.aspx" />
+    <Content Include="PopupGamenKidou.aspx" />
+    <Content Include="PopupSeikyuuSiireSakiHenkou.aspx" />
+    <Content Include="PopupSyouhin4.aspx" />
+    <Content Include="SearchBukken.aspx" />
+    <Content Include="main.aspx" />
+    <Content Include="PopupMiseSitei.aspx" />
+    <Content Include="NyuukinError.aspx" />
+    <Content Include="NyuukinSyori.aspx" />
+    <Content Include="PdfRenraku.aspx" />
+    <Content Include="SearchHannyouUriage.aspx" />
+    <Content Include="SearchKameiten.aspx" />
+    <Content Include="SearchMousikomi.aspx" />
+    <Content Include="SearchNyuukinData.aspx" />
+    <Content Include="SearchSeikyuuSaki.aspx" />
+    <Content Include="SearchSeikyuusyoSimeDateRireki.aspx" />
+    <Content Include="SearchSiireData.aspx" />
+    <Content Include="SearchSiireSaki.aspx" />
+    <Content Include="SearchTyousakaisya.aspx" />
+    <Content Include="SearchSyouhin.aspx" />
+    <Content Include="SearchKeiretu.aspx" />
+    <Content Include="SearchTyoufuku.aspx" />
+    <Content Include="lib\Itis.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.dll" />
+    <Content Include="lib\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll" />
+    <Content Include="SearchEigyousyo.aspx" />
+    <Content Include="SearchHantei.aspx" />
+    <Content Include="SearchUriageData.aspx" />
+    <Content Include="SeikyuuDateIkkatuHenkou.aspx" />
+    <Content Include="SeikyuuSiireSakiHenkou.aspx" />
+    <Content Include="SeikyuusyoDataSakusei.aspx" />
+    <Content Include="SeikyuusyoSyuusei.aspx" />
+    <Content Include="SendMail.aspx" />
+    <Content Include="TeibetuNyuukinSyuusei.aspx" />
+    <Content Include="TeibetuSyuusei.aspx" />
+    <Content Include="TenbetuSyuusei.aspx" />
+    <Content Include="UriageSiireSakusei.aspx" />
+    <Content Include="SeikyuuSiireCheckList.aspx" />
+    <Content Include="SearchKouji.aspx" />
+    <Content Include="MousikomiInput.aspx" />
+    <Content Include="PopupBukkenRireki.aspx" />
+    <Content Include="NyuukinTorikomiSyuusei.aspx" />
+    <Content Include="SearchNyuukinTorikomi.aspx" />
+    <Content Include="PopupBukkenRirekiSyuusei.aspx" />
+    <Content Include="HannyouUriageSyuusei.aspx" />
+    <Content Include="SearchHannyouSiire.aspx" />
+    <Content Include="HannyouSiireSyuusei.aspx" />
+    <Content Include="SearchSiharaiData.aspx" />
+    <Content Include="SeikyuuSakiMototyou.aspx" />
+    <Content Include="SiharaiSakiMototyou.aspx" />
+    <Content Include="SearchSeikyuusyo.aspx" />
+    <Content Include="PopupTokubetuTaiou.aspx" />
+    <Content Include="SearchFcMousikomi.aspx" />
+    <Content Include="FcMousikomiSyuusei.aspx" />
+    <Content Include="SearchHinsituHosyousyoJyoukyou.aspx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Itis.Earth.BizLogic\Itis.Earth.BizLogic.vbproj">
+      <Project>{83C3BE50-870D-49B7-BCCE-1A60E343DE83}</Project>
+      <Name>Itis.Earth.BizLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itis.Earth.Utilities\Itis.Earth.Utilities.vbproj">
+      <Project>{979090A4-DEF6-49EC-B826-E7FED28552BA}</Project>
+      <Name>Itis.Earth.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53768</DevelopmentServerPort>
+          <DevelopmentServerVPath>/jhs_earth</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>True</NTLMAuthentication>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

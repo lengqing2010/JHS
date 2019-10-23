@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HokenKaisyaDataSet" targetNamespace="http://tempuri.org/HokenKaisyaDataSet.xsd" xmlns:mstns="http://tempuri.org/HokenKaisyaDataSet.xsd" xmlns="http://tempuri.org/HokenKaisyaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HokenKaisyaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HokenKaisyaDataSet" msprop:Generator_DataSetName="HokenKaisyaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HokenKaisyaTable" msprop:Generator_UserTableName="HokenKaisyaTable" msprop:Generator_RowDeletedName="HokenKaisyaTableRowDeleted" msprop:Generator_TableClassName="HokenKaisyaTableDataTable" msprop:Generator_RowChangedName="HokenKaisyaTableRowChanged" msprop:Generator_RowClassName="HokenKaisyaTableRow" msprop:Generator_RowChangingName="HokenKaisyaTableRowChanging" msprop:Generator_RowEvArgName="HokenKaisyaTableRowChangeEvent" msprop:Generator_RowEvHandlerName="HokenKaisyaTableRowChangeEventHandler" msprop:Generator_TablePropName="HokenKaisyaTable" msprop:Generator_TableVarName="tableHokenKaisyaTable" msprop:Generator_RowDeletingName="HokenKaisyaTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hoken_kaisya_no" msprop:Generator_UserColumnName="hoken_kaisya_no" msprop:Generator_ColumnPropNameInRow="hoken_kaisya_no" msprop:Generator_ColumnVarNameInTable="columnhoken_kaisya_no" msprop:Generator_ColumnPropNameInTable="hoken_kaisya_noColumn" type="xs:int" />
+              <xs:element name="hoken_kaisya_mei" msprop:Generator_UserColumnName="hoken_kaisya_mei" msprop:Generator_ColumnPropNameInRow="hoken_kaisya_mei" msprop:Generator_ColumnVarNameInTable="columnhoken_kaisya_mei" msprop:Generator_ColumnPropNameInTable="hoken_kaisya_meiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:HokenKaisyaTable" />
+      <xs:field xpath="mstns:hoken_kaisya_no" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

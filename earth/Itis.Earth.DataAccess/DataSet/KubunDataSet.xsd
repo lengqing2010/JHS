@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KubunDataSet" targetNamespace="http://tempuri.org/KubunDataSet.xsd" xmlns:mstns="http://tempuri.org/KubunDataSet.xsd" xmlns="http://tempuri.org/KubunDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EARTHConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EARTHConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.EARTHConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KubunDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KubunDataSet" msprop:Generator_DataSetName="KubunDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataKbnTable" msprop:Generator_UserTableName="DataKbnTable" msprop:Generator_RowDeletedName="DataKbnTableRowDeleted" msprop:Generator_RowChangedName="DataKbnTableRowChanged" msprop:Generator_RowClassName="DataKbnTableRow" msprop:Generator_RowChangingName="DataKbnTableRowChanging" msprop:Generator_RowEvArgName="DataKbnTableRowChangeEvent" msprop:Generator_RowEvHandlerName="DataKbnTableRowChangeEventHandler" msprop:Generator_TableClassName="DataKbnTableDataTable" msprop:Generator_TableVarName="tableDataKbnTable" msprop:Generator_RowDeletingName="DataKbnTableRowDeleting" msprop:Generator_TablePropName="DataKbnTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kbn" msprop:Generator_UserColumnName="kbn" msprop:Generator_ColumnVarNameInTable="columnkbn" msprop:Generator_ColumnPropNameInRow="kbn" msprop:Generator_ColumnPropNameInTable="kbnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="torikesi" msprop:Generator_UserColumnName="torikesi" msprop:Generator_ColumnVarNameInTable="columntorikesi" msprop:Generator_ColumnPropNameInRow="torikesi" msprop:Generator_ColumnPropNameInTable="torikesiColumn" type="xs:int" />
+              <xs:element name="kbn_mei" msprop:Generator_UserColumnName="kbn_mei" msprop:Generator_ColumnVarNameInTable="columnkbn_mei" msprop:Generator_ColumnPropNameInRow="kbn_mei" msprop:Generator_ColumnPropNameInTable="kbn_meiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataKbnTable" />
+      <xs:field xpath="mstns:kbn" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

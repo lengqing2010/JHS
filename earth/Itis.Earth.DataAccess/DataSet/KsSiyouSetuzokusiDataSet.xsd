@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KsSiyouSetuzokusiDataSet" targetNamespace="http://tempuri.org/KsSiyouSetuzokusiDataSet.xsd" xmlns:mstns="http://tempuri.org/KsSiyouSetuzokusiDataSet.xsd" xmlns="http://tempuri.org/KsSiyouSetuzokusiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="JHS_IFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="JHS_IFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Itis.Earth.DataAccess.My.MySettings.GlobalReference.Default.JHS_IFConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KsSiyouSetuzokusiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KsSiyouSetuzokusiDataSet" msprop:Generator_DataSetName="KsSiyouSetuzokusiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KsSiyouSetuzokusiTable" msprop:Generator_UserTableName="KsSiyouSetuzokusiTable" msprop:Generator_RowDeletedName="KsSiyouSetuzokusiTableRowDeleted" msprop:Generator_TableClassName="KsSiyouSetuzokusiTableDataTable" msprop:Generator_RowChangedName="KsSiyouSetuzokusiTableRowChanged" msprop:Generator_RowClassName="KsSiyouSetuzokusiTableRow" msprop:Generator_RowChangingName="KsSiyouSetuzokusiTableRowChanging" msprop:Generator_RowEvArgName="KsSiyouSetuzokusiTableRowChangeEvent" msprop:Generator_RowEvHandlerName="KsSiyouSetuzokusiTableRowChangeEventHandler" msprop:Generator_TablePropName="KsSiyouSetuzokusiTable" msprop:Generator_TableVarName="tableKsSiyouSetuzokusiTable" msprop:Generator_RowDeletingName="KsSiyouSetuzokusiTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ks_siyou_setuzokusi_no" msprop:Generator_UserColumnName="ks_siyou_setuzokusi_no" msprop:Generator_ColumnPropNameInRow="ks_siyou_setuzokusi_no" msprop:Generator_ColumnVarNameInTable="columnks_siyou_setuzokusi_no" msprop:Generator_ColumnPropNameInTable="ks_siyou_setuzokusi_noColumn" type="xs:int" />
+              <xs:element name="ks_siyou_setuzokusi" msprop:Generator_UserColumnName="ks_siyou_setuzokusi" msprop:Generator_ColumnPropNameInRow="ks_siyou_setuzokusi" msprop:Generator_ColumnVarNameInTable="columnks_siyou_setuzokusi" msprop:Generator_ColumnPropNameInTable="ks_siyou_setuzokusiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KsSiyouSetuzokusiTable" />
+      <xs:field xpath="mstns:ks_siyou_setuzokusi_no" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
