@@ -112,7 +112,12 @@ Public Class CsvInputCheck
     Public URIAGE_MAX_LENGTH() As Integer = {40, 1, 512, 10, 10, 10, 1, 7, 5, 2, 1, 8, 40, 5, 10, 10, 1, 10, 1, 10, 1, 10, 50}
     '汎用売上データの数値型項目索引
     'Private URIAGE_NUM_INDEX() As Integer = {1, 11, 12, 13, 15, 16}
-    Private URIAGE_NUM_INDEX() As Integer = {1, 6, 13, 14, 15, 17, 18}
+    Private URIAGE_NUM_INDEX() As Integer = {1, 6, 15, 18}
+
+    '数量、単価、消費税額 部分をマイナス値 対応
+    Private URIAGE_NUM_MAINASU_INDEX() As Integer = {13, 14, 17}
+
+
     '汎用売上データの必須入力項目索引
     'Private URIAGE_NOTNULL_INDEX() As Integer = {3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17}
     Private URIAGE_NOTNULL_INDEX() As Integer = {3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19}
@@ -287,11 +292,21 @@ Public Class CsvInputCheck
                     End If
                 Next
             Case URIAGE
+
                 For Each i As Integer In URIAGE_NUM_INDEX
                     If (Not strLine.Split(",")(i).Trim.Equals(String.Empty)) AndAlso (Not CheckHankaku(strLine.Split(",")(i))) Then
                         Return False
                     End If
                 Next
+
+                '数量、単価、消費税額 部分をマイナス値
+                For Each i As Integer In URIAGE_NUM_MAINASU_INDEX
+                    If (Not strLine.Split(",")(i).Trim.Equals(String.Empty)) AndAlso (Not CheckHankakuMainasu(strLine.Split(",")(i))) Then
+                        Return False
+                    End If
+                Next
+
+
             Case Else
                 Return False
         End Select
@@ -350,6 +365,24 @@ Public Class CsvInputCheck
         End If
     End Function
 
+    ''' <summary>整数チェックマイナス</summary>
+    Function CheckHankakuMainasu(ByVal inTarget As String) As Boolean
+        If inTarget.Length = System.Text.Encoding.Default.GetByteCount(inTarget) And IsNumeric(inTarget) Then
+            Try
+                Dim intTemp As Integer = CInt(inTarget)
+            Catch ex As Exception
+                Return False
+            End Try
+
+            If InStr(inTarget, ".") > 0 OrElse InStr(inTarget, "+") > 0 Then
+                Return False
+            Else
+                Return True
+            End If
+        Else
+            Return False
+        End If
+    End Function
     ''' <summary>必須チェック</summary>
     Public Function ChkNotDate(ByVal strLine As String, ByVal strCsvKbn As String) As Boolean
 
