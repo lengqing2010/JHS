@@ -96,7 +96,10 @@ Public Class CsvInputCheck
     '汎用仕入データの項目最大長
     Public SIIRE_MAX_LENGTH() As Integer = {40, 1, 512, 10, 10, 5, 2, 5, 8, 5, 10, 1, 10, 1, 10, 1, 10, 50}
     '汎用仕入データの数値型項目索引
-    Private SIIRE_NUM_INDEX() As Integer = {1, 9, 10, 12, 13}
+    Private SIIRE_NUM_INDEX() As Integer = {1, 13}
+    '数量、単価、消費税額 部分をマイナス値 対応
+    Private SIIRE_NUM_MAINASU_INDEX() As Integer = {9, 10, 12}
+
     '汎用仕入データの必須入力項目索引
     Private SIIRE_NOTNULL_INDEX() As Integer = {5, 6, 8, 9, 10, 11, 12, 13, 14}
     '汎用仕入データの日付チェック項目索引
@@ -288,6 +291,12 @@ Public Class CsvInputCheck
             Case SIIRE
                 For Each i As Integer In SIIRE_NUM_INDEX
                     If (Not strLine.Split(",")(i).Trim.Equals(String.Empty)) AndAlso (Not CheckHankaku(strLine.Split(",")(i))) Then
+                        Return False
+                    End If
+                Next
+                '数量、単価、消費税額 部分をマイナス値 対応
+                For Each i As Integer In SIIRE_NUM_MAINASU_INDEX
+                    If (Not strLine.Split(",")(i).Trim.Equals(String.Empty)) AndAlso (Not CheckHankakuMainasu(strLine.Split(",")(i))) Then
                         Return False
                     End If
                 Next
