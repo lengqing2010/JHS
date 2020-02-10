@@ -61,7 +61,7 @@ Public Class KanrisyaMenuInquiryInputLogic
     ''' </summary>
     ''' <param name="dtUPDData">更新項目テーブル</param>
     ''' <returns>文字列</returns>
-    Public Function SetUpdJibanNinsyou(ByVal dtUPDData As KanrisyaMenuInquiryInputDataSet.updJibanNinsyouBusyoDataTable, ByVal strHaita As String) As String
+    Public Function SetUpdJibanNinsyou(ByVal account_no As String, ByVal dtUPDData As KanrisyaMenuInquiryInputDataSet.updJibanNinsyouBusyoDataTable, ByVal strHaita As String) As String
         Using scope As TransactionScope = New TransactionScope(TransactionScopeOption.Required)
             Dim dtReturn As DataTable
             Dim dtReturnNinsyouRenkei As DataTable
@@ -86,7 +86,7 @@ Public Class KanrisyaMenuInquiryInputLogic
                     '地盤認証マスタ連携管理テーブルを登録する。
                     If KanrisyaMenuInquiryInputDataAccess.InsJibanNinsyouRenkei(dtUPDData) = True Then
                         '地盤認証マスタを更新する。
-                        If KanrisyaMenuInquiryInputDataAccess.UpdJibanNinsyou(dtUPDData) = True Then
+                        If KanrisyaMenuInquiryInputDataAccess.UpdJibanNinsyou(account_no, dtUPDData) = True Then
                             scope.Complete()
                             Return "1"
                         Else
@@ -101,7 +101,7 @@ Public Class KanrisyaMenuInquiryInputLogic
                     '地盤認証マスタ連携管理テーブルを更新する。
                     If KanrisyaMenuInquiryInputDataAccess.UpdJibanNinsyouRenkei(dtUPDData) = True Then
                         '地盤認証マスタを更新する。
-                        If KanrisyaMenuInquiryInputDataAccess.UpdJibanNinsyou(dtUPDData) = True Then
+                        If KanrisyaMenuInquiryInputDataAccess.UpdJibanNinsyou(account_no, dtUPDData) = True Then
                             scope.Complete()
                             Return "1"
                         Else

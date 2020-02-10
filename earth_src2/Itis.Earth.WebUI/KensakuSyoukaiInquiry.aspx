@@ -261,7 +261,7 @@
                     border-right: 1px solid black;">
                     <table class="gridviewTableHeader" cellpadding="0" cellspacing="0" width="2109px">
                         <tr style="">
-                            <td style="width: 272px; text-align: center; border-left: 1px solid #999999;">
+                            <td style="width: 300px; text-align: center; border-left: 1px solid #999999;">
                                 <table cellpadding="0" cellspacing="0" border="0">
                                     <tr>
                                         <td rowspan="2" style="border-color: #FFFFD9;">
@@ -488,7 +488,7 @@
                         CssClass="tableMeiSai" Width="2109px" BorderWidth="1px" ShowHeader="False" CellPadding="0">
                         <Columns>
                             <asp:BoundField DataField="kameiten_mei1">
-                                <ItemStyle Width="274px" Height="21px" HorizontalAlign="Left" BorderColor="#999999" />
+                                <ItemStyle Width="302px" Height="21px" HorizontalAlign="Left" BorderColor="#999999" />
                             </asp:BoundField>
                             <asp:BoundField DataField="tenmei_kana1">
                                 <ItemStyle Width="164px" HorizontalAlign="Left" BorderColor="#999999" />

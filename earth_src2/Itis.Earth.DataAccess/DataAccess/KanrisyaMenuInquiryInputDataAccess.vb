@@ -148,6 +148,14 @@ Public Class KanrisyaMenuInquiryInputDataAccess
         commandTextSb.AppendLine(" F.eigyou_master_kanri_kengen, ")
         commandTextSb.AppendLine(" F.kkk_master_kanri_kengen, ")
         commandTextSb.AppendLine(" F.system_kanrisya_kengen, ")
+
+        commandTextSb.AppendLine(" F.tyousaka_kanrisya_kengen, ")
+        commandTextSb.AppendLine(" F.kensa_gyoumu_kengen, ")
+        commandTextSb.AppendLine(" F.hanyou1_gyoumu_kengen, ")
+        commandTextSb.AppendLine(" F.hanyou2_gyoumu_kengen, ")
+        commandTextSb.AppendLine(" F.hanyou3_gyoumu_kengen, ")
+        commandTextSb.AppendLine(" A.account_no, ")
+
         commandTextSb.AppendLine(" ISNULL(A.upd_datetime,'') AS upd_datetime ")
         commandTextSb.AppendLine(" FROM m_jiban_ninsyou  A WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" LEFT OUTER JOIN m_jhs_mailbox B ")
@@ -305,7 +313,7 @@ Public Class KanrisyaMenuInquiryInputDataAccess
     ''' </summary>
     ''' <param name="dtUPDData">更新項目のテーブル</param>
     ''' <returns>true or false</returns>
-    Public Function UpdJibanNinsyou(ByVal dtUPDData As KanrisyaMenuInquiryInputDataSet.updJibanNinsyouBusyoDataTable) As Boolean
+    Public Function UpdJibanNinsyou(ByVal account_no As String, ByVal dtUPDData As KanrisyaMenuInquiryInputDataSet.updJibanNinsyouBusyoDataTable) As Boolean
         '戻り値
         UpdJibanNinsyou = False
 
@@ -325,6 +333,40 @@ Public Class KanrisyaMenuInquiryInputDataAccess
         commandTextSb.AppendLine(" upd_login_user_id=@upd_login_user_id, ")
         commandTextSb.AppendLine(" upd_datetime=GETDATE() ")
         commandTextSb.AppendLine("WHERE login_user_id = @login_user_id  ")
+
+
+
+        commandTextSb.AppendLine(" UPDATE ")
+        commandTextSb.AppendLine(" m_account ")
+        commandTextSb.AppendLine(" SET ")
+
+        commandTextSb.AppendLine(" irai_gyoumu_kengen='" & dtUPDData.Rows(0).Item("irai_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" sinki_nyuuryoku_kengen='" & dtUPDData.Rows(0).Item("sinki_nyuuryoku_kengen") & "', ")
+        commandTextSb.AppendLine(" data_haki_kengen='" & dtUPDData.Rows(0).Item("data_haki_kengen") & "', ")
+        commandTextSb.AppendLine(" kekka_gyoumu_kengen='" & dtUPDData.Rows(0).Item("kekka_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hosyou_gyoumu_kengen='" & dtUPDData.Rows(0).Item("hosyou_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hkks_gyoumu_kengen='" & dtUPDData.Rows(0).Item("hkks_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" koj_gyoumu_kengen='" & dtUPDData.Rows(0).Item("koj_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" keiri_gyoumu_kengen='" & dtUPDData.Rows(0).Item("keiri_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hansoku_uri_kengen='" & dtUPDData.Rows(0).Item("hansoku_uri_kengen") & "', ")
+        commandTextSb.AppendLine(" hattyuusyo_kanri_kengen='" & dtUPDData.Rows(0).Item("hattyuusyo_kanri_kengen") & "', ")
+        commandTextSb.AppendLine(" kaiseki_master_kanri_kengen='" & dtUPDData.Rows(0).Item("kaiseki_master_kanri_kengen") & "', ")
+        commandTextSb.AppendLine(" eigyou_master_kanri_kengen='" & dtUPDData.Rows(0).Item("eigyou_master_kanri_kengen") & "', ")
+        commandTextSb.AppendLine(" kkk_master_kanri_kengen='" & dtUPDData.Rows(0).Item("kkk_master_kanri_kengen") & "', ")
+        commandTextSb.AppendLine(" tyousaka_kanrisya_kengen='" & dtUPDData.Rows(0).Item("tyousaka_kanrisya_kengen") & "', ")
+        commandTextSb.AppendLine(" kensa_gyoumu_kengen='" & dtUPDData.Rows(0).Item("kensa_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hanyou1_gyoumu_kengen='" & dtUPDData.Rows(0).Item("hanyou1_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hanyou2_gyoumu_kengen='" & dtUPDData.Rows(0).Item("hanyou2_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" hanyou3_gyoumu_kengen='" & dtUPDData.Rows(0).Item("hanyou3_gyoumu_kengen") & "', ")
+        commandTextSb.AppendLine(" system_kanrisya_kengen='" & dtUPDData.Rows(0).Item("system_kanrisya_kengen") & "', ")
+        commandTextSb.AppendLine(" upd_login_user_id=@upd_login_user_id, ")
+        commandTextSb.AppendLine(" upd_datetime=GETDATE() ")
+
+        commandTextSb.AppendLine("WHERE account_no = " & account_no & "  ")
+
+
+
+
 
         'パラメータの設定
         With dtUPDData.Rows(0)

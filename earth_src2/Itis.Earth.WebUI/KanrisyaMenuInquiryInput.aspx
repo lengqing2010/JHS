@@ -190,16 +190,67 @@
     </thead>
     <tbody>
     <tr style ="height :23px;">
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblIraiGyoumu" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblSinkiNyuryoku" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblDataHaki" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblKekkagyoumu" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblHosyouGyoumu" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblHokosyoGyoumu" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblKouji" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblKeiriGyoumu" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblHansokuUriage" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblHattyusyoKanri" runat="server" Text="&nbsp;"></asp:Label></td>
+        <td style="background-color:#e6e6e6;">
+            <asp:DropDownList ID="ddlIraiGyoumu" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblIraiGyoumu" runat="server" Text="&nbsp;"></asp:Label>--%>
+        </td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlSinkiNyuryoku" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblSinkiNyuryoku" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlDataHaki" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblDataHaki" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlKekkagyoumu" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblKekkagyoumu" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlHosyouGyoumu" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblHosyouGyoumu" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlHokosyoGyoumu" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblHokosyoGyoumu" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlKouji" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblKouji" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlKeiriGyoumu" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblKeiriGyoumu" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlHansokuUriage" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblHansokuUriage" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlHattyusyoKanri" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblHattyusyoKanri" runat="server" Text="&nbsp;">--%></asp:Label></td>
     </tr>
     </tbody>
 </table>
@@ -211,15 +262,72 @@
        <td>解析ﾏｽﾀ</td>
         <td>営業ﾏｽﾀ</td>
         <td>価格ﾏｽﾀ</td>
+        <td>調査管理</td>
+        <td>検査業務</td>
+        <td>汎用①</td>
+        <td>汎用②</td>
+        <td>汎用③</td>
         <td style ="color:Red ;">ｼｽﾃﾑ管理者</td>
       </tr>
     </thead>
     <tbody>
     <tr style ="height :23px;">
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblKaisekiMaster" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblEigyouMaster" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblKakakuMaster" runat="server" Text="&nbsp;"></asp:Label></td>
-        <td style="background-color:#e6e6e6;"><asp:Label ID="lblSystemKanrisya" runat="server" Text="&nbsp;"></asp:Label></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlKaisekiMaster" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblKaisekiMaster" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlEigyouMaster" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblEigyouMaster" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlKakakuMaster" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblKakakuMaster" runat="server" Text="&nbsp;"></asp:Label>--%></td>
+            
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddltyousaka_kanrisya_kengen" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+        </td>            
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlkensa_gyoumu_kengen" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+        </td>    
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlhanyou1_gyoumu_kengen" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+        </td>    
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlhanyou2_gyoumu_kengen" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+        </td>    
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlhanyou3_gyoumu_kengen" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+        </td>          
+            
+        <td style="background-color:#e6e6e6;">
+                    <asp:DropDownList ID="ddlSystemKanrisya" runat="server" Font-Size="16px" Width="40" Font-Names="ＭＳ Ｐゴシック">
+                <asp:ListItem Value="0" Text=""></asp:ListItem>
+                <asp:ListItem Value="-1">○</asp:ListItem>
+            </asp:DropDownList>
+            <%--<asp:Label ID="lblSystemKanrisya" runat="server" Text="&nbsp;"></asp:Label>--%></td>
     </tr>
     </tbody>
 </table>
@@ -234,6 +342,7 @@
        </td>
     </tr>
 </table>
+
 <asp:HiddenField ID="hidHaita" runat="server"  Value ="" />  
 <asp:HiddenField ID="hidbtnKbn" runat="server"  Value ="" />
 

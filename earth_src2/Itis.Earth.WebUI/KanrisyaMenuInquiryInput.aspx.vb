@@ -271,88 +271,129 @@ Partial Public Class KanrisyaMenuInquiryInput
                 End If
                 '依頼業務
                 If dtUserInfo.Rows(0).Item("irai_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblIraiGyoumu.Text = "○"
+                    Me.ddlIraiGyoumu.SelectedIndex = 1
                 Else
-                    Me.lblIraiGyoumu.Text = "&nbsp;"
+                    Me.ddlIraiGyoumu.SelectedIndex = 0
                 End If
                 '新規入力
                 If dtUserInfo.Rows(0).Item("sinki_nyuuryoku_kengen").ToString = "-1" Then
-                    Me.lblSinkiNyuryoku.Text = "○"
+                    Me.ddlSinkiNyuryoku.SelectedIndex = 1
                 Else
-                    Me.lblSinkiNyuryoku.Text = "&nbsp;"
+                    Me.ddlSinkiNyuryoku.SelectedIndex = 0
                 End If
                 'ﾃﾞｰﾀ破棄
                 If dtUserInfo.Rows(0).Item("data_haki_kengen").ToString = "-1" Then
-                    Me.lblDataHaki.Text = "○"
+                    Me.ddlDataHaki.SelectedIndex = 1
                 Else
-                    Me.lblDataHaki.Text = "&nbsp;"
+                    Me.ddlDataHaki.SelectedIndex = 0
                 End If
                 '結果業務
                 If dtUserInfo.Rows(0).Item("kekka_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblKekkagyoumu.Text = "○"
+                    Me.ddlKekkagyoumu.SelectedIndex = 1
                 Else
-                    Me.lblKekkagyoumu.Text = "&nbsp;"
+                    Me.ddlKekkagyoumu.SelectedIndex = 0
                 End If
                 '保証業務
                 If dtUserInfo.Rows(0).Item("hosyou_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblHosyouGyoumu.Text = "○"
+                    Me.ddlHosyouGyoumu.SelectedIndex = 1
                 Else
-                    Me.lblHosyouGyoumu.Text = "&nbsp;"
+                    Me.ddlHosyouGyoumu.SelectedIndex = 0
                 End If
                 '報告書業務
                 If dtUserInfo.Rows(0).Item("hkks_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblHokosyoGyoumu.Text = "○"
+                    Me.ddlHokosyoGyoumu.SelectedIndex = 1
                 Else
-                    Me.lblHokosyoGyoumu.Text = "&nbsp;"
+                    Me.ddlHokosyoGyoumu.SelectedIndex = 0
                 End If
                 '工事業務
                 If dtUserInfo.Rows(0).Item("koj_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblKouji.Text = "○"
+                    Me.ddlKouji.SelectedIndex = 1
                 Else
-                    Me.lblKouji.Text = "&nbsp;"
+                    Me.ddlKouji.SelectedIndex = 0
                 End If
                 '経理業務
                 If dtUserInfo.Rows(0).Item("keiri_gyoumu_kengen").ToString = "-1" Then
-                    Me.lblKeiriGyoumu.Text = "○"
+                    Me.ddlKeiriGyoumu.SelectedIndex = 1
                 Else
-                    Me.lblKeiriGyoumu.Text = "&nbsp;"
+                    Me.ddlKeiriGyoumu.SelectedIndex = 0
                 End If
                 '販促売上
                 If dtUserInfo.Rows(0).Item("hansoku_uri_kengen").ToString = "-1" Then
-                    Me.lblHansokuUriage.Text = "○"
+                    Me.ddlHansokuUriage.SelectedIndex = 1
                 Else
-                    Me.lblHansokuUriage.Text = "&nbsp;"
+                    Me.ddlHansokuUriage.SelectedIndex = 0
                 End If
                 '発注書管理
                 If dtUserInfo.Rows(0).Item("hattyuusyo_kanri_kengen").ToString = "-1" Then
-                    Me.lblHattyusyoKanri.Text = "○"
+                    Me.ddlHattyusyoKanri.SelectedIndex = 1
                 Else
-                    Me.lblHattyusyoKanri.Text = "&nbsp;"
+                    Me.ddlHattyusyoKanri.SelectedIndex = 0
                 End If
                 '解析ﾏｽﾀ
                 If dtUserInfo.Rows(0).Item("kaiseki_master_kanri_kengen").ToString = "-1" Then
-                    Me.lblKaisekiMaster.Text = "○"
+                    Me.ddlKaisekiMaster.SelectedIndex = 1
                 Else
-                    Me.lblKaisekiMaster.Text = "&nbsp;"
+                    Me.ddlKaisekiMaster.SelectedIndex = 0
                 End If
                 '営業ﾏｽﾀ
                 If dtUserInfo.Rows(0).Item("eigyou_master_kanri_kengen").ToString = "-1" Then
-                    Me.lblEigyouMaster.Text = "○"
+                    Me.ddlEigyouMaster.SelectedIndex = 1
                 Else
-                    Me.lblEigyouMaster.Text = "&nbsp;"
+                    Me.ddlEigyouMaster.SelectedIndex = 0
                 End If
                 '価格ﾏｽﾀ
                 If dtUserInfo.Rows(0).Item("kkk_master_kanri_kengen").ToString = "-1" Then
-                    Me.lblKakakuMaster.Text = "○"
+                    Me.ddlKakakuMaster.SelectedIndex = 1
                 Else
-                    Me.lblKakakuMaster.Text = "&nbsp;"
+                    Me.ddlKakakuMaster.SelectedIndex = 0
                 End If
+
+
+
+                If dtUserInfo.Rows(0).Item("tyousaka_kanrisya_kengen").ToString = "-1" Then
+                    Me.ddltyousaka_kanrisya_kengen.SelectedIndex = 1
+                Else
+                    Me.ddltyousaka_kanrisya_kengen.SelectedIndex = 0
+                End If
+                If dtUserInfo.Rows(0).Item("kensa_gyoumu_kengen").ToString = "-1" Then
+                    Me.ddlkensa_gyoumu_kengen.SelectedIndex = 1
+                Else
+                    Me.ddlkensa_gyoumu_kengen.SelectedIndex = 0
+                End If
+                If dtUserInfo.Rows(0).Item("hanyou1_gyoumu_kengen").ToString = "-1" Then
+                    Me.ddlhanyou1_gyoumu_kengen.SelectedIndex = 1
+                Else
+                    Me.ddlhanyou1_gyoumu_kengen.SelectedIndex = 0
+                End If
+                If dtUserInfo.Rows(0).Item("hanyou2_gyoumu_kengen").ToString = "-1" Then
+                    Me.ddlhanyou2_gyoumu_kengen.SelectedIndex = 1
+                Else
+                    Me.ddlhanyou2_gyoumu_kengen.SelectedIndex = 0
+                End If
+                If dtUserInfo.Rows(0).Item("hanyou3_gyoumu_kengen").ToString = "-1" Then
+                    Me.ddlhanyou3_gyoumu_kengen.SelectedIndex = 1
+                Else
+                    Me.ddlhanyou3_gyoumu_kengen.SelectedIndex = 0
+                End If
+
+
+
+
+
+
+
+
+
+
+
+
                 'ｼｽﾃﾑ管理者
                 If dtUserInfo.Rows(0).Item("system_kanrisya_kengen").ToString = "-1" Then
-                    Me.lblSystemKanrisya.Text = "○"
+                    Me.ddlSystemKanrisya.SelectedIndex = 1
                 Else
-                    Me.lblSystemKanrisya.Text = "&nbsp;"
+                    Me.ddlSystemKanrisya.SelectedIndex = 0
                 End If
+                ViewState("account_no") = dtUserInfo.Rows(0).Item("account_no").ToString
                 hidHaita.Value = Replace(dtUserInfo.Rows(0).Item("upd_datetime"), "1900/01/01 0:00:00", "")
             Else
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", csScript.Append("alert('" & Messages.Instance.MSG020E & "');").ToString, True)
@@ -400,13 +441,40 @@ Partial Public Class KanrisyaMenuInquiryInput
             .user_id = Me.tbxUserCd.Text
             .renkei_siji_cd = 2
             .sousin_jyky_cd = 0
+
+            .irai_gyoumu_kengen = Me.ddlIraiGyoumu.SelectedValue
+            .sinki_nyuuryoku_kengen = Me.ddlSinkiNyuryoku.SelectedValue
+            .data_haki_kengen = Me.ddlDataHaki.SelectedValue
+
+            .kekka_gyoumu_kengen = Me.ddlKekkagyoumu.SelectedValue
+            .hosyou_gyoumu_kengen = Me.ddlHokosyoGyoumu.SelectedValue
+
+
+            .hkks_gyoumu_kengen = Me.ddlHokosyoGyoumu.SelectedValue
+            .koj_gyoumu_kengen = Me.ddlKouji.SelectedValue
+            .keiri_gyoumu_kengen = ddlKeiriGyoumu.SelectedValue
+            .hansoku_uri_kengen = ddlHansokuUriage.SelectedValue
+            .hattyuusyo_kanri_kengen = ddlHattyusyoKanri.SelectedValue
+            .kaiseki_master_kanri_kengen = ddlKaisekiMaster.SelectedValue
+            .eigyou_master_kanri_kengen = ddlEigyouMaster.SelectedValue
+            .kkk_master_kanri_kengen = ddlKakakuMaster.SelectedValue
+
+            .tyousaka_kanrisya_kengen = ddltyousaka_kanrisya_kengen.SelectedValue
+            .kensa_gyoumu_kengen = ddlkensa_gyoumu_kengen.SelectedValue
+            .hanyou1_gyoumu_kengen = ddlhanyou1_gyoumu_kengen.SelectedValue
+            .hanyou2_gyoumu_kengen = ddlhanyou2_gyoumu_kengen.SelectedValue
+            .hanyou3_gyoumu_kengen = ddlhanyou3_gyoumu_kengen.SelectedValue
+
+            .system_kanrisya_kengen = ddlSystemKanrisya.SelectedValue
+
+
         End With
 
         dtParam.AddupdJibanNinsyouBusyoRow(drParam)
 
         '地盤認証、部署管理マスタを更新する。
         Dim strReturn As String
-        strReturn = KanrisyaMenuInquiryInputBL.SetUpdJibanNinsyou(dtParam, hidHaita.Value)
+        strReturn = KanrisyaMenuInquiryInputBL.SetUpdJibanNinsyou(ViewState("account_no").ToString, dtParam, hidHaita.Value)
 
         Dim csScript As New StringBuilder
         If strReturn = "H" Then
