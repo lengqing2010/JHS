@@ -129,7 +129,11 @@
     <tr style ="height :23px">
         <td class="koumokuMei">所属部署</td>
         <td >
-            <asp:Label ID="lblSyozokuBusyo" runat="server" Text="&nbsp;"></asp:Label>
+<%--            <asp:Label ID="lblSyozokuBusyo" runat="server" Text="&nbsp;"></asp:Label>
+            --%>
+            <asp:DropDownList ID="ddlSyozokuBusyo" runat="server" Width ="140px" >
+                <asp:ListItem  Value ="0" Text ="&nbsp;" ></asp:ListItem>
+            </asp:DropDownList>
             <asp:HiddenField ID="hidBusyoCd" runat="server" />
         </td>
         <td colspan ="2" >
@@ -256,7 +260,7 @@
 </table>
 <br />
 <div style="font-weight: bolder;">マスタ管理権限</div>
-<table style="width: 340px; text-align :center ;border-width:1px; border-color:Gray;" cellpadding="0" cellspacing="0" border="1" >
+<table style="width: 700px; text-align :center ;border-width:1px; border-color:Gray;" cellpadding="0" cellspacing="0" border="1" >
     <thead class = "gridviewTableHeader">
       <tr style ="height :23px;background-color: #ffffcc;">
        <td>解析ﾏｽﾀ</td>

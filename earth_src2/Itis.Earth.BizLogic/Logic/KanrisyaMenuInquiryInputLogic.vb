@@ -57,6 +57,21 @@ Public Class KanrisyaMenuInquiryInputLogic
     End Function
 
     ''' <summary>
+    ''' 地盤認証マスタ.参照権限管理者FLG 取得する
+    ''' </summary>
+    ''' <param name="account_no"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function SelSansyouKengenKanriFlg(ByVal account_no As String) As String
+        Return KanrisyaMenuInquiryInputDataAccess.SelSansyouKengenKanriFlg(account_no)
+    End Function
+
+    Public Function SelBusyoList() As DataTable
+        Return KanrisyaMenuInquiryInputDataAccess.SelBusyoList()
+    End Function
+
+
+    ''' <summary>
     ''' 地盤認証マスタと部署管理マスタを更新する。
     ''' </summary>
     ''' <param name="dtUPDData">更新項目テーブル</param>

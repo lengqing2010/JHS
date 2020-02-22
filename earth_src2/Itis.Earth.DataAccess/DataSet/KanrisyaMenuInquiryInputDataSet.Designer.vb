@@ -1813,6 +1813,8 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
         
         Private columnaccount_no As Global.System.Data.DataColumn
         
+        Private columnss_busyo_cd As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2041,6 +2043,13 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ss_busyo_cdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnss_busyo_cd
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2098,9 +2107,10 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
                     ByVal hanyou2_gyoumu_kengen As String,  _
                     ByVal hanyou3_gyoumu_kengen As String,  _
                     ByVal system_kanrisya_kengen As String,  _
-                    ByVal account_no As String) As updJibanNinsyouBusyoRow
+                    ByVal account_no As String,  _
+                    ByVal ss_busyo_cd As String) As updJibanNinsyouBusyoRow
             Dim rowupdJibanNinsyouBusyoRow As updJibanNinsyouBusyoRow = CType(Me.NewRow,updJibanNinsyouBusyoRow)
-            Dim columnValuesArray() As Object = New Object() {user_id, eigyou_man_kbn, gyoumu_kbn, busyo_cd, sosiki_level, upd_login_user_id, renkei_siji_cd, sousin_jyky_cd, irai_gyoumu_kengen, sinki_nyuuryoku_kengen, data_haki_kengen, kekka_gyoumu_kengen, hosyou_gyoumu_kengen, hkks_gyoumu_kengen, koj_gyoumu_kengen, keiri_gyoumu_kengen, hansoku_uri_kengen, hattyuusyo_kanri_kengen, kaiseki_master_kanri_kengen, eigyou_master_kanri_kengen, kkk_master_kanri_kengen, tyousaka_kanrisya_kengen, kensa_gyoumu_kengen, hanyou1_gyoumu_kengen, hanyou2_gyoumu_kengen, hanyou3_gyoumu_kengen, system_kanrisya_kengen, account_no}
+            Dim columnValuesArray() As Object = New Object() {user_id, eigyou_man_kbn, gyoumu_kbn, busyo_cd, sosiki_level, upd_login_user_id, renkei_siji_cd, sousin_jyky_cd, irai_gyoumu_kengen, sinki_nyuuryoku_kengen, data_haki_kengen, kekka_gyoumu_kengen, hosyou_gyoumu_kengen, hkks_gyoumu_kengen, koj_gyoumu_kengen, keiri_gyoumu_kengen, hansoku_uri_kengen, hattyuusyo_kanri_kengen, kaiseki_master_kanri_kengen, eigyou_master_kanri_kengen, kkk_master_kanri_kengen, tyousaka_kanrisya_kengen, kensa_gyoumu_kengen, hanyou1_gyoumu_kengen, hanyou2_gyoumu_kengen, hanyou3_gyoumu_kengen, system_kanrisya_kengen, account_no, ss_busyo_cd}
             rowupdJibanNinsyouBusyoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowupdJibanNinsyouBusyoRow)
             Return rowupdJibanNinsyouBusyoRow
@@ -2153,6 +2163,7 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
             Me.columnhanyou3_gyoumu_kengen = MyBase.Columns("hanyou3_gyoumu_kengen")
             Me.columnsystem_kanrisya_kengen = MyBase.Columns("system_kanrisya_kengen")
             Me.columnaccount_no = MyBase.Columns("account_no")
+            Me.columnss_busyo_cd = MyBase.Columns("ss_busyo_cd")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2213,6 +2224,8 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
             MyBase.Columns.Add(Me.columnsystem_kanrisya_kengen)
             Me.columnaccount_no = New Global.System.Data.DataColumn("account_no", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnaccount_no)
+            Me.columnss_busyo_cd = New Global.System.Data.DataColumn("ss_busyo_cd", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnss_busyo_cd)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4041,6 +4054,20 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ss_busyo_cd() As String
+            Get
+                If Me.Isss_busyo_cdNull Then
+                    Return "(Empty)"
+                Else
+                    Return CType(Me(Me.tableupdJibanNinsyouBusyo.ss_busyo_cdColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tableupdJibanNinsyouBusyo.ss_busyo_cdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function Isuser_idNull() As Boolean
             Return Me.IsNull(Me.tableupdJibanNinsyouBusyo.user_idColumn)
         End Function
@@ -4318,6 +4345,16 @@ Partial Public Class KanrisyaMenuInquiryInputDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Setaccount_noNull()
             Me(Me.tableupdJibanNinsyouBusyo.account_noColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isss_busyo_cdNull() As Boolean
+            Return Me.IsNull(Me.tableupdJibanNinsyouBusyo.ss_busyo_cdColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setss_busyo_cdNull()
+            Me(Me.tableupdJibanNinsyouBusyo.ss_busyo_cdColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

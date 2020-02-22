@@ -141,6 +141,29 @@ Partial Public Class KanrisyaMenuInquiryInput
 
     End Sub
 
+
+    ''' <summary>部署コードを設定する。</summary>
+
+    Private Sub SetSyozokuBusyoBusyo()
+
+        'EMAB障害対応情報の格納処理
+        UnTrappedExceptionManager.AddMethodEntrance(MyClass.GetType.FullName & "." & MethodBase.GetCurrentMethod.Name)
+
+        Dim dt As DataTable = KanrisyaMenuInquiryInputBL.SelBusyoList
+
+        Me.ddlSyozokuBusyo.Items.Clear()
+        Me.ddlSyozokuBusyo.Items.Insert(0, New ListItem(String.Empty, String.Empty))
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+            Dim ddlist As New ListItem
+            ddlist = New ListItem
+            ddlist.Text = dt.Rows(i).Item(1).ToString
+            ddlist.Value = dt.Rows(i).Item(0).ToString
+            ddlSyozokuBusyo.Items.Add(ddlist)
+        Next
+
+    End Sub
+
     ''' <summary>登録ボタンの可用不可用を設定する。</summary>
     Private Sub setTourokuButton()
 
@@ -215,6 +238,40 @@ Partial Public Class KanrisyaMenuInquiryInput
         '組織レベルデータテーブル
         Dim dtSosikiLevel As KanrisyaMenuInquiryInputDataSet.sansyouLevelDataTable
 
+        '地盤認証マスタ.参照権限管理者FLG=1  の人
+        Dim SansyouKengenKanriFlg As String = KanrisyaMenuInquiryInputBL.SelSansyouKengenKanriFlg(strUserId)
+        Dim editEnabled As Boolean = SansyouKengenKanriFlg = "1"
+        SetSyozokuBusyoBusyo()
+
+
+        ddlIraiGyoumu.Enabled = editEnabled
+        ddlSinkiNyuryoku.Enabled = editEnabled
+        ddlDataHaki.Enabled = editEnabled
+        ddlKekkagyoumu.Enabled = editEnabled
+        ddlHosyouGyoumu.Enabled = editEnabled
+
+        ddlHokosyoGyoumu.Enabled = editEnabled
+        ddlKouji.Enabled = editEnabled
+        ddlKeiriGyoumu.Enabled = editEnabled
+        ddlHansokuUriage.Enabled = editEnabled
+        ddlHattyusyoKanri.Enabled = editEnabled
+
+        ddlKaisekiMaster.Enabled = editEnabled
+        ddlEigyouMaster.Enabled = editEnabled
+        ddlKakakuMaster.Enabled = editEnabled
+        ddltyousaka_kanrisya_kengen.Enabled = editEnabled
+        ddlkensa_gyoumu_kengen.Enabled = editEnabled
+        ddlhanyou1_gyoumu_kengen.Enabled = editEnabled
+        ddlhanyou2_gyoumu_kengen.Enabled = editEnabled
+        ddlhanyou3_gyoumu_kengen.Enabled = editEnabled
+        ddlSystemKanrisya.Enabled = editEnabled
+        ddlIraiGyoumu.Enabled = editEnabled
+
+        ddlSyozokuBusyo.Enabled = editEnabled
+
+
+
+
         If dtDate.Rows.Count > 0 Then
             dtUserInfo = KanrisyaMenuInquiryInputBL.GetUserInfo(strUserId, dtDate.Rows(0).Item(1).ToString)
             If dtUserInfo.Rows.Count > 0 Then
@@ -224,10 +281,17 @@ Partial Public Class KanrisyaMenuInquiryInput
                 Me.tbxSiMei.Text = dtUserInfo.Rows(0).Item("DisplayName").ToString
                 '部署名
                 If dtUserInfo.Rows(0).Item("busyo_mei").ToString <> "" Then
-                    Me.lblSyozokuBusyo.Text = dtUserInfo.Rows(0).Item("busyo_mei").ToString
+                    'Me.lblSyozokuBusyo.Text = dtUserInfo.Rows(0).Item("busyo_mei").ToString
+                    Me.ddlSyozokuBusyo.SelectedValue = dtUserInfo.Rows(0).Item("busyo_cd").ToString
                 Else
-                    Me.lblSyozokuBusyo.Text = "&nbsp;"
+                    ' Me.lblSyozokuBusyo.Text = "&nbsp;"
+                    Me.ddlSyozokuBusyo.SelectedIndex = 0
                 End If
+
+
+
+
+
                 '組織名
                 If dtUserInfo.Rows(0).Item("sosikiMei").ToString <> "" Then
                     Me.lblSosikiLevel.Text = dtUserInfo.Rows(0).Item("sosikiMei").ToString
@@ -446,13 +510,15 @@ Partial Public Class KanrisyaMenuInquiryInput
             .sinki_nyuuryoku_kengen = Me.ddlSinkiNyuryoku.SelectedValue
             .data_haki_kengen = Me.ddlDataHaki.SelectedValue
 
+
             .kekka_gyoumu_kengen = Me.ddlKekkagyoumu.SelectedValue
-            .hosyou_gyoumu_kengen = Me.ddlHokosyoGyoumu.SelectedValue
+            .hosyou_gyoumu_kengen = Me.ddlHosyouGyoumu.SelectedValue
 
 
             .hkks_gyoumu_kengen = Me.ddlHokosyoGyoumu.SelectedValue
             .koj_gyoumu_kengen = Me.ddlKouji.SelectedValue
             .keiri_gyoumu_kengen = ddlKeiriGyoumu.SelectedValue
+
             .hansoku_uri_kengen = ddlHansokuUriage.SelectedValue
             .hattyuusyo_kanri_kengen = ddlHattyusyoKanri.SelectedValue
             .kaiseki_master_kanri_kengen = ddlKaisekiMaster.SelectedValue
@@ -467,6 +533,7 @@ Partial Public Class KanrisyaMenuInquiryInput
 
             .system_kanrisya_kengen = ddlSystemKanrisya.SelectedValue
 
+            .ss_busyo_cd = ddlSyozokuBusyo.SelectedValue
 
         End With
 

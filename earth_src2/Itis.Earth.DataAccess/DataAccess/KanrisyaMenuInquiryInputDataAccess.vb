@@ -243,6 +243,39 @@ Public Class KanrisyaMenuInquiryInputDataAccess
 
     End Function
 
+
+    ''' <summary>
+    ''' 追加参照部署コードによって取得した組織レベル
+    ''' </summary>
+    ''' <returns>組織レベルデータテーブル</returns>
+    Public Function SelBusyoList() As DataTable
+
+        Dim commandTextSb As New System.Text.StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+        Dim ds As New DataSet
+
+        commandTextSb.AppendLine(" SELECT ")
+        commandTextSb.AppendLine(" busyo_cd,busyo_mei ")
+        commandTextSb.AppendLine(" FROM m_busyo_kanri WITH (READCOMMITTED) ")
+
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), ds, _
+                    "tmp")
+
+        '終了処理
+        commandTextSb = Nothing
+
+        Return ds.Tables(0)
+
+    End Function
+
+
+
+
+
     ''' <summary>
     ''' 登録したユーザーが地盤認証マスタに存在チェック
     ''' </summary>
@@ -275,6 +308,43 @@ Public Class KanrisyaMenuInquiryInputDataAccess
         Return dsJibanNinsyou.jibanNinsyou
 
     End Function
+
+    ''' <summary>
+    ''' 地盤認証マスタ.参照権限管理者FLG 取得する
+    ''' </summary>
+    ''' <param name="strUserId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function SelSansyouKengenKanriFlg(ByVal strUserId As String) As String
+
+        Dim commandTextSb As New System.Text.StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+        Dim ds As New Data.DataSet
+
+        commandTextSb.AppendLine(" SELECT ")
+        commandTextSb.AppendLine(" isnull(sansyou_kengen_kanri_flg,'') ")
+        commandTextSb.AppendLine(" FROM m_jiban_ninsyou WITH (READCOMMITTED) ")
+        commandTextSb.AppendLine(" WHERE  login_user_id= @login_user_id ")
+
+        'パラメータの設定
+        paramList.Add(MakeParam("@login_user_id", SqlDbType.VarChar, 30, strUserId.ToString))
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), ds, _
+                    "tmp", paramList.ToArray)
+
+        '終了処理
+        commandTextSb = Nothing
+
+        If ds.Tables(0).Rows.Count > 0 Then
+            Return ds.Tables(0).Rows(0).Item(0).ToString
+        Else
+            Return ""
+        End If
+    End Function
+
 
     ''' <summary>
     ''' 登録したユーザーが地盤認証マスタ連携管理テーブルに存在チェック
@@ -329,6 +399,7 @@ Public Class KanrisyaMenuInquiryInputDataAccess
         commandTextSb.AppendLine(" SET ")
         commandTextSb.AppendLine(" eigyou_man_kbn=@eigyou_man_kbn, ")
         commandTextSb.AppendLine(" gyoumu_kbn=@gyoumu_kbn, ")
+        commandTextSb.AppendLine(" busyo_cd=@ss_busyo_cd, ")
         commandTextSb.AppendLine(" t_sansyou_busyo_cd=@busyo_cd, ")
         commandTextSb.AppendLine(" upd_login_user_id=@upd_login_user_id, ")
         commandTextSb.AppendLine(" upd_datetime=GETDATE() ")
@@ -381,6 +452,7 @@ Public Class KanrisyaMenuInquiryInputDataAccess
                 paramList.Add(MakeParam("@gyoumu_kbn", SqlDbType.Int, 4, DBNull.Value))
             End If
             paramList.Add(MakeParam("@busyo_cd", SqlDbType.VarChar, 4, .Item("busyo_cd")))
+            paramList.Add(MakeParam("@ss_busyo_cd", SqlDbType.VarChar, 4, .Item("ss_busyo_cd")))
             paramList.Add(MakeParam("@upd_login_user_id", SqlDbType.VarChar, 30, .Item("upd_login_user_id")))
             paramList.Add(MakeParam("@login_user_id", SqlDbType.VarChar, 30, .Item("user_id")))
 

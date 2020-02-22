@@ -94,13 +94,13 @@ Partial Public Class KanrisyaMenuInquiryInput
     Protected WithEvents ddlGyoumuCode As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''lblSyozokuBusyo コントロール。
+    '''ddlSyozokuBusyo コントロール。
     '''</summary>
     '''<remarks>
     '''自動生成されたフィールド。
     '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
     '''</remarks>
-    Protected WithEvents lblSyozokuBusyo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents ddlSyozokuBusyo As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''hidBusyoCd コントロール。
