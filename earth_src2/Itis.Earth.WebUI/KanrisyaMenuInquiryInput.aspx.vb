@@ -175,14 +175,14 @@ Partial Public Class KanrisyaMenuInquiryInput
 
             If strFlg = "1" Then
                 '権限がある。
-                Me.btnTouroku.Visible = True
+                Me.btnTouroku.Enabled = True
             Else
                 '権限がない。
-                Me.btnTouroku.Visible = False
+                Me.btnTouroku.Enabled = False
             End If
         Else
             '権限がない。
-            Me.btnTouroku.Visible = False
+            Me.btnTouroku.Enabled = False
         End If
 
     End Sub
@@ -240,35 +240,33 @@ Partial Public Class KanrisyaMenuInquiryInput
 
         '地盤認証マスタ.参照権限管理者FLG=1  の人
         Dim SansyouKengenKanriFlg As String = KanrisyaMenuInquiryInputBL.SelSansyouKengenKanriFlg(strUserId)
-        Dim editEnabled As Boolean = SansyouKengenKanriFlg = "1"
+        'Dim editEnabled As Boolean = SansyouKengenKanriFlg = "1"
         SetSyozokuBusyoBusyo()
 
 
-        ddlIraiGyoumu.Enabled = editEnabled
-        ddlSinkiNyuryoku.Enabled = editEnabled
-        ddlDataHaki.Enabled = editEnabled
-        ddlKekkagyoumu.Enabled = editEnabled
-        ddlHosyouGyoumu.Enabled = editEnabled
+        'ddlIraiGyoumu.Enabled = editEnabled
+        'ddlSinkiNyuryoku.Enabled = editEnabled
+        'ddlDataHaki.Enabled = editEnabled
+        'ddlKekkagyoumu.Enabled = editEnabled
+        'ddlHosyouGyoumu.Enabled = editEnabled
+        'ddlHokosyoGyoumu.Enabled = editEnabled
+        'ddlKouji.Enabled = editEnabled
+        'ddlKeiriGyoumu.Enabled = editEnabled
+        'ddlHansokuUriage.Enabled = editEnabled
+        'ddlHattyusyoKanri.Enabled = editEnabled
+        'ddlKaisekiMaster.Enabled = editEnabled
+        'ddlEigyouMaster.Enabled = editEnabled
+        'ddlKakakuMaster.Enabled = editEnabled
+        'ddltyousaka_kanrisya_kengen.Enabled = editEnabled
+        'ddlkensa_gyoumu_kengen.Enabled = editEnabled
+        'ddlhanyou1_gyoumu_kengen.Enabled = editEnabled
+        'ddlhanyou2_gyoumu_kengen.Enabled = editEnabled
+        'ddlhanyou3_gyoumu_kengen.Enabled = editEnabled
+        'ddlSystemKanrisya.Enabled = editEnabled
+        'ddlIraiGyoumu.Enabled = editEnabled
+        'ddlSyozokuBusyo.Enabled = editEnabled
 
-        ddlHokosyoGyoumu.Enabled = editEnabled
-        ddlKouji.Enabled = editEnabled
-        ddlKeiriGyoumu.Enabled = editEnabled
-        ddlHansokuUriage.Enabled = editEnabled
-        ddlHattyusyoKanri.Enabled = editEnabled
-
-        ddlKaisekiMaster.Enabled = editEnabled
-        ddlEigyouMaster.Enabled = editEnabled
-        ddlKakakuMaster.Enabled = editEnabled
-        ddltyousaka_kanrisya_kengen.Enabled = editEnabled
-        ddlkensa_gyoumu_kengen.Enabled = editEnabled
-        ddlhanyou1_gyoumu_kengen.Enabled = editEnabled
-        ddlhanyou2_gyoumu_kengen.Enabled = editEnabled
-        ddlhanyou3_gyoumu_kengen.Enabled = editEnabled
-        ddlSystemKanrisya.Enabled = editEnabled
-        ddlIraiGyoumu.Enabled = editEnabled
-
-        ddlSyozokuBusyo.Enabled = editEnabled
-
+        'Me.btnTouroku.Enabled = editEnabled
 
 
 
