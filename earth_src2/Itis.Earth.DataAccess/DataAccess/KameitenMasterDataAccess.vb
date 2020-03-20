@@ -1215,6 +1215,24 @@ Public Class KameitenMasterDataAccess
             '================↑2013/03/06 車龍 407584 追加↑========================
             .AppendLine("	,upd_login_user_id = @upd_login_user_id")
             .AppendLine("	,upd_datetime = GETDATE()")
+
+
+            .AppendLine(",ssgr_kkk=@ssgr_kkk") 'SSGR価格
+            .AppendLine(",kaiseki_hosyou_kkk=@kaiseki_hosyou_kkk") '解析保証価格
+            .AppendLine(",koj_mitiraisyo_soufu_fuyou=@koj_mitiraisyo_soufu_fuyou") '工事見積依頼書送付不要
+            .AppendLine(",hikiwatasi_inji_umu=@hikiwatasi_inji_umu") '保証書引渡日印字有無
+            .AppendLine(",hosyousyo_hassou_umu=@hosyousyo_hassou_umu") '保証書発送方法
+            .AppendLine(",ekijyouka_tokuyaku_kakaku=@ekijyouka_tokuyaku_kakaku") '液状化特約費
+            .AppendLine(",hosyousyo_hassou_umu_start_date=@hosyousyo_hassou_umu_start_date") '保証書発送方法_適用開始日
+            .AppendLine(",taiou_syouhin_kbn=@taiou_syouhin_kbn") '対応商品区分
+            .AppendLine(",taiou_syouhin_kbn_set_date=@taiou_syouhin_kbn_set_date") '対応商品区分設定日
+            .AppendLine(",campaign_waribiki_flg=@campaign_waribiki_flg") 'キャンペーン割引FLG
+            .AppendLine(",campaign_waribiki_set_date=@campaign_waribiki_set_date") 'キャンペーン割引設定日
+            .AppendLine(",online_waribiki_flg=@online_waribiki_flg") 'オンライン割引FLG
+            .AppendLine(",b_str_yuuryou_wide_flg=@b_str_yuuryou_wide_flg") 'B-STR有料ワイドFLG
+
+
+
             .AppendLine("WHERE ")
             .AppendLine("	kameiten_cd = @kameiten_cd ")
         End With
@@ -1281,6 +1299,24 @@ Public Class KameitenMasterDataAccess
             paramList.Add(MakeParam("@koj_uri_syubetsu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("koj_uri_syubetsu").ToString.Trim))) '--工事売上種別
             '================↑2013/03/06 車龍 407584 追加↑========================
             paramList.Add(MakeParam("@upd_login_user_id", SqlDbType.VarChar, 30, InsObj(dtOk.Rows(i).Item("upd_login_user_id").ToString.Trim)))
+
+
+            paramList.Add(MakeParam("@ssgr_kkk", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("ssgr_kkk").ToString.Trim))) 'SSGR価格
+            paramList.Add(MakeParam("@kaiseki_hosyou_kkk", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("kaiseki_hosyou_kkk").ToString.Trim))) '解析保証価格
+            paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("koj_mitiraisyo_soufu_fuyou").ToString.Trim))) '工事見積依頼書送付不要
+            paramList.Add(MakeParam("@hikiwatasi_inji_umu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("hikiwatasi_inji_umu").ToString.Trim))) '保証書引渡日印字有無
+            paramList.Add(MakeParam("@hosyousyo_hassou_umu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("hosyousyo_hassou_umu").ToString.Trim))) '保証書発送方法
+            paramList.Add(MakeParam("@ekijyouka_tokuyaku_kakaku", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("ekijyouka_tokuyaku_kakaku").ToString.Trim))) '液状化特約費
+            paramList.Add(MakeParam("@hosyousyo_hassou_umu_start_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("hosyousyo_hassou_umu_start_date").ToString.Trim))) '保証書発送方法_適用開始日
+            paramList.Add(MakeParam("@taiou_syouhin_kbn", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("taiou_syouhin_kbn").ToString.Trim))) '対応商品区分
+            paramList.Add(MakeParam("@taiou_syouhin_kbn_set_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("taiou_syouhin_kbn_set_date").ToString.Trim))) '対応商品区分設定日
+            paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("campaign_waribiki_flg").ToString.Trim))) 'キャンペーン割引FLG
+            paramList.Add(MakeParam("@campaign_waribiki_set_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("campaign_waribiki_set_date").ToString.Trim))) 'キャンペーン割引設定日
+            paramList.Add(MakeParam("@online_waribiki_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("online_waribiki_flg").ToString.Trim))) 'オンライン割引FLG
+            paramList.Add(MakeParam("@b_str_yuuryou_wide_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("b_str_yuuryou_wide_flg").ToString.Trim))) 'B-STR有料ワイドFLG
+
+
+
             Try
 
                 '更新
@@ -1379,6 +1415,21 @@ Public Class KameitenMasterDataAccess
             '================↑2013/03/06 車龍 407584 追加↑========================
             .AppendLine("	,add_login_user_id ")
             .AppendLine("	,add_datetime ")
+
+            .AppendLine(",ssgr_kkk")
+            .AppendLine(",kaiseki_hosyou_kkk")
+            .AppendLine(",koj_mitiraisyo_soufu_fuyou")
+            .AppendLine(",hikiwatasi_inji_umu")
+            .AppendLine(",hosyousyo_hassou_umu")
+            .AppendLine(",ekijyouka_tokuyaku_kakaku")
+            .AppendLine(",hosyousyo_hassou_umu_start_date")
+            .AppendLine(",taiou_syouhin_kbn")
+            .AppendLine(",taiou_syouhin_kbn_set_date")
+            .AppendLine(",campaign_waribiki_flg")
+            .AppendLine(",campaign_waribiki_set_date")
+            .AppendLine(",online_waribiki_flg")
+            .AppendLine(",b_str_yuuryou_wide_flg")
+
             .AppendLine("	) ")
             .AppendLine("VALUES ")
             .AppendLine("	( ")
@@ -1439,6 +1490,19 @@ Public Class KameitenMasterDataAccess
             '================↑2013/03/06 車龍 407584 追加↑========================
             .AppendLine("	, @upd_login_user_id")
             .AppendLine("	 , GETDATE()")
+            .AppendLine(",@ssgr_kkk")
+            .AppendLine(",@kaiseki_hosyou_kkk")
+            .AppendLine(",@koj_mitiraisyo_soufu_fuyou")
+            .AppendLine(",@hikiwatasi_inji_umu")
+            .AppendLine(",@hosyousyo_hassou_umu")
+            .AppendLine(",@ekijyouka_tokuyaku_kakaku")
+            .AppendLine(",@hosyousyo_hassou_umu_start_date")
+            .AppendLine(",@taiou_syouhin_kbn")
+            .AppendLine(",@taiou_syouhin_kbn_set_date")
+            .AppendLine(",@campaign_waribiki_flg")
+            .AppendLine(",@campaign_waribiki_set_date")
+            .AppendLine(",@online_waribiki_flg")
+            .AppendLine(",@b_str_yuuryou_wide_flg")
             .AppendLine("	) ")
         End With
         With strSqlUpd
@@ -1501,6 +1565,22 @@ Public Class KameitenMasterDataAccess
             '================↑2013/03/06 車龍 407584 追加↑========================
             .AppendLine("	,upd_login_user_id = @upd_login_user_id")
             .AppendLine("	,upd_datetime = GETDATE()")
+
+            .AppendLine(",ssgr_kkk=@ssgr_kkk") 'SSGR価格
+            .AppendLine(",kaiseki_hosyou_kkk=@kaiseki_hosyou_kkk") '解析保証価格
+            .AppendLine(",koj_mitiraisyo_soufu_fuyou=@koj_mitiraisyo_soufu_fuyou") '工事見積依頼書送付不要
+            .AppendLine(",hikiwatasi_inji_umu=@hikiwatasi_inji_umu") '保証書引渡日印字有無
+            .AppendLine(",hosyousyo_hassou_umu=@hosyousyo_hassou_umu") '保証書発送方法
+            .AppendLine(",ekijyouka_tokuyaku_kakaku=@ekijyouka_tokuyaku_kakaku") '液状化特約費
+            .AppendLine(",hosyousyo_hassou_umu_start_date=@hosyousyo_hassou_umu_start_date") '保証書発送方法_適用開始日
+            .AppendLine(",taiou_syouhin_kbn=@taiou_syouhin_kbn") '対応商品区分
+            .AppendLine(",taiou_syouhin_kbn_set_date=@taiou_syouhin_kbn_set_date") '対応商品区分設定日
+            .AppendLine(",campaign_waribiki_flg=@campaign_waribiki_flg") 'キャンペーン割引FLG
+            .AppendLine(",campaign_waribiki_set_date=@campaign_waribiki_set_date") 'キャンペーン割引設定日
+            .AppendLine(",online_waribiki_flg=@online_waribiki_flg") 'オンライン割引FLG
+            .AppendLine(",b_str_yuuryou_wide_flg=@b_str_yuuryou_wide_flg") 'B-STR有料ワイドFLG
+
+
             .AppendLine("WHERE ")
             .AppendLine("	kameiten_cd = @kameiten_cd ")
         End With
@@ -1567,6 +1647,24 @@ Public Class KameitenMasterDataAccess
             paramList.Add(MakeParam("@koj_uri_syubetsu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("koj_uri_syubetsu").ToString.Trim))) '--工事売上種別
             '================↑2013/03/06 車龍 407584 追加↑========================
             paramList.Add(MakeParam("@upd_login_user_id", SqlDbType.VarChar, 30, InsObj(dtOk.Rows(i).Item("upd_login_user_id").ToString.Trim)))
+
+
+
+            paramList.Add(MakeParam("@ssgr_kkk", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("ssgr_kkk").ToString.Trim))) 'SSGR価格
+            paramList.Add(MakeParam("@kaiseki_hosyou_kkk", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("kaiseki_hosyou_kkk").ToString.Trim))) '解析保証価格
+            paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("koj_mitiraisyo_soufu_fuyou").ToString.Trim))) '工事見積依頼書送付不要
+            paramList.Add(MakeParam("@hikiwatasi_inji_umu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("hikiwatasi_inji_umu").ToString.Trim))) '保証書引渡日印字有無
+            paramList.Add(MakeParam("@hosyousyo_hassou_umu", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("hosyousyo_hassou_umu").ToString.Trim))) '保証書発送方法
+            paramList.Add(MakeParam("@ekijyouka_tokuyaku_kakaku", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("ekijyouka_tokuyaku_kakaku").ToString.Trim))) '液状化特約費
+            paramList.Add(MakeParam("@hosyousyo_hassou_umu_start_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("hosyousyo_hassou_umu_start_date").ToString.Trim))) '保証書発送方法_適用開始日
+            paramList.Add(MakeParam("@taiou_syouhin_kbn", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("taiou_syouhin_kbn").ToString.Trim))) '対応商品区分
+            paramList.Add(MakeParam("@taiou_syouhin_kbn_set_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("taiou_syouhin_kbn_set_date").ToString.Trim))) '対応商品区分設定日
+            paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("campaign_waribiki_flg").ToString.Trim))) 'キャンペーン割引FLG
+            paramList.Add(MakeParam("@campaign_waribiki_set_date", SqlDbType.DateTime, 20, InsObj(dtOk.Rows(i).Item("campaign_waribiki_set_date").ToString.Trim))) 'キャンペーン割引設定日
+            paramList.Add(MakeParam("@online_waribiki_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("online_waribiki_flg").ToString.Trim))) 'オンライン割引FLG
+            paramList.Add(MakeParam("@b_str_yuuryou_wide_flg", SqlDbType.Int, 10, InsObj(dtOk.Rows(i).Item("b_str_yuuryou_wide_flg").ToString.Trim))) 'B-STR有料ワイドFLG
+
+
             Try
 
                 strKameiten = dtOk.Rows(i).Item("kameiten_cd").ToString.Trim

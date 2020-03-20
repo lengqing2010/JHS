@@ -248,8 +248,16 @@ Public Class KameitenMasterLogic
             End If
 
             'CSVファイルを取込
+
+
+
             If Not CsvFileInput(dtOk, dtError, InputDate, userId, strFileMei, strEdiJouhouSakuseiDate, dtInsKameiten) Then
-                Return Messages.Instance.MSG050E
+                If strMsg <> "" Then
+                    Return strMsg
+                Else
+                    Return Messages.Instance.MSG050E
+                End If
+
             Else
                 Return strMsg
             End If
@@ -969,6 +977,22 @@ Public Class KameitenMasterLogic
         dr.Item("naiyou4") = strLine.Split(",")(109).Trim
         dr.Item("naiyou5") = strLine.Split(",")(110).Trim
 
+        dr.Item("ssgr_kkk") = strLine.Split(",")(111).Trim
+        dr.Item("kaiseki_hosyou_kkk") = strLine.Split(",")(112).Trim
+        dr.Item("koj_mitiraisyo_soufu_fuyou") = strLine.Split(",")(113).Trim
+        dr.Item("hikiwatasi_inji_umu") = strLine.Split(",")(114).Trim
+        dr.Item("hosyousyo_hassou_umu") = strLine.Split(",")(115).Trim
+        dr.Item("ekijyouka_tokuyaku_kakaku") = strLine.Split(",")(116).Trim
+        dr.Item("hosyousyo_hassou_umu_start_date") = strLine.Split(",")(117).Trim
+        dr.Item("taiou_syouhin_kbn") = strLine.Split(",")(118).Trim
+        dr.Item("taiou_syouhin_kbn_set_date") = strLine.Split(",")(119).Trim
+        dr.Item("campaign_waribiki_flg") = strLine.Split(",")(120).Trim
+        dr.Item("campaign_waribiki_set_date") = strLine.Split(",")(121).Trim
+        dr.Item("online_waribiki_flg") = strLine.Split(",")(122).Trim
+        dr.Item("b_str_yuuryou_wide_flg") = strLine.Split(",")(123).Trim
+
+
+
         dr.Item("add_login_user_id") = userId
         dr.Item("upd_login_user_id") = userId
 
@@ -1128,6 +1152,23 @@ Public Class KameitenMasterLogic
         dtOk.Columns.Add("add_datetime")                             '--登録日時
         dtOk.Columns.Add("upd_login_user_id")                        '--更新者ID
         dtOk.Columns.Add("upd_datetime")                             '--更新日時
+
+
+        dtOk.Columns.Add("ssgr_kkk") 'SSGR価格
+        dtOk.Columns.Add("kaiseki_hosyou_kkk") '解析保証価格
+        dtOk.Columns.Add("koj_mitiraisyo_soufu_fuyou") '工事見積依頼書送付不要
+        dtOk.Columns.Add("hikiwatasi_inji_umu") '保証書引渡日印字有無
+        dtOk.Columns.Add("hosyousyo_hassou_umu") '保証書発送方法
+        dtOk.Columns.Add("ekijyouka_tokuyaku_kakaku") '液状化特約費
+        dtOk.Columns.Add("hosyousyo_hassou_umu_start_date") '保証書発送方法_適用開始日
+        dtOk.Columns.Add("taiou_syouhin_kbn") '対応商品区分
+        dtOk.Columns.Add("taiou_syouhin_kbn_set_date") '対応商品区分設定日
+        dtOk.Columns.Add("campaign_waribiki_flg") 'キャンペーン割引FLG
+        dtOk.Columns.Add("campaign_waribiki_set_date") 'キャンペーン割引設定日
+        dtOk.Columns.Add("online_waribiki_flg") 'オンライン割引FLG
+        dtOk.Columns.Add("b_str_yuuryou_wide_flg") 'B-STR有料ワイドFLG
+
+
     End Sub
 
     ''' <summary>加盟店情報一括取込エラーマスタを作成</summary>
@@ -1259,6 +1300,21 @@ Public Class KameitenMasterLogic
         dtError.Columns.Add("add_datetime")                             '--登録日時
         dtError.Columns.Add("upd_login_user_id")                        '--更新者ID
         dtError.Columns.Add("upd_datetime")                             '--更新日時
+
+        dtError.Columns.Add("ssgr_kkk") 'SSGR価格
+        dtError.Columns.Add("kaiseki_hosyou_kkk") '解析保証価格
+        dtError.Columns.Add("koj_mitiraisyo_soufu_fuyou") '工事見積依頼書送付不要
+        dtError.Columns.Add("hikiwatasi_inji_umu") '保証書引渡日印字有無
+        dtError.Columns.Add("hosyousyo_hassou_umu") '保証書発送方法
+        dtError.Columns.Add("ekijyouka_tokuyaku_kakaku") '液状化特約費
+        dtError.Columns.Add("hosyousyo_hassou_umu_start_date") '保証書発送方法_適用開始日
+        dtError.Columns.Add("taiou_syouhin_kbn") '対応商品区分
+        dtError.Columns.Add("taiou_syouhin_kbn_set_date") '対応商品区分設定日
+        dtError.Columns.Add("campaign_waribiki_flg") 'キャンペーン割引FLG
+        dtError.Columns.Add("campaign_waribiki_set_date") 'キャンペーン割引設定日
+        dtError.Columns.Add("online_waribiki_flg") 'オンライン割引FLG
+        dtError.Columns.Add("b_str_yuuryou_wide_flg") 'B-STR有料ワイドFLG
+
     End Sub
 
     ''' <summary>OKデータのkeyを設定</summary>

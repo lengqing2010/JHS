@@ -1187,6 +1187,27 @@ Public Class KensakuSyoukaiInquiryDataAccess
             .AppendLine("       ELSE ")
             .AppendLine("           REPLACE(ISNULL(CONVERT(VARCHAR(10),MKJ.add_datetime,112) + '_' + CONVERT(VARCHAR(10),MKJ.add_datetime,108),''),':','') ") '登録日時
             .AppendLine("       END AS kameiten_jyuusyo_upd_datetime ") '--加盟店住所_更新日時
+
+
+            '============2020/03/19 李松涛 対応 追加↓======================
+            .AppendLine(",MK.ssgr_kkk") 'SSGR価格
+            .AppendLine(",MK.kaiseki_hosyou_kkk") '解析保証価格
+            .AppendLine(",MK.koj_mitiraisyo_soufu_fuyou") '工事見積依頼書送付不要
+            .AppendLine(",MK.hikiwatasi_inji_umu") '保証書引渡日印字有無
+            .AppendLine(",MK.hosyousyo_hassou_umu") '保証書発送方法
+            .AppendLine(",MK.ekijyouka_tokuyaku_kakaku") '液状化特約費
+            .AppendLine(",MK.hosyousyo_hassou_umu_start_date") '保証書発送方法_適用開始日
+            .AppendLine(",MK.taiou_syouhin_kbn") '対応商品区分
+            .AppendLine(",MK.taiou_syouhin_kbn_set_date") '対応商品区分設定日
+            .AppendLine(",MK.campaign_waribiki_flg") 'キャンペーン割引FLG
+            .AppendLine(",MK.campaign_waribiki_set_date") 'キャンペーン割引設定日
+            .AppendLine(",MK.online_waribiki_flg") 'オンライン割引FLG
+            .AppendLine(",MK.b_str_yuuryou_wide_flg") 'B-STR有料ワイドFLG
+            '============2020/03/19 李松涛 対応 追加↑======================
+
+
+
+
             '============2012/05/08 車龍 407553の対応 追加↑======================
             .AppendLine(" FROM  ")
             .AppendLine("    m_kameiten AS MK WITH(READCOMMITTED) ")

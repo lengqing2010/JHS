@@ -110,7 +110,7 @@ Partial Public Class KameitenMasterInput
             hidInsLineNo.Value = String.Empty
             ViewState("arrCsvLine") = Nothing
         End If
-        If "UnExits".Equals(strMsg) OrElse "Err".Equals(strMsg) Then
+        If "UnExits".Equals(strMsg) Then
             '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
             Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
             Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
@@ -137,6 +137,32 @@ Partial Public Class KameitenMasterInput
             'hidExitsFlg.Value = exitsFlg
             'ページ応答で、クライアント側のスクリプト ブロックを出力します
             ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+
+        Else
+
+            With csScript
+                '確認メッセージ
+                '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+                .AppendLine("   var strMsg = '既存あるから上書いて良いか？'")
+                .AppendLine("   if(confirm(strMsg)){")
+                If "Err".Equals(strMsg) Then
+                    .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
+                Else
+                    .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+                End If
+                .AppendLine("   }else{")
+                .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
+                '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
+                .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
+                .AppendLine("   }")
+            End With
+            'エラーの行号を保存
+            hidLineNo.Value = intLineNo
+            '組合存在しないの場合加盟店コード存在かどかを保存
+            'hidExitsFlg.Value = exitsFlg
+            'ページ応答で、クライアント側のスクリプト ブロックを出力します
+            ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+
         End If
         'Else
         '    arrCsvLine = ViewState("arrCsvLine")
@@ -170,29 +196,31 @@ Partial Public Class KameitenMasterInput
         'End If
         'End If
 
-        If "Success".Equals(strMsg) Then
-            Dim strUmuFlg As String = String.Empty
-            Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, hidInsLineNo.Value, arrCsvLine, ViewState("FileName").ToString)
+        'If "Success".Equals(strMsg) Then
+        '    Dim strUmuFlg As String = String.Empty
+        '    Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, hidInsLineNo.Value, arrCsvLine, ViewState("FileName").ToString)
 
-            '画面を設定
+        '    '画面を設定
 
-            Call Me.SetGamen()
-            If strMessage = String.Empty Then
+        '    Call Me.SetGamen()
+        '    If strMessage = String.Empty Then
 
-                '完了メッセージを表示する
-                If strUmuFlg = "1" Then
-                    ShowMessage(Messages.Instance.MSG047C)
-                Else
-                    ShowMessage(Messages.Instance.MSG046C)
-                End If
-            Else
-                ShowMessage(strMessage)
-            End If
-            hidLineNo.Value = String.Empty
-            'hidExitsFlg.Value = String.Empty
-            hidInsLineNo.Value = String.Empty
-            ViewState("arrCsvLine") = Nothing
-        End If
+        '        '完了メッセージを表示する
+        '        If strUmuFlg = "1" Then
+        '            ShowMessage(Messages.Instance.MSG047C)
+        '        Else
+        '            ShowMessage(Messages.Instance.MSG046C)
+        '        End If
+        '    Else
+        '        ShowMessage(strMessage)
+        '    End If
+        '    hidLineNo.Value = String.Empty
+        '    'hidExitsFlg.Value = String.Empty
+        '    hidInsLineNo.Value = String.Empty
+        '    ViewState("arrCsvLine") = Nothing
+        'End If
+
+
     End Sub
     Private Sub btnCsvCheck_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCsvCheck.Click
         Dim intLineNo As Integer = 0
