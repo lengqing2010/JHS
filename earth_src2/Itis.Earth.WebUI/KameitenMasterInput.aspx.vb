@@ -88,137 +88,187 @@ Partial Public Class KameitenMasterInput
         Dim arrCsvLine() As String
         Dim csScript As New StringBuilder
         Call Me.SetGamen()
-        'If Not String.IsNullOrEmpty(hidExitsFlg.Value) AndAlso "True".Equals(hidExitsFlg.Value) Then
-        '    ShowMessage("新規登録の加盟店ｺｰﾄﾞが重複してます")
-        '    hidLineNo.Value = String.Empty
-        '    hidExitsFlg.Value = String.Empty
-        '    hidInsLineNo.Value = String.Empty
-        '    ViewState("arrCsvLine") = Nothing
-        'Else
-        'If String.IsNullOrEmpty(hidLineNo.Value) Then
-        'arrCsvLine = ViewState("arrCsvLine")
+        Dim insCd As String, updCd As String
+        Dim hidInsLineNo As String = ""
+
+       
         '加盟店存在チェック
-        strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
+        'strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
+        strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, arrCsvLine, insCd, updCd, hidInsLineNo)
+
         '取込ファイル保存
         ViewState("arrCsvLine") = arrCsvLine
         ViewState("FileName") = Me.fupCsvinput.FileName
-        If "UnExits".Equals(strMsg) OrElse "Err".Equals(strMsg) OrElse "Success".Equals(strMsg) Then
-        Else
-            ShowMessage(strMsg)
-            hidLineNo.Value = String.Empty
-            'hidExitsFlg.Value = String.Empty
-            hidInsLineNo.Value = String.Empty
-            ViewState("arrCsvLine") = Nothing
-        End If
-        If "UnExits".Equals(strMsg) Then
-            '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
-            Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
-            Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
+        ViewState("hidInsLineNo") = hidInsLineNo
 
-            With csScript
-                '確認メッセージ
-                '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
-                .AppendLine("   var strMsg = '" & String.Format(Messages.Instance.MSG2065E, kbn, kameitenCd) & "'")
-                .AppendLine("   if(confirm(strMsg)){")
-                If "Err".Equals(strMsg) Then
-                    .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
-                Else
+
+        If strMsg = "Success" Then
+            If insCd <> "" AndAlso updCd <> "" Then
+                With csScript
+                    '確認メッセージ
+                    '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+                    .AppendLine("   var strMsg = '新規登録の事象者情報があります。新規登録を行いますか？\n※対象の加盟店コード:" & insCd & "\n既存の加盟店コードが存在しますが上書いてよろしいでしょうか？\n※対象の加盟店コード:" & updCd & "'")
+                    .AppendLine("   if(confirm(strMsg)){")
                     .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
-                End If
-                .AppendLine("   }else{")
-                .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
-                '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
-                .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
-                .AppendLine("   }")
-            End With
-            'エラーの行号を保存
-            hidLineNo.Value = intLineNo
-            '組合存在しないの場合加盟店コード存在かどかを保存
-            'hidExitsFlg.Value = exitsFlg
-            'ページ応答で、クライアント側のスクリプト ブロックを出力します
-            ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
-
-        Else
-
-            With csScript
-                '確認メッセージ
-                '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
-                .AppendLine("   var strMsg = '既存あるから上書いて良いか？'")
-                .AppendLine("   if(confirm(strMsg)){")
-                If "Err".Equals(strMsg) Then
-                    .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
-                Else
+                    .AppendLine("   }else{")
+                    .AppendLine("   }")
+                End With
+            ElseIf insCd <> "" Then
+                With csScript
+                    '確認メッセージ
+                    '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+                    .AppendLine("   var strMsg = '新規登録の事象者情報があります。新規登録を行いますか？\n※対象の加盟店コード:" & insCd & "'")
+                    .AppendLine("   if(confirm(strMsg)){")
                     .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
-                End If
-                .AppendLine("   }else{")
-                .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
-                '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
-                .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
-                .AppendLine("   }")
+                    .AppendLine("   }else{")
+                    .AppendLine("   }")
+                End With
+            ElseIf updCd <> "" Then
+                With csScript
+                    '確認メッセージ
+                    '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+                    .AppendLine("   var strMsg = '既存の加盟店コードが存在しますが上書いてよろしいでしょうか？\n※対象の加盟店コード:" & updCd & "'")
+                    .AppendLine("   if(confirm(strMsg)){")
+                    .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+                    .AppendLine("   }else{")
+                    .AppendLine("   }")
+                End With
+
+            End If
+        Else
+            With csScript
+                .AppendLine(" alert('" & strMsg & "');")
             End With
-            'エラーの行号を保存
-            hidLineNo.Value = intLineNo
-            '組合存在しないの場合加盟店コード存在かどかを保存
-            'hidExitsFlg.Value = exitsFlg
-            'ページ応答で、クライアント側のスクリプト ブロックを出力します
-            ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
 
         End If
+
+        ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+
+
+
+
+
+
+
+
+
+        'If "UnExits".Equals(strMsg) OrElse "Err".Equals(strMsg) OrElse "Success".Equals(strMsg) Then
         'Else
-        '    arrCsvLine = ViewState("arrCsvLine")
-        '    intLineNo = hidLineNo.Value + 1
-        '    '加盟店存在チェック
-        '    strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
-        '    '取込ファイル保存
-        '    ViewState("arrCsvLine") = arrCsvLine
-        '    If "UnExits".Equals(strMsg) Then
-        '        '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
-        '        Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
-        '        Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
-        '        With csScript
-        '            '確認メッセージ
-        '            '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
-        '            .AppendLine("   var strMsg = '区分-加盟店ｺｰﾄﾞの組合せがないものが存在します。新規登録を行いますか。" & kbn & "-" & kameitenCd & "'")
-        '            .AppendLine("   if(confirm(strMsg)){")
-        '            .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
-        '            .AppendLine("   }else{")
-        '            .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
-        '            .AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
-        '            .AppendLine("   }")
-        '        End With
-        '        'エラーの行号を保存
-        '        hidLineNo.Value = intLineNo
-        '        '組合存在しないの場合加盟店コード存在かどかを保存
-        '        hidExitsFlg.Value = exitsFlg
-        '        'ページ応答で、クライアント側のスクリプト ブロックを出力します
-        '        ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
-        '    End If
-        'End If
-        'End If
-
-        'If "Success".Equals(strMsg) Then
-        '    Dim strUmuFlg As String = String.Empty
-        '    Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, hidInsLineNo.Value, arrCsvLine, ViewState("FileName").ToString)
-
-        '    '画面を設定
-
-        '    Call Me.SetGamen()
-        '    If strMessage = String.Empty Then
-
-        '        '完了メッセージを表示する
-        '        If strUmuFlg = "1" Then
-        '            ShowMessage(Messages.Instance.MSG047C)
-        '        Else
-        '            ShowMessage(Messages.Instance.MSG046C)
-        '        End If
-        '    Else
-        '        ShowMessage(strMessage)
-        '    End If
+        '    ShowMessage(strMsg)
         '    hidLineNo.Value = String.Empty
         '    'hidExitsFlg.Value = String.Empty
         '    hidInsLineNo.Value = String.Empty
         '    ViewState("arrCsvLine") = Nothing
         'End If
+        'If "UnExits".Equals(strMsg) Then
+        '    '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
+        '    Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
+        '    Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
+
+        '    With csScript
+        '        '確認メッセージ
+        '        '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+        '        .AppendLine("   var strMsg = '" & String.Format(Messages.Instance.MSG2065E, kbn, kameitenCd) & "'")
+        '        .AppendLine("   if(confirm(strMsg)){")
+        '        If "Err".Equals(strMsg) Then
+        '            .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
+        '        Else
+        '            .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+        '        End If
+        '        .AppendLine("   }else{")
+        '        .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
+        '        '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
+        '        .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
+        '        .AppendLine("   }")
+        '    End With
+        '    'エラーの行号を保存
+        '    hidLineNo.Value = intLineNo
+        '    '組合存在しないの場合加盟店コード存在かどかを保存
+        '    'hidExitsFlg.Value = exitsFlg
+        '    'ページ応答で、クライアント側のスクリプト ブロックを出力します
+        '    ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+
+        'Else
+
+        '    With csScript
+        '        '確認メッセージ
+        '        '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+        '        .AppendLine("   var strMsg = '既存の加盟店コードが存在しますが上書いてよろしいでしょうか？ '")
+        '        .AppendLine("   if(confirm(strMsg)){")
+        '        If "Err".Equals(strMsg) Then
+        '            .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
+        '        Else
+        '            .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+        '        End If
+        '        .AppendLine("   }else{")
+        '        .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
+        '        '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
+        '        .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
+        '        .AppendLine("   }")
+        '    End With
+        '    'エラーの行号を保存
+        '    hidLineNo.Value = intLineNo
+        '    '組合存在しないの場合加盟店コード存在かどかを保存
+        '    'hidExitsFlg.Value = exitsFlg
+        '    'ページ応答で、クライアント側のスクリプト ブロックを出力します
+        '    ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+
+        'End If
+        ''Else
+        ''    arrCsvLine = ViewState("arrCsvLine")
+        ''    intLineNo = hidLineNo.Value + 1
+        ''    '加盟店存在チェック
+        ''    strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
+        ''    '取込ファイル保存
+        ''    ViewState("arrCsvLine") = arrCsvLine
+        ''    If "UnExits".Equals(strMsg) Then
+        ''        '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
+        ''        Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
+        ''        Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
+        ''        With csScript
+        ''            '確認メッセージ
+        ''            '.AppendLine("   var strMsg = '" & Messages.Instance.MSG045C & "'")
+        ''            .AppendLine("   var strMsg = '区分-加盟店ｺｰﾄﾞの組合せがないものが存在します。新規登録を行いますか。" & kbn & "-" & kameitenCd & "'")
+        ''            .AppendLine("   if(confirm(strMsg)){")
+        ''            .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+        ''            .AppendLine("   }else{")
+        ''            .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
+        ''            .AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
+        ''            .AppendLine("   }")
+        ''        End With
+        ''        'エラーの行号を保存
+        ''        hidLineNo.Value = intLineNo
+        ''        '組合存在しないの場合加盟店コード存在かどかを保存
+        ''        hidExitsFlg.Value = exitsFlg
+        ''        'ページ応答で、クライアント側のスクリプト ブロックを出力します
+        ''        ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+        ''    End If
+        ''End If
+        ''End If
+
+        ''If "Success".Equals(strMsg) Then
+        ''    Dim strUmuFlg As String = String.Empty
+        ''    Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, hidInsLineNo.Value, arrCsvLine, ViewState("FileName").ToString)
+
+        ''    '画面を設定
+
+        ''    Call Me.SetGamen()
+        ''    If strMessage = String.Empty Then
+
+        ''        '完了メッセージを表示する
+        ''        If strUmuFlg = "1" Then
+        ''            ShowMessage(Messages.Instance.MSG047C)
+        ''        Else
+        ''            ShowMessage(Messages.Instance.MSG046C)
+        ''        End If
+        ''    Else
+        ''        ShowMessage(strMessage)
+        ''    End If
+        ''    hidLineNo.Value = String.Empty
+        ''    'hidExitsFlg.Value = String.Empty
+        ''    hidInsLineNo.Value = String.Empty
+        ''    ViewState("arrCsvLine") = Nothing
+        ''End If
 
 
     End Sub
@@ -238,38 +288,38 @@ Partial Public Class KameitenMasterInput
         '    ViewState("arrCsvLine") = Nothing
         'Else
         ' If String.IsNullOrEmpty(hidLineNo.Value) Then
-        arrCsvLine = ViewState("arrCsvLine")
-        intLineNo = hidLineNo.Value + 1
-        '加盟店存在チェック
-        strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
-        '取込ファイル保存
-        'ViewState("arrCsvLine") = arrCsvLine
-        If "UnExits".Equals(strMsg) OrElse "Err".Equals(strMsg) Then
-            '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
-            Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
-            Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
+        'arrCsvLine = ViewState("arrCsvLine")
+        'intLineNo = hidLineNo.Value + 1
+        ''加盟店存在チェック
+        'strMsg = kameitenMasterBC.ChkKameiten(Me.fupCsvinput, intLineNo, exitsFlg, kbnAndKameitenCd, hidInsLineNo.Value, arrCsvLine)
+        ''取込ファイル保存
+        ''ViewState("arrCsvLine") = arrCsvLine
+        'If "UnExits".Equals(strMsg) OrElse "Err".Equals(strMsg) Then
+        '    '区分:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分(←実際の値) -加盟店ｺｰﾄﾞ:ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ(←実際の値)
+        '    Dim kbn As String = kbnAndKameitenCd.Split(",")(0).Trim()
+        '    Dim kameitenCd As String = kbnAndKameitenCd.Split(",")(1).Trim()
 
-            With csScript
-                '確認メッセージ
-                .AppendLine("   var strMsg = '" & String.Format(Messages.Instance.MSG2065E, kbn, kameitenCd) & "'")
-                .AppendLine("   if(confirm(strMsg)){")
-                If "Err".Equals(strMsg) Then
-                    .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
-                Else
-                    .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
-                End If
-                .AppendLine("   }else{")
-                .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
-                '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
-                .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
-                .AppendLine("   }")
-            End With
-            'エラーの行号を保存
-            hidLineNo.Value = intLineNo
+        '    With csScript
+        '        '確認メッセージ
+        '        .AppendLine("   var strMsg = '" & String.Format(Messages.Instance.MSG2065E, kbn, kameitenCd) & "'")
+        '        .AppendLine("   if(confirm(strMsg)){")
+        '        If "Err".Equals(strMsg) Then
+        '            .AppendLine(" alert('" & String.Format(Messages.Instance.MSG2066E) & "');")
+        '        Else
+        '            .AppendLine("       fncShowModal();document.getElementById ('" & btnCsvCheck.ClientID & "').click();")
+        '        End If
+        '        .AppendLine("   }else{")
+        '        .AppendLine("   document.getElementById ('" & hidLineNo.ClientID & "').value = ''")
+        '        '.AppendLine("   document.getElementById ('" & hidExitsFlg.ClientID & "').value = ''")
+        '        .AppendLine("   document.getElementById ('" & hidInsLineNo.ClientID & "').value = ''")
+        '        .AppendLine("   }")
+        '    End With
+        '    'エラーの行号を保存
+        '    hidLineNo.Value = intLineNo
 
-            'ページ応答で、クライアント側のスクリプト ブロックを出力します
-            ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
-        End If
+        '    'ページ応答で、クライアント側のスクリプト ブロックを出力します
+        '    ClientScript.RegisterStartupScript(Me.GetType(), "ShowMessage", csScript.ToString, True)
+        'End If
         'Else
         'arrCsvLine = ViewState("arrCsvLine")
         'intLineNo = hidLineNo.Value + 1
@@ -301,29 +351,33 @@ Partial Public Class KameitenMasterInput
         'End If
         'End If
 
-        If "Success".Equals(strMsg) Then
-            Dim strUmuFlg As String = String.Empty
-            Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, hidInsLineNo.Value, ViewState("arrCsvLine"), ViewState("FileName").ToString)
+        'If "Success".Equals(strMsg) Then
+        Dim strUmuFlg As String = String.Empty
+        Dim strMessage As String = kameitenMasterBC.ChkCsvFile(strUmuFlg, ViewState("hidInsLineNo").ToString, ViewState("arrCsvLine"), ViewState("FileName").ToString)
 
-            '画面を設定
-            Call Me.SetGamen()
+        '画面を設定
+        Call Me.SetGamen()
 
-            If strMessage = String.Empty Then
+        If strMessage = String.Empty Then
 
-                '完了メッセージを表示する
-                If strUmuFlg = "1" Then
-                    ShowMessage(Messages.Instance.MSG047C)
-                Else
-                    ShowMessage(Messages.Instance.MSG046C)
-                End If
+            '完了メッセージを表示する
+            If strUmuFlg = "1" Then
+                ShowMessage(Messages.Instance.MSG047C)
             Else
-                ShowMessage(strMessage)
+                ShowMessage(Messages.Instance.MSG046C)
             End If
-            hidLineNo.Value = String.Empty
-            'hidExitsFlg.Value = String.Empty
-            hidInsLineNo.Value = String.Empty
-            ViewState("arrCsvLine") = Nothing
+        Else
+            ShowMessage(strMessage)
         End If
+
+        ViewState("hidInsLineNo") = ""
+
+        'hidLineNo.Value = String.Empty
+        'hidExitsFlg.Value = String.Empty
+        'hidInsLineNo.Value = String.Empty
+
+        ViewState("arrCsvLine") = Nothing
+        ' End If
     End Sub
 
     Private Sub grdInputKanri_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdInputKanri.RowDataBound

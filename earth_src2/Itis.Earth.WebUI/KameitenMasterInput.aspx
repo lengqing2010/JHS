@@ -158,7 +158,7 @@
             </td>
         </tr>
     </table>
-    <asp:HiddenField ID="hidLineNo" runat="server"/>
+<%--    <asp:HiddenField ID="hidLineNo" runat="server"/>--%>
     <%--<asp:HiddenField ID="hidExitsFlg" runat="server" />--%>
-    <asp:HiddenField ID="hidInsLineNo" runat="server" />
+    <%--<asp:HiddenField ID="hidInsLineNo" runat="server" />--%>
 </asp:Content>

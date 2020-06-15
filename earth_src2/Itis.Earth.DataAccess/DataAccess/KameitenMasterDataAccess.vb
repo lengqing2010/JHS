@@ -268,6 +268,8 @@ Public Class KameitenMasterDataAccess
         End If
 
     End Function
+
+
     ''' <summary>加盟店コードを取得する</summary>
     Public Function SelKameitenCd(ByVal strKameitenCd As String, Optional ByVal strKbn As String = "", Optional ByRef mei As String = "") As Boolean
 
@@ -312,6 +314,36 @@ Public Class KameitenMasterDataAccess
         End If
 
     End Function
+
+
+    Public Function SelKameitenCds(ByVal whereStr As String) As DataTable
+
+        'DataSetインスタンスの生成
+        Dim dsReturn As New Data.DataSet
+
+        'SQL文の生成
+        Dim commandTextSb As New StringBuilder
+
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        'SQL文
+        With commandTextSb
+            .AppendLine("SELECT DISTINCT ")
+            .AppendLine("   kameiten_cd ")
+            .AppendLine("FROM ")
+            .AppendLine("   m_kameiten WITH(READCOMMITTED) ")
+            .AppendLine(whereStr)
+        End With
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextSb.ToString(), dsReturn, "kameiten_cds", paramList.ToArray)
+        Return dsReturn.Tables(0)
+
+    End Function
+
+
+
 
     ''' <summary>商品コードを取得する</summary>
     Public Function SelSyouhinCd(ByVal strSyouhinCd As String, ByRef mei As String) As Boolean

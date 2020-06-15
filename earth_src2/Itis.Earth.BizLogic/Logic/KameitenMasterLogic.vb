@@ -209,6 +209,10 @@ Public Class KameitenMasterLogic
                             '合格データの処理(update)
                             Call Me.OkLineSyori(strReadLine, dtOk)
                         End If
+
+
+
+
                         '===========2012/05/23 車龍 407553の対応 追加↓============================
                     Else
                         Call Me.ErrorLineSyori(i + 1, strReadLine, dtError1)
@@ -770,11 +774,10 @@ Public Class KameitenMasterLogic
 
     ''' <summary>加盟店存在チェック</summary>
     Public Function ChkKameiten(ByVal fupId As Web.UI.WebControls.FileUpload, _
-                                ByRef intLineNo As Integer, _
-                                ByRef exitsFlg As Boolean, _
-                                ByRef kbnAndKameitenCd As String, _
-                                ByRef hidInsLineNo As String, _
-                                ByRef arrCsvLine() As String) As String
+                                ByRef arrCsvLine() As String, _
+                                ByRef insCd As String, ByRef updCd As String, ByRef hidInsLineNo As String) As String
+
+
         Dim myStream As IO.Stream                           '入出力ストリーム
         Dim myReader As IO.StreamReader                     'ストリームリーダー
         Dim strReadLine As String                           '取込ファイル読込み行
@@ -782,6 +785,7 @@ Public Class KameitenMasterLogic
         Dim strCsvLine() As String                          'CSVファイル内容
         Dim strRtn As String = String.Empty
 
+        'CSV未取込場合
         If arrCsvLine Is Nothing Then
             '入出力ストリーム
             myStream = fupId.FileContent
@@ -790,6 +794,7 @@ Public Class KameitenMasterLogic
             myReader = New IO.StreamReader(myStream, System.Text.Encoding.GetEncoding(932))
 
             Try
+                'CSV取込
                 Do
                     '取込ファイルを読み込む
                     ReDim Preserve strCsvLine(intLineCount)
@@ -818,30 +823,90 @@ Public Class KameitenMasterLogic
         Else
             strCsvLine = arrCsvLine
         End If
+
+
+
         'CSVファイルをチェック
-        For i As Integer = intLineNo To strCsvLine.Length - 1
+        'For i As Integer = intLineNo To strCsvLine.Length - 1
+        '    strReadLine = strCsvLine(i)
+        '    If (Not strReadLine Is Nothing) AndAlso (Replace(strReadLine, ",", "") <> "") Then
+
+
+        '        'ｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分-ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ（※ 前0埋め5桁変換） の組合せが加盟店ﾏｽﾀに存在しない場合
+        '        If Not String.IsNullOrEmpty(strReadLine.Split(",")(2).Trim) AndAlso _
+        '           Not kameitenMasterDA.SelKameitenCd(Right("00000" & strReadLine.Split(",")(2).Trim, 5), strReadLine.Split(",")(1).Trim) Then
+
+
+        '            intLineNo = i
+        '            kbnAndKameitenCd = strReadLine.Split(",")(1).Trim & "," & strReadLine.Split(",")(2).Trim
+        '            exitsFlg = kameitenMasterDA.SelKameitenCd(Right("00000" & strReadLine.Split(",")(2).Trim, 5))
+        '            If Not exitsFlg Then
+        '                hidInsLineNo = hidInsLineNo & i & ","
+        '                Return "UnExits"
+        '            Else
+        '                Return "Err"
+        '            End If
+
+        '        End If
+        '    End If
+        'Next
+
+
+        'whereStr
+
+        Dim whereStr As New System.Text.StringBuilder
+
+        For i As Integer = 1 To strCsvLine.Length - 1
             strReadLine = strCsvLine(i)
-
             If (Not strReadLine Is Nothing) AndAlso (Replace(strReadLine, ",", "") <> "") Then
-                'ｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.区分-ｱｯﾌﾟﾛｰﾄﾞﾌｧｲﾙ.加盟店ｺｰﾄﾞ（※ 前0埋め5桁変換） の組合せが加盟店ﾏｽﾀに存在しない場合
-                If Not String.IsNullOrEmpty(strReadLine.Split(",")(2).Trim) AndAlso _
-                   Not kameitenMasterDA.SelKameitenCd(Right("00000" & strReadLine.Split(",")(2).Trim, 5), strReadLine.Split(",")(1).Trim) Then
-                    intLineNo = i
-                    'strRtn = "UnExits"
-                    kbnAndKameitenCd = strReadLine.Split(",")(1).Trim & "," & strReadLine.Split(",")(2).Trim
-                    exitsFlg = kameitenMasterDA.SelKameitenCd(Right("00000" & strReadLine.Split(",")(2).Trim, 5))
-                    If Not exitsFlg Then
-                        hidInsLineNo = hidInsLineNo & i & ","
-                        Return "UnExits"
-                    Else
-                        Return "Err"
-                    End If
-
+                Dim kameitenCd As String = Right("00000" & strReadLine.Split(",")(2).Trim, 5)
+                Dim kbn As String = strReadLine.Split(",")(1).Trim
+                If whereStr.Length = 0 Then
+                    whereStr.AppendLine(" WHERE (kameiten_cd='" & kameitenCd & "' AND kbn = '" & kbn & "')")
+                Else
+                    whereStr.AppendLine(" OR (kameiten_cd='" & kameitenCd & "' AND kbn = '" & kbn & "')")
                 End If
             End If
         Next
 
-        Return "Success"
+
+        If whereStr.Length > 0 Then
+
+            Dim dt As DataTable = kameitenMasterDA.SelKameitenCds(whereStr.ToString)
+            For i As Integer = 1 To strCsvLine.Length - 1
+                strReadLine = strCsvLine(i)
+                If (Not strReadLine Is Nothing) AndAlso (Replace(strReadLine, ",", "") <> "") Then
+                    Dim kameitenCd As String = Right("00000" & strReadLine.Split(",")(2).Trim, 5)
+
+                    If dt.Select("kameiten_cd='" & kameitenCd & "'").Length > 0 Then
+                        If updCd = "" Then
+                            updCd = kameitenCd
+                        Else
+                            updCd = updCd & "," & kameitenCd
+                        End If
+
+                    Else
+                        If insCd = "" Then
+                            insCd = kameitenCd
+                        Else
+                            insCd = insCd & "," & kameitenCd
+                        End If
+
+                        hidInsLineNo = hidInsLineNo & i & ","
+
+                    End If
+                End If
+            Next
+            Return "Success"
+        Else
+            Return "CSVデータがないです"
+        End If
+
+
+
+
+
+
     End Function
 
     ''' <summary>OKライン処理</summary>
