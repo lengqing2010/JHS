@@ -292,13 +292,13 @@ Partial Public Class kihon_jyouhou
     Protected WithEvents Common_drop2 As Global.Itis.Earth.WebUI.common_drop
 
     '''<summary>
-    '''ddlSystem コントロール。
+    '''ddl_koj_mitiraisyo_soufu_fuyou コントロール。
     '''</summary>
     '''<remarks>
     '''自動生成されたフィールド。
     '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
     '''</remarks>
-    Protected WithEvents ddlSystem As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddl_koj_mitiraisyo_soufu_fuyou As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''ddlJio コントロール。
@@ -353,6 +353,15 @@ Partial Public Class kihon_jyouhou
     '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
     '''</remarks>
     Protected WithEvents lbl_campaign_waribiki_flg_txt As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlSystem コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents ddlSystem As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''hidHi コントロール。

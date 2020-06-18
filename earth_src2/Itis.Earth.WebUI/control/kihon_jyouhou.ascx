@@ -1,13 +1,12 @@
 <%@ Control Language="vb" AutoEventWireup="false" Codebehind="kihon_jyouhou.ascx.vb"
     Inherits="Itis.Earth.WebUI.kihon_jyouhou" %>
-
 <%@ Register Src="common_drop.ascx" TagName="common_drop" TagPrefix="uc1" %>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" RenderMode="Inline">
     <ContentTemplate>
-        <table cellpadding="1" class="mainTable" style="text-align: left ; width:968px; ">
+        <table cellpadding="1" class="mainTable" style="text-align: left; width: 968px;">
             <thead>
                 <tr>
-                    <th class="tableTitle" colspan="9" rowspan="1" style="text-align: left;height:30px;">
+                    <th class="tableTitle" colspan="9" rowspan="1" style="text-align: left; height: 30px;">
                         <asp:LinkButton ID="lnkTitle" runat="server">基本情報</asp:LinkButton>
                         <asp:Button ID="btnTouroku" runat="server" Text="登録" />
                         <span id="titleInfobar1" runat="server"></span>
@@ -39,7 +38,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="koumokuMei" >
+                    <td class="koumokuMei">
                         年間棟数</td>
                     <td style="">
                         <asp:TextBox ID="tbxlblNenkanTousuu" runat="server" Style="ime-mode: disabled;"></asp:TextBox></td>
@@ -58,36 +57,33 @@
                             Style="width: 72px"></asp:TextBox>
                         <asp:Button ID="btnFuho" runat="server" Text="付保証明有無状況" OnClick="btnFuho_Click" /></td>
                 </tr>
-                
                 <tr>
-                    <td class="koumokuMei" >
+                    <td class="koumokuMei">
                         新築住宅引渡し<br />
                         （販売）件数
-                        </td>
+                    </td>
                     <td style="">
-                        <asp:TextBox ID="tbxSintikuKensuu" runat="server" CssClass="codeNumber" Style="ime-mode: disabled;" MaxLength="10"></asp:TextBox>
+                        <asp:TextBox ID="tbxSintikuKensuu" runat="server" CssClass="codeNumber" Style="ime-mode: disabled;"
+                            MaxLength="10"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;棟/年
                     </td>
                     <td class="koumokuMei" style="">
                         不動産売買件数</td>
                     <td style="">
-                        <asp:TextBox ID="tbxFudouKensuu" runat="server" CssClass="codeNumber" Style="ime-mode: disabled; width:74px;" MaxLength="8"></asp:TextBox>
+                        <asp:TextBox ID="tbxFudouKensuu" runat="server" CssClass="codeNumber" Style="ime-mode: disabled;
+                            width: 74px;" MaxLength="8"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;件/年
-                        </td>
-                    <td class="koumokuMei" >
-                        リフォーム<br />
-                    前年度 請負金額
-</td>
-                    <td colspan="2">
-                        <asp:TextBox ID="tbxZenNenUkeoiKin" runat="server" CssClass="codeNumber" Style="ime-mode: disabled; width:104px;" MaxLength="20"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;万円/年
-
                     </td>
-                </tr> 
-                
-                
-                
-                
+                    <td class="koumokuMei">
+                        リフォーム<br />
+                        前年度 請負金額
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="tbxZenNenUkeoiKin" runat="server" CssClass="codeNumber" Style="ime-mode: disabled;
+                            width: 104px;" MaxLength="20"></asp:TextBox>
+                        &nbsp;&nbsp;&nbsp;&nbsp;万円/年
+                    </td>
+                </tr>
                 <tr>
                     <td class="koumokuMei">
                         営業担当者</td>
@@ -108,22 +104,22 @@
                                 BackColor="Transparent"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td style=" height: 25px" class="koumokuMei">
+                    <td style="height: 25px" class="koumokuMei">
                         地震補償FLG</td>
-                    <td style=" height: 25px">
+                    <td style="height: 25px">
                         <asp:DropDownList ID="ddlJisinHosyou" runat="server">
                             <asp:ListItem Value="1">有り</asp:ListItem>
                             <asp:ListItem Value="0">なし</asp:ListItem>
                         </asp:DropDownList></td>
-                    <td style=" height: 25px" class="koumokuMei">
+                    <td style="height: 25px" class="koumokuMei">
                         地震補償登録日</td>
                     <td style="height: 25px">
                         <asp:TextBox ID="tbxJisinHosyou" runat="server" Width="74px" Style="ime-mode: disabled;"></asp:TextBox>
                     </td>
-                    <td style=" height: 25px" class="koumokuMei">
+                    <td style="height: 25px" class="koumokuMei">
                         ＳＤＳ<br>
                         自動設定情報</td>
-                    <td colspan="2" style="height: 25px; ">
+                    <td colspan="2" style="height: 25px;">
                         <asp:DropDownList ID="ddlSds" runat="server">
                             <asp:ListItem Value=""></asp:ListItem>
                             <asp:ListItem Value="1">1：SDS専用</asp:ListItem>
@@ -140,13 +136,15 @@
                         <uc1:common_drop ID="Common_drop2" runat="server" GetStyle="syubetsu" />
                     </td>
                     <td class="koumokuMei" style="">
-                        工事サポート<br />
-                        システム</td>
+                        工事見積依頼書<br />
+                        送付有無
+                    </td>
                     <td style="">
-                        <asp:DropDownList ID="ddlSystem" runat="server">
-                            <asp:ListItem Value="1">利用する</asp:ListItem>
-                            <asp:ListItem Value="">利用しない</asp:ListItem>
-                        </asp:DropDownList></td>
+                        <asp:DropDownList ID="ddl_koj_mitiraisyo_soufu_fuyou" runat="server">
+                            <asp:ListItem Value="1">有り</asp:ListItem>
+                            <asp:ListItem Value="">無し</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
                     <td class="koumokuMei" style="">
                         ＪＩＯ先フラグ</td>
                     <td colspan="2">
@@ -161,7 +159,6 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="ddl_taiou_syouhin_kbn" runat="server">
-  
                         </asp:DropDownList>&nbsp; &nbsp; &nbsp; &nbsp;
                         <asp:Label ID="lbl_taiou_syouhin_kbn_set_date" runat="server" Text=""></asp:Label>
                     </td>
@@ -171,7 +168,8 @@
                     <td>
                         <asp:Label ID="lbl_tochirepo_muryou_flg" runat="server" Text=""></asp:Label>
                     </td>
-                    <td class="koumokuMei">キャンペーン割
+                    <td class="koumokuMei">
+                        キャンペーン割
                     </td>
                     <td colspan="2">
                         <asp:DropDownList ID="ddl_campaign_waribiki_flg" runat="server">
@@ -182,10 +180,29 @@
                         <asp:Label ID="lbl_campaign_waribiki_flg_txt" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
+                <tr>
+                    <td class="koumokuMei">
+                        工事サポート<br />
+                        システム</td>
+                    <td>
+                        <asp:DropDownList ID="ddlSystem" runat="server">
+                            <asp:ListItem Value="1">利用する</asp:ListItem>
+                            <asp:ListItem Value="">利用しない</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td class="koumokuMei">
+                    </td>
+                    <td>
+                    </td>
+                    <td class="koumokuMei">
+                    </td>
+                    <td colspan="2">
+
+                    </td>
+                </tr>
             </tbody>
         </table>
         <asp:HiddenField ID="hidHi" runat="server" />
         <asp:HiddenField ID="hidHaita" runat="server" />
-
     </ContentTemplate>
 </asp:UpdatePanel>

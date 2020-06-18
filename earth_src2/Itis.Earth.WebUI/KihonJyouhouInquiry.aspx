@@ -314,7 +314,7 @@ alert(msg + "は半角数字で入力して下さい。") ;
      <ContentTemplate>
         <div id="buySelName" runat="server" class="modalDiv" style="position:absolute;left:300px; top:140px;z-index:2;display:none;">
         </div>
-        <div id="disableDiv" runat="server" style="position:absolute; left:0px; top:0px; width:1002px; height:602px; z-index:100;  FILTER:alpha(opacity=70);background-color:#000000; display:none;">
+        <div id="disableDiv" runat="server" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:100;  FILTER:alpha(opacity=70);background-color:#000000; display:none;">
         <iframe src="about:blank" id="hiddenIframe" width="100%" height="100%"></iframe>
         </div>  
      

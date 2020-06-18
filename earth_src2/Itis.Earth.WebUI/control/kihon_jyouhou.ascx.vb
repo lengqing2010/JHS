@@ -132,6 +132,8 @@ Partial Public Class kihon_jyouhou
                 Else
                     ddlSystem.SelectedIndex = 1
                 End If
+
+
                 If TrimNull(.Item("jiosaki_flg")) = "1" Then
                     ddlJio.SelectedIndex = 0
                 Else
@@ -180,6 +182,13 @@ Partial Public Class kihon_jyouhou
                     ddl_campaign_waribiki_flg.SelectedIndex = 0
                 Else
                     ddl_campaign_waribiki_flg.SelectedIndex = 1
+                End If
+
+                'çHéñå©êœàÀóäèëëóïtóLñ≥ çÄñ⁄
+                If TrimNull(.Item("koj_mitiraisyo_soufu_fuyou")) = "1" Then
+                    ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 0
+                Else
+                    ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 1
                 End If
 
 
@@ -631,6 +640,9 @@ Partial Public Class kihon_jyouhou
 
                     .Item("taiou_syouhin_kbn") = Me.ddl_taiou_syouhin_kbn.SelectedValue
                     .Item("campaign_waribiki_flg") = Me.ddl_campaign_waribiki_flg.SelectedValue
+                    .Item("koj_mitiraisyo_soufu_fuyou") = Me.ddl_koj_mitiraisyo_soufu_fuyou.SelectedValue
+
+
                 End With
                 KihonJyouhouLogic.SetUpdKihonJyouhouInfo(dtKihonJyouhouData, ViewState("old_taiou_syouhin_kbn").ToString)
                 setKousinHi(strKameitenCd)

@@ -323,6 +323,8 @@ Partial Public Class KihonJyouhouDataSet
         
         Private columncampaign_waribiki_set_date As Global.System.Data.DataColumn
         
+        Private columnkoj_mitiraisyo_soufu_fuyou As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -551,6 +553,13 @@ Partial Public Class KihonJyouhouDataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property koj_mitiraisyo_soufu_fuyouColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnkoj_mitiraisyo_soufu_fuyou
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -608,9 +617,10 @@ Partial Public Class KihonJyouhouDataSet
                     ByVal taiou_syouhin_kbn_set_date As String,  _
                     ByVal tochirepo_muryou_flg As String,  _
                     ByVal campaign_waribiki_flg As String,  _
-                    ByVal campaign_waribiki_set_date As String) As KihonJyouhouTableRow
+                    ByVal campaign_waribiki_set_date As String,  _
+                    ByVal koj_mitiraisyo_soufu_fuyou As String) As KihonJyouhouTableRow
             Dim rowKihonJyouhouTableRow As KihonJyouhouTableRow = CType(Me.NewRow,KihonJyouhouTableRow)
-            Dim columnValuesArray() As Object = New Object() {todouhuken_cd, nenkan_tousuu, eigyou_tantousya_mei, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, jisin_hosyou_flg, jisin_hosyou_add_date, kameiten_cd, eigyou_tantousya_cd, kyuu_eigyou_tantousya_cd, fuho_syoumeisyo_flg, fuho_syoumeisyo_kaisi_nengetu, upd_datetime, upd_login_user_id, jiosaki_flg, koj_uri_syubetsu, koj_support_system, kameiten_seisiki_mei, kameiten_seisiki_mei_kana, sds_jidoou_set_info, shinchiku_jyuutaku_hikiwatashi_kensuu, fudousan_baibai_kensuu, reform_zennendo_ukeoi_kingaku, taiou_syouhin_kbn, taiou_syouhin_kbn_set_date, tochirepo_muryou_flg, campaign_waribiki_flg, campaign_waribiki_set_date}
+            Dim columnValuesArray() As Object = New Object() {todouhuken_cd, nenkan_tousuu, eigyou_tantousya_mei, hikitugi_kanryou_date, kyuu_eigyou_tantousya_mei, jisin_hosyou_flg, jisin_hosyou_add_date, kameiten_cd, eigyou_tantousya_cd, kyuu_eigyou_tantousya_cd, fuho_syoumeisyo_flg, fuho_syoumeisyo_kaisi_nengetu, upd_datetime, upd_login_user_id, jiosaki_flg, koj_uri_syubetsu, koj_support_system, kameiten_seisiki_mei, kameiten_seisiki_mei_kana, sds_jidoou_set_info, shinchiku_jyuutaku_hikiwatashi_kensuu, fudousan_baibai_kensuu, reform_zennendo_ukeoi_kingaku, taiou_syouhin_kbn, taiou_syouhin_kbn_set_date, tochirepo_muryou_flg, campaign_waribiki_flg, campaign_waribiki_set_date, koj_mitiraisyo_soufu_fuyou}
             rowKihonJyouhouTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowKihonJyouhouTableRow)
             Return rowKihonJyouhouTableRow
@@ -663,6 +673,7 @@ Partial Public Class KihonJyouhouDataSet
             Me.columntochirepo_muryou_flg = MyBase.Columns("tochirepo_muryou_flg")
             Me.columncampaign_waribiki_flg = MyBase.Columns("campaign_waribiki_flg")
             Me.columncampaign_waribiki_set_date = MyBase.Columns("campaign_waribiki_set_date")
+            Me.columnkoj_mitiraisyo_soufu_fuyou = MyBase.Columns("koj_mitiraisyo_soufu_fuyou")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -723,6 +734,8 @@ Partial Public Class KihonJyouhouDataSet
             MyBase.Columns.Add(Me.columncampaign_waribiki_flg)
             Me.columncampaign_waribiki_set_date = New Global.System.Data.DataColumn("campaign_waribiki_set_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncampaign_waribiki_set_date)
+            Me.columnkoj_mitiraisyo_soufu_fuyou = New Global.System.Data.DataColumn("koj_mitiraisyo_soufu_fuyou", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnkoj_mitiraisyo_soufu_fuyou)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1251,6 +1264,20 @@ Partial Public Class KihonJyouhouDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property koj_mitiraisyo_soufu_fuyou() As String
+            Get
+                If Me.Iskoj_mitiraisyo_soufu_fuyouNull Then
+                    Return "(Empty)"
+                Else
+                    Return CType(Me(Me.tableKihonJyouhouTable.koj_mitiraisyo_soufu_fuyouColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tableKihonJyouhouTable.koj_mitiraisyo_soufu_fuyouColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function Istodouhuken_cdNull() As Boolean
             Return Me.IsNull(Me.tableKihonJyouhouTable.todouhuken_cdColumn)
         End Function
@@ -1528,6 +1555,16 @@ Partial Public Class KihonJyouhouDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Setcampaign_waribiki_set_dateNull()
             Me(Me.tableKihonJyouhouTable.campaign_waribiki_set_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Iskoj_mitiraisyo_soufu_fuyouNull() As Boolean
+            Return Me.IsNull(Me.tableKihonJyouhouTable.koj_mitiraisyo_soufu_fuyouColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setkoj_mitiraisyo_soufu_fuyouNull()
+            Me(Me.tableKihonJyouhouTable.koj_mitiraisyo_soufu_fuyouColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

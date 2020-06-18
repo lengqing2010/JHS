@@ -46,7 +46,7 @@ Public Class KihonJyouhouDataAccess
         commandTextSb.AppendLine(" ,tochirepo_muryou_flg ")
         commandTextSb.AppendLine(" ,campaign_waribiki_flg ")
         commandTextSb.AppendLine(" ,campaign_waribiki_set_date ")
-
+        commandTextSb.AppendLine(" ,koj_mitiraisyo_soufu_fuyou ")
 
         commandTextSb.AppendLine(" FROM  m_kameiten WITH (READCOMMITTED) ")
         commandTextSb.AppendLine(" LEFT JOIN  m_jhs_mailbox  AS  m_jhs_mailbox1  WITH (READCOMMITTED) ")
@@ -117,7 +117,7 @@ Public Class KihonJyouhouDataAccess
         commandTextSb.AppendLine(" taiou_syouhin_kbn=@taiou_syouhin_kbn, ")
         commandTextSb.AppendLine(" taiou_syouhin_kbn_set_date=GETDATE(), ")
         commandTextSb.AppendLine(" campaign_waribiki_flg=@campaign_waribiki_flg, ")
-
+        commandTextSb.AppendLine(" koj_mitiraisyo_soufu_fuyou=@koj_mitiraisyo_soufu_fuyou, ")
 
         commandTextSb.AppendLine(" upd_datetime=GETDATE() ")
         commandTextSb.AppendLine(" WHERE m_kameiten.kameiten_cd=@kameiten_cd ")
@@ -204,6 +204,12 @@ Public Class KihonJyouhouDataAccess
                 paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.VarChar, 40, DBNull.Value))
             Else
                 paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.VarChar, 40, .Item("campaign_waribiki_flg")))
+            End If
+
+            If .Item("koj_mitiraisyo_soufu_fuyou") = "0" Then
+                paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.VarChar, 1, DBNull.Value))
+            Else
+                paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.VarChar, 1, .Item("koj_mitiraisyo_soufu_fuyou")))
             End If
 
         End With
