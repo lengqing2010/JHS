@@ -141,8 +141,8 @@
                     </td>
                     <td style="">
                         <asp:DropDownList ID="ddl_koj_mitiraisyo_soufu_fuyou" runat="server">
-                            <asp:ListItem Value="1">—L‚è</asp:ListItem>
-                            <asp:ListItem Value="">–³‚µ</asp:ListItem>
+                            <asp:ListItem Value="">—L‚è</asp:ListItem>
+                            <asp:ListItem Value="1">–³‚µ</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td class="koumokuMei" style="">

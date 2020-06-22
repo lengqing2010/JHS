@@ -186,9 +186,9 @@ Partial Public Class kihon_jyouhou
 
                 'H–Œ©ÏˆË—Š‘‘—•t—L–³ €–Ú
                 If TrimNull(.Item("koj_mitiraisyo_soufu_fuyou")) = "1" Then
-                    ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 0
-                Else
                     ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 1
+                Else
+                    ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 0
                 End If
 
 

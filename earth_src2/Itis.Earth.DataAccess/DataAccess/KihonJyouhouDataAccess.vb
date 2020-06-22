@@ -206,7 +206,7 @@ Public Class KihonJyouhouDataAccess
                 paramList.Add(MakeParam("@campaign_waribiki_flg", SqlDbType.VarChar, 40, .Item("campaign_waribiki_flg")))
             End If
 
-            If .Item("koj_mitiraisyo_soufu_fuyou") = "0" Then
+            If .Item("koj_mitiraisyo_soufu_fuyou") = "" Then
                 paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.VarChar, 1, DBNull.Value))
             Else
                 paramList.Add(MakeParam("@koj_mitiraisyo_soufu_fuyou", SqlDbType.VarChar, 1, .Item("koj_mitiraisyo_soufu_fuyou")))
