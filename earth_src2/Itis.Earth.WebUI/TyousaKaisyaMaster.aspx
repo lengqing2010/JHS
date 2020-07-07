@@ -568,6 +568,37 @@
                 </tbody>
             </table>
             <br />
+            
+           <table cellpadding="2" class="mainTable" style="text-align: left;">
+                <tbody>
+                    <tr align="left">
+                        <td class="koumokuMei">SAP仕入先</td>
+                        <td colspan="4">
+                            <asp:TextBox ID="tbxSiireSaki" runat="server" MaxLength="10" Style="ime-mode: disabled;" Width="120px"></asp:TextBox>
+                            <asp:Button ID="btnSiireSakiKensaku" runat="server" Text="検索" OnClientClick="window.open('search_SAPSiireSaki.aspx')" />
+                            <asp:TextBox ID="tbxSiireSakiMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1" Width="260px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr align="left" style="height: 0px;">
+                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
+                            clip: rect(-1px auto auto auto); border-top-style: none;">
+                        </td>
+                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
+                            border-top-style: none;">
+                        </td>
+                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
+                            border-top-style: none;">
+                        </td>
+                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
+                            border-top-style: none; border-right-style: none;">
+                        </td>
+                        <td style="width: 335px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
+                            border-top-style: none; border-right-style: none; border-left-style: none;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
             <table cellpadding="2" class="mainTable" style="text-align: left;">
                 <tbody>
                     <tr align="left">

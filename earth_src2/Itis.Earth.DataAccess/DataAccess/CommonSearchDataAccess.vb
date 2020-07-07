@@ -1903,4 +1903,78 @@ Public Class CommonSearchDataAccess
 
         Return CInt(dsCommonSearch.Tables(0).Rows(0).Item(0))
     End Function
+
+
+
+
+
+
+    ''' <summary>コード取得元のマスタ取得する</summary>
+    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String) As DataSet
+        ' DataSetインスタンスの生成()
+        Dim dsCommonSearch As New DataSet
+        'SQL文の生成
+        Dim commandTextsb As New StringBuilder
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        With commandTextsb
+
+            .AppendLine(" SELECT ")
+            .AppendLine("	count(*) ")
+            .AppendLine(" FROM ")
+            .AppendLine("	m_sinkaikei_siire_saki WITH(READCOMMITTED) ")
+            .AppendLine(" WHERE 1=1 ")
+
+            If a1_ktokk.Trim <> "" Then
+                .AppendLine(" AND a1_ktokk LIKE @a1_ktokk ")
+                paramList.Add(MakeParam("@a1_ktokk", SqlDbType.VarChar, 6, a1_ktokk & "%"))
+            End If
+
+            If a1_lifnr.Trim <> "" Then
+                .AppendLine(" AND a1_lifnr LIKE @a1_lifnr ")
+                paramList.Add(MakeParam("@a1_lifnr", SqlDbType.VarChar, 12, a1_lifnr & "%"))
+            End If
+
+            If a1_a_zz_sort.Trim <> "" Then
+                .AppendLine(" AND a1_a_zz_sort LIKE @a1_a_zz_sort ")
+                paramList.Add(MakeParam("@a1_a_zz_sort11", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
+            End If
+
+
+            .AppendLine(" SELECT ")
+            If top > 0 Then
+                .AppendLine(" TOP " & top)
+            End If
+
+            .AppendLine("	a1_ktokk,a1_lifnr,a1_a_zz_sort ")
+            .AppendLine(" FROM ")
+            .AppendLine("	m_sinkaikei_siire_saki WITH(READCOMMITTED) ")
+            .AppendLine(" WHERE 1=1 ")
+
+            If a1_ktokk.Trim <> "" Then
+                .AppendLine(" AND a1_ktokk LIKE @a1_ktokk1 ")
+                paramList.Add(MakeParam("@a1_ktokk1", SqlDbType.VarChar, 6, a1_ktokk & "%"))
+            End If
+
+            If a1_lifnr.Trim <> "" Then
+                .AppendLine(" AND a1_lifnr LIKE @a1_lifnr1 ")
+                paramList.Add(MakeParam("@a1_lifnr1", SqlDbType.VarChar, 12, a1_lifnr & "%"))
+            End If
+
+            If a1_a_zz_sort.Trim <> "" Then
+                .AppendLine(" AND a1_a_zz_sort LIKE @a1_a_zz_sort1 ")
+                paramList.Add(MakeParam("@a1_a_zz_sort11", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
+            End If
+        End With
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextsb.ToString, dsCommonSearch, "tokubetutaiou", paramList.ToArray)
+
+        Return dsCommonSearch
+    End Function
+
+
+
+
 End Class

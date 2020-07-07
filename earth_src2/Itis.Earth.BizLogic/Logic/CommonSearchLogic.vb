@@ -270,4 +270,10 @@ Public Class CommonSearchLogic
     Public Function GetTokubetuKaiouCount(ByVal strCd As String, ByVal strMei As String, ByVal blnDelete As Boolean) As Integer
         Return CommonSearchDA.SelTokubetuTaiouCount(strCd, strMei, blnDelete)
     End Function
+
+    ''' <summary>コード取得元のマスタ取得する</summary>
+    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String) As DataSet
+        Return CommonSearchDA.SelSAPSiireSaki(top, a1_ktokk, a1_lifnr, a1_a_zz_sort)
+    End Function
+
 End Class

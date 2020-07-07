@@ -752,6 +752,13 @@
       <DependentUpon>YosinTougetuInput.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="search_SAPSiireSaki.aspx.designer.vb">
+      <DependentUpon>search_SAPSiireSaki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search_SAPSiireSaki.aspx.vb">
+      <DependentUpon>search_SAPSiireSaki.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -894,6 +901,7 @@
     <Content Include="YosinJyouhouInput.aspx" />
     <Content Include="YosinJyouhouInquiry.aspx" />
     <Content Include="YosinTougetuInput.aspx" />
+    <Content Include="search_SAPSiireSaki.aspx" />
     <None Include="data\earth.lha">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
