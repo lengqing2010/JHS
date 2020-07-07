@@ -261,7 +261,7 @@
                         <asp:ListItem Value="1">1:PDF納品</asp:ListItem>
                     </asp:DropDownList></td>
                 <td class="koumokuMei">
-                    保証書発送方法<br />間適用開始日
+                    保証書発送方法<br />適用開始日
                 </td>
                 <td class="" colspan="4">
                     <asp:TextBox ID="tbx_hosyousyo_hassou_umu_start_date" runat="server" MaxLength="10" Width="75px" CssClass = "codeNumber" style="ime-mode:disabled"></asp:TextBox>
