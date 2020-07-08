@@ -129,6 +129,8 @@ Partial Public Class TyousaKaisyaMaster
         Me.tbxSeikyuuSakiMei.Attributes.Add("readonly", "true;")
         '新会計支払先
         Me.tbxSkkShriSakiMei.Attributes.Add("readonly", "true;")
+        'SAP用仕入先名
+        Me.tbxSiireSakiMei.Attributes.Add("readonly", "true;")
         '支払集計先事業所
         Me.tbxTysKaisyaCd.Attributes.Add("readonly", "true;")
         '支払集計先事業所名
@@ -710,6 +712,32 @@ Partial Public Class TyousaKaisyaMaster
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", strScript, True)
         End If
     End Sub
+
+
+
+
+    Protected Sub btnSiireSakiKensaku_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim ds As DataSet = CommonSearchLogic.SelSAPSiireSaki(0, "", Me.tbxSiireSaki.Text, "", "a1_ktokk asc")
+
+        If ds.Tables(1).Rows.Count = 1 Then
+
+            Me.tbxSiireSaki.Text = ds.Tables(1).Rows(0).Item(1).ToString
+            Me.tbxSiireSakiMei.Text = ds.Tables(1).Rows(0).Item(2).ToString
+
+
+
+
+        Else
+            Dim strScript As String = "window.open('search_SAPSiireSaki.aspx', 'searchWindow2', 'menubar=no,toolbar=no,location=no,status=yes,resizable=yes,scrollbars=yes')"
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "err", strScript, True)
+
+        End If
+
+
+    End Sub
+
+
+
 
     ''' <summary>
     ''' 支払集計先事業所検索ボタン押下時処理
@@ -1352,6 +1380,12 @@ Partial Public Class TyousaKaisyaMaster
                 '新会計支払先事業所コード
                 tbxSkkJigyousyoCd.Text = TrimNull(.skk_jigyousyo_cd)
                 hidSkkJigyousyoCd.Value = TrimNull(.skk_jigyousyo_cd)
+
+                'SAP用仕入
+                Me.tbxSiireSaki.Text = TrimNull(.a1_lifnr)
+                Me.tbxSiireSakiMei.Text = TrimNull(.a1_a_zz_sort)
+
+
                 '新会計支払先コード
                 tbxSkkShriSakiCd.Text = TrimNull(.skk_shri_saki_cd)
                 hidSkkShriSakiCd.Value = TrimNull(.skk_shri_saki_cd)
@@ -1566,6 +1600,12 @@ Partial Public Class TyousaKaisyaMaster
         dtTyousaKaisyaDataSet.Item(0).shri_jigyousyo_cd = tbxShriJigyousyoCd.Text
         '支払明細集計先事業所コード
         dtTyousaKaisyaDataSet.Item(0).shri_meisai_jigyousyo_cd = tbxShriMeisaiJigyousyoCd.Text
+
+        'SAP用仕入先
+        dtTyousaKaisyaDataSet.Item(0).a1_lifnr = tbxSiireSaki.Text
+        dtTyousaKaisyaDataSet.Item(0).a1_a_zz_sort = tbxSiireSakiMei.Text
+
+
         ''支払明細集計先事業所名
         'dtTyousaKaisyaDataSet.Item(0).tys_kaisya_mei = tbxTysMeisaiKaisyaMei.Text
         '============2012/04/12 車龍 405721 追加↓==========================
@@ -1765,6 +1805,10 @@ Partial Public Class TyousaKaisyaMaster
         '役職名
         Me.tbxYasyokuMei.Text = String.Empty
         '============2012/04/12 車龍 405721 追加↑==========================
+
+        Me.tbxSiireSaki.Text = ""
+        Me.tbxSiireSakiMei.Text = ""
+
 
         '2013/11/04 李宇追加 ↓
         'SDS保持情報
@@ -2537,5 +2581,6 @@ Partial Public Class TyousaKaisyaMaster
     Private Sub btnBack_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBack.Click
         Server.Transfer("MasterMainteMenu.aspx")
     End Sub
+
 
 End Class

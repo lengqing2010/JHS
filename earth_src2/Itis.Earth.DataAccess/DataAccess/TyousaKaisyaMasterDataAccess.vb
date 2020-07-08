@@ -143,6 +143,8 @@ Public Class TyousaKaisyaMasterDataAccess
             .AppendLine("   ,MTK.sds_daisuu_info ")      'SDS台数情報
             .AppendLine("   ,MTK.jituzai_flg ")          '実在FLG
             '2013/11/04 李宇追加↑
+            .AppendLine("   ,MTK.a1_lifnr ")          '実在FLG
+            .AppendLine("   ,MSSK.a1_a_zz_sort ")          '実在FLG
 
             .AppendLine("FROM ")
             .AppendLine("   m_tyousakaisya MTK WITH (READCOMMITTED) ")      '調査会社マスタ
@@ -182,6 +184,9 @@ Public Class TyousaKaisyaMasterDataAccess
             .AppendLine("   MTK.tys_kaisya_cd = MTK2.tys_kaisya_cd ")
             .AppendLine("AND ")
             .AppendLine("   MTK.shri_meisai_jigyousyo_cd = MTK2.jigyousyo_cd ")
+
+            .AppendLine("LEFT JOIN m_sinkaikei_siire_saki MSSK")
+            .AppendLine("  ON MTK.a1_lifnr = MSSK.a1_lifnr ")
 
             .AppendLine("WHERE ")
             .AppendLine("   MTK.tys_kaisya_cd IS NOT NULL ")
@@ -344,6 +349,8 @@ Public Class TyousaKaisyaMasterDataAccess
             '2013/11/04 李宇追加 ↑
             .AppendLine("   jituzai_flg = @jituzai_flg, ")  '実在FLG
 
+            .AppendLine("   a1_lifnr = @a1_lifnr, ")  '実在FLG
+
             .AppendLine("   upd_login_user_id = @upd_login_user_id, ")  '更新ログインユーザーID
             .AppendLine("   upd_datetime = GETDATE() ")    '更新日時
             .AppendLine("WHERE ")
@@ -472,6 +479,9 @@ Public Class TyousaKaisyaMasterDataAccess
             .Add(MakeParam("@sds_daisuu_info", SqlDbType.Int, 5, IIf(dtTyousaKaisya(0).sds_daisuu_info.Equals(String.Empty), DBNull.Value, dtTyousaKaisya(0).sds_daisuu_info)))
             '2013/11/04 李宇追加 ↑
             .Add(MakeParam("@jituzai_flg", SqlDbType.Int, 4, IIf(dtTyousaKaisya(0).jituzai_flg.Equals(String.Empty), DBNull.Value, dtTyousaKaisya(0).jituzai_flg)))
+
+            .Add(MakeParam("@a1_lifnr", SqlDbType.VarChar, 10, IIf(dtTyousaKaisya(0).a1_lifnr.Equals(String.Empty), DBNull.Value, dtTyousaKaisya(0).a1_lifnr)))
+
 
             '更新ログインユーザーID
             .Add(MakeParam("@upd_login_user_id", SqlDbType.VarChar, 255, IIf(dtTyousaKaisya(0).upd_login_user_id = "", DBNull.Value, dtTyousaKaisya(0).upd_login_user_id)))
@@ -804,6 +814,9 @@ Public Class TyousaKaisyaMasterDataAccess
             .AppendLine("   sds_daisuu_info, ")      'SDS台数情報
             .AppendLine("   jituzai_flg, ")
             '2013/11/04 李宇追加 ↑
+
+            .AppendLine("   a1_lifnr, ")
+
             .AppendLine("   add_login_user_id, ")   '登録ログインユーザーID
             .AppendLine("   add_datetime ")    '登録日時
             .AppendLine(") ")
@@ -858,6 +871,8 @@ Public Class TyousaKaisyaMasterDataAccess
             .AppendLine("   @torikesi_riyuu, ") '取消理由
             .AppendLine("   @report_jhs_token_flg, ")   'ReportJHSトークン有無フラグ
             .AppendLine("   @tkt_jbn_tys_syunin_skk_flg, ") '宅地地盤調査主任資格有無フラグ
+
+
             '============2012/04/12 車龍 405721 追加↓==========================
             .AppendLine("   @daihyousya_mei, ")        '代表者名
             .AppendLine("   @yakusyoku_mei, ")        '役職名
@@ -866,6 +881,8 @@ Public Class TyousaKaisyaMasterDataAccess
             .AppendLine("   @sds_hoji_info, ")        'SDS保持情報
             .AppendLine("   @sds_daisuu_info, ")      'SDS台数情報
             .AppendLine("   @jituzai_flg, ")
+
+            .AppendLine("   @a1_lifnr, ")
             '2013/11/04 李宇追加 ↑
             .AppendLine("   @add_login_user_id, ")  '登録ログインユーザーID
             .AppendLine("   GETDATE() ")   '登録日時
@@ -986,9 +1003,10 @@ Public Class TyousaKaisyaMasterDataAccess
             '2013/11/04 李宇追加 ↑
             .Add(MakeParam("@jituzai_flg", SqlDbType.Int, 4, IIf(dtTyousaKaisya(0).jituzai_flg.Equals(String.Empty), DBNull.Value, dtTyousaKaisya(0).jituzai_flg)))
 
+            .Add(MakeParam("@a1_lifnr", SqlDbType.VarChar, 10, IIf(dtTyousaKaisya(0).a1_lifnr.Equals(String.Empty), DBNull.Value, dtTyousaKaisya(0).a1_lifnr)))
 
             '登録ログインユーザーID
-            .Add(MakeParam("@add_login_user_id", SqlDbType.VarChar, 255, IIf(dtTyousaKaisya(0).add_login_user_id = "", DBNull.Value, dtTyousaKaisya(0).add_login_user_id)))
+            .Add(MakeParam("@add_login_user_id", SqlDbType.VarChar, 255, IIf(dtTyousaKaisya(0).a1_lifnr = "", DBNull.Value, dtTyousaKaisya(0).a1_lifnr)))
 
         End With
 

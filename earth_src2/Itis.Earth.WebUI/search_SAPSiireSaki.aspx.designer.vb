@@ -166,6 +166,60 @@ Partial Public Class search_SAPSiireSaki
     Protected WithEvents resultCount As Global.System.Web.UI.HtmlControls.HtmlTableCell
 
     '''<summary>
+    '''a1_ktokkAsc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_ktokkAsc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''a1_ktokkDesc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_ktokkDesc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''a1_lifnrAsc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_lifnrAsc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''a1_lifnrDesc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_lifnrDesc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''a1_a_zz_sortAsc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_a_zz_sortAsc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''a1_a_zz_sortDesc コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents a1_a_zz_sortDesc As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''divMeisai コントロール。
     '''</summary>
     '''<remarks>

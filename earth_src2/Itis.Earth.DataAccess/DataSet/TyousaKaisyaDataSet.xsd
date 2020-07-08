@@ -287,6 +287,8 @@
               <xs:element name="sds_hoji_info" msprop:Generator_UserColumnName="sds_hoji_info" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="sds_hoji_info" msprop:Generator_ColumnPropNameInTable="sds_hoji_infoColumn" msprop:Generator_ColumnVarNameInTable="columnsds_hoji_info" type="xs:string" minOccurs="0" />
               <xs:element name="sds_daisuu_info" msprop:Generator_UserColumnName="sds_daisuu_info" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="sds_daisuu_info" msprop:Generator_ColumnPropNameInTable="sds_daisuu_infoColumn" msprop:Generator_ColumnVarNameInTable="columnsds_daisuu_info" type="xs:string" minOccurs="0" />
               <xs:element name="jituzai_flg" msprop:Generator_UserColumnName="jituzai_flg" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnjituzai_flg" msprop:Generator_ColumnPropNameInTable="jituzai_flgColumn" msprop:Generator_ColumnPropNameInRow="jituzai_flg" type="xs:string" minOccurs="0" />
+              <xs:element name="a1_lifnr" msprop:Generator_UserColumnName="a1_lifnr" msprop:nullValue="" msprop:Generator_ColumnVarNameInTable="columna1_lifnr" msprop:Generator_ColumnPropNameInTable="a1_lifnrColumn" msprop:Generator_ColumnPropNameInRow="a1_lifnr" type="xs:string" minOccurs="0" />
+              <xs:element name="a1_a_zz_sort" msprop:Generator_UserColumnName="a1_a_zz_sort" msprop:nullValue="" msprop:Generator_ColumnVarNameInTable="columna1_a_zz_sort" msprop:Generator_ColumnPropNameInTable="a1_a_zz_sortColumn" msprop:Generator_ColumnPropNameInRow="a1_a_zz_sort" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

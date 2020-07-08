@@ -79,7 +79,7 @@
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td colspan="4">
@@ -127,30 +127,11 @@
                         <td colspan="3">
                             <asp:TextBox ID="tbxYasyokuMei" MaxLength="20" runat="server" Width="256px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 100px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 265px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 100px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 72px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 72px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
-                        </td>
-                        <td style="width: 265px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-left-style: none;">
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -182,24 +163,10 @@
                             <asp:TextBox ID="tbxFaxNo" runat="server" MaxLength="16" Style="ime-mode: disabled;"
                                 Width="130px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 395px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 210px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -232,36 +199,20 @@
                         <td colspan="1">
                             <asp:DropDownList ID="ddlKoujiGyoumu" runat="server">
                             </asp:DropDownList></td>
-                            
-                        <td  class="koumokuMei"  >
+                        <td class="koumokuMei">
                             実在ＦＬＧ
                         </td>
-                        <td style="" >
+                        <td style="">
                             <asp:DropDownList ID="ddlJituzaiFlg" runat="server">
                                 <asp:ListItem Value=""></asp:ListItem>
                                 <asp:ListItem Value="1" Selected="true">1:実在する</asp:ListItem>
                             </asp:DropDownList>
-                        </td> 
-                            
-                    </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
                         </td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -294,7 +245,7 @@
                         <td class="koumokuMei">
                             全住品区分補足</td>
                         <td colspan="5">
-                            <asp:TextBox ID="btxZenjyuhinHosoku" runat="server"  Width="631px" MaxLength="80"></asp:TextBox></td>
+                            <asp:TextBox ID="btxZenjyuhinHosoku" runat="server" Width="631px" MaxLength="80"></asp:TextBox></td>
                     </tr>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -308,30 +259,10 @@
                             <asp:DropDownList ID="ddlRJhsTokenFlg" runat="server">
                             </asp:DropDownList></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-left-style: none;">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -350,29 +281,9 @@
                             <asp:TextBox ID="tbxKojHkksTyokusouUpdDatetime" runat="server" CssClass="readOnlyStyle"
                                 TabIndex="-1" Width="150px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 100px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 80px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 200px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 165px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
-                        </td>
-                        <td style="width: 160px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-left-style: none;">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
-<%--            <br />
+            <%--            <br />
             <table cellpadding="2" class="mainTable" style="text-align: left;">
                 <tbody>
                     <tr align="left">
@@ -436,23 +347,6 @@
                                         <asp:TextBox ID="tbxSeikyuuSakiMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1"
                                             Width="260px"></asp:TextBox></td>
                                 </tr>
-                                <tr align="left" style="height: 0px;">
-                                    <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                                        clip: rect(-1px auto auto auto); border-top-style: none;">
-                                    </td>
-                                    <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                                        border-top-style: none;">
-                                    </td>
-                                    <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                                        border-top-style: none;">
-                                    </td>
-                                    <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                                        border-top-style: none; border-right-style: none;">
-                                    </td>
-                                    <td style="width: 180px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                                        border-top-style: none; border-right-style: none; border-left-style: none;">
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </td>
@@ -468,7 +362,7 @@
                 </tr>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -510,30 +404,10 @@
                             <asp:TextBox ID="tbxShriYouFaxNo" runat="server" MaxLength="16" Style="ime-mode: disabled;"
                                 Width="130px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 295px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 50px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 80px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 100px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 162px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -548,58 +422,26 @@
                             <asp:TextBox ID="tbxSkkShriSakiMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1"
                                 Width="260px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 335px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <br />
-            
-           <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
-                        <td class="koumokuMei">SAP仕入先</td>
+                        <td class="koumokuMei" style="width: 150px;">
+                            SAP仕入先</td>
                         <td colspan="4">
-                            <asp:TextBox ID="tbxSiireSaki" runat="server" MaxLength="10" Style="ime-mode: disabled;" Width="120px"></asp:TextBox>
-                            <asp:Button ID="btnSiireSakiKensaku" runat="server" Text="検索" OnClientClick="window.open('search_SAPSiireSaki.aspx')" />
-                            <asp:TextBox ID="tbxSiireSakiMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1" Width="260px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 335px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
+                            <asp:TextBox ID="tbxSiireSaki" runat="server" MaxLength="10" Style="ime-mode: disabled;"
+                                Width="120px"></asp:TextBox>
+                            <asp:Button ID="btnSiireSakiKensaku" runat="server" Text="検索" OnClick="btnSiireSakiKensaku_Click" />
+                            <asp:TextBox ID="tbxSiireSakiMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1"
+                                Width="360px"></asp:TextBox>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <table cellpadding="2" class="mainTable" style="text-align: left;">
+            <table cellpadding="2" class="mainTable" style="text-align: left; width: 920px;">
                 <tbody>
                     <tr align="left">
                         <td class="koumokuMei">
@@ -644,26 +486,7 @@
                             <asp:TextBox ID="tbxTysMeisaiKaisyaMei" runat="server" CssClass="readOnlyStyle" TabIndex="-1"
                                 Width="260px"></asp:TextBox></td>
                     </tr>
-                    <tr align="left" style="height: 0px;">
-                        <td style="width: 150px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            clip: rect(-1px auto auto auto); border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none;">
-                        </td>
-                        <td style="width: 135px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none;">
-                        </td>
-                        <td style="width: 130px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-right-style: none; border-left-style: none;">
-                        </td>
-                        <td style="width: 194px; margin-bottom: -1px; padding-bottom: 0px; border-bottom-style: none;
-                            border-top-style: none; border-left-style: none;">
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
             <asp:HiddenField ID="hidUPDTime" runat="server" />

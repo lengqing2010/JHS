@@ -4,19 +4,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />--%>
     <title>SAP仕入先検索</title>
     <link rel="stylesheet" href="css/jhsearth.css" type="text/css" />
-</head>
 
+    <script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
 <script type="text/javascript" src="js/jhsearth.js">
 </script>
+    <script type="text/javascript">
+    
+    
+        $(document).ready(function () {
+            window.resizeTo(820,600);
+            
+           // $("#tbxSiireSakiCd").select();
+            
+            $("#clearWin").click(function(){
+                $('#tbxKdGroup').val('');
+                 $('#tbxSiireSakiCd').val('');
+                  $('#tbxSiireSakiMei').val('');
+                
+            });
+        
+//            $('#tbxSiireSakiCd').bind('input propertychange', function() {
+//                $('#tblMs').html("<tr><td>aaaa</td></tr>");
+//                
+//                $.ajax({
+//                    type: 'POST',
+//                    url: 'AJAX.aspx?kbn=tempsIds&line_id=' + $("#tbxLineId_key").val(),
+//                    async: true, //true:yibu
+//                    datatype: 'html',//'xml', 'html', 'script', 'json', 'jsonp', 'text'.
+//                    //when complete
+//                    complete: function (XMLHttpRequest, textStatus) {
+//                        $("#temp_ids")[0].innerHTML = XMLHttpRequest.responseText;
+//                    }
+//                });
+//                
+//                
+//            });
+//            
+            
 
-<script type="text/javascript">
-    window.resizeTo(820,600);
+            
+            
+            
+        });
+        
 
-</script>
+         function DblClickRow(a,b){
+         
+            if(window.opener == null || window.opener.closed){
+                alert('呼び出し元画面が閉じられた為、値をセットできません。');
+                return false;
+            }
+            
+            window.opener.document.all.ctl00_ContentPlaceHolder1_tbxSiireSaki.value = a;
+            window.opener.document.all.ctl00_ContentPlaceHolder1_tbxSiireSakiMei.value = b;
+           
+            
+            window.close();
+         
+         }   
 
+    </script>
+
+</head>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -51,13 +103,10 @@
                             <asp:Label ID="lblCd" runat="server" Text="勘定ｸﾞﾙｰﾌﾟ"></asp:Label>
                         </td>
                         <td style="width: 514px">
-                            <asp:TextBox ID="tbxKdGroup" runat="server" MaxLength="4" Style="ime-mode: disabled;"
-                                Width="48px" list="tbxKdGrouplist"></asp:TextBox>
-                                <datalist id ="tbxKdGrouplist">
-                                <option value="aaa">
-                                <option value="bbb">
-                                
-                                </datalist>
+                            <asp:TextBox ID="tbxKdGroup" runat="server" MaxLength="4" Style="ime-mode: disabled;"  Width="48px" list="tbxKdGrouplist"></asp:TextBox>
+                            <datalist id="tbxKdGrouplist">
+                                <%=op_a1_ktokk%>
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
@@ -99,19 +148,26 @@
                     </td>
                 </tr>
             </table>
-            <table style="width: 600px; border: black 1px solid; border-collapse: collapse;
-                background-color: #ffffd9; font-weight: bold; font-size: 13px;height:24px;
-                text-align: center">
+            <table style="width: 600px; border: black 1px solid; border-collapse: collapse; background-color: #ffffd9;
+                font-weight: bold; font-size: 13px; height: 24px; text-align: center">
                 <tr>
-                    <td style="width: 100px; border: #ccc 1px solid; padding:2px;">
-                        勘定ｸﾞﾙｰﾌﾟ</td>
-                    <td style="width: 130px; border: #ccc 1px solid; padding:2px;">
-                        仕入先ｺｰﾄﾞ</td>
+                    <td style="width: 140px; border: #ccc 1px solid; padding: 2px;">
+                        勘定ｸﾞﾙｰﾌﾟ
+                        <asp:LinkButton ID="a1_ktokkAsc" runat="server" style="TEXT-DECORATION: none; COLOR: skyblue">▲</asp:LinkButton>
+                        <asp:LinkButton ID="a1_ktokkDesc" runat="server"  style="TEXT-DECORATION: none; COLOR: skyblue">▼</asp:LinkButton></td>
+                    <td style="width: 150px; border: #ccc 1px solid; padding: 2px;">
+                        仕入先ｺｰﾄﾞ
+                        <asp:LinkButton ID="a1_lifnrAsc" runat="server"   style="TEXT-DECORATION: none; COLOR: skyblue">▲</asp:LinkButton>
+                        <asp:LinkButton ID="a1_lifnrDesc" runat="server"   style="TEXT-DECORATION: none; COLOR: skyblue">▼</asp:LinkButton></td>
                     <td>
-                        仕入先名</td>
+                        仕入先名
+                        <asp:LinkButton ID="a1_a_zz_sortAsc" runat="server"  style="TEXT-DECORATION: none; COLOR: skyblue">▲</asp:LinkButton>
+                        <asp:LinkButton ID="a1_a_zz_sortDesc" runat="server"   style="TEXT-DECORATION: none; COLOR: skyblue">▼</asp:LinkButton></td>
                 </tr>
             </table>
-            <div id="divMeisai" runat="server" style="width:620px; height:200px; overflow:auto;">
+            <div id="divMeisai" runat="server" style="width: 620px; height: 200px; overflow: auto;">
+                <table id="tblMs">
+                </table>
                 <asp:GridView ID="grdBody" runat="server" BackColor="White" BorderColor="GrayText"
                     BorderWidth="1px" CellPadding="0" CssClass="tableMeiSai" ShowHeader="False" Style="border-right: #999999 1px solid;
                     border-top: black 1px solid" Width="600" AutoGenerateColumns="false">
@@ -120,13 +176,13 @@
                             <ItemTemplate>
                                 <%#Eval("a1_ktokk")%>
                             </ItemTemplate>
-                            <ItemStyle Width="100px" />
+                            <ItemStyle Width="140px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <%#Eval("a1_lifnr")%>
                             </ItemTemplate>
-                            <ItemStyle Width="130px" />
+                            <ItemStyle Width="150px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>

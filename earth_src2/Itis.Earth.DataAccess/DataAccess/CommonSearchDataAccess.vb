@@ -1910,7 +1910,7 @@ Public Class CommonSearchDataAccess
 
 
     ''' <summary>コード取得元のマスタ取得する</summary>
-    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String) As DataSet
+    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String, ByVal sort As String) As DataSet
         ' DataSetインスタンスの生成()
         Dim dsCommonSearch As New DataSet
         'SQL文の生成
@@ -1938,7 +1938,7 @@ Public Class CommonSearchDataAccess
 
             If a1_a_zz_sort.Trim <> "" Then
                 .AppendLine(" AND a1_a_zz_sort LIKE @a1_a_zz_sort ")
-                paramList.Add(MakeParam("@a1_a_zz_sort11", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
+                paramList.Add(MakeParam("@a1_a_zz_sort", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
             End If
 
 
@@ -1964,14 +1964,42 @@ Public Class CommonSearchDataAccess
 
             If a1_a_zz_sort.Trim <> "" Then
                 .AppendLine(" AND a1_a_zz_sort LIKE @a1_a_zz_sort1 ")
-                paramList.Add(MakeParam("@a1_a_zz_sort11", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
+                paramList.Add(MakeParam("@a1_a_zz_sort1", SqlDbType.VarChar, 72, "%" & a1_a_zz_sort & "%"))
             End If
+            .AppendLine(" ORDER BY " & sort)
+
         End With
 
         ' 検索実行
         FillDataset(connStr, CommandType.Text, commandTextsb.ToString, dsCommonSearch, "tokubetutaiou", paramList.ToArray)
 
         Return dsCommonSearch
+    End Function
+
+
+
+    ''' <summary>勘定ｸﾞﾙｰﾌﾟ取得する</summary>
+    Public Function SelDis_a1_ktokk() As DataTable
+        ' DataSetインスタンスの生成()
+        Dim dsCommonSearch As New DataSet
+        'SQL文の生成
+        Dim commandTextsb As New StringBuilder
+        'パラメータ格納
+        Dim paramList As New List(Of SqlClient.SqlParameter)
+
+        With commandTextsb
+
+            .AppendLine(" SELECT ")
+            .AppendLine("	distinct a1_ktokk ")
+            .AppendLine(" FROM ")
+            .AppendLine("	m_sinkaikei_siire_saki WITH(READCOMMITTED) ")
+
+        End With
+
+        ' 検索実行
+        FillDataset(connStr, CommandType.Text, commandTextsb.ToString, dsCommonSearch, "a1_ktokk", paramList.ToArray)
+
+        Return dsCommonSearch.Tables(0)
     End Function
 
 

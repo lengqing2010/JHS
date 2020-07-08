@@ -272,8 +272,14 @@ Public Class CommonSearchLogic
     End Function
 
     ''' <summary>コード取得元のマスタ取得する</summary>
-    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String) As DataSet
-        Return CommonSearchDA.SelSAPSiireSaki(top, a1_ktokk, a1_lifnr, a1_a_zz_sort)
+    Public Function SelSAPSiireSaki(ByVal top As Integer, ByVal a1_ktokk As String, ByVal a1_lifnr As String, ByVal a1_a_zz_sort As String, ByVal sort As String) As DataSet
+        Return CommonSearchDA.SelSAPSiireSaki(top, a1_ktokk, a1_lifnr, a1_a_zz_sort, sort)
+    End Function
+
+
+    ''' <summary>勘定ｸﾞﾙｰﾌﾟ取得する</summary>
+    Public Function SelDis_a1_ktokk() As DataTable
+        Return CommonSearchDA.SelDis_a1_ktokk
     End Function
 
 End Class
