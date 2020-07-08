@@ -499,6 +499,8 @@
             <!--新会計支払先検索-->
             <asp:HiddenField ID="hidSkkJigyousyoCd" runat="server" />
             <asp:HiddenField ID="hidSkkShriSakiCd" runat="server" />
+            
+            <asp:HiddenField ID="hidSAPSiirSakiCd" runat="server" />
             <!--支払集計先事業所検索-->
             <asp:HiddenField ID="hidShriJigyousyoCd" runat="server" />
             <!--支払明細集計先事業所検索-->

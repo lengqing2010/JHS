@@ -60,7 +60,9 @@
             
             window.opener.document.all.ctl00_ContentPlaceHolder1_tbxSiireSaki.value = a;
             window.opener.document.all.ctl00_ContentPlaceHolder1_tbxSiireSakiMei.value = b;
-           
+            window.opener.document.all.ctl00_ContentPlaceHolder1_hidSAPSiirSakiCd.value = a;   
+            
+            
             
             window.close();
          

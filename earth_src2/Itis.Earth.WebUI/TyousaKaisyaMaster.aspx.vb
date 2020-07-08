@@ -723,7 +723,7 @@ Partial Public Class TyousaKaisyaMaster
 
             Me.tbxSiireSaki.Text = ds.Tables(1).Rows(0).Item(1).ToString
             Me.tbxSiireSakiMei.Text = ds.Tables(1).Rows(0).Item(2).ToString
-
+            Me.hidSAPSiirSakiCd.Value = ds.Tables(1).Rows(0).Item(1).ToString
 
 
 
@@ -944,6 +944,12 @@ Partial Public Class TyousaKaisyaMaster
             .AppendLine("   var tbxTysMeisaiKaisyaMei = document.getElementById('" & Me.tbxTysMeisaiKaisyaMei.ClientID & "')")
             '.AppendLine("   var tbxKensakuKensaCenterMei = document.getElementById('" & Me.tbxKensakuKensaCenterMei.ClientID & "')")
 
+            .AppendLine("   var hidSAPSiirSakiCd = document.getElementById('" & Me.hidSAPSiirSakiCd.ClientID & "')")
+            .AppendLine("   var tbxSiireSaki = document.getElementById('" & Me.tbxSiireSaki.ClientID & "')")
+            .AppendLine("   var tbxSiireSakiMei = document.getElementById('" & Me.tbxSiireSakiMei.ClientID & "')")
+
+
+
             '請求先
             .AppendLine("   var hidConfirm2 = document.getElementById('" & Me.hidConfirm2.ClientID & "')")
             .AppendLine("   if((ddlSeikyuuSaki.value!='')||(tbxSeikyuuSakiCd.value!='')||(tbxSeikyuuSakiBrc.value!='')){")
@@ -971,11 +977,18 @@ Partial Public Class TyousaKaisyaMaster
             .AppendLine("       tbxSeikyuuSakiBrc.focus();")
             .AppendLine("       return false;")
 
+            .AppendLine("   }else if((tbxSiireSaki.value != hidSAPSiirSakiCd.value)&&(tbxSiireSaki.value !='')){")
+            .AppendLine("       alert('" & Replace(Messages.Instance.MSG030E, "@PARAM1", "SAP仕入先コード") & " ');")
+            .AppendLine("       tbxSiireSakiMei.value='';")
+            .AppendLine("       tbxSiireSaki.focus();")
+            .AppendLine("       return false;")
+
             .AppendLine("   }else if((tbxSkkShriSakiCd.value != hidSkkShriSakiCd.value)&&(tbxSkkShriSakiCd.value !='')){")
             .AppendLine("       alert('" & Replace(Messages.Instance.MSG030E, "@PARAM1", "新会計支払先コード") & "');")
             .AppendLine("       tbxSkkShriSakiMei.value='';")
             .AppendLine("       tbxSkkShriSakiCd.focus();")
             .AppendLine("       return false;")
+
             '支払集計先事業所
             .AppendLine("   }else if((tbxShriJigyousyoCd.value != hidShriJigyousyoCd.value)&&(tbxShriJigyousyoCd.value != '')){")
             .AppendLine("       alert('" & Replace(Messages.Instance.MSG030E, "@PARAM1", "支払集計先事業所コード") & "');")
@@ -1384,6 +1397,7 @@ Partial Public Class TyousaKaisyaMaster
                 'SAP用仕入
                 Me.tbxSiireSaki.Text = TrimNull(.a1_lifnr)
                 Me.tbxSiireSakiMei.Text = TrimNull(.a1_a_zz_sort)
+                hidSAPSiirSakiCd.Value = TrimNull(.a1_lifnr)
 
 
                 '新会計支払先コード

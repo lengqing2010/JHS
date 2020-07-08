@@ -778,6 +778,15 @@ Partial Public Class TyousaKaisyaMaster
     Protected WithEvents hidSkkShriSakiCd As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''hidSAPSiirSakiCd コントロール。
+    '''</summary>
+    '''<remarks>
+    '''自動生成されたフィールド。
+    '''変更するには、フィールドの宣言をデザイナ ファイルから分離コード ファイルに移動します。
+    '''</remarks>
+    Protected WithEvents hidSAPSiirSakiCd As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''hidShriJigyousyoCd コントロール。
     '''</summary>
     '''<remarks>
