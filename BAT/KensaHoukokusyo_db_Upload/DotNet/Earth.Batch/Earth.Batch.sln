@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Earth.Batch", "EARTH.BATCH\Earth.Batch.vbproj", "{8F1CD41A-F5DD-454A-A8AE-DF95991355AB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Earth.Batch.KensaHoukokusyo_db_Upload", "Earth.Batch.KensaHoukokusyo_db_Upload\Earth.Batch.KensaHoukokusyo_db_Upload.vbproj", "{3EF2FBA3-BCCF-4034-93EB-1BEAAE3F2FBB}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EARTH.BATCH\\Earth.Batch.vbproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = EARTH.BATCH\\
+		SccProjectUniqueName2 = Earth.Batch.KensaHoukokusyo_db_Upload\\Earth.Batch.KensaHoukokusyo_db_Upload.vbproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Earth.Batch.KensaHoukokusyo_db_Upload\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F1CD41A-F5DD-454A-A8AE-DF95991355AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1CD41A-F5DD-454A-A8AE-DF95991355AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1CD41A-F5DD-454A-A8AE-DF95991355AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1CD41A-F5DD-454A-A8AE-DF95991355AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF2FBA3-BCCF-4034-93EB-1BEAAE3F2FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF2FBA3-BCCF-4034-93EB-1BEAAE3F2FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF2FBA3-BCCF-4034-93EB-1BEAAE3F2FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF2FBA3-BCCF-4034-93EB-1BEAAE3F2FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

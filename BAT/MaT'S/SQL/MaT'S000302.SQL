@@ -1,0 +1,67 @@
+SELECT 
+	SFUM.UCCRPCOD AS 加盟店ｺｰﾄﾞ 
+	,SFUM.UCDELFLG AS 取消 
+	,9 AS 発注停止FLG 
+	,CASE WHEN UCSTROT8 IS NOT NULL THEN 
+		CASE WHEN SUBSTR(UCSTROT8,-1) IN ('0','1','2','3','4','5','6','7','8','9') THEN
+	          to_char(SUBSTR(UCSTROT8, -1))
+		ELSE
+	          '0'
+	      End
+	ELSE
+	      '0'
+	END AS 営業区分 
+	,SFUM.UCCRPNAM AS 加盟店名 
+	,CASE WHEN SUBSTR(SFOM.OGPSTCOD,1,2) = '04' THEN SFOM.OGPSTNAM 
+	     ELSE SFOM.SUB_OGPSTNAM END AS 支店名 
+	,CASE WHEN SUBSTR(SFOM.OGPSTCOD,1,2) = '04' THEN SFOM.OGPSTCOD 
+	     ELSE SFOM.SUB_OGPSTCOD END AS 部署ｺｰﾄﾞ 
+	,SOM1.OEUSRNMR AS 営業担当者  
+	,SOM1.OEBASLID AS 営業担当者名 
+	,NULL AS 必要面談回数 
+	,CASE WHEN SUBSTR(SFOM.OGPSTCOD,1,2) = '05' THEN SFOM.OGPSTCOD 
+	     ELSE NULL END AS 営業所_部署ｺｰﾄﾞ 
+	,CASE WHEN SUBSTR(SFOM.OGPSTCOD,1,2) = '05' THEN SFOM.OGPSTNAM 
+	     ELSE NULL END AS 営業所名 
+	,NULL AS 都道府県ｺｰﾄﾞ 
+	,NULL AS 都道府県名 
+	,NULL AS 系列ｺｰﾄﾞ 
+	,NULL AS 系列名 
+	,NULL AS 営業所ｺｰﾄﾞ 
+	,NULL AS 年間棟数 
+	,NULL AS 前年実績_年間棟数 
+	,NULL AS 計画値0FLG 
+	,NULL AS 加盟店登録年月 
+	,'1' AS 加盟店新規FLG 
+	,NULL AS 業態 
+	,NULL AS 分譲上位50社FLG 
+	,NULL AS 注文上位50社FLG 
+	,NULL AS 併売上位50社FLG 
+	,NULL AS 登録ID 
+	,SFUM.UCMAKDAT AS 登録日時 
+	,NULL AS 更新ID 
+	,SFUM.UCDBADAT AS 更新日時 
+FROM SFAMT_USRCORP_MVR  SFUM				--報連相の加盟店ﾏｽﾀ 
+	LEFT JOIN ( 
+	    SELECT SFOM.OGPSTSEQ,						--部署No 
+	           SFOM.OGPSTCOD,						--部署コード 
+	           SFOM.OGPSTNAM,						--部署名 
+	           SUB_SFOM.OGPSTCOD AS SUB_OGPSTCOD,	--上位組織の部署コード 
+	           SUB_SFOM.OGPSTNAM AS SUB_OGPSTNAM	--上位組織の部署名 
+	    FROM SFAMT_OWNPOSGRP_MVR  SFOM			--報連相の部署ﾏｽﾀ 
+	    LEFT JOIN SFAMT_OWNPOSGRP_MVR  SUB_SFOM	--報連相の部署ﾏｽﾀ 
+	    ON SFOM.OGPHLSEQ = SUB_SFOM.OGPSTSEQ		--上位組織 
+	)  SFOM 
+	ON SFUM.UCPSTSEQ = SFOM.OGPSTSEQ				--部署No 
+	LEFT JOIN ( 
+		SELECT MIN(OGEMPSEQ) OGEMPSEQ 
+			   ,OGCRPSEQ	 
+		FROM SFAMT_OWNCSTCHG_MVR 
+		GROUP BY OGCRPSEQ 
+		) SOM				--報連相の加盟店_担当者ﾏｽﾀ  
+	ON SFUM.UCCRPSEQ = SOM.OGCRPSEQ					--担当紐付けｺｰﾄﾞ  
+	LEFT JOIN SFAMT_OWNEMP_MVR SOM1					--報連相の担当者ﾏｽﾀ  
+	ON SOM.OGEMPSEQ = SOM1.OEEMPSEQ					--担当者ｺｰﾄﾞ 
+WHERE 
+	length(nvl(SFUM.UCCRPCOD,'')) = 8	--8桁 で登録のあるコードを取得する 
+	AND SFUM.UCDELFLG = '0'
