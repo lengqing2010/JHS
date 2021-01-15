@@ -105,6 +105,7 @@ Public Class FcwUtility
     Public Function GetUrlKensaHoukokusyo(ByVal strOutFileName As String)
         Dim methodName As String = className & "." & Reflection.MethodBase.GetCurrentMethod.Name
         Dim Report As New ReportManager(fcpFileName, dataFileNameOut, PrintMode.ServerSave)
+        'Dim Report As New ReportManager(fcpFileName, dataFileNameOut, PrintMode.Preview)
         Report.ReportServerURL = System.Configuration.ConfigurationManager.AppSettings("ReportServerUrl").ToString()
         Report.Parameters.OutFile = "JHSEarth\" & strOutFileName
 
