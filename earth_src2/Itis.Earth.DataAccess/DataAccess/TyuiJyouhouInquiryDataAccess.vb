@@ -2214,7 +2214,8 @@ Public Class TyuiJyouhouInquiryDataAccess
 
 
     '''<summary>基本商品の更新処理</summary>
-    Public Function UpdKihonSyouhin(ByVal strKameitenCd As String, ByVal strKihonSyouhinCd As String, ByVal strKihonSyouhinTyuuibun As String) As Boolean
+    Public Function UpdKihonSyouhin(ByVal strKameitenCd As String, ByVal strKihonSyouhinCd As String, ByVal strKihonSyouhinTyuuibun As String, _
+    ByVal userid As String) As Boolean
 
         Dim updCnt As Integer = 0
 
@@ -2224,6 +2225,22 @@ Public Class TyuiJyouhouInquiryDataAccess
         Dim paramList As New List(Of SqlClient.SqlParameter)
 
         With commandTextSb
+
+
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            .AppendLine("DECLARE  @oldvalue1 varchar(256)")
+            .AppendLine("DECLARE  @oldvalue2 varchar(256)")
+            .AppendLine("DECLARE  @upd_datetime datetime")
+            .AppendLine("Set  @upd_datetime = getdate()")
+
+            .AppendLine("SELECT ")
+            .AppendLine("	@oldvalue1 = kihon_syouhin_cd ")
+            .AppendLine("	,@oldvalue2 = kihon_syouhin_tyuuibun ")
+            .AppendLine("FROM	m_kameiten ")
+            .AppendLine("WHERE ")
+            .AppendLine("	kameiten_cd = @kameiten_cd ")
+
+
             .AppendLine("UPDATE ")
             .AppendLine("	m_kameiten WITH(UPDLOCK) ")
             .AppendLine("SET ")
@@ -2231,11 +2248,41 @@ Public Class TyuiJyouhouInquiryDataAccess
             .AppendLine("	,kihon_syouhin_tyuuibun = @kihon_syouhin_tyuuibun ")
             .AppendLine("WHERE ")
             .AppendLine("	kameiten_cd = @kameiten_cd ")
+
+
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            .AppendLine("INSERT INTO t_kameiten_kihonsyouhin_tyshouhou_rireki")
+            .AppendLine("SELECT ")
+            .AppendLine("@upd_datetime ")
+            .AppendLine(",@kameiten_cd ")
+            .AppendLine(",'基本商品注意文' ")
+            .AppendLine(",@oldvalue2 ")
+            .AppendLine(",@newvalue2 ")
+            .AppendLine(",@userid ")
+
+            .AppendLine("INSERT INTO t_kameiten_kihonsyouhin_tyshouhou_rireki")
+            .AppendLine("SELECT ")
+            .AppendLine("@upd_datetime ")
+            .AppendLine(",@kameiten_cd ")
+            .AppendLine(",'基本商品CD' ")
+            .AppendLine(",@oldvalue1 ")
+            .AppendLine(",@newvalue1 ")
+            .AppendLine(",@userid ")
+
+
         End With
 
         paramList.Add(MakeParam("@kihon_syouhin_cd", SqlDbType.VarChar, 8, IIf(strKihonSyouhinCd.Equals(String.Empty), DBNull.Value, strKihonSyouhinCd)))
         paramList.Add(MakeParam("@kihon_syouhin_tyuuibun", SqlDbType.VarChar, 80, IIf(strKihonSyouhinTyuuibun.Equals(String.Empty), DBNull.Value, strKihonSyouhinTyuuibun)))
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
+
+        'paramList.Add(MakeParam("@oldvalue1", SqlDbType.VarChar, 256, oldvalue1))
+        paramList.Add(MakeParam("@newvalue1", SqlDbType.VarChar, 256, IIf(strKihonSyouhinCd.Equals(String.Empty), DBNull.Value, strKihonSyouhinCd)))
+
+        'paramList.Add(MakeParam("@oldvalue2", SqlDbType.VarChar, 256, oldvalue2))
+        paramList.Add(MakeParam("@newvalue2", SqlDbType.VarChar, 256, IIf(strKihonSyouhinTyuuibun.Equals(String.Empty), DBNull.Value, strKihonSyouhinTyuuibun)))
+
+        paramList.Add(MakeParam("@userid", SqlDbType.VarChar, 30, userid))
 
         updCnt = ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
 
@@ -2249,7 +2296,8 @@ Public Class TyuiJyouhouInquiryDataAccess
 
 
     '''<summary>基本調査方法の更新処理</summary>
-    Public Function UpdKihonTyousaHouhou(ByVal strKameitenCd As String, ByVal strKihonTyousaHouhouNo As String, ByVal strKihonTyousaHouhouTyuuibun As String) As Boolean
+    Public Function UpdKihonTyousaHouhou(ByVal strKameitenCd As String, ByVal strKihonTyousaHouhouNo As String, ByVal strKihonTyousaHouhouTyuuibun As String, _
+    ByVal userid As String) As Boolean
 
         Dim updCnt As Integer = 0
 
@@ -2259,6 +2307,20 @@ Public Class TyuiJyouhouInquiryDataAccess
         Dim paramList As New List(Of SqlClient.SqlParameter)
 
         With commandTextSb
+
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            .AppendLine("DECLARE  @oldvalue1 varchar(256)")
+            .AppendLine("DECLARE  @oldvalue2 varchar(256)")
+            .AppendLine("DECLARE  @upd_datetime datetime")
+            .AppendLine("Set  @upd_datetime = getdate()")
+
+            .AppendLine("SELECT ")
+            .AppendLine("	@oldvalue1 = kihon_tyousahouhou_no ")
+            .AppendLine("	,@oldvalue2 = kihon_tyousahouhou_tyuuibun ")
+            .AppendLine("FROM	m_kameiten ")
+            .AppendLine("WHERE ")
+            .AppendLine("	kameiten_cd = @kameiten_cd ")
+
             .AppendLine("UPDATE ")
             .AppendLine("	m_kameiten WITH(UPDLOCK) ")
             .AppendLine("SET ")
@@ -2266,11 +2328,44 @@ Public Class TyuiJyouhouInquiryDataAccess
             .AppendLine("	,kihon_tyousahouhou_tyuuibun = @kihon_tyousahouhou_tyuuibun ")
             .AppendLine("WHERE ")
             .AppendLine("	kameiten_cd = @kameiten_cd ")
+
+
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+
+            .AppendLine("INSERT INTO t_kameiten_kihonsyouhin_tyshouhou_rireki")
+            .AppendLine("SELECT ")
+            .AppendLine("@upd_datetime ")
+            .AppendLine(",@kameiten_cd ")
+            .AppendLine(",'基本調査方法注意文' ")
+            .AppendLine(",@oldvalue2 ")
+            .AppendLine(",@newvalue2 ")
+            .AppendLine(",@userid ")
+
+            .AppendLine("INSERT INTO t_kameiten_kihonsyouhin_tyshouhou_rireki")
+            .AppendLine("SELECT ")
+            .AppendLine("@upd_datetime ")
+            .AppendLine(",@kameiten_cd ")
+            .AppendLine(",'基本調査方法No' ")
+            .AppendLine(",@oldvalue1 ")
+            .AppendLine(",@newvalue1 ")
+            .AppendLine(",@userid ")
+
+
+
+
         End With
 
         paramList.Add(MakeParam("@kihon_tyousahouhou_no", SqlDbType.Int, 10, IIf(strKihonTyousaHouhouNo.Equals(String.Empty), DBNull.Value, strKihonTyousaHouhouNo)))
         paramList.Add(MakeParam("@kihon_tyousahouhou_tyuuibun", SqlDbType.VarChar, 80, IIf(strKihonTyousaHouhouTyuuibun.Equals(String.Empty), DBNull.Value, strKihonTyousaHouhouTyuuibun)))
         paramList.Add(MakeParam("@kameiten_cd", SqlDbType.VarChar, 5, strKameitenCd))
+
+
+        'paramList.Add(MakeParam("@oldvalue1", SqlDbType.VarChar, 256, oldvalue1))
+        paramList.Add(MakeParam("@newvalue1", SqlDbType.VarChar, 256, IIf(strKihonTyousaHouhouNo.Equals(String.Empty), DBNull.Value, strKihonTyousaHouhouNo)))
+
+        'paramList.Add(MakeParam("@oldvalue2", SqlDbType.VarChar, 256, oldvalue2))
+        paramList.Add(MakeParam("@newvalue2", SqlDbType.VarChar, 256, IIf(strKihonTyousaHouhouTyuuibun.Equals(String.Empty), DBNull.Value, strKihonTyousaHouhouTyuuibun)))
+        paramList.Add(MakeParam("@userid", SqlDbType.VarChar, 30, userid))
 
         updCnt = ExecuteNonQuery(connStr, CommandType.Text, commandTextSb.ToString(), paramList.ToArray)
 

@@ -2114,19 +2114,41 @@ Partial Public Class TyuiJyouhouInquiry
             With dtKihouSyouhinAndTyousaHouhou.Rows(0)
                 Try
                     Me.ddlKihonSyouhin.SelectedValue = .Item("kihon_syouhin_cd").ToString
+                    '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                    'Me.ddlKihonSyouhin.Attributes.Item("oldvalue") = Me.ddlKihonSyouhin.SelectedItem.Text
+                    'Me.ddlKihonSyouhin.Attributes.Item("title") = "基本商品CD"
+
                 Catch ex As Exception
                     Me.ddlKihonSyouhin.SelectedValue = String.Empty
+                    '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                    'Me.ddlKihonSyouhin.Attributes.Item("oldvalue") = ""
+                    'Me.ddlKihonSyouhin.Attributes.Item("title") = "基本商品CD"
                 End Try
 
                 Me.tbxKihonSyouhinTyuuibun.Text = .Item("kihon_syouhin_tyuuibun").ToString
+                'Me.ddlKihonSyouhin.SelectedValue = .Item("kihon_syouhin_cd").ToString
+
+                '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                'Me.tbxKihonSyouhinTyuuibun.Attributes.Item("oldvalue") = .Item("kihon_syouhin_tyuuibun").ToString
+                'Me.tbxKihonSyouhinTyuuibun.Attributes.Item("title") = "基本商品注意文"
 
                 Try
                     Me.ddlKihonTyousaHouhou.SelectedValue = .Item("kihon_tyousahouhou_no").ToString
+                    '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                    'Me.ddlKihonTyousaHouhou.Attributes.Item("oldvalue") = Me.ddlKihonTyousaHouhou.SelectedItem.Text
+                    'Me.ddlKihonTyousaHouhou.Attributes.Item("title") = "基本調査方法No"
+
                 Catch ex As Exception
                     Me.ddlKihonTyousaHouhou.SelectedValue = String.Empty
+                    '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                    'Me.ddlKihonTyousaHouhou.Attributes.Item("oldvalue") = ""
+                    'Me.ddlKihonTyousaHouhou.Attributes.Item("title") = "基本調査方法No"
                 End Try
 
                 Me.tbxKihonTyousaHouhouTyuuibun.Text = .Item("kihon_tyousahouhou_tyuuibun").ToString
+                '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+                'Me.tbxKihonTyousaHouhouTyuuibun.Attributes.Item("oldvalue") = .Item("kihon_tyousahouhou_tyuuibun").ToString
+                'Me.tbxKihonTyousaHouhouTyuuibun.Attributes.Item("title") = "基本調査方法注意文"
 
                 '工事見積依頼書送付不要
                 If TrimNull(.Item("koj_mitiraisyo_soufu_fuyou")) = "" Then
@@ -2143,10 +2165,24 @@ Partial Public Class TyuiJyouhouInquiry
             End With
         Else
             Me.ddlKihonSyouhin.SelectedValue = String.Empty
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.ddlKihonSyouhin.Attributes.Item("oldvalue") = ""
+            'Me.ddlKihonSyouhin.Attributes.Item("title") = "基本商品CD"
+
             Me.tbxKihonSyouhinTyuuibun.Text = String.Empty
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.tbxKihonSyouhinTyuuibun.Attributes.Item("oldvalue") = ""
+            'Me.tbxKihonSyouhinTyuuibun.Attributes.Item("title") = "基本商品注意文"
 
             Me.ddlKihonTyousaHouhou.SelectedValue = String.Empty
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.ddlKihonTyousaHouhou.Attributes.Item("oldvalue") = ""
+            'Me.ddlKihonTyousaHouhou.Attributes.Item("title") = "基本調査方法No"
+
             Me.tbxKihonTyousaHouhouTyuuibun.Text = String.Empty
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.tbxKihonTyousaHouhouTyuuibun.Attributes.Item("oldvalue") = ""
+            'Me.tbxKihonTyousaHouhouTyuuibun.Attributes.Item("title") = "基本調査方法注意文"
 
             '工事見積依頼書送付不要
             ddl_koj_mitiraisyo_soufu_fuyou.SelectedIndex = 0
@@ -2224,7 +2260,11 @@ Partial Public Class TyuiJyouhouInquiry
 
         Dim TyuiJyouhouInquiryLogic As New TyuiJyouhouInquiryLogic
 
-        If TyuiJyouhouInquiryLogic.SetKihonSyouhin(ViewState("KameitenCd").ToString, Me.ddlKihonSyouhin.SelectedValue, Me.tbxKihonSyouhinTyuuibun.Text) Then
+        If TyuiJyouhouInquiryLogic.SetKihonSyouhin(ViewState("KameitenCd").ToString, Me.ddlKihonSyouhin.SelectedValue, Me.tbxKihonSyouhinTyuuibun.Text, ViewState("UserId").ToString) Then
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.ddlKihonSyouhin.Attributes.Item("oldvalue") = Me.ddlKihonSyouhin.SelectedValue
+            'Me.tbxKihonSyouhinTyuuibun.Attributes.Item("oldvalue") = Me.tbxKihonSyouhinTyuuibun.Text
+
             '成功の場合
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "KihonSyouhin", "alert('" & Messages.Instance.MSG018S.Replace("@PARAM1", "基本商品") & "');", True)
         Else
@@ -2253,7 +2293,10 @@ Partial Public Class TyuiJyouhouInquiry
 
         Dim TyuiJyouhouInquiryLogic As New TyuiJyouhouInquiryLogic
 
-        If TyuiJyouhouInquiryLogic.SetKihonTyousaHouhou(ViewState("KameitenCd").ToString, Me.ddlKihonTyousaHouhou.SelectedValue, Me.tbxKihonTyousaHouhouTyuuibun.Text) Then
+        If TyuiJyouhouInquiryLogic.SetKihonTyousaHouhou(ViewState("KameitenCd").ToString, Me.ddlKihonTyousaHouhou.SelectedValue, Me.tbxKihonTyousaHouhouTyuuibun.Text, ViewState("UserId").ToString) Then
+            '2021/01/18　李　追加　加盟店基本商品調査方法更新履歴
+            'Me.ddlKihonTyousaHouhou.Attributes.Item("oldvalue") = Me.ddlKihonTyousaHouhou.SelectedValue
+            'Me.tbxKihonTyousaHouhouTyuuibun.Attributes.Item("oldvalue") = Me.tbxKihonTyousaHouhouTyuuibun.Text
             '成功の場合
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "KihonTyousaHouhou", "alert('" & Messages.Instance.MSG018S.Replace("@PARAM1", "基本調査方法") & "');", True)
         Else

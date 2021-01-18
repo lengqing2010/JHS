@@ -1,4 +1,8 @@
 ‰Á–¿“XŒŸõÆ‰ïw¦
 http://localhost:12812/jhs_earth/KensakuSyoukaiInquiry.aspx
 
-aa
+http://localhost:12812/jhs_earth/EigyouJyouhouInquiry.aspx
+
+
+‰Á–¿“X’ˆÓî•ñÆ‰ï  
+http://localhost:12812/jhs_earth/TyuiJyouhouInquiry.aspx?strKameitenCd=00001

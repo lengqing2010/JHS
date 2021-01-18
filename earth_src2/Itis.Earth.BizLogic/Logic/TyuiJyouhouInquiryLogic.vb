@@ -314,18 +314,20 @@ Public Class TyuiJyouhouInquiryLogic
 
 
     '''<summary>基本商品の更新処理</summary>
-    Public Function SetKihonSyouhin(ByVal strKameitenCd As String, ByVal strKihonSyouhinCd As String, ByVal strKihonSyouhinTyuuibun As String) As Boolean
+    Public Function SetKihonSyouhin(ByVal strKameitenCd As String, ByVal strKihonSyouhinCd As String, ByVal strKihonSyouhinTyuuibun As String, _
+    ByVal userid As String) As Boolean
 
         '戻り値
-        Return TyuiJyouhouDataSet.UpdKihonSyouhin(strKameitenCd, strKihonSyouhinCd, strKihonSyouhinTyuuibun)
+        Return TyuiJyouhouDataSet.UpdKihonSyouhin(strKameitenCd, strKihonSyouhinCd, strKihonSyouhinTyuuibun, userid)
 
     End Function
 
     '''<summary>基本調査方法の更新処理</summary>
-    Public Function SetKihonTyousaHouhou(ByVal strKameitenCd As String, ByVal strKihonTyousaHouhouNo As String, ByVal strKihonTyousaHouhouTyuuibun As String) As Boolean
+    Public Function SetKihonTyousaHouhou(ByVal strKameitenCd As String, ByVal strKihonTyousaHouhouNo As String, ByVal strKihonTyousaHouhouTyuuibun As String, _
+    ByVal userid As String) As Boolean
 
         '戻り値
-        Return TyuiJyouhouDataSet.UpdKihonTyousaHouhou(strKameitenCd, strKihonTyousaHouhouNo, strKihonTyousaHouhouTyuuibun)
+        Return TyuiJyouhouDataSet.UpdKihonTyousaHouhou(strKameitenCd, strKihonTyousaHouhouNo, strKihonTyousaHouhouTyuuibun, userid)
 
     End Function
 
